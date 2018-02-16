@@ -23,14 +23,13 @@ class Route extends Component {
       color: #00ace2;
       white-space: nowrap;
     `;
-    return this.props.data.map(function(item, index) {
-      return (
-        <Route key={index}>
-          <City>Из {item.from}</City>
-          <Price>от {item.price} ₽</Price>
-        </Route>
-      );
-    });
+    const item = this.props.data;
+    return (
+      <Route>
+        <City>Из {item.from}</City>
+        <Price>от {item.price} ₽</Price>
+      </Route>
+    );
   }
 }
 

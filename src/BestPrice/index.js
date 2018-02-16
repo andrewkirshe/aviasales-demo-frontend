@@ -98,34 +98,8 @@ const Container = styled.div`
 `;
 
 const List = styled.div`
-  ${media.md`
-      display: flex;
-      margin: auto;
-      max-width: 1104px
-  `};
-
-  > * {
-    padding-bottom: 23px;
-    max-width: 624px;
-    margin: 0 auto 40px;
-    border-bottom: 1px dashed #e4e7e8;
-    ${media.md`
-        flex: 1 1;
-        border-bottom: none;
-        padding: 0 25px;
-    `};
-  }
-
-  > * + * {
-    ${media.md`
-        border-left: 1px dashed #e4e7e8;
-    `};
-  }
-
-  > *:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
+  max-width: 1244px;
+  margin: auto;
 `;
 
 const Notes = styled.div`
@@ -148,11 +122,19 @@ const Small = styled.div`
 `;
 
 export default function() {
+  const destination = data.map(function(item, i, index) {
+    const last = data.length - 1 === i ? "last" : "";
+    return (
+      <div key={index} className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <Destination data={item} last={last} />
+      </div>
+    );
+  });
   return (
     <Container>
       <BlockTitle />
       <List>
-        <Destination data={data} />
+        <div className="row">{destination}</div>
       </List>
       <Notes>
         <Text>

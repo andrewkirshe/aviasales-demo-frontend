@@ -34,22 +34,24 @@ const Slider = styled.div`
   position: relative;
 `;
 const Slides = styled.div``;
-const Slide = styled.div`
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    list-style: none;
-    li {
-      padding: 16px;
-    }
-    img {
-      width: 149px;
-      display: block;
-    }
-  }
+const Slide = styled.div``;
+const List = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
 `;
+
+const Li = styled.li`
+  padding: 16px;
+`;
+
+const Img = styled.img`
+  width: 149px;
+  display: block;
+`;
+
 const Nav = styled.div``;
 const Left = styled.button`
   position: absolute;
@@ -91,33 +93,33 @@ export default function() {
       <Slider>
         <Slides>
           <Slide>
-            <ul>
-              <li>
+            <List>
+              <Li>
                 <a href="http://aviasales.ru">
-                  <img src={su} alt="" />
+                  <Img src={su} alt="" />
                 </a>
-              </li>
-              <li>
+              </Li>
+              <Li>
                 <a href="http://aviasales.ru">
-                  <img src={s7} alt="" />
+                  <Img src={s7} alt="" />
                 </a>
-              </li>
-              <li>
+              </Li>
+              <Li>
                 <a href="http://aviasales.ru">
-                  <img src={ott} alt="" />
+                  <Img src={ott} alt="" />
                 </a>
-              </li>
-              <li>
+              </Li>
+              <Li>
                 <a href="http://aviasales.ru">
-                  <img src={ke} alt="" />
+                  <Img src={ke} alt="" />
                 </a>
-              </li>
-              <li>
+              </Li>
+              <Li>
                 <a href="http://aviasales.ru">
-                  <img src={lye} alt="" />
+                  <Img src={lye} alt="" />
                 </a>
-              </li>
-            </ul>
+              </Li>
+            </List>
           </Slide>
         </Slides>
         <Nav>

@@ -70,14 +70,14 @@ const data = [
 export default function() {
   const cards = data.map(function(item, index) {
     return (
-      <div class="col-xs-12 col-sm-10 col-md-6 col-lg-5">
-        <Card key={index} data={item} />
+      <div key={index} className="col-xs-12 col-sm-10 col-md-6 col-lg-5">
+        <Card data={item} />
       </div>
     );
   });
   return (
     <Specific>
-      <div class="row center-sm">{cards}</div>
+      <div className="row center-sm">{cards}</div>
     </Specific>
   );
 }
