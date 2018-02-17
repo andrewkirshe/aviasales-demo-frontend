@@ -13,8 +13,7 @@ const Container = styled.div`
   margin: 0 auto;
   padding: 50px 0 40px 0;
   ${media.sm`
-    display: flex;
-    justify-content: center;
+    display: block;
   `};
 `;
 
@@ -22,6 +21,7 @@ const Subscribe = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: auto;
 
   ${media.lg`
     flex-direction: row;
@@ -31,22 +31,30 @@ const Subscribe = styled.div`
   `};
 `;
 
-const Title = styled.div`
-  line-height: 1.4;
-  font-weight: 500;
+const Title = styled.h2`
+  line-height: 1.25;
+  font-size: 1rem;
   text-align: center;
   font-weight: bold;
-  max-width: 360px;
+  margin: 0;
+  max-width: 355px;
 
   ${media.lg`
     text-align: left;
   `};
 `;
 
-const SubTitle = styled.span`
-  margin-top: 5px;
+const Text = styled.p`
+  max-width: 355px;
+  line-height: 1.25;
+  font-size: 1rem;
+  margin: 5px 0 0 0;
   display: block;
   font-weight: normal;
+  text-align: center;
+  ${media.lg`
+    text-align: left;
+  `};
 `;
 
 const Content = styled.div`
@@ -99,17 +107,16 @@ const Button = styled.button`
   padding: 0 20px;
   margin: 0;
   border-radius: 2px;
-  height: 34px;
   line-height: 2.125rem;
 `;
 
 const Email = styled.input`
   color: #444;
-  height: 34px;
   width: 100%;
   border: none;
   padding: 0 9px;
   border-radius: 2px;
+  min-width: 191px;
   line-height: 2.125rem;
 
   &::placeholder {
@@ -124,13 +131,13 @@ export default function() {
         <div className="row center-md">
           <div className="col-sm-12 col-md-10 start-md">
             <Subscribe>
-              <Title>
-                Хотите знать всё о скидках на авиабилеты?
-                <SubTitle>
+              <div>
+                <Title>Хотите знать всё о скидках на авиабилеты?</Title>
+                <Text>
                   Вы можете подписаться на нашу рассылку через соцсети или по
                   электронной почте.
-                </SubTitle>
-              </Title>
+                </Text>
+              </div>
               <Content>
                 <Socials>
                   <li>
