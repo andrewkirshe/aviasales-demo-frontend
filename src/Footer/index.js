@@ -14,10 +14,10 @@ import apple from "./apple.svg";
 import android from "./android.svg";
 import wmarket from "./wmarket.svg";
 
-const navData = [
+const footerNavsData = [
   {
     title: "Страны",
-    list: [
+    links: [
       {
         text: "Россия",
         url: "http://aviasales.ru"
@@ -50,7 +50,7 @@ const navData = [
   },
   {
     title: "Города",
-    list: [
+    links: [
       {
         text: "Москва",
         url: "http://aviasales.ru"
@@ -83,7 +83,7 @@ const navData = [
   },
   {
     title: "Авиакомпании",
-    list: [
+    links: [
       {
         text: "Air Berlin",
         url: "http://aviasales.ru"
@@ -116,7 +116,7 @@ const navData = [
   },
   {
     title: "Аэропорты",
-    list: [
+    links: [
       {
         text: "Шереметьево",
         url: "http://aviasales.ru"
@@ -149,7 +149,7 @@ const navData = [
   },
   {
     title: "Направления",
-    list: [
+    links: [
       {
         text: "MOW – SIP",
         url: "http://aviasales.ru"
@@ -178,7 +178,7 @@ const navData = [
   },
   {
     title: "Сервисы",
-    list: [
+    links: [
       {
         text: "Горящие авиабилеты",
         url: "http://aviasales.ru"
@@ -244,52 +244,42 @@ const infoLinksData = [
 
 const socialLinksData = [
   {
-    class: "vk",
+    icon: vk,
     text: "Вконтакте",
     url: "http://aviasales.ru"
   },
   {
-    class: "fb",
+    icon: fb,
     text: "Фейсбук",
     url: "http://aviasales.ru"
   },
   {
-    class: "ig",
+    icon: ig,
     text: "Инстаграм",
     url: "http://aviasales.ru"
   },
   {
-    class: "tw",
+    icon: tw,
     text: "Твиттер",
     url: "http://aviasales.ru"
   },
   {
-    class: "vb",
+    icon: vb,
     text: "Вайбер",
     url: "http://aviasales.ru"
   }
 ];
 
-const mainLinkData = [
-  {
-    text: "Поиск и бронирование отелей",
-    url: "http://aviasales.ru"
-  }
-];
+const mainLink = {
+  text: "Поиск и бронирование отелей",
+  url: "http://aviasales.ru"
+};
 
 const Footer = styled.footer`
   overflow: hidden;
 `;
 
-const Container = styled.footer`
-  margin: auto;
-  max-width: 790px;
-  ${media.md`
-   max-width: 1170px;
-  `};
-`;
-
-const Links = styled.div`
+const Navs = styled.div`
   padding: 30px 0 0 0;
   border-bottom: 1px solid #e0e6e8;
   margin: 0 10px;
@@ -316,7 +306,7 @@ const Links = styled.div`
   }
 `;
 const Info = styled.div`
-  ${media.md`
+  ${media.lg`
     display: flex;
     padding: 35px 0 0 0;
     justify-content: space-between;
@@ -331,45 +321,28 @@ const InfoList = styled.ul`
   display: flex;
   flex-wrap: wrap;
 
-  ${media.xs`
+  ${media.sm`
     justify-content: flex-start;
     padding: 20px;
   `};
 
-  ${media.md`
+  ${media.lg`
     padding-top: 0;
   `};
-
-  &.main-link {
-    justify-content: center;
-    padding: 10px 10px;
-
-    ${media.xs`
-      justify-content: flex-start;
-      margin-top: 20px;
-      padding: 10px 20px;
-    `};
-
-    li {
-      margin: 0 0 5px 0;
-    }
-  }
-
-  li {
-    margin: 0 20px 5px 0;
-
-    ${media.md`
-      margin-right: 15px;
-    `};
-  }
-
-  a {
-    font-size: 0.75rem;
-    color: #5b5b5c;
-    text-decoration: none;
-  }
 `;
-const SocialLinks = styled.ul`
+
+const MainLink = styled(InfoList)`
+  justify-content: center;
+  padding: 10px 10px;
+
+  ${media.sm`
+    justify-content: flex-start;
+    margin-top: 20px;
+    padding: 10px 20px;
+  `};
+`;
+
+const SocialLinks = styled.div`
   list-style: none;
   padding: 0;
   display: flex;
@@ -377,168 +350,63 @@ const SocialLinks = styled.ul`
   padding: 0 10px;
   margin: 0 0 0 0;
 
-  ${media.xs`
+  ${media.sm`
     justify-content: flex-start;
     padding: 0 20px;
   `};
-
-  li {
-    display: block;
-    min-width: 33.3%;
-    max-width: 33.3%;
-    margin-bottom: 15px;
-    flex: 1 1;
-
-    ${media.xs`
-      min-width: 0;
-      max-width: 100%;
-      flex: none;
-      margin: 0 20px 5px 0;
-    `};
-
-    a {
-      font-size: 0.75rem;
-      color: #5b5b5c;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-
-      &:before {
-        content: "";
-        display: block;
-        margin-right: 7px;
-      }
-    }
-
-    &.vk {
-      a {
-        &:before {
-          width: 16px;
-          height: 10px;
-          background: url(${vk});
-        }
-      }
-    }
-
-    &.fb {
-      a {
-        &:before {
-          width: 8px;
-          height: 14px;
-          background: url(${fb});
-        }
-      }
-    }
-
-    &.ig {
-      a {
-        &:before {
-          width: 13px;
-          height: 13px;
-          background: url(${ig});
-        }
-      }
-    }
-
-    &.tw {
-      a {
-        &:before {
-          width: 15px;
-          height: 12px;
-          background: url(${tw});
-        }
-      }
-    }
-
-    &.vb {
-      a {
-        &:before {
-          width: 14px;
-          height: 14px;
-          background: url(${vb});
-        }
-      }
-    }
-  }
 `;
 
-const AppButtons = styled.div`
+const AppLinks = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  ${media.xs`
+  ${media.sm`
     flex-direction: row;
     justify-content: flex-start;
     padding: 0 20px;
   `};
+`;
 
-  > * + * {
-    margin-top: 8px;
-    ${media.xs`
-      margin-top: 0;
-      margin-left: 10px;
-    `};
+const App = styled.a`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 40px;
+  width: 138px;
+  height: 42px;
+  background: #1e292d;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-decoration: none;
+  position: relative;
+  margin-bottom: 8px;
+
+  ${media.sm`
+    margin-bottom: 0;
+    margin-right: 10px;
+  `};
+
+  &:last-child {
+    margin-bottom: 0;
+    margin-right: 0;
   }
+`;
 
-  a {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 40px;
-    width: 138px;
-    height: 42px;
-    background: #1e292d;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 0.75rem;
-    font-weight: bold;
-    text-decoration: none;
-    position: relative;
+const Icon = styled.img`
+  width: 23px;
+  height: 26px;
+  position: absolute;
+  left: 8px;
+`;
 
-    &.apple {
-      &:before {
-        content: "";
-        width: 23px;
-        height: 26px;
-        position: absolute;
-        display: block;
-        background: url(${apple}) no-repeat;
-        left: 8px;
-      }
-    }
-
-    &.android {
-      &:before {
-        content: "";
-        width: 22px;
-        height: 22px;
-        position: absolute;
-        display: block;
-        background: url(${android}) no-repeat;
-        left: 10px;
-      }
-    }
-
-    &.wmarket {
-      &:before {
-        content: "";
-        width: 21px;
-        height: 20px;
-        position: absolute;
-        display: block;
-        background: url(${wmarket}) no-repeat;
-        left: 9px;
-      }
-    }
-
-    span {
-      font-size: 0.6rem;
-      font-weight: 400;
-      display: block;
-      margin-bottom: 3px;
-    }
-  }
+const Small = styled.span`
+  font-size: 0.6rem;
+  font-weight: 400;
+  display: block;
+  margin-bottom: 3px;
 `;
 
 const Copyright = styled.div`
@@ -547,67 +415,69 @@ const Copyright = styled.div`
   text-align: center;
   padding: 20px 10px;
 
-  ${media.xs`
+  ${media.sm`
     text-align: left;
     padding: 20px;
   `};
 
-  ${media.md`
+  ${media.lg`
     margin-top: 20px;
   `};
 `;
 
-export default function() {
-  const nav = navData.map(function(item, index) {
+export default () => {
+  const footerNavs = footerNavsData.map((nav, index) => {
     return (
       <div key={index} className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-        <Nav data={item} />
+        <Nav data={nav} />
       </div>
     );
   });
 
-  const infoLinks = infoLinksData.map(function(item, index) {
-    return <Link key={index} data={item} />;
+  const infoLinks = infoLinksData.map((link, index) => {
+    return <Link key={index} data={link} />;
   });
 
-  const socialLinks = socialLinksData.map(function(item, index) {
-    return <Link key={index} data={item} />;
+  const socialLinks = socialLinksData.map((link, index) => {
+    return <Link key={index} data={link} />;
   });
 
-  const mainLink = mainLinkData.map(function(item, index) {
-    return <Link key={index} data={item} />;
-  });
   return (
     <Footer>
-      <Container>
-        <Links>
-          <div className="row">{nav}</div>
-        </Links>
+      <div className="container">
+        <Navs>
+          <div className="row">{footerNavs}</div>
+        </Navs>
         <Info>
           <InfoLeft>
             <InfoList>{infoLinks}</InfoList>
             <SocialLinks>{socialLinks}</SocialLinks>
-            <InfoList className="main-link">{mainLink}</InfoList>
+            <MainLink>
+              <Link data={mainLink} />
+            </MainLink>
           </InfoLeft>
           <InfoRight>
-            <AppButtons>
-              <a href="http://" className="apple">
-                <span>Скачайте в </span>
+            <AppLinks>
+              <App href="http://">
+                <Icon src={apple} alt="App Store" />
+                <Small>Скачайте в </Small>
                 App Store
-              </a>
-              <a href="http://" className="android">
-                <span>Скачайте в </span>
+              </App>
+              <App href="http://">
+                <Icon src={android} alt="Google Play" />
+                <Small>Скачайте в </Small>
                 Google Play
-              </a>
-              <a href="http://" className="wmarket">
-                <span>Скачайте в </span>
+              </App>
+              <App href="http://">
+                <Icon src={wmarket} alt="Windows Phone" />
+                <Small>Скачайте в </Small>
                 Windows Phone
-              </a>
-            </AppButtons>
+              </App>
+            </AppLinks>
             <Copyright>© 2007–2018, Aviasales — дешевые авиабилеты</Copyright>
           </InfoRight>
         </Info>
-      </Container>
+      </div>
     </Footer>
   );
-}
+};

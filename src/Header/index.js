@@ -4,12 +4,10 @@ import logo from "./logo.svg";
 
 const Header = styled.header`
   position: absolute;
-  padding: 12px;
+  padding: 12px 0;
   top: 0;
   left: 0;
   right: 0;
-  background: #01b0dd;
-  background: -o-linear-gradient(right, #196ebd, #01b0dd);
   background: linear-gradient(to left, #196ebd, #01b0dd);
   display: flex;
   justify-content: space-between;
@@ -27,20 +25,20 @@ const Img = styled.img`
   margin-right: 12px;
 `;
 
-const Title = styled.span`
+const Name = styled.span`
   font-size: 1.25rem;
   text-transform: lowercase;
 `;
 
-export default function() {
+export default () => {
   return (
     <Header>
-      <div className="container-wrap">
+      <div className="container">
         <Logo href="">
           <Img src={logo} alt="logo" />
-          <Title className="hidden-xs hidden-sm">Aviasales</Title>
+          <Name className="hidden-xs hidden-sm">Aviasales</Name>
         </Logo>
       </div>
     </Header>
   );
-}
+};

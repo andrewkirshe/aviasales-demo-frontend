@@ -1,56 +1,51 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 
-class Faq extends Component {
-  render() {
-    const Container = styled.div`
-      margin-bottom: 18px;
-    `;
-    const Title = styled.div`
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-      color: #4a4a4a;
+const Article = styled.article`
+  margin-bottom: 18px;
+`;
 
-      img {
-        display: block;
-        margin-right: 10px;
-      }
+const Title = styled.h4`
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #4a4a4a;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  line-height: 1rem;
+`;
 
-      span {
-        font-weight: bold;
-        text-transform: uppercase;
-        font-size: 0.7rem;
-        line-height: 1rem;
-        display: block;
-        margin-top: 2px;
-      }
-    `;
-    const Text = styled.div`
-      font-size: 0.875rem;
-      line-height: 1.6;
-      color: #4a4a4a;
-    `;
-    const Link = styled.a`
-      color: #00ace2;
-      margin-left: 7px;
-      text-decoration: none;
-    `;
+const Icon = styled.img`
+  margin: 0 10px 2px 0;
+  width: 16px;
+  height: 16px;
+`;
 
-    const item = this.props.data;
-    return (
-      <Container>
-        <Title>
-          <img src={item.icon} alt={item.icon} />
-          <span>{item.title}</span>
-        </Title>
-        <Text>
-          {item.text}
-          <Link href={item.link}>Подробнее</Link>
-        </Text>
-      </Container>
-    );
-  }
-}
+const Text = styled.p`
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #4a4a4a;
+  margin: 0;
+`;
 
-export default Faq;
+const Link = styled.a`
+  color: #00ace2;
+  margin-left: 7px;
+  text-decoration: none;
+`;
+
+export default props => {
+  return (
+    <Article>
+      <Title>
+        <Icon src={props.data.icon} alt={props.data.icon} />
+        {props.data.title}
+      </Title>
+      <Text>
+        {props.data.text}
+        <Link href={props.data.link}>Подробнее</Link>
+      </Text>
+    </Article>
+  );
+};

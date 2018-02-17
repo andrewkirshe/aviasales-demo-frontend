@@ -9,7 +9,7 @@ import culture from "./culture.svg";
 import night_life from "./night-life.svg";
 import with_child from "./with-child.svg";
 
-const IconsList = styled.ul`
+const Icons = styled.div`
   color: #fff;
   text-transform: none;
   font-size: 1.25rem;
@@ -20,32 +20,43 @@ const IconsList = styled.ul`
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-
-  ${media.xs`
-    justify-content: center;
-  `};
+  justify-content: space-around;
 
   ${media.sm`
+  `};
+
+  ${media.md`
     margin: 0 0 40px;
   `};
 `;
 
-const Li = styled.li`
+const Icon = styled.div`
+  background: #fff;
+  height: 48px;
+  width: 48px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Button = styled.button`
+  border: none;
+  background: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 33.3%;
   margin-bottom: 20px;
   position: relative;
-  padding-bottom: 7px;
-
-  ${media.xs`
-    min-width: 90px;
-  `};
+  padding: 0 0 7px 0;
+  flex: 33.3% 1;
 
   ${media.sm`
-    min-width: 100px;
+      flex: none;
+  `};
+
+  ${media.md`
+
   `};
 
   &:after {
@@ -60,9 +71,16 @@ const Li = styled.li`
     box-shadow: 0 2px 14px 0 rgba(90, 137, 163, 0.19);
 
     ${media.sm`
-      left: 20px;
-      right: 20px;
+      left: 0;
+      right: 0;
     `};
+  }
+
+  ${Icon} {
+    box-shadow: ${props =>
+      props.active
+        ? "0 2px 14px 0 rgba(90, 137, 163, 0.19);"
+        : "0px 2px 4px rgba(74, 74, 74, 0.1);"};
   }
 `;
 
@@ -79,70 +97,56 @@ const Text = styled.span`
   margin-top: 15px;
 `;
 
-const Icon = styled.div`
-  box-shadow: ${props =>
-    props.active
-      ? "0 2px 14px 0 rgba(90, 137, 163, 0.19)"
-      : "0px 2px 4px rgba(74, 74, 74, 0.1)"};
-  background: #fff;
-  height: 48px;
-  width: 48px;
-  border-radius: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 const Img = styled.img`
   width: 22px;
   height: 22px;
 `;
 
-export default function() {
+export default () => {
   return (
-    <IconsList>
-      <Li active>
+    <Icons>
+      <Button active>
         <Icon active>
           <Img src={anywhere} alt="Куда угодно" />
         </Icon>
         <Text active>Куда угодно</Text>
-      </Li>
-      <Li>
+      </Button>
+      <Button>
         <Icon>
           <Img src={summer_and_sea} alt="Cолнце и море" />
         </Icon>
         <Text>
           Cолнце <br />и море
         </Text>
-      </Li>
-      <Li>
+      </Button>
+      <Button>
         <Icon>
           <Img src={shopping} alt="Шопинг, город" />
         </Icon>
         <Text>Шопинг, город</Text>
-      </Li>
-      <Li>
+      </Button>
+      <Button>
         <Icon>
           <Img src={culture} alt="Культура и история" />
         </Icon>
         <Text>
           Культура <br />и история
         </Text>
-      </Li>
-      <Li>
+      </Button>
+      <Button>
         <Icon>
           <Img src={night_life} alt="Ночная жизнь" />
         </Icon>
         <Text>Ночная жизнь</Text>
-      </Li>
-      <Li>
+      </Button>
+      <Button>
         <Icon>
           <Img src={with_child} alt="Отдых с детьми" />
         </Icon>
         <Text>
           Отдых <br />с детьми
         </Text>
-      </Li>
-    </IconsList>
+      </Button>
+    </Icons>
   );
-}
+};

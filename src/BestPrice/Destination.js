@@ -1,112 +1,94 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import { media } from "../Media";
 import Route from "./Route";
 
-class Destination extends Component {
-  render() {
-    const Destination = styled.div`
-      position: relative;
-      border-bottom: 1px dashed #e4e7e8;
-      padding-bottom: 24px;
-      margin-bottom: 24px;
+const Destination = styled.div`
+  position: relative;
+  border-bottom: 1px dashed #e4e7e8;
+  padding: 0 0 24px 0;
+  margin: 0 0 24px 0;
 
-      &:last-of-type {
-        border-bottom: none;
-        padding-bottom: 0;
-        margin-bottom: 0;
-        padding-right: 0;
-        margin-right: 0;
-        &:after {
-          display: none;
-        }
-      }
+  ${media.xl`
+    border-bottom: none;
+    border-right: 1px dashed #e4e7e8;
+    padding: 0 34px;
+    flex: 1;
+  `};
 
-      ${media.md`
-      border-bottom: none;
-      padding-bottom: 0;
-       margin-bottom: 0;
-       max-width: 298px;
-       padding-right: 10px;
-       margin-right: 10px;
-       flex: 1;
-      `};
-
-      ${media.lg`
-       padding-right: 0;
-       margin-right: 0;
-      `};
-
-      &:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        border-right: 1px dashed #e4e7e8;
-        display: none;
-        ${media.md`
-          display: block;
-        `};
-
-        ${media.lg`
-          right: -12%;
-        `};
-      }
-    `;
-    const Header = styled.div`
-      display: flex;
-      align-items: center;
-      margin-bottom: 5px;
-      padding-left: 7px;
-    `;
-    const Flag = styled.div`
-      margin-right: 12px;
-      margin-bottom: 14px;
-    `;
-    const Title = styled.div``;
-    const Img = styled.img`
-      width: 30px;
-      height: 30px;
-      border-radius: 15px;
-      display: block;
-      box-shadow: 0px 0px 8px rgba(38, 38, 38, 0.1);
-    `;
-
-    const City = styled.div`
-      font-weight: 600;
-      font-size: 1.375rem;
-      color: #5b5b5c;
-      margin: 0;
-      line-height: 1.6375rem;
-    `;
-    const Country = styled.div`
-      margin: 0;
-      line-height: 1.5625rem;
-      font-size: 0.75rem;
-      color: #a0b0b9;
-      text-transform: uppercase;
-    `;
-    const Routes = styled.div``;
-    const item = this.props.data;
-    const routes = item.routes.map(function(item, index) {
-      return <Route key={index} data={item} />;
-    });
-    return (
-      <Destination>
-        <Header>
-          <Flag>
-            <Img src={item.flag} alt={item.country} />
-          </Flag>
-          <Title>
-            <City>{item.city}</City>
-            <Country>{item.country}</Country>
-          </Title>
-        </Header>
-        <Routes>{routes}</Routes>
-      </Destination>
-    );
+  &:first-child {
+    ${media.xl`
+      padding: 0 34px 0 0;
+    `};
   }
-}
 
-export default Destination;
+  &:last-child {
+    border-bottom: none;
+    padding: 0;
+    margin: 0;
+    ${media.xl`
+      border-right: none;
+      padding: 0 0 0 34px;
+    `};
+  }
+`;
+
+const Header = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  padding-left: 7px;
+`;
+
+const Flag = styled.div`
+  margin-right: 12px;
+  margin-bottom: 14px;
+`;
+
+const CityInfo = styled.div``;
+
+const Img = styled.img`
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  display: block;
+  box-shadow: 0px 0px 8px rgba(38, 38, 38, 0.1);
+`;
+
+const City = styled.h3`
+  font-weight: 600;
+  font-size: 1.375rem;
+  color: #5b5b5c;
+  margin: 0;
+  line-height: 1.6375rem;
+`;
+
+const Country = styled.p`
+  margin: 0;
+  line-height: 1.5625rem;
+  font-size: 0.75rem;
+  color: #a0b0b9;
+  text-transform: uppercase;
+`;
+
+const Routes = styled.div``;
+
+export default props => {
+  const routes = props.data.routes.map((route, index) => {
+    return <Route key={index} data={route} />;
+  });
+  return (
+    <Destination>
+      <Header>
+        <Flag>
+          <Img src={props.data.flag} alt={props.data.country} />
+        </Flag>
+        <CityInfo>
+          <City>{props.data.city}</City>
+          <Country>{props.data.country}</Country>
+        </CityInfo>
+      </Header>
+      <Routes>{routes}</Routes>
+    </Destination>
+  );
+};

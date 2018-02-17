@@ -1,64 +1,60 @@
-import React, { Component } from "react";
+import React from "react";
 import Link from "./Link";
 import styled from "styled-components";
 
-class Nav extends Component {
-  render() {
-    const Nav = styled.nav`
-      display: block;
-      padding: 10px;
-      margin: 0 0 20px 0;
-    `;
-    const Title = styled.div`
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      font-weight: 500;
-      color: #4a4a4a;
-    `;
-    const List = styled.ul`
-      list-style: none;
-      padding: 0;
-      margin: 10px 0 0 0;
+const Nav = styled.nav`
+  display: block;
+  padding: 10px;
+  margin: 0 0 20px 0;
+`;
+const Title = styled.h3`
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #4a4a4a;
+  margin: 0;
+`;
+const List = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
 
-      > * + * {
-        margin-top: 10px;
-      }
-
-      a {
-        font-size: 0.75rem;
-        color: #5b5b5c;
-        text-decoration: none;
-      }
-    `;
-
-    const AllLink = styled.a`
-      font-weight: 500;
-    `;
-
-    const item = this.props.data;
-
-    const links = item.list.map(function(item, index) {
-      return <Link key={index} data={item} />;
-    });
-
-    return (
-      <Nav>
-        <Title>{item.title}</Title>
-        <List>
-          {links}
-          {(() => {
-            if (item.all) {
-              return (
-                <li className="footer__all">
-                  <AllLink href={item.all.url}>{item.all.text} →</AllLink>
-                </li>
-              );
-            }
-          })()}
-        </List>
-      </Nav>
-    );
+  > * + * {
+    margin-top: 10px;
   }
-}
 
-export default Nav;
+  a {
+    font-size: 0.75rem;
+    color: #5b5b5c;
+    text-decoration: none;
+  }
+`;
+
+const ShowAll = styled.a`
+  font-weight: 500;
+`;
+
+export default props => {
+  const links = props.data.links.map((link, index) => {
+    return <Link key={index} data={link} />;
+  });
+  return (
+    <Nav>
+      <Title>{props.data.title}</Title>
+      <List>
+        {links}
+        {(() => {
+          if (props.data.all) {
+            return (
+              <li>
+                <ShowAll href={props.data.all.url}>
+                  {props.data.all.text} →
+                </ShowAll>
+              </li>
+            );
+          }
+        })()}
+      </List>
+    </Nav>
+  );
+};

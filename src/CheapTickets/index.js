@@ -2,34 +2,42 @@ import React from "react";
 import styled from "styled-components";
 import { media } from "../Media";
 
-import ke from "./KE.png";
-import lye from "./LYE.png";
-import ott from "./ott.png";
-import s7 from "./S7.png";
-import su from "./SU.png";
+import koreanair from "./koreanair.png";
+import koreanair_x2 from "./koreanair@2x.png";
+import lye from "./lye.png";
+import lye_x2 from "./lye@2x.png";
+import onetwotrip from "./onetwotrip.png";
+import onetwotrip_x2 from "./onetwotrip@2x.png";
+import s7airlines from "./s7airlines.png";
+import s7airlines_x2 from "./s7airlines@2x.png";
+import aeroflot from "./aeroflot.png";
+import aeroflot_x2 from "./aeroflot@2x.png";
 import arrowleft from "./arrowleft.svg";
 import arrowright from "./arrowright.svg";
 
-const CheapTickets = styled.div`
+const CheapTickets = styled.section`
   display: none;
   padding: 50px 0 40px 0;
-  ${media.sm`
+  ${media.md`
     display: block;
   `};
 `;
-const Title = styled.div`
+
+const Title = styled.h2`
   font-size: 2rem;
   line-height: 1.25;
   font-weight: 500;
   text-align: center;
 `;
+
 const Slider = styled.div`
   padding: 0 20px;
   position: relative;
 `;
+
 const Slides = styled.div``;
-const Slide = styled.div``;
-const List = styled.ul`
+
+const Slide = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -38,7 +46,7 @@ const List = styled.ul`
   padding: 0;
 `;
 
-const Li = styled.li`
+const Link = styled.a`
   padding: 16px;
 `;
 
@@ -47,44 +55,47 @@ const Img = styled.img`
   display: block;
 `;
 
-const Nav = styled.div``;
-const Left = styled.button`
+const Arrows = styled.div``;
+
+const Prev = styled.button`
   position: absolute;
-  width: 30px;
-  height: 50px;
   left: 0;
-  top: 50%;
-  margin-top: -38px;
-  background: url(${arrowleft}) center no-repeat;
+  top: calc(50% - 38px);
+  background: none;
   border: none;
+  padding: 15px 7px;
 `;
-const Right = styled.button`
+
+const Next = styled.button`
   position: absolute;
-  width: 30px;
-  height: 50px;
   right: 0;
-  top: 50%;
-  margin-top: -38px;
-  background: url(${arrowright}) center no-repeat;
+  top: calc(50% - 38px);
+  background: none;
   border: none;
+  padding: 15px 7px;
 `;
+
+const Icon = styled.img`
+  display: block;
+`;
+
 const Dots = styled.div`
   display: flex;
   justify-content: center;
 `;
+
 const Dot = styled.div`
-  width: 10px;
-  height: 10px;
+  padding: 5px;
   margin: 0 4px;
   border-radius: 50%;
   background: ${props => (props.active ? "#818181" : "#fff")};
   border: 1px solid #818181;
 `;
 
-export default function() {
+export default () => {
   return (
     <CheapTickets>
-      <div className="container-wrap">
+      <div className="container">
         <div className="row center-md">
           <div className="col-sm-12 col-md-10 start-md">
             <Title>
@@ -93,39 +104,47 @@ export default function() {
             <Slider>
               <Slides>
                 <Slide>
-                  <List>
-                    <Li>
-                      <a href="http://aviasales.ru">
-                        <Img src={su} alt="" />
-                      </a>
-                    </Li>
-                    <Li>
-                      <a href="http://aviasales.ru">
-                        <Img src={s7} alt="" />
-                      </a>
-                    </Li>
-                    <Li>
-                      <a href="http://aviasales.ru">
-                        <Img src={ott} alt="" />
-                      </a>
-                    </Li>
-                    <Li>
-                      <a href="http://aviasales.ru">
-                        <Img src={ke} alt="" />
-                      </a>
-                    </Li>
-                    <Li>
-                      <a href="http://aviasales.ru">
-                        <Img src={lye} alt="" />
-                      </a>
-                    </Li>
-                  </List>
+                  <Link href="http://aviasales.ru">
+                    <Img
+                      src={aeroflot}
+                      srcSet={`${aeroflot_x2} 2x`}
+                      alt="Аэрофлот"
+                    />
+                  </Link>
+                  <Link href="http://aviasales.ru">
+                    <Img
+                      src={s7airlines}
+                      srcSet={`${s7airlines_x2} 2x`}
+                      alt="s7 Airlines"
+                    />
+                  </Link>
+                  <Link href="http://aviasales.ru">
+                    <Img
+                      src={onetwotrip}
+                      srcSet={`${onetwotrip_x2} 2x`}
+                      alt="OneTwoTrip"
+                    />
+                  </Link>
+                  <Link href="http://aviasales.ru">
+                    <Img
+                      src={koreanair}
+                      srcSet={`${koreanair_x2} 2x`}
+                      alt="Korean Air"
+                    />
+                  </Link>
+                  <Link href="http://aviasales.ru">
+                    <Img src={lye} srcSet={`${lye_x2} 2x`} alt="LYE" />
+                  </Link>
                 </Slide>
               </Slides>
-              <Nav>
-                <Left />
-                <Right />
-              </Nav>
+              <Arrows>
+                <Prev>
+                  <Icon src={arrowleft} alt="Предыдущий слайд" />
+                </Prev>
+                <Next>
+                  <Icon src={arrowright} alt="Следующий слайд" />
+                </Next>
+              </Arrows>
               <Dots>
                 <Dot active />
                 <Dot />
@@ -137,4 +156,4 @@ export default function() {
       </div>
     </CheapTickets>
   );
-}
+};

@@ -2,149 +2,113 @@ import React from "react";
 import styled from "styled-components";
 import { media } from "../Media";
 import Card from "./Card";
+import staralliance_white from "./staralliance-white.png";
+import staralliance_white_2x from "./staralliance-white@2x.png";
+import luftahnsa from "./luftahnsa.svg";
+import pobeda from "./pobeda.svg";
 
-import offerlogo from "./offerlogo.png";
-import luftahnsa from "./luftahnsa.png";
-import pobeda from "./pobeda.png";
-
-const data = [
+const specialOffers = [
   {
-    offer: "Билеты от 499 рублей!",
-    logo: offerlogo,
+    title: "Билеты от 499 рублей!",
+    logo: {
+      x1: staralliance_white,
+      x2: staralliance_white_2x
+    },
     company: pobeda,
     price: "499",
-    dayleft: "Осталось 45 дней",
+    dayLeft: "Осталось 45 дней",
     text: "Билеты от 499 рублей! Специальное предложение от авиакомпании Победа"
   },
   {
-    offer: "В Нью-Йорк от 20 680 ₽",
-    logo: offerlogo,
+    title: "В Нью-Йорк от 20 680 ₽",
+    logo: {
+      x1: staralliance_white,
+      x2: staralliance_white_2x
+    },
     company: luftahnsa,
     price: "20 680",
-    dayleft: "Осталось 19 дней",
+    dayLeft: "Осталось 19 дней",
     text:
       "Из Москвы в США от 20680 рублей! Специальное предложение от авиакомпании Lufthansa"
   },
   {
-    offer: "В Лос-Анджелес от 20 360 ₽",
-    logo: offerlogo,
+    title: "В Лос-Анджелес от 20 360 ₽",
+    logo: {
+      x1: staralliance_white,
+      x2: staralliance_white_2x
+    },
     company: luftahnsa,
     price: "20 360",
-    dayleft: "Осталось 19 дней",
+    dayLeft: "Осталось 19 дней",
     text:
       "Из Москвы в США от 22360 рублей! Специальное предложение от авиакомпании Lufthansa"
   }
 ];
 
-const Container = styled.div`
+const SpecialOffers = styled.section`
   background: linear-gradient(to left, #196ebd, #01b0dd);
   padding: 20px 10px;
 `;
 
-const Title = styled.div`
+const Title = styled.h2`
   line-height: 1.4;
   color: #fff;
   font-size: 1.75rem;
   font-weight: 500;
-  margin: auto;
-  margin-bottom: 20px;
-  max-width: 624px;
-
-  ${media.sm`
-    max-width: 752px;
-    margin: auto;
-    margin-bottom: 20px;
-  `};
-
-  ${media.md`
-    max-width: 1054px;
-  `};
-
-  br {
-    ${media.xs`
-      display: none;
-    `};
-  }
+  margin: 0 0 20px 0;
 `;
 
-const Cards = styled.div`
-  max-width: 624px;
-  margin: 0 auto;
-  ${media.sm`
-    max-width: 768px;
-    display: flex;
-  `};
-
-  ${media.md`
-    justify-content: space-between;
-    max-width: 1070px;
-  `};
-
-  > * {
-    ${media.sm`
-      flex: 1 1;
-      margin: 0 8px;
-      max-width: calc(33.3% - 16px);
-    `};
-
-    ${media.md`
-      max-width: 320px;
-    `};
-  }
-`;
-const Footer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  ${media.sm`
-    flex-direction: row;
-    justify-content: space-between;
-    max-width: 752px;
-    margin: auto;
-  `};
-
-  ${media.md`
-    max-width: 1054px;
-  `};
-`;
+const Cards = styled.div``;
 
 const ShowAll = styled.a`
   line-height: 1.4;
   color: #fff;
-  display: block;
-  text-align: center;
+  display: inline-block;
   text-decoration: underline;
-  margin-top: 30px;
-  ${media.sm`
+  margin-top: 18px;
+  ${media.md`
     margin-top: 15px;
   `};
 `;
 
-const Notes = styled.div`
+const Notes = styled.p`
   line-height: 1.4;
   color: #fff;
-  display: block;
-  text-align: center;
-  margin-top: 5px;
-  ${media.sm`
-    margin-top: 15px;
+  display: inline-block;
+  margin: 8px 0 0 0;
+  ${media.md`
+    margin: 15px 0 0 0;
   `};
 `;
 
-export default function() {
-  const cards = data.map(function(item, index) {
-    return <Card key={index} data={item} />;
+export default () => {
+  const cards = specialOffers.map((offer, index) => {
+    return (
+      <div className="col-xs-12 col-md-4 col-xl-4" key={index}>
+        <Card data={offer} />
+      </div>
+    );
   });
   return (
-    <Container>
-      <Title>
-        Спецпредложения <br />на авиабилеты
-      </Title>
-      <Cards>{cards}</Cards>
-      <Footer>
-        <ShowAll>Смотреть все спецпредложения</ShowAll>
-        <Notes>* средняя цена по направлению</Notes>
-      </Footer>
-    </Container>
+    <SpecialOffers>
+      <div className="container">
+        <div className="row center-xs">
+          <div className="col-xl-10 start-xs">
+            <Title>Спецпредложения на авиабилеты</Title>
+            <Cards>
+              <div className="row">{cards}</div>
+            </Cards>
+            <div className="row center-xs between-md">
+              <div className="col-md-6 start-md">
+                <ShowAll href="href://">Смотреть все спецпредложения</ShowAll>
+              </div>
+              <div className="col-md-6 end-md">
+                <Notes>* средняя цена по направлению</Notes>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </SpecialOffers>
   );
-}
+};

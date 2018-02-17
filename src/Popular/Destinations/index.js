@@ -9,7 +9,7 @@ import barselona from "./barselona.png";
 import flag_ru from "./flag_ru.png";
 import flag_sp from "./flag_sp.png";
 
-const data = [
+const destinations = [
   {
     city: "Краснодар",
     country: "Россия",
@@ -60,17 +60,13 @@ const data = [
   }
 ];
 
-export default function() {
-  const cards = data.map(function(item, index) {
+export default () => {
+  const cards = destinations.map((destination, index) => {
     return (
-      <div key={index} className="col-xs-12 col-sm-10 col-md-6 col-lg-5">
-        <Card data={item} />
+      <div key={index} className="col-xs-12 col-sm-10 col-xl-5">
+        <Card data={destination} />
       </div>
     );
   });
-  return (
-    <div className="container-wrap">
-      <div className="row center-sm">{cards}</div>
-    </div>
-  );
-}
+  return <div className="row center-sm">{cards}</div>;
+};

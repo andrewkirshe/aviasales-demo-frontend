@@ -1,24 +1,33 @@
 import React from "react";
 import styled from "styled-components";
-// import { media } from "../Media";
-import BlockTitle from "./BlockTitle";
-import IconsList from "./IconsList";
-import Specific from "./Specific";
+import Header from "./Header";
+import Icons from "./Icons";
+import Destinations from "./Destinations";
 
-const Popular = styled.div`
-  padding: 60px 10px 10px 10px;
+const Popular = styled.section`
+  padding: 60px 0 0 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background: #f8fcff;
 `;
 
-export default function() {
+export default () => {
   return (
     <Popular>
-      <BlockTitle />
-      <IconsList />
-      <Specific />
+      <div className="container">
+        <div className="row center-xs">
+          <div className="col-xs-10 col-md-8 col-xl-5">
+            <Header />
+          </div>
+        </div>
+        <div className="row center-xs">
+          <div className="col-xs-12 col-md-10 col-lg-8 col-xl-6">
+            <Icons />
+          </div>
+        </div>
+        <Destinations />
+      </div>
     </Popular>
   );
-}
+};

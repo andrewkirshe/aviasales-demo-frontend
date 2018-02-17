@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { media } from "../Media";
 import Faq from "./Faq";
 
-import plane from "./plane.png";
-import mail from "./mail.png";
-import list from "./list.png";
+import plane from "./plane.svg";
+import at from "./at.svg";
+import list from "./list.svg";
 
-const data = [
+const articles = [
   {
     icon: plane,
     title: "КАК КУПИТЬ ДЕШЕВЫЕ АВИАБИЛЕТЫ?",
@@ -16,7 +15,7 @@ const data = [
     link: "http://aviasales.com"
   },
   {
-    icon: mail,
+    icon: at,
     title: "ЭЛЕКТРОННЫЙ АВИАБИЛЕТ",
     text:
       "Электронный авиабилет — это, по сути, обычный билет на самолет, но только в менее привычном для путешественника виде. Вся информация об авиаперелете (данные пассажира, маршрут следования) хранится в электронной базе, а пассажир получает на руки маршрут-квитанцию. Некоторые пассажиры, купив авиабилет онлайн и получив маршрут-квитанцию, удивлены ее видом — это обыкновенный лист формата А4, на котором распечатана вся информация о предстоящем перелете. Однако это действительно официальный документ, подтверждающий договор между авиаперевозчиком и пассажиром. При регистрации на рейс пассажир должен предъявить маршрут-квитанцию вместе с удостоверением личности точно так же, как предъявляют обыкновенный бумажный билет. Следует отметить, что электронный билет, приобретенный онлайн, стоит дешевле своего бумажного аналога.",
@@ -31,19 +30,22 @@ const data = [
   }
 ];
 
-const Container = styled.div`
+const FaqWrap = styled.section`
   padding: 20px 10px;
-  max-width: 770px;
   margin: auto;
-
-  ${media.md`
-    max-width: 1074px;
-  `};
 `;
 
-export default function() {
-  const faq = data.map(function(item, index) {
-    return <Faq key={index} data={item} />;
+export default () => {
+  const faq = articles.map((faq, index) => {
+    return <Faq key={index} data={faq} />;
   });
-  return <Container>{faq}</Container>;
-}
+  return (
+    <FaqWrap>
+      <div className="container">
+        <div className="row center-xl">
+          <div className="col-xs-12 col-xl-10 start-xl">{faq}</div>
+        </div>
+      </div>
+    </FaqWrap>
+  );
+};

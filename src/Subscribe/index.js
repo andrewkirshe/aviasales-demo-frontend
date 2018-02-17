@@ -1,18 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import { media } from "../Media";
-import border from "./border.png";
+import border from "./border.svg";
 import tw from "./tw.svg";
 import fb from "./fb.svg";
 import vk from "./vk.svg";
 import rss from "./rss.svg";
 
-const Container = styled.div`
+const SubscribeWrap = styled.section`
   background: url(${border}) top center repeat-x;
+  background-size: 36px 9px;
   display: none;
   margin: 0 auto;
   padding: 50px 0 40px 0;
-  ${media.sm`
+  position: relative;
+  ${media.md`
     display: block;
   `};
 `;
@@ -23,7 +25,7 @@ const Subscribe = styled.div`
   align-items: center;
   margin: auto;
 
-  ${media.lg`
+  ${media.xl`
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
@@ -39,7 +41,7 @@ const Title = styled.h2`
   margin: 0;
   max-width: 355px;
 
-  ${media.lg`
+  ${media.xl`
     text-align: left;
   `};
 `;
@@ -52,13 +54,15 @@ const Text = styled.p`
   display: block;
   font-weight: normal;
   text-align: center;
-  ${media.lg`
+  ${media.xl`
     text-align: left;
   `};
 `;
 
+const Description = styled.div``;
+
 const Content = styled.div`
-  ${media.lg`
+  ${media.xl`
     display: flex;
     align-items: center;
   `};
@@ -69,10 +73,12 @@ const Socials = styled.ul`
   display: flex;
   justify-content: center;
   margin: 25px 0;
-  ${media.lg`
+  ${media.xl`
     margin: 0 16px 0 0;
   `};
 `;
+
+const Li = styled.li``;
 
 const Link = styled.a`
   font-size: 0;
@@ -124,42 +130,42 @@ const Email = styled.input`
   }
 `;
 
-export default function() {
+export default () => {
   return (
-    <Container>
-      <div className="container-wrap">
+    <SubscribeWrap>
+      <div className="container">
         <div className="row center-md">
           <div className="col-sm-12 col-md-10 start-md">
             <Subscribe>
-              <div>
+              <Description>
                 <Title>Хотите знать всё о скидках на авиабилеты?</Title>
                 <Text>
                   Вы можете подписаться на нашу рассылку через соцсети или по
                   электронной почте.
                 </Text>
-              </div>
+              </Description>
               <Content>
                 <Socials>
-                  <li>
-                    <Link href="http://aviasales.ru" className="tw">
+                  <Li>
+                    <Link href="http://aviasales.ru">
                       <Img src={tw} alt="Twitter" />
                     </Link>
-                  </li>
-                  <li>
-                    <Link href="http://aviasales.ru" className="fb">
-                      <Img src={fb} alt="Twitter" />
+                  </Li>
+                  <Li>
+                    <Link href="http://aviasales.ru">
+                      <Img src={fb} alt="Facebook" />
                     </Link>
-                  </li>
-                  <li>
-                    <Link href="http://aviasales.ru" className="vk">
-                      <Img src={vk} alt="Twitter" />
+                  </Li>
+                  <Li>
+                    <Link href="http://aviasales.ru">
+                      <Img src={vk} alt="Vkontakte" />
                     </Link>
-                  </li>
-                  <li>
-                    <Link href="http://aviasales.ru" className="rss">
-                      <Img src={rss} alt="Twitter" />
+                  </Li>
+                  <Li>
+                    <Link href="http://aviasales.ru">
+                      <Img src={rss} alt="Rss" />
                     </Link>
-                  </li>
+                  </Li>
                 </Socials>
                 <Form action="">
                   <Email type="email" name="email" placeholder="Ваш email" />
@@ -170,6 +176,6 @@ export default function() {
           </div>
         </div>
       </div>
-    </Container>
+    </SubscribeWrap>
   );
-}
+};

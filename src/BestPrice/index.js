@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { media } from "../Media";
-import BlockTitle from "./BlockTitle";
+import Header from "./Header";
 import Destination from "./Destination";
 
 import flag_ru from "./flag_ru.png";
 import flag_am from "./flag_am.png";
 import flag_md from "./flag_md.png";
 
-const data = [
+const destinations = [
   {
     flag: flag_ru,
     city: "Симферополь",
@@ -92,24 +92,24 @@ const data = [
   }
 ];
 
-const BestPrice = styled.div`
+const BestPrice = styled.section`
   background: linear-gradient(180deg, #f8fcff 0%, #ffffff 100%);
   padding: 32px 10px;
 `;
 
-const List = styled.div`
-  ${media.md`
+const Destinations = styled.div`
+  ${media.xl`
       display: flex;
       justify-content: space-between;
+      position: relative;
   `};
 `;
 
 const Notes = styled.div`
   text-align: center;
-  max-width: 624px;
   margin: 40px auto 0;
   line-height: 1.6;
-  ${media.md`
+  ${media.lg`
         margin: 30px auto 0;
   `};
 `;
@@ -123,31 +123,39 @@ const Small = styled.p`
   font-size: 0.875rem;
 `;
 
-export default function() {
-  const destination = data.map(function(item, index) {
-    return <Destination key={index} data={item} />;
+export default () => {
+  const destinationsList = destinations.map((destination, index) => {
+    return <Destination key={index} data={destination} />;
   });
   return (
     <BestPrice>
-      <BlockTitle />
-      <div className="container-wrap">
+      <div className="container">
         <div className="row center-xs">
           <div className="col-xs-12 col-sm-10 start-xs">
-            <List>{destination}</List>
+            <Header />
+          </div>
+        </div>
+        <div className="row center-xs">
+          <div className="col-xs-12 col-sm-10 start-xs">
+            <Destinations>{destinationsList}</Destinations>
+          </div>
+        </div>
+        <div className="row center-xs">
+          <div className="col-xs-12 col-sm-10 col-lg-6">
+            <Notes>
+              <Text>
+                Мы знаем, где купить авиабилеты дешево. Билеты на самолет в 220
+                стран мира. Поиск и сравнение цен на авиабилеты среди 100
+                агентств и 728 авиакомпаний.
+              </Text>
+              <Small>
+                Цены, найденные пользователями за последние 48 часов, не
+                являются офертой.
+              </Small>
+            </Notes>
           </div>
         </div>
       </div>
-      <Notes>
-        <Text>
-          Мы знаем, где купить авиабилеты дешево. Билеты на самолет в 220 стран
-          мира. Поиск и сравнение цен на авиабилеты среди 100 агентств и 728
-          авиакомпаний.
-        </Text>
-        <Small>
-          Цены, найденные пользователями за последние 48 часов, не являются
-          офертой.
-        </Small>
-      </Notes>
     </BestPrice>
   );
-}
+};

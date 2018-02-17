@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-// import styled from "styled-components";
-import Header from "./Header/index";
+import Header from "./Header";
 import SearchForm from "./SearchForm";
 import Popular from "./Popular";
 import BestPrice from "./BestPrice";
@@ -11,7 +10,6 @@ import Faq from "./Faq";
 import DownloadApp from "./DownloadApp";
 import Footer from "./Footer";
 import "normalize.css";
-import "roboto-fontface";
 import "flexboxgrid2";
 
 class App extends Component {
