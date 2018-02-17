@@ -1,6 +1,4 @@
 import React from "react";
-import styled from "styled-components";
-
 import Card from "./Card";
 import krasnodar from "./krasnodar.png";
 import sochi from "./sochi.png";
@@ -8,13 +6,8 @@ import spb from "./spb.png";
 import minwater from "./minwater.png";
 import simferopol from "./simferopol.png";
 import barselona from "./barselona.png";
-import ru from "./flag_ru.png";
-import sp from "./flag_sp.png";
-
-const Specific = styled.div`
-  max-width: 1244px;
-  margin: auto;
-`;
+import flag_ru from "./flag_ru.png";
+import flag_sp from "./flag_sp.png";
 
 const data = [
   {
@@ -23,7 +16,7 @@ const data = [
     price: "1 212",
     date: "18 марта",
     image: krasnodar,
-    flag: ru
+    flag: flag_ru
   },
   {
     city: "Сочи (Адлер)",
@@ -31,7 +24,7 @@ const data = [
     price: "1 334",
     date: "27 марта",
     image: sochi,
-    flag: ru
+    flag: flag_ru
   },
   {
     city: "Санкт-Петербург",
@@ -39,7 +32,7 @@ const data = [
     price: "1 508",
     date: "19 февраля",
     image: spb,
-    flag: ru
+    flag: flag_ru
   },
   {
     city: "Минеральные Воды",
@@ -47,7 +40,7 @@ const data = [
     price: "2 074",
     date: "13 марта",
     image: minwater,
-    flag: ru
+    flag: flag_ru
   },
   {
     city: "Симферополь (Крым)",
@@ -55,7 +48,7 @@ const data = [
     price: "2 407",
     date: "13 марта",
     image: simferopol,
-    flag: ru
+    flag: flag_ru
   },
   {
     city: "Барселона",
@@ -63,7 +56,7 @@ const data = [
     price: "4 247",
     date: "24 марта",
     image: barselona,
-    flag: sp
+    flag: flag_sp
   }
 ];
 
@@ -76,8 +69,8 @@ export default function() {
     );
   });
   return (
-    <Specific>
+    <div className="container-wrap">
       <div className="row center-sm">{cards}</div>
-    </Specific>
+    </div>
   );
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { media } from "../Media";
-
 import border from "./border.png";
 import tw from "./tw.svg";
 import fb from "./fb.svg";
@@ -29,7 +28,6 @@ const Subscribe = styled.div`
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
-    max-width: 1054px;
   `};
 `;
 
@@ -43,12 +41,12 @@ const Title = styled.div`
   ${media.lg`
     text-align: left;
   `};
+`;
 
-  span {
-    margin-top: 5px;
-    display: block;
-    font-weight: normal;
-  }
+const SubTitle = styled.span`
+  margin-top: 5px;
+  display: block;
+  font-weight: normal;
 `;
 
 const Content = styled.div`
@@ -66,131 +64,105 @@ const Socials = styled.ul`
   ${media.lg`
     margin: 0 16px 0 0;
   `};
-
-  > * + * {
-    margin-left: 6px;
-  }
-
-  a {
-    font-size: 0;
-    color: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    background: #9b9b9b;
-
-    &:after {
-      content: "";
-      display: block;
-      width: 24px;
-      height: 24px;
-    }
-
-    &.tw {
-      &:after {
-        background: url(${tw}) no-repeat;
-        background-size: 24px 24px;
-      }
-    }
-
-    &.fb {
-      &:after {
-        background: url(${fb}) no-repeat;
-        background-size: 24px 24px;
-      }
-    }
-
-    &.vk {
-      &:after {
-        background: url(${vk}) no-repeat;
-        background-size: 24px 24px;
-      }
-    }
-
-    &.rss {
-      &:after {
-        background: url(${rss}) no-repeat;
-        background-size: 24px 24px;
-      }
-    }
-  }
 `;
+
+const Link = styled.a`
+  font-size: 0;
+  color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  background: #9b9b9b;
+  margin: 0 3px;
+`;
+
+const Img = styled.img`
+  width: 24px;
+  height: 24px;
+`;
+
 const Form = styled.form`
   display: flex;
   border: 1px solid #a0a0a0;
   border-radius: 2px;
+`;
 
-  input {
-    color: #444;
-    height: 34px;
-    width: 100%;
-    border: none;
-    padding: 0 9px;
-    border-radius: 2px;
-    line-height: 2.125rem;
+const Button = styled.button`
+  background-color: #ff8e41;
+  color: #fff;
+  border: 0;
+  display: block;
+  text-align: center;
+  padding: 0 20px;
+  margin: 0;
+  border-radius: 2px;
+  height: 34px;
+  line-height: 2.125rem;
+`;
 
-    &::placeholder {
-      color: #a0b0b9;
-    }
-  }
+const Email = styled.input`
+  color: #444;
+  height: 34px;
+  width: 100%;
+  border: none;
+  padding: 0 9px;
+  border-radius: 2px;
+  line-height: 2.125rem;
 
-  button {
-    background-color: #ff8e41;
-    color: #fff;
-    border: 0;
-    display: block;
-    text-align: center;
-    padding: 0 20px;
-    margin: 0;
-    border-radius: 2px;
-    height: 34px;
-    line-height: 2.125rem;
+  &::placeholder {
+    color: #a0b0b9;
   }
 `;
 
 export default function() {
   return (
     <Container>
-      <Subscribe>
-        <Title>
-          Хотите знать всё о скидках на авиабилеты?
-          <span>
-            Вы можете подписаться на нашу рассылку через соцсети или по
-            электронной почте.
-          </span>
-        </Title>
-        <Content>
-          <Socials>
-            <li>
-              <a href="http://aviasales.ru" className="tw">
-                &bsp;
-              </a>
-            </li>
-            <li>
-              <a href="http://aviasales.ru" className="fb">
-                &bsp;
-              </a>
-            </li>
-            <li>
-              <a href="http://aviasales.ru" className="vk">
-                &bsp;
-              </a>
-            </li>
-            <li>
-              <a href="http://aviasales.ru" className="rss">
-                &bsp;
-              </a>
-            </li>
-          </Socials>
-          <Form action="">
-            <input type="email" name="email" placeholder="Ваш email" />
-            <button>Подписаться</button>
-          </Form>
-        </Content>
-      </Subscribe>
+      <div className="container-wrap">
+        <div className="row center-md">
+          <div className="col-sm-12 col-md-10 start-md">
+            <Subscribe>
+              <Title>
+                Хотите знать всё о скидках на авиабилеты?
+                <SubTitle>
+                  Вы можете подписаться на нашу рассылку через соцсети или по
+                  электронной почте.
+                </SubTitle>
+              </Title>
+              <Content>
+                <Socials>
+                  <li>
+                    <Link href="http://aviasales.ru" className="tw">
+                      <Img src={tw} alt="Twitter" />
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="http://aviasales.ru" className="fb">
+                      <Img src={fb} alt="Twitter" />
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="http://aviasales.ru" className="vk">
+                      <Img src={vk} alt="Twitter" />
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="http://aviasales.ru" className="rss">
+                      <Img src={rss} alt="Twitter" />
+                    </Link>
+                  </li>
+                </Socials>
+                <Form action="">
+                  <Email type="email" name="email" placeholder="Ваш email" />
+                  <Button>Подписаться</Button>
+                </Form>
+              </Content>
+            </Subscribe>
+          </div>
+        </div>
+      </div>
     </Container>
   );
 }

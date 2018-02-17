@@ -11,12 +11,12 @@ class Card extends Component {
       border-radius: 8px;
       box-shadow: 0px 2px 12px rgba(0, 75, 93, 0.12);
       margin-bottom: 12px;
-      ${media.sm`
-        margin-top: 23px;
+      ${media.xs`
+        margin-bottom: 23px;
       `};
 
       ${media.md`
-        margin-top: 31px;
+        margin-bottom: 31px;
       `};
     `;
 

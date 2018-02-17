@@ -4,7 +4,7 @@ import logo from "./logo.svg";
 
 const Header = styled.header`
   position: absolute;
-  padding: 10px;
+  padding: 12px;
   top: 0;
   left: 0;
   right: 0;
@@ -35,10 +35,12 @@ const Title = styled.span`
 export default function() {
   return (
     <Header>
-      <Logo href="">
-        <Img src={logo} className="App-Logo" alt="logo" />
-        <Title className="hidden-xs hidden-sm">Aviasales</Title>
-      </Logo>
+      <div className="container-wrap">
+        <Logo href="">
+          <Img src={logo} alt="logo" />
+          <Title className="hidden-xs hidden-sm">Aviasales</Title>
+        </Logo>
+      </div>
     </Header>
   );
 }

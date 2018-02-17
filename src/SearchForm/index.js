@@ -52,8 +52,6 @@ const SubTitle = styled.span`
 const FormFields = styled.div`
   display: flex;
   flex-wrap: wrap;
-  padding: 1px;
-  max-width: 1026px;
 `;
 
 const FormRow = styled.div`
@@ -145,8 +143,6 @@ const Depart = styled(Input)`
     border-bottom-left-radius: 0;
   `};
 `;
-
-const Return = styled(Input)``;
 
 const DateInput = styled(FormInput)`
   &:before {
@@ -280,73 +276,71 @@ const AirportName = styled.div`
   z-index: 11;
 `;
 
-const Form = styled.form`
-  display: block;
-
-  ${media.sm`
-    padding: 0 70px;
-  `};
-`;
-
 export default function() {
   return (
     <SearchForm>
-      <Title>
-        Поиск дешевых авиабилетов
-        <SubTitle>Лучший способ купить авиабилеты дешево</SubTitle>
-      </Title>
-      <Form action="">
-        <FormFields>
-          <FormRow>
-            <FormInput>
-              <Origin
-                type="text"
-                name="origin"
-                id="origin"
-                placeholder="Город вылета"
-              />
-              <Label htmlFor="origin">Город вылета</Label>
-              <SwapIcon />
-              <AirportName>VIN</AirportName>
-            </FormInput>
-          </FormRow>
-          <FormRow>
-            <FormInput>
-              <Destination
-                type="text"
-                name="destination"
-                id="destination"
-                placeholder="Город прибытия"
-              />
-              <Label htmlFor="destination">Город прибытия</Label>
-            </FormInput>
-          </FormRow>
-          <FormRow>
-            <DateInput>
-              <Depart
-                type="text"
-                name="depart_date"
-                id="depart_date"
-                placeholder="Туда"
-              />
-              <Label htmlFor="origin">Туда</Label>
-            </DateInput>
-            <DateInput>
-              <Return
-                type="text"
-                name="return_date"
-                id="return_date"
-                placeholder="Обратно"
-              />
-              <Label htmlFor="return_date">Обратно</Label>
-            </DateInput>
-          </FormRow>
-          <Passengers>
-            1 пассажир, <Grade>эконом</Grade>
-          </Passengers>
-        </FormFields>
-        <Find>Найти билеты</Find>
-      </Form>
+      <div className="container-wrap">
+        <div className="row center-xs">
+          <div className="col-xs-12 col-sm-10">
+            <Title>
+              Поиск дешевых авиабилетов
+              <SubTitle>Лучший способ купить авиабилеты дешево</SubTitle>
+            </Title>
+            <form action="">
+              <FormFields>
+                <FormRow>
+                  <FormInput>
+                    <Origin
+                      type="text"
+                      name="origin"
+                      id="origin"
+                      placeholder="Город вылета"
+                    />
+                    <Label htmlFor="origin">Город вылета</Label>
+                    <SwapIcon />
+                    <AirportName>VIN</AirportName>
+                  </FormInput>
+                </FormRow>
+                <FormRow>
+                  <FormInput>
+                    <Destination
+                      type="text"
+                      name="destination"
+                      id="destination"
+                      placeholder="Город прибытия"
+                    />
+                    <Label htmlFor="destination">Город прибытия</Label>
+                  </FormInput>
+                </FormRow>
+                <FormRow>
+                  <DateInput>
+                    <Depart
+                      type="text"
+                      name="depart_date"
+                      id="depart_date"
+                      placeholder="Туда"
+                    />
+                    <Label htmlFor="origin">Туда</Label>
+                  </DateInput>
+                  <DateInput>
+                    <Input
+                      type="text"
+                      name="return_date"
+                      id="return_date"
+                      placeholder="Обратно"
+                    />
+                    <Label htmlFor="return_date">Обратно</Label>
+                  </DateInput>
+                </FormRow>
+                <Passengers>
+                  1 пассажир, <Grade>эконом</Grade>
+                </Passengers>
+              </FormFields>
+              <Find>Найти билеты</Find>
+            </form>
+          </div>
+        </div>
+      </div>
     </SearchForm>
   );
 }

@@ -10,17 +10,11 @@ import su from "./SU.png";
 import arrowleft from "./arrowleft.svg";
 import arrowright from "./arrowright.svg";
 
-const Container = styled.div`
+const CheapTickets = styled.div`
   display: none;
-  margin: 0 auto;
-  max-width: 768px;
   padding: 50px 0 40px 0;
   ${media.sm`
     display: block;
-  `};
-
-  ${media.lg`
-    max-width: 1042px;
   `};
 `;
 const Title = styled.div`
@@ -41,6 +35,7 @@ const List = styled.ul`
   align-items: center;
   justify-content: center;
   list-style: none;
+  padding: 0;
 `;
 
 const Li = styled.li`
@@ -88,50 +83,58 @@ const Dot = styled.div`
 
 export default function() {
   return (
-    <Container>
-      <Title>Дешевые авиабилеты от крупнейших авиакомпаний и агентств</Title>
-      <Slider>
-        <Slides>
-          <Slide>
-            <List>
-              <Li>
-                <a href="http://aviasales.ru">
-                  <Img src={su} alt="" />
-                </a>
-              </Li>
-              <Li>
-                <a href="http://aviasales.ru">
-                  <Img src={s7} alt="" />
-                </a>
-              </Li>
-              <Li>
-                <a href="http://aviasales.ru">
-                  <Img src={ott} alt="" />
-                </a>
-              </Li>
-              <Li>
-                <a href="http://aviasales.ru">
-                  <Img src={ke} alt="" />
-                </a>
-              </Li>
-              <Li>
-                <a href="http://aviasales.ru">
-                  <Img src={lye} alt="" />
-                </a>
-              </Li>
-            </List>
-          </Slide>
-        </Slides>
-        <Nav>
-          <Left />
-          <Right />
-        </Nav>
-        <Dots>
-          <Dot active />
-          <Dot />
-          <Dot />
-        </Dots>
-      </Slider>
-    </Container>
+    <CheapTickets>
+      <div className="container-wrap">
+        <div className="row center-md">
+          <div className="col-sm-12 col-md-10 start-md">
+            <Title>
+              Дешевые авиабилеты от крупнейших авиакомпаний и агентств
+            </Title>
+            <Slider>
+              <Slides>
+                <Slide>
+                  <List>
+                    <Li>
+                      <a href="http://aviasales.ru">
+                        <Img src={su} alt="" />
+                      </a>
+                    </Li>
+                    <Li>
+                      <a href="http://aviasales.ru">
+                        <Img src={s7} alt="" />
+                      </a>
+                    </Li>
+                    <Li>
+                      <a href="http://aviasales.ru">
+                        <Img src={ott} alt="" />
+                      </a>
+                    </Li>
+                    <Li>
+                      <a href="http://aviasales.ru">
+                        <Img src={ke} alt="" />
+                      </a>
+                    </Li>
+                    <Li>
+                      <a href="http://aviasales.ru">
+                        <Img src={lye} alt="" />
+                      </a>
+                    </Li>
+                  </List>
+                </Slide>
+              </Slides>
+              <Nav>
+                <Left />
+                <Right />
+              </Nav>
+              <Dots>
+                <Dot active />
+                <Dot />
+                <Dot />
+              </Dots>
+            </Slider>
+          </div>
+        </div>
+      </div>
+    </CheapTickets>
   );
 }

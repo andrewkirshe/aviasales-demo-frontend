@@ -4,13 +4,13 @@ import { media } from "../Media";
 import BlockTitle from "./BlockTitle";
 import Destination from "./Destination";
 
-import ru from "./flag_ru.png";
-import am from "./flag_am.png";
-import md from "./flag_md.png";
+import flag_ru from "./flag_ru.png";
+import flag_am from "./flag_am.png";
+import flag_md from "./flag_md.png";
 
 const data = [
   {
-    flag: ru,
+    flag: flag_ru,
     city: "Симферополь",
     country: "Крым",
     routes: [
@@ -37,7 +37,7 @@ const data = [
     ]
   },
   {
-    flag: am,
+    flag: flag_am,
     city: "Ереван",
     country: "Армения",
     routes: [
@@ -64,7 +64,7 @@ const data = [
     ]
   },
   {
-    flag: md,
+    flag: flag_md,
     city: "Кишинёв",
     country: "Молдавия",
     routes: [
@@ -98,8 +98,10 @@ const BestPrice = styled.div`
 `;
 
 const List = styled.div`
-  max-width: 1034px;
-  margin: auto;
+  ${media.md`
+      display: flex;
+      justify-content: space-between;
+  `};
 `;
 
 const Notes = styled.div`
@@ -112,29 +114,29 @@ const Notes = styled.div`
   `};
 `;
 
-const Text = styled.div`
+const Text = styled.p`
   margin-bottom: 10px;
 `;
 
-const Small = styled.div`
+const Small = styled.p`
   color: #9ab0b9;
   font-size: 0.875rem;
 `;
 
 export default function() {
   const destination = data.map(function(item, index) {
-    return (
-      <div key={index} className="col-xs-12 col-sm-10 col-md-4 start-xs">
-        <Destination data={item} />
-      </div>
-    );
+    return <Destination key={index} data={item} />;
   });
   return (
     <BestPrice>
       <BlockTitle />
-      <List>
-        <div className="row center-xs center-sm between-md">{destination}</div>
-      </List>
+      <div className="container-wrap">
+        <div className="row center-xs">
+          <div className="col-xs-12 col-sm-10 start-xs">
+            <List>{destination}</List>
+          </div>
+        </div>
+      </div>
       <Notes>
         <Text>
           Мы знаем, где купить авиабилеты дешево. Билеты на самолет в 220 стран

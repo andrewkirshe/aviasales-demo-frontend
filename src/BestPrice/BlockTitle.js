@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { media } from "../Media";
-import calen from "./calen.svg";
+import calendar from "./calendar.svg";
 
 const BlockTitle = styled.div`
   color: #fff;
@@ -34,7 +34,7 @@ const Icon = styled.div`
 
   &:after {
     content: '';
-    background-image: url(${calen});
+    background-image: url(${calendar});
     background-size: 24px;
     width: 24px;
     height: 24px;
@@ -49,7 +49,7 @@ const Icon = styled.div`
 }
 `;
 
-const Text = styled.div`
+const Text = styled.p`
   color: #4a4a4a;
   font-size: 1.125rem;
   line-height: 1.5;

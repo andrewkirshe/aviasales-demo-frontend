@@ -7,11 +7,34 @@ class Destination extends Component {
   render() {
     const Destination = styled.div`
       position: relative;
+      border-bottom: 1px dashed #e4e7e8;
+      padding-bottom: 24px;
+      margin-bottom: 24px;
 
-      ${media.sm`
+      &:last-of-type {
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        padding-right: 0;
+        margin-right: 0;
+        &:after {
+          display: none;
+        }
+      }
+
+      ${media.md`
       border-bottom: none;
       padding-bottom: 0;
        margin-bottom: 0;
+       max-width: 298px;
+       padding-right: 10px;
+       margin-right: 10px;
+       flex: 1;
+      `};
+
+      ${media.lg`
+       padding-right: 0;
+       margin-right: 0;
       `};
 
       &:after {
@@ -19,11 +42,15 @@ class Destination extends Component {
         position: absolute;
         top: 0;
         bottom: 0;
-        right: -7px;
+        right: 0;
         border-right: 1px dashed #e4e7e8;
         display: none;
-        ${media.sm`
-          border-bottom: none;
+        ${media.md`
+          display: block;
+        `};
+
+        ${media.lg`
+          right: -12%;
         `};
       }
     `;

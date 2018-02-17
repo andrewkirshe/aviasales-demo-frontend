@@ -50,7 +50,7 @@ const Icon = styled.div`
 }
 `;
 
-const Text = styled.div`
+const Text = styled.p`
   color: #4a4a4a;
   font-size: 1.125rem;
   line-height: 1.5;
