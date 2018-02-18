@@ -85,7 +85,14 @@ export default () => {
   const cards = specialOffers.map((offer, index) => {
     return (
       <div className="col-xs-12 col-md-4 col-xl-4" key={index}>
-        <Card data={offer} />
+        <Card
+          title={offer.title}
+          logo={offer.logo}
+          company={offer.company}
+          price={offer.price}
+          dayLeft={offer.dayLeft}
+          text={offer.text}
+        />
       </div>
     );
   });

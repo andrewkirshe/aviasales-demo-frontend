@@ -55,7 +55,7 @@ const Img = styled.img`
   box-shadow: 0px 0px 8px rgba(38, 38, 38, 0.1);
 `;
 
-const City = styled.h3`
+const City = styled.p`
   font-weight: 600;
   font-size: 1.375rem;
   color: #5b5b5c;
@@ -74,18 +74,22 @@ const Country = styled.p`
 const Routes = styled.div``;
 
 export default props => {
-  const routes = props.data.routes.map((route, index) => {
-    return <Route key={index} data={route} />;
+  const routes = props.routes.map((route, index) => {
+    return <Route key={index} from={route.from} price={route.price} />;
   });
   return (
     <Destination>
       <Header>
         <Flag>
-          <Img src={props.data.flag} alt={props.data.country} />
+          <Img
+            src={props.flag.x1}
+            srcSet={`${props.flag.x2} 2x`}
+            alt={props.country}
+          />
         </Flag>
         <CityInfo>
-          <City>{props.data.city}</City>
-          <Country>{props.data.country}</Country>
+          <City>{props.city}</City>
+          <Country>{props.country}</Country>
         </CityInfo>
       </Header>
       <Routes>{routes}</Routes>

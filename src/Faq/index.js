@@ -37,7 +37,15 @@ const FaqWrap = styled.section`
 
 export default () => {
   const faq = articles.map((faq, index) => {
-    return <Faq key={index} data={faq} />;
+    return (
+      <Faq
+        key={index}
+        icon={faq.icon}
+        title={faq.title}
+        text={faq.text}
+        link={faq.link}
+      />
+    );
   });
   return (
     <FaqWrap>

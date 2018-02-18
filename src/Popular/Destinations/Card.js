@@ -17,15 +17,22 @@ const Card = styled.div`
 `;
 
 const Image = styled.div`
-  max-height: 212px;
   overflow: hidden;
 `;
 
 const Img = styled.img`
   width: 100%;
+  height: 129px;
+  object-fit: cover;
+  display: block;
+
+  ${media.sm`
+    height: 176px;
+  `};
+
   ${media.md`
-        margin-top: -3%;
-      `};
+    height: 212px;
+  `};
 `;
 
 const Bar = styled.div`
@@ -72,6 +79,8 @@ const City = styled.p`
   max-width: 100%;
   text-align: left;
   margin: 0 10px 0 0;
+  display: block;
+  flex: 1;
   ${media.sm`
           font-size: 1.375rem;
           line-height: 1.2;
@@ -92,12 +101,14 @@ const Find = styled.a`
   line-height: 1.6;
   color: #00ace2;
   text-align: right;
-  white-space: nowrap;
   text-decoration: none;
   ${media.sm`
           font-size: 1.375rem;
           line-height: 1.2;
       `};
+
+  span {
+  }
 `;
 
 const FlightDate = styled.p`
@@ -111,17 +122,23 @@ export default props => {
   return (
     <Card>
       <Image>
-        <Img src={props.data.image} alt={props.data.city} />
+        <Img src={props.image} alt={props.city} />
       </Image>
       <Bar>
-        <Flag src={props.data.flag} alt={props.data.country} />
+        <Flag
+          src={props.flag.x1}
+          srcSet={`${props.flag.x2} 2x`}
+          alt={props.country}
+        />
         <Row>
-          <City>{props.data.city}</City>
-          <Find href="http://">Найти от {props.data.price} ₽</Find>
+          <City>{props.city}</City>
+          <Find href="http://">
+            <span>Найти от {props.price} ₽</span>
+          </Find>
         </Row>
         <Row>
-          <Country>{props.data.country}</Country>
-          <FlightDate>{props.data.date}</FlightDate>
+          <Country>{props.country}</Country>
+          <FlightDate>{props.date}</FlightDate>
         </Row>
       </Bar>
     </Card>

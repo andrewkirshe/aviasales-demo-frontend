@@ -270,42 +270,16 @@ const socialLinksData = [
   }
 ];
 
-const mainLink = {
-  text: "Поиск и бронирование отелей",
-  url: "http://aviasales.ru"
-};
-
 const Footer = styled.footer`
   overflow: hidden;
 `;
 
 const Navs = styled.div`
   padding: 30px 0 0 0;
-  border-bottom: 1px solid #e0e6e8;
-  margin: 0 10px;
   position: relative;
-
-  &:after {
-    content: "";
-    display: block;
-    bottom: -1px;
-    right: 100%;
-    width: 1000px;
-    position: absolute;
-    border-bottom: 1px solid #e0e6e8;
-  }
-
-  &:before {
-    content: "";
-    display: block;
-    bottom: -1px;
-    left: 100%;
-    width: 1000px;
-    position: absolute;
-    border-bottom: 1px solid #e0e6e8;
-  }
 `;
 const Info = styled.div`
+  padding: 0;
   ${media.lg`
     display: flex;
     padding: 35px 0 0 0;
@@ -316,14 +290,12 @@ const InfoLeft = styled.div``;
 const InfoRight = styled.div``;
 const InfoList = styled.ul`
   list-style: none;
-  padding: 20px 10px;
+  padding: 20px 0;
   margin: 0;
   display: flex;
   flex-wrap: wrap;
 
   ${media.sm`
-    justify-content: flex-start;
-    padding: 20px;
   `};
 
   ${media.lg`
@@ -331,28 +303,36 @@ const InfoList = styled.ul`
   `};
 `;
 
-const MainLink = styled(InfoList)`
-  justify-content: center;
-  padding: 10px 10px;
-
-  ${media.sm`
-    justify-content: flex-start;
-    margin-top: 20px;
-    padding: 10px 20px;
+const MainLinkWrap = styled.div`
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px 0;
+  ${media.md`
+    margin-bottom: 20px;
+    margin-top: 10px;
+    text-align: left;
   `};
 `;
 
-const SocialLinks = styled.div`
+const MainLink = styled.a`
+  font-size: 0.75rem;
+  color: #5b5b5c;
+  text-decoration: none;
+
+  ${media.lg`
+    margin-top: 20px;
+  `};
+`;
+
+const SocialLinks = styled.ul`
   list-style: none;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  padding: 0 10px;
+  padding: 0;
   margin: 0 0 0 0;
 
   ${media.sm`
-    justify-content: flex-start;
-    padding: 0 20px;
   `};
 `;
 
@@ -361,10 +341,9 @@ const AppLinks = styled.div`
   flex-direction: column;
   align-items: center;
 
-  ${media.sm`
+  ${media.md`
     flex-direction: row;
     justify-content: flex-start;
-    padding: 0 20px;
   `};
 `;
 
@@ -384,7 +363,7 @@ const App = styled.a`
   position: relative;
   margin-bottom: 8px;
 
-  ${media.sm`
+  ${media.md`
     margin-bottom: 0;
     margin-right: 10px;
   `};
@@ -409,19 +388,26 @@ const Small = styled.span`
   margin-bottom: 3px;
 `;
 
+const Divider = styled.hr`
+  margin: 0;
+  border: none;
+  border-bottom: 1px solid #e0e6e8;
+`;
+
 const Copyright = styled.div`
   color: #5b5b5c;
   font-size: 0.75rem;
   text-align: center;
   padding: 20px 10px;
 
-  ${media.sm`
+  ${media.md`
     text-align: left;
-    padding: 20px;
+    padding: 20px 0;
   `};
 
   ${media.lg`
     margin-top: 20px;
+    text-align: right;
   `};
 `;
 
@@ -429,17 +415,19 @@ export default () => {
   const footerNavs = footerNavsData.map((nav, index) => {
     return (
       <div key={index} className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-        <Nav data={nav} />
+        <Nav title={nav.title} links={nav.links} all={nav.all} />
       </div>
     );
   });
 
   const infoLinks = infoLinksData.map((link, index) => {
-    return <Link key={index} data={link} />;
+    return <Link key={index} text={link.text} url={link.url} />;
   });
 
   const socialLinks = socialLinksData.map((link, index) => {
-    return <Link key={index} data={link} />;
+    return (
+      <Link key={index} icon={link.icon} text={link.text} url={link.url} />
+    );
   });
 
   return (
@@ -448,13 +436,18 @@ export default () => {
         <Navs>
           <div className="row">{footerNavs}</div>
         </Navs>
+      </div>
+      <Divider />
+      <div className="container">
         <Info>
           <InfoLeft>
             <InfoList>{infoLinks}</InfoList>
             <SocialLinks>{socialLinks}</SocialLinks>
-            <MainLink>
-              <Link data={mainLink} />
-            </MainLink>
+            <MainLinkWrap>
+              <MainLink href="http://aviasales.ru">
+                Поиск и бронирование отелей
+              </MainLink>
+            </MainLinkWrap>
           </InfoLeft>
           <InfoRight>
             <AppLinks>

@@ -11,19 +11,18 @@ const Fields = styled.div`
 
 const Row = styled.div`
   display: flex;
-  min-width: 100%;
-  flex: 1 1;
+  flex: 100% 1;
   ${media.sm`
-    min-width: 50%;
+    flex: 50% 1;
   `};
 
   ${media.xl`
-    min-width: 23%;
+    flex: 23% 1;
   `};
 
   &:nth-child(3) {
     ${media.xl`
-      min-width: 30%;
+      flex: 30% 1;
     `};
   }
 `;
@@ -240,9 +239,11 @@ export default () => {
           </Button>
         </DateFiled>
       </Row>
-      <Passengers>
-        1 пассажир, <Grade>эконом</Grade>
-      </Passengers>
+      <Row>
+        <Passengers>
+          1 пассажир, <Grade>эконом</Grade>
+        </Passengers>
+      </Row>
     </Fields>
   );
 };

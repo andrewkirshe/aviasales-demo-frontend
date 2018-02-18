@@ -29,8 +29,8 @@ const Price = styled.a`
 export default props => {
   return (
     <Route>
-      <City>Из {props.data.from}</City>
-      <Price href="http://">от {props.data.price} ₽</Price>
+      <City>Из {props.from}</City>
+      <Price href="http://">от {props.price} ₽</Price>
     </Route>
   );
 };

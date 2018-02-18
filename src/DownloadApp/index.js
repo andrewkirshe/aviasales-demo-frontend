@@ -15,7 +15,7 @@ const Apps = styled.div`
   position: relative;
   padding: 26px 10px 10px 10px;
 
-  ${media.lg`
+  ${media.xl`
     padding: 46px 10px 28px 10px;
   `};
 `;
@@ -143,7 +143,7 @@ export default () => {
     <DownloadApp>
       <div className="container">
         <div className="row center-lg">
-          <div className="col-sm-12 col-lg-9 col-xl-10 start-lg">
+          <div className="col-sm-12 col-lg-11 col-xl-10 start-lg">
             <Apps>
               <Phone
                 src={phone}

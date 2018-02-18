@@ -93,24 +93,24 @@ export default props => {
   return (
     <Card>
       <Header>
-        <Title>{props.data.title}</Title>
+        <Title>{props.title}</Title>
         <Icon
-          src={props.data.logo.x1}
-          srcSet={`${props.data.logo.x2} 2x`}
-          alt={props.data.title}
+          src={props.logo.x1}
+          srcSet={`${props.logo.x2} 2x`}
+          alt={props.title}
         />
       </Header>
       <Content>
         <Company>
-          <Logo src={props.data.company} alt="" />
+          <Logo src={props.company} alt="" />
           <Info>
             <Price>
-              <From>от</From> {props.data.price} ₽
+              <From>от</From> {props.price} ₽
             </Price>
-            <Dayleft>{props.data.dayLeft}</Dayleft>
+            <Dayleft>{props.dayLeft}</Dayleft>
           </Info>
         </Company>
-        <Notes>{props.data.text}</Notes>
+        <Notes>{props.text}</Notes>
         <More>Узнать подробности</More>
       </Content>
     </Card>

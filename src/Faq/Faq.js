@@ -39,12 +39,12 @@ export default props => {
   return (
     <Article>
       <Title>
-        <Icon src={props.data.icon} alt={props.data.icon} />
-        {props.data.title}
+        <Icon src={props.icon} alt={props.title} />
+        {props.title}
       </Title>
       <Text>
-        {props.data.text}
-        <Link href={props.data.link}>Подробнее</Link>
+        {props.text}
+        <Link href={props.link}>Подробнее</Link>
       </Text>
     </Article>
   );

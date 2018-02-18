@@ -19,24 +19,25 @@ const Link = styled.a`
 `;
 
 const Icon = styled.img`
-  height: 12px;
+  height: 18px;
+  width: 18px;
   margin-right: 5px;
 `;
 
 export default props => {
-  if (props.data.icon) {
+  if (props.icon) {
     return (
       <Li>
-        <Link href={props.data.url}>
-          <Icon src={props.data.icon} alt="" />
-          {props.data.text}
+        <Link href={props.url}>
+          <Icon src={props.icon} alt={props.text} />
+          {props.text}
         </Link>
       </Li>
     );
   } else {
     return (
       <Li>
-        <Link href={props.data.url}>{props.data.text}</Link>
+        <Link href={props.url}>{props.text}</Link>
       </Li>
     );
   }

@@ -9,8 +9,6 @@ const Header = styled.header`
   left: 0;
   right: 0;
   background: linear-gradient(to left, #196ebd, #01b0dd);
-  display: flex;
-  justify-content: space-between;
 `;
 
 const Logo = styled.a`
