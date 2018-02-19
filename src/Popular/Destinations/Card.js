@@ -8,12 +8,12 @@ const Card = styled.div`
   box-shadow: 0px 2px 12px rgba(0, 75, 93, 0.12);
   margin-bottom: 12px;
   ${media.sm`
-        margin-bottom: 23px;
-      `};
+    margin-bottom: 23px;
+  `};
 
   ${media.lg`
-        margin-bottom: 31px;
-      `};
+    margin-bottom: 31px;
+  `};
 `;
 
 const Image = styled.div`
@@ -39,13 +39,14 @@ const Bar = styled.div`
   background: #fff;
   padding: 15px 15px 20px 15px;
   position: relative;
+
   ${media.sm`
-          padding: 15px 15px 20px 70px;
-        `};
+    padding: 15px 15px 20px 70px;
+  `};
 
   ${media.lg`
-          padding: 15px 25px 20px 73px;
-        `};
+    padding: 15px 25px 20px 73px;
+  `};
 `;
 
 const Flag = styled.img`
@@ -81,10 +82,11 @@ const City = styled.p`
   margin: 0 10px 0 0;
   display: block;
   flex: 1;
+
   ${media.sm`
-          font-size: 1.375rem;
-          line-height: 1.2;
-      `};
+    font-size: 1.375rem;
+    line-height: 1.2;
+  `};
 `;
 
 const Country = styled.p`
@@ -102,13 +104,11 @@ const Find = styled.a`
   color: #00ace2;
   text-align: right;
   text-decoration: none;
-  ${media.sm`
-          font-size: 1.375rem;
-          line-height: 1.2;
-      `};
 
-  span {
-  }
+  ${media.sm`
+    font-size: 1.375rem;
+    line-height: 1.2;
+  `};
 `;
 
 const FlightDate = styled.p`

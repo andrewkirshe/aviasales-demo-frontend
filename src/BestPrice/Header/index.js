@@ -23,7 +23,7 @@ export default () => {
   return (
     <Header>
       <Icon />
-      <Title>Популярные направления перелетов из города</Title>
+      <Title>Лучшие цены на авиабилеты за последний месяц</Title>
     </Header>
   );
 };

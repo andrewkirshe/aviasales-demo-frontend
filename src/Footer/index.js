@@ -295,9 +295,6 @@ const InfoList = styled.ul`
   display: flex;
   flex-wrap: wrap;
 
-  ${media.sm`
-  `};
-
   ${media.lg`
     padding-top: 0;
   `};
@@ -331,9 +328,6 @@ const SocialLinks = styled.ul`
   flex-wrap: wrap;
   padding: 0;
   margin: 0 0 0 0;
-
-  ${media.sm`
-  `};
 `;
 
 const AppLinks = styled.div`

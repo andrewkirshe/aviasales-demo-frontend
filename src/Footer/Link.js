@@ -3,11 +3,11 @@ import styled from "styled-components";
 import { media } from "../Media";
 
 const Li = styled.li`
-  margin: 0 20px 5px 0;
+  margin: 0 20px 10px 0;
 
   ${media.lg`
-      margin-right: 15px;
-    `};
+    margin-right: 15px;
+  `};
 `;
 
 const Link = styled.a`
@@ -25,20 +25,12 @@ const Icon = styled.img`
 `;
 
 export default props => {
-  if (props.icon) {
-    return (
-      <Li>
-        <Link href={props.url}>
-          <Icon src={props.icon} alt={props.text} />
-          {props.text}
-        </Link>
-      </Li>
-    );
-  } else {
-    return (
-      <Li>
-        <Link href={props.url}>{props.text}</Link>
-      </Li>
-    );
-  }
+  return (
+    <Li>
+      <Link href={props.url}>
+        {props.icon && <Icon src={props.icon} alt={props.text} />}
+        {props.text}
+      </Link>
+    </Li>
+  );
 };

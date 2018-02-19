@@ -7,6 +7,7 @@ const Nav = styled.nav`
   padding: 10px 0;
   margin: 0 0 20px 0;
 `;
+
 const Title = styled.h4`
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -14,24 +15,18 @@ const Title = styled.h4`
   color: #4a4a4a;
   margin: 0;
 `;
+
 const List = styled.ul`
   list-style: none;
   padding: 0;
   margin: 10px 0 0 0;
-
-  > * + * {
-    margin-top: 10px;
-  }
-
-  a {
-    font-size: 0.75rem;
-    color: #5b5b5c;
-    text-decoration: none;
-  }
 `;
 
 const ShowAll = styled.a`
   font-weight: 500;
+  font-size: 0.75rem;
+  color: #5b5b5c;
+  text-decoration: none;
 `;
 
 export default props => {
@@ -43,15 +38,11 @@ export default props => {
       <Title>{props.title}</Title>
       <List>
         {links}
-        {(() => {
-          if (props.all) {
-            return (
-              <li>
-                <ShowAll href={props.all.url}>{props.all.text} →</ShowAll>
-              </li>
-            );
-          }
-        })()}
+        {props.all && (
+          <li>
+            <ShowAll href={props.all.url}>{props.all.text} →</ShowAll>
+          </li>
+        )}
       </List>
     </Nav>
   );

@@ -4,7 +4,7 @@ import { media } from "../Media";
 
 import koreanair from "./koreanair.png";
 import koreanair_x2 from "./koreanair@2x.png";
-import lye from "./lye.png";
+import lye from "./LYE.png";
 import lye_x2 from "./lye@2x.png";
 import onetwotrip from "./onetwotrip.png";
 import onetwotrip_x2 from "./onetwotrip@2x.png";

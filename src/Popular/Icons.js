@@ -30,7 +30,7 @@ const Icons = styled.div`
   `};
 `;
 
-const Icon = styled.div`
+const IconWrapper = styled.div`
   background: #fff;
   height: 48px;
   width: 48px;
@@ -76,7 +76,7 @@ const Button = styled.button`
     `};
   }
 
-  ${Icon} {
+  ${IconWrapper} {
     box-shadow: ${props =>
       props.active
         ? "0 2px 14px 0 rgba(90, 137, 163, 0.19);"
@@ -97,7 +97,7 @@ const Text = styled.span`
   margin-top: 15px;
 `;
 
-const Img = styled.img`
+const Icon = styled.img`
   width: 22px;
   height: 22px;
 `;
@@ -106,43 +106,43 @@ export default () => {
   return (
     <Icons>
       <Button active>
-        <Icon active>
-          <Img src={anywhere} alt="Куда угодно" />
-        </Icon>
+        <IconWrapper active>
+          <Icon src={anywhere} alt="Куда угодно" />
+        </IconWrapper>
         <Text active>Куда угодно</Text>
       </Button>
       <Button>
-        <Icon>
-          <Img src={summer_and_sea} alt="Cолнце и море" />
-        </Icon>
+        <IconWrapper>
+          <Icon src={summer_and_sea} alt="Cолнце и море" />
+        </IconWrapper>
         <Text>
           Cолнце <br />и море
         </Text>
       </Button>
       <Button>
-        <Icon>
-          <Img src={shopping} alt="Шопинг, город" />
-        </Icon>
+        <IconWrapper>
+          <Icon src={shopping} alt="Шопинг, город" />
+        </IconWrapper>
         <Text>Шопинг, город</Text>
       </Button>
       <Button>
-        <Icon>
-          <Img src={culture} alt="Культура и история" />
-        </Icon>
+        <IconWrapper>
+          <Icon src={culture} alt="Культура и история" />
+        </IconWrapper>
         <Text>
           Культура <br />и история
         </Text>
       </Button>
       <Button>
-        <Icon>
-          <Img src={night_life} alt="Ночная жизнь" />
-        </Icon>
+        <IconWrapper>
+          <Icon src={night_life} alt="Ночная жизнь" />
+        </IconWrapper>
         <Text>Ночная жизнь</Text>
       </Button>
       <Button>
-        <Icon>
-          <Img src={with_child} alt="Отдых с детьми" />
-        </Icon>
+        <IconWrapper>
+          <Icon src={with_child} alt="Отдых с детьми" />
+        </IconWrapper>
         <Text>
           Отдых <br />с детьми
         </Text>

@@ -83,8 +83,8 @@ const RatingDesc = styled.p`
   margin: 3px 0 0 0;
 
   ${media.md`
-      font-size: 0.875rem;
-    `};
+    font-size: 0.875rem;
+  `};
 `;
 
 const Links = styled.div`
