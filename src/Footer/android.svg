@@ -1,0 +1,12 @@
+<svg width="20" height="22" viewBox="0 0 20 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>play_solid</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-2519 -7140)">
+<g id="play_solid">
+<use xlink:href="#path0_fill" transform="translate(2519 7140)" fill="#FFFFFF"/>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 10.0015 5.14829C 10.0015 5.14829 1.49752 0.409433 0.998068 0.131021C 0.497788 -0.147391 0 0.0214957 0 0.603402L 0 10.7199L 0 21.042C 0 21.4776 0.355681 21.6666 0.790311 21.4249C 1.22411 21.1833 10.0015 16.2915 10.0015 16.2915L 11.79 15.2953C 12.7495 14.7609 14.6685 13.6921 14.6685 13.6921C 14.6685 13.6921 18.6284 11.4849 19.1553 11.1923C 19.6813 10.8988 19.6306 10.4966 19.1868 10.265C 18.7422 10.0343 14.6685 7.74847 14.6685 7.74847L 10.0015 5.14829Z"/>
+</defs>
+</svg>
