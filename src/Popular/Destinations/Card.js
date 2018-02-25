@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { media } from "../../Media";
+import { FormattedNumber } from "react-intl";
 
 const Card = styled.div`
   overflow: hidden;
@@ -133,7 +134,16 @@ export default props => {
         <Row>
           <City>{props.city}</City>
           <Find href="http://">
-            <span>Найти от {props.price} ₽</span>
+            <span>
+              Найти от{" "}
+              <FormattedNumber
+                value={props.price}
+                style={`currency`}
+                currency="RUB"
+                minimumFractionDigits={0}
+                maximumFractionDigits={0}
+              />
+            </span>
           </Find>
         </Row>
         <Row>

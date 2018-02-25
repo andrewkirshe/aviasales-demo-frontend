@@ -22,23 +22,23 @@ const destinations = [
     routes: [
       {
         from: "Москвы",
-        price: "4 837"
+        price: 4837
       },
       {
         from: "Санкт-Петербурга",
-        price: "7 857"
+        price: 7857
       },
       {
         from: "Новосибирска",
-        price: "15 127"
+        price: 15127
       },
       {
         from: "Екатеринбурга",
-        price: "9 275"
+        price: 9275
       },
       {
         from: "Челябинска",
-        price: "9 148"
+        price: 9148
       }
     ]
   },
@@ -52,23 +52,23 @@ const destinations = [
     routes: [
       {
         from: "Москвы",
-        price: "6 758"
+        price: 6758
       },
       {
         from: "Санкт-Петербурга",
-        price: "9 932"
+        price: 9932
       },
       {
         from: "Сочи",
-        price: "11 951"
+        price: 11951
       },
       {
         from: "Краснодара",
-        price: "11 741"
+        price: 11741
       },
       {
         from: "Ростова-на-Дону",
-        price: "11 956"
+        price: 11956
       }
     ]
   },
@@ -82,23 +82,23 @@ const destinations = [
     routes: [
       {
         from: "Москвы",
-        price: "8 319"
+        price: 8319
       },
       {
         from: "Санкт-Петербурга",
-        price: "10 800"
+        price: 10800
       },
       {
         from: "Краснодара",
-        price: "12 098"
+        price: 12098
       },
       {
         from: "Сургута",
-        price: "16 277"
+        price: 16277
       },
       {
         from: "Нового Уренгоя",
-        price: "15 987"
+        price: 15987
       }
     ]
   }

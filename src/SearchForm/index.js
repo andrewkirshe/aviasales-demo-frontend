@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { media } from "../Media";
-import Calendar from "./Calendar";
+import DateRange from "./DateRange";
 import arrows from "./arrows.svg";
-import calendar from "./calendar.svg";
 import FindButton from "./FindButton";
 
 const SearchForm = styled.div`
@@ -224,6 +223,108 @@ const Button = styled.button`
   margin: 0;
 `;
 
+const prices = {
+  1: {
+    0: 42130,
+    1: 56434,
+    2: 23234,
+    3: 34534,
+    4: 85754,
+    5: 34323,
+    6: 56756,
+    7: 34544,
+    8: 56887,
+    9: 23421,
+    10: 23455,
+    11: 67887,
+    12: 12312,
+    13: 32423,
+    14: 32435,
+    15: 45335,
+    16: 65654,
+    17: 12312,
+    18: 12312,
+    19: 23434,
+    20: 23412,
+    21: 43545,
+    22: 45646,
+    23: 23432,
+    24: 43545,
+    25: 34534,
+    26: 56734,
+    27: 23423,
+    28: 23456
+  },
+  2: {
+    0: 42130,
+    1: 56434,
+    2: 23234,
+    3: 34534,
+    4: 85754,
+    5: 34323,
+    6: 56756,
+    7: 34544,
+    8: 56887,
+    9: 23421,
+    10: 23455,
+    11: 67887,
+    12: 12312,
+    13: 32423,
+    14: 32435,
+    15: 45335,
+    16: 65654,
+    17: 12312,
+    18: 12312,
+    19: 23434,
+    20: 23412,
+    21: 43545,
+    22: 45646,
+    23: 23432,
+    24: 43545,
+    25: 34534,
+    26: 56734,
+    27: 23423,
+    28: 45634,
+    29: 23456,
+    30: 12312,
+    31: 12312
+  },
+  3: {
+    0: 42130,
+    1: 56434,
+    2: 23234,
+    3: 34534,
+    4: 85754,
+    5: 34323,
+    6: 56756,
+    7: 34544,
+    8: 56887,
+    9: 23421,
+    10: 23455,
+    11: 67887,
+    12: 12312,
+    13: 32423,
+    14: 32435,
+    15: 45335,
+    16: 65654,
+    17: 12312,
+    18: 12312,
+    19: 23434,
+    20: 23412,
+    21: 43545,
+    22: 45646,
+    23: 23432,
+    24: 43545,
+    25: 34534,
+    26: 56734,
+    27: 23423,
+    28: 98008,
+    29: 23456,
+    30: 12312,
+    31: 12312
+  }
+};
+
 export default props => {
   return (
     <SearchForm page={props.page}>
@@ -269,22 +370,7 @@ export default props => {
                   </Field>
                 </Row>
                 <Row page={props.page}>
-                  <DateFiled>
-                    <Calendar
-                      name="depart_date"
-                      id="depart_date"
-                      label="Туда"
-                      button={calendar}
-                    />
-                  </DateFiled>
-                  <DateFiled>
-                    <Calendar
-                      name="return_date"
-                      id="return_date"
-                      label="Обратно"
-                      button={calendar}
-                    />
-                  </DateFiled>
+                  <DateRange prices={prices} />
                 </Row>
                 <Row>
                   <Passengers page={props.page}>

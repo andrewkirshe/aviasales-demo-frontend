@@ -15,7 +15,7 @@ const destinations = [
   {
     city: "Краснодар",
     country: "Россия",
-    price: "1 212",
+    price: 1212,
     date: "18 марта",
     image: krasnodar,
     flag: {
@@ -26,7 +26,7 @@ const destinations = [
   {
     city: "Сочи (Адлер)",
     country: "Россия",
-    price: "1 334",
+    price: 1334,
     date: "27 марта",
     image: sochi,
     flag: {
@@ -37,7 +37,7 @@ const destinations = [
   {
     city: "Санкт-Петербург",
     country: "Россия",
-    price: "1 508",
+    price: 1508,
     date: "19 февраля",
     image: spb,
     flag: {
@@ -48,7 +48,7 @@ const destinations = [
   {
     city: "Минеральные Воды",
     country: "Россия",
-    price: "2 074",
+    price: 2074,
     date: "13 марта",
     image: minwater,
     flag: {
@@ -59,7 +59,7 @@ const destinations = [
   {
     city: "Симферополь (Крым)",
     country: "Крым",
-    price: "2 407",
+    price: 2407,
     date: "13 марта",
     image: simferopol,
     flag: {
@@ -70,7 +70,7 @@ const destinations = [
   {
     city: "Барселона",
     country: "Испания",
-    price: "4 247",
+    price: 4247,
     date: "24 марта",
     image: barselona,
     flag: {

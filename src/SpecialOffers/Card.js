@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { media } from "../Media";
+import { FormattedNumber } from "react-intl";
 
 const Card = styled.div`
   margin-bottom: 12px;
@@ -105,7 +106,14 @@ export default props => {
           <Logo src={props.company} alt="" />
           <Info>
             <Price>
-              <From>от</From> {props.price} ₽
+              <From>от</From>{" "}
+              <FormattedNumber
+                value={props.price}
+                style={`currency`}
+                currency="RUB"
+                minimumFractionDigits={0}
+                maximumFractionDigits={0}
+              />
             </Price>
             <Dayleft>{props.dayLeft}</Dayleft>
           </Info>

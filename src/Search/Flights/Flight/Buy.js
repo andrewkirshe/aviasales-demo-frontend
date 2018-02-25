@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { media } from "../../../Media";
+import { FormattedNumber } from "react-intl";
 import Luggage from "./Luggage";
 
 const Wrapper = styled.div`
@@ -135,7 +136,15 @@ export default props => {
     return (
       <DealerRow key={index} href="http://">
         <span>{dealer.name}</span>
-        <span>{dealer.price} ₽</span>
+        <span>
+          <FormattedNumber
+            value={dealer.price}
+            style={`currency`}
+            currency="RUB"
+            minimumFractionDigits={0}
+            maximumFractionDigits={0}
+          />
+        </span>
       </DealerRow>
     );
   });

@@ -2,9 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import checked from "./checked.svg";
 
+const Wrapper = styled.div``;
+
 const Label = styled.label`
   display: flex;
-  padding: 6px 16px;
+  padding: 6px 0;
   font-size: 0.75rem;
   margin-bottom: 5px;
   position: relative;
@@ -60,12 +62,21 @@ const Input = styled.input`
   }
 `;
 
+const Description = styled.p`
+  font-size: 0.75rem;
+  margin: 0 0 15px 0;
+  line-height: 1.5;
+`;
+
 export default props => {
   return (
-    <Label>
-      <Input type="checkbox" defaultChecked={props.checked} />
-      <Name>{props.label}</Name>
-      <Notes>{props.notes}</Notes>
-    </Label>
+    <Wrapper>
+      <Label>
+        <Input type="checkbox" defaultChecked={props.checked} />
+        <Name>{props.label}</Name>
+        <Notes>{props.notes}</Notes>
+      </Label>
+      {props.description && <Description>{props.description}</Description>}
+    </Wrapper>
   );
 };

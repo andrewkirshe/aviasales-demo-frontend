@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { FormattedNumber } from "react-intl";
 
 const Route = styled.div`
   display: flex;
@@ -30,7 +31,16 @@ export default props => {
   return (
     <Route>
       <City>Из {props.from}</City>
-      <Price href="http://">от {props.price} ₽</Price>
+      <Price href="http://">
+        от{" "}
+        <FormattedNumber
+          value={props.price}
+          style={`currency`}
+          currency="RUB"
+          minimumFractionDigits={0}
+          maximumFractionDigits={0}
+        />
+      </Price>
     </Route>
   );
 };

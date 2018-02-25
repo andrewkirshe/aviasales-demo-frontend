@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 `;
 
 const Name = styled.button`
-  padding: 20px 16px 20px 34px;
+  padding: 18px 16px 17px 34px;
   background: 0;
   border: 0;
   position: relative;
@@ -26,7 +26,7 @@ const Name = styled.button`
     border-top-color: #a0b0b9;
     position: absolute;
     left: ${props => (props.collapse ? "19px" : "16px")};
-    top: ${props => (props.collapse ? "20px" : "23px")};
+    top: ${props => (props.collapse ? "18px" : "21px")};
     transform: rotate(${props => (props.collapse ? "-90deg" : "0")});
   }
 `;
@@ -41,10 +41,18 @@ const Icon = styled.img`
   display: block;
 `;
 
+const Counter = styled.span`
+  color: #a0b0b9;
+  margin-left: 8px;
+`;
+
 export default props => {
   return (
     <Wrapper>
-      <Name collapse={props.collapse}>{props.label}</Name>
+      <Name collapse={props.collapse}>
+        {props.label}
+        {props.count && <Counter>{props.count}</Counter>}
+      </Name>
       {props.reset && (
         <Reset>
           <Icon src={clear} alt="Сбросить фильтр" />

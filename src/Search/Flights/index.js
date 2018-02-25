@@ -139,7 +139,7 @@ const flightsData = [
     dealers: [
       {
         name: "Clickavia",
-        price: "7 712",
+        price: 7712,
         luggage: [
           {
             handbag: "5",
@@ -192,7 +192,7 @@ const flightsData = [
     dealers: [
       {
         name: "Clickavia",
-        price: "7 712",
+        price: 7712,
         luggage: [
           {
             handbag: "10"
@@ -201,7 +201,7 @@ const flightsData = [
       },
       {
         name: "Билетик Аэро",
-        price: "8 202",
+        price: 8202,
         luggage: [
           {
             handbag: "10"
@@ -278,7 +278,7 @@ const flightsData = [
     dealers: [
       {
         name: "Clickavia",
-        price: "7 712",
+        price: 7712,
         luggage: [
           {
             handbag: "10"
@@ -287,14 +287,14 @@ const flightsData = [
             handbag: "10",
             baggage: {
               weight: "20",
-              price: "- 267 ₽"
+              price: 267
             }
           }
         ]
       },
       {
         name: "Билетик Аэро",
-        price: "8 202",
+        price: 8202,
         luggage: [
           {
             handbag: "10"
@@ -370,20 +370,20 @@ const flightsData = [
     ],
     dealers: [
       {
-        name: "1Clickavia",
-        price: "7 712",
+        name: "Clickavia",
+        price: 7712,
         luggage: [
           {
             baggage: {
               weight: "20",
-              price: "- 267 ₽"
+              price: 267
             }
           }
         ]
       },
       {
-        name: "2Билетик Аэро",
-        price: "8 202",
+        name: "Билетик Аэро",
+        price: 8202,
         luggage: [
           {
             handbag: "10"
@@ -391,20 +391,20 @@ const flightsData = [
         ]
       },
       {
-        name: "3Clickavia",
-        price: "7 712",
+        name: "Clickavia",
+        price: 7712,
         luggage: [
           {
             baggage: {
               weight: "20",
-              price: "- 267 ₽"
+              price: 267
             }
           }
         ]
       },
       {
-        name: "4Билетик Аэро",
-        price: "8 202",
+        name: "Билетик Аэро",
+        price: 8202,
         luggage: [
           {
             handbag: "10"
@@ -412,20 +412,20 @@ const flightsData = [
         ]
       },
       {
-        name: "5Clickavia",
-        price: "7 712",
+        name: "Clickavia",
+        price: 7712,
         luggage: [
           {
             baggage: {
               weight: "20",
-              price: "- 267 ₽"
+              price: 267
             }
           }
         ]
       },
       {
-        name: "6Билетик Аэро",
-        price: "8 202",
+        name: "Билетик Аэро",
+        price: 8202,
         luggage: [
           {
             handbag: "10"
@@ -497,7 +497,7 @@ const flightsData = [
     dealers: [
       {
         name: "Clickavia",
-        price: "7 712",
+        price: 7712,
         luggage: [
           {
             handbag: "10"
@@ -506,14 +506,14 @@ const flightsData = [
             handbag: "10",
             baggage: {
               weight: "20",
-              price: "- 267 ₽"
+              price: 267
             }
           }
         ]
       },
       {
         name: "Билетик Аэро",
-        price: "8 202",
+        price: 8202,
         luggage: [
           {
             handbag: "10"
@@ -585,7 +585,7 @@ const flightsData = [
     dealers: [
       {
         name: "Clickavia",
-        price: "7 712",
+        price: 7712,
         luggage: [
           {
             handbag: "10"
@@ -594,14 +594,14 @@ const flightsData = [
             handbag: "10",
             baggage: {
               weight: "20",
-              price: "- 267 ₽"
+              price: 267
             }
           }
         ]
       },
       {
         name: "Билетик Аэро",
-        price: "8 202",
+        price: 8202,
         luggage: [
           {
             handbag: "10"
@@ -673,7 +673,7 @@ const flightsData = [
     dealers: [
       {
         name: "Clickavia",
-        price: "7 712",
+        price: 7712,
         luggage: [
           {
             handbag: "10"
@@ -682,14 +682,14 @@ const flightsData = [
             handbag: "10",
             baggage: {
               weight: "20",
-              price: "- 267 ₽"
+              price: 267
             }
           }
         ]
       },
       {
         name: "Билетик Аэро",
-        price: "8 202",
+        price: 8202,
         luggage: [
           {
             handbag: "10"

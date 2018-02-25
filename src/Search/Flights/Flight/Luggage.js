@@ -3,6 +3,7 @@ import styled from "styled-components";
 import handbag from "./handbag.svg";
 import baggage from "./baggage.svg";
 import no_baggage from "./no_baggage.svg";
+import { FormattedNumber } from "react-intl";
 
 const Tab = styled.button`
   display: flex;
@@ -78,7 +79,20 @@ export default props => {
       {!props.single &&
         props.handbag && (
           <AditionalPrice available={props.baggage}>
-            {props.baggage ? props.baggage.price : "Нет багажа"}
+            {props.baggage ? (
+              <span>
+                -
+                <FormattedNumber
+                  value={props.baggage.price}
+                  style={`currency`}
+                  currency="RUB"
+                  minimumFractionDigits={0}
+                  maximumFractionDigits={0}
+                />
+              </span>
+            ) : (
+              "Нет багажа"
+            )}
           </AditionalPrice>
         )}
     </Tab>
