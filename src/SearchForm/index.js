@@ -707,7 +707,6 @@ const prices = {
 };
 
 export default props => {
-  console.log(props.location.pathname);
   return (
     <SearchForm pathname={props.location.pathname}>
       <div className="container">
