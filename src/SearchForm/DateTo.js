@@ -91,23 +91,21 @@ const OneWay = styled.button`
 
 class DateTo extends React.Component {
   handleDayClick = (day, { selected, disabled }) => {
-    if (disabled) {
-      return;
+    if (!disabled) {
+      this.props.onSelectDates({
+        toDate: day,
+        enteredToDate: day
+      });
+      this.props.onToggleTo(false);
     }
-    this.props.onSelectDates({
-      toDate: day,
-      enteredToDate: day
-    });
-    this.props.onToggleTo(false);
   };
 
   handleDayMouseEnter = (day, { selected, disabled }) => {
-    if (disabled) {
-      return;
+    if (!disabled) {
+      this.props.onSelectDates({
+        enteredToDate: day
+      });
     }
-    this.props.onSelectDates({
-      enteredToDate: day
-    });
   };
 
   handleClickOutside = e => {

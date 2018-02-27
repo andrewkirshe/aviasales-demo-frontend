@@ -13,31 +13,31 @@ const Button = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: ${props => (props.page === "home" ? "4px" : "0")};
+  border-radius: ${props => (props.pathname === "/" ? "4px" : "0")};
   line-height: 3.5rem;
   font-size: 1.375rem;
   width: 100%;
   margin: 0 auto;
-  margin-top: ${props => (props.page === "home" ? "16px" : "0")};
+  margin-top: ${props => (props.pathname === "/" ? "16px" : "0")};
   padding: 0 20px;
   max-width: 308px;
   text-decoration: none;
 
   ${media.sm`
-    font-size: ${props => (props.page === "home" ? "1.75rem" : "1.25rem")};
-    flex: ${props => (props.page === "home" ? "none" : "50% 1")};
-    line-height: ${props => (props.page === "home" ? "4rem" : "1.5rem")};
-    margin: ${props => (props.page === "home" ? "auto" : "1px")};
-    margin-top: ${props => (props.page === "home" ? "32px" : "1px")};
+    font-size: ${props => (props.pathname === "/" ? "1.75rem" : "1.25rem")};
+    flex: ${props => (props.pathname === "/" ? "none" : "50% 1")};
+    line-height: ${props => (props.pathname === "/" ? "4rem" : "1.5rem")};
+    margin: ${props => (props.pathname === "/" ? "auto" : "1px")};
+    margin-top: ${props => (props.pathname === "/" ? "32px" : "1px")};
     border-bottom-right-radius: 3px;
   `};
 
   ${media.xl`
-    margin-top: ${props => (props.page === "home" ? "48px" : "0")};
+    margin-top: ${props => (props.pathname === "/" ? "48px" : "0")};
     white-space: nowrap;
-    margin-left: ${props => (props.page === "home" ? "auto" : "16px")};
+    margin-left: ${props => (props.pathname === "/" ? "auto" : "16px")};
     border-radius: 4px;
-    flex: ${props => (props.page === "home" ? "none" : "46% 1")};
+    flex: ${props => (props.pathname === "/" ? "none" : "46% 1")};
   `};
 `;
 
@@ -45,14 +45,14 @@ const Img = styled.img`
   width: 26px;
   height: 21px;
   margin-left: 16px;
-  display: ${props => (props.page === "home" ? "block" : "none")};
+  display: block;
 `;
 
 export default props => {
   return (
-    <Button to="/search" page={props.page}>
+    <Button to="/search" pathname={props.pathname}>
       Найти билеты
-      <Img src={aero} alt="Найти билеты" page={props.page} />
+      {props.pathname === "/" && <Img src={aero} alt="Найти билеты" />}
     </Button>
   );
 };

@@ -6,14 +6,14 @@ import arrows from "./arrows.svg";
 import FindButton from "./FindButton";
 
 const SearchForm = styled.div`
-  display: ${props => (props.page === "home" ? "flex" : "none")};
+  display: ${props => (props.pathname === "/" ? "flex" : "none")};
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
   ${media.md`
     display: flex;
-    margin-bottom: ${props => (props.page === "home" ? "inherit" : "30px")} 
+    margin-bottom: ${props => (props.pathname === "/" ? "inherit" : "30px")} 
   `};
 `;
 
@@ -55,7 +55,7 @@ const Fields = styled.div`
   display: flex;
   flex-wrap: wrap;
   ${media.xl`
-    flex-wrap: ${props => (props.page === "home" ? "wrap" : "nowrap")};
+    flex-wrap: ${props => (props.pathname === "/" ? "wrap" : "nowrap")};
   `};
 `;
 
@@ -72,7 +72,7 @@ const Row = styled.div`
 
   &:nth-child(3) {
     ${media.xl`
-      flex: ${props => (props.page === "home" ? "30% 1" : "46% 1")};
+      flex: ${props => (props.pathname === "/" ? "30% 1" : "46% 1")};
     `};
   }
 `;
@@ -99,7 +99,7 @@ const Passengers = styled.button`
   transition: all 0.3s;
   box-shadow: inset 0 0 0 2px transparent;
   z-index: 10;
-  flex: ${props => (props.page === "home" ? "1 1" : "50% 1")};
+  flex: ${props => (props.pathname === "/" ? "1 1" : "50% 1")};
   margin: 1px;
   background: #fff;
   text-align: left;
@@ -108,7 +108,7 @@ const Passengers = styled.button`
   ${media.sm`
     border-bottom-left-radius: 0;
     border-bottom-right-radius: ${props =>
-      props.page === "home" ? "3px" : "0"};
+      props.pathname === "/" ? "3px" : "0"};
   `};
 
   ${media.xl`
@@ -225,124 +225,508 @@ const Button = styled.button`
 
 const prices = {
   1: {
-    0: 42130,
-    1: 56434,
-    2: 23234,
-    3: 34534,
-    4: 85754,
-    5: 34323,
-    6: 56756,
-    7: 34544,
-    8: 56887,
-    9: 23421,
-    10: 23455,
-    11: 67887,
-    12: 12312,
-    13: 32423,
-    14: 32435,
-    15: 45335,
-    16: 65654,
-    17: 12312,
-    18: 12312,
-    19: 23434,
-    20: 23412,
-    21: 43545,
-    22: 45646,
-    23: 23432,
-    24: 43545,
-    25: 34534,
-    26: 56734,
-    27: 23423,
-    28: 23456
+    0: {
+      price: 42130,
+      tag: "DayPicker-Best-Price"
+    },
+    1: {
+      price: 56434,
+      tag: "DayPicker-Best-Price"
+    },
+    2: {
+      price: 23234,
+      tag: "DayPicker-Best-Price"
+    },
+    3: {
+      price: 34534
+    },
+    4: {
+      price: 85754
+    },
+    5: {
+      price: 34323
+    },
+    6: {
+      price: 56756,
+      tag: "DayPicker-Best-Price"
+    },
+    7: {
+      price: 34544,
+      tag: "DayPicker-Best-Price"
+    },
+    8: {
+      price: 56887,
+      tag: "DayPicker-Best-Price"
+    },
+    9: {
+      price: 23421,
+      tag: "DayPicker-Best-Price"
+    },
+    10: {
+      price: 23455,
+      tag: "DayPicker-Best-Price"
+    },
+    11: {
+      price: 67887
+    },
+    12: {
+      price: 12312,
+      tag: "DayPicker-Best-Price"
+    },
+    13: {
+      price: 32423,
+      tag: "DayPicker-Best-Price"
+    },
+    14: {
+      price: 32435
+    },
+    15: {
+      price: 45335
+    },
+    16: {
+      price: 65654,
+      tag: "DayPicker-Best-Price"
+    },
+    17: {
+      price: 12312,
+      tag: "DayPicker-Best-Price"
+    },
+    18: {
+      price: 12312,
+      tag: "DayPicker-Best-Price"
+    },
+    19: {
+      price: 23434,
+      tag: "DayPicker-Best-Price"
+    },
+    20: {
+      price: 23412,
+      tag: "DayPicker-Best-Price"
+    },
+    21: {
+      price: 43545,
+      tag: "DayPicker-Best-Price"
+    },
+    22: {
+      price: 45646,
+      tag: "DayPicker-Best-Price"
+    },
+    23: {
+      price: 23432,
+      tag: "DayPicker-Best-Price"
+    },
+    24: {
+      price: 43545
+    },
+    25: {
+      price: 34534,
+      tag: "DayPicker-Best-Price"
+    },
+    26: {
+      price: 56734,
+      tag: "DayPicker-Best-Price"
+    },
+    27: {
+      price: 23423
+    },
+    28: {
+      price: 98008
+    },
+    29: {
+      price: 23456
+    },
+    30: {
+      price: 12312,
+      tag: "DayPicker-Best-Price"
+    },
+    31: {
+      price: 12312,
+      tag: "DayPicker-Best-Price"
+    }
   },
   2: {
-    0: 42130,
-    1: 56434,
-    2: 23234,
-    3: 34534,
-    4: 85754,
-    5: 34323,
-    6: 56756,
-    7: 34544,
-    8: 56887,
-    9: 23421,
-    10: 23455,
-    11: 67887,
-    12: 12312,
-    13: 32423,
-    14: 32435,
-    15: 45335,
-    16: 65654,
-    17: 12312,
-    18: 12312,
-    19: 23434,
-    20: 23412,
-    21: 43545,
-    22: 45646,
-    23: 23432,
-    24: 43545,
-    25: 34534,
-    26: 56734,
-    27: 23423,
-    28: 45634,
-    29: 23456,
-    30: 12312,
-    31: 12312
+    0: {
+      price: 42130,
+      tag: "DayPicker-Best-Price"
+    },
+    1: {
+      price: 56434,
+      tag: "DayPicker-Best-Price"
+    },
+    2: {
+      price: 23234,
+      tag: "DayPicker-Best-Price"
+    },
+    3: {
+      price: 34534
+    },
+    4: {
+      price: 85754
+    },
+    5: {
+      price: 34323
+    },
+    6: {
+      price: 56756,
+      tag: "DayPicker-Best-Price"
+    },
+    7: {
+      price: 34544,
+      tag: "DayPicker-Best-Price"
+    },
+    8: {
+      price: 56887,
+      tag: "DayPicker-Best-Price"
+    },
+    9: {
+      price: 23421,
+      tag: "DayPicker-Best-Price"
+    },
+    10: {
+      price: 23455,
+      tag: "DayPicker-Best-Price"
+    },
+    11: {
+      price: 67887
+    },
+    12: {
+      price: 12312,
+      tag: "DayPicker-Best-Price"
+    },
+    13: {
+      price: 32423,
+      tag: "DayPicker-Best-Price"
+    },
+    14: {
+      price: 32435
+    },
+    15: {
+      price: 45335
+    },
+    16: {
+      price: 65654,
+      tag: "DayPicker-Best-Price"
+    },
+    17: {
+      price: 12312,
+      tag: "DayPicker-Best-Price"
+    },
+    18: {
+      price: 12312,
+      tag: "DayPicker-Best-Price"
+    },
+    19: {
+      price: 23434,
+      tag: "DayPicker-Best-Price"
+    },
+    20: {
+      price: 23412,
+      tag: "DayPicker-Best-Price"
+    },
+    21: {
+      price: 43545,
+      tag: "DayPicker-Best-Price"
+    },
+    22: {
+      price: 45646,
+      tag: "DayPicker-Best-Price"
+    },
+    23: {
+      price: 23432,
+      tag: "DayPicker-Best-Price"
+    },
+    24: {
+      price: 43545
+    },
+    25: {
+      price: 34534,
+      tag: "DayPicker-Best-Price"
+    },
+    26: {
+      price: 56734,
+      tag: "DayPicker-Best-Price"
+    },
+    27: {
+      price: 23423
+    },
+    28: {
+      price: 98008
+    },
+    29: {
+      price: 23456
+    },
+    30: {
+      price: 12312,
+      tag: "DayPicker-Best-Price"
+    },
+    31: {
+      price: 12312,
+      tag: "DayPicker-Best-Price"
+    }
   },
   3: {
-    0: 42130,
-    1: 56434,
-    2: 23234,
-    3: 34534,
-    4: 85754,
-    5: 34323,
-    6: 56756,
-    7: 34544,
-    8: 56887,
-    9: 23421,
-    10: 23455,
-    11: 67887,
-    12: 12312,
-    13: 32423,
-    14: 32435,
-    15: 45335,
-    16: 65654,
-    17: 12312,
-    18: 12312,
-    19: 23434,
-    20: 23412,
-    21: 43545,
-    22: 45646,
-    23: 23432,
-    24: 43545,
-    25: 34534,
-    26: 56734,
-    27: 23423,
-    28: 98008,
-    29: 23456,
-    30: 12312,
-    31: 12312
+    0: {
+      price: 42130,
+      tag: "DayPicker-Best-Price"
+    },
+    1: {
+      price: 56434,
+      tag: "DayPicker-Best-Price"
+    },
+    2: {
+      price: 23234,
+      tag: "DayPicker-Best-Price"
+    },
+    3: {
+      price: 34534
+    },
+    4: {
+      price: 85754
+    },
+    5: {
+      price: 34323
+    },
+    6: {
+      price: 56756,
+      tag: "DayPicker-Best-Price"
+    },
+    7: {
+      price: 34544,
+      tag: "DayPicker-Best-Price"
+    },
+    8: {
+      price: 56887,
+      tag: "DayPicker-Best-Price"
+    },
+    9: {
+      price: 23421,
+      tag: "DayPicker-Best-Price"
+    },
+    10: {
+      price: 23455,
+      tag: "DayPicker-Best-Price"
+    },
+    11: {
+      price: 67887
+    },
+    12: {
+      price: 12312,
+      tag: "DayPicker-Best-Price"
+    },
+    13: {
+      price: 32423,
+      tag: "DayPicker-Best-Price"
+    },
+    14: {
+      price: 32435
+    },
+    15: {
+      price: 45335
+    },
+    16: {
+      price: 65654,
+      tag: "DayPicker-Best-Price"
+    },
+    17: {
+      price: 12312,
+      tag: "DayPicker-Best-Price"
+    },
+    18: {
+      price: 12312,
+      tag: "DayPicker-Best-Price"
+    },
+    19: {
+      price: 23434,
+      tag: "DayPicker-Best-Price"
+    },
+    20: {
+      price: 23412,
+      tag: "DayPicker-Best-Price"
+    },
+    21: {
+      price: 43545,
+      tag: "DayPicker-Best-Price"
+    },
+    22: {
+      price: 45646,
+      tag: "DayPicker-Best-Price"
+    },
+    23: {
+      price: 23432,
+      tag: "DayPicker-Best-Price"
+    },
+    24: {
+      price: 43545
+    },
+    25: {
+      price: 34534,
+      tag: "DayPicker-Best-Price"
+    },
+    26: {
+      price: 56734,
+      tag: "DayPicker-Best-Price"
+    },
+    27: {
+      price: 23423
+    },
+    28: {
+      price: 98008
+    },
+    29: {
+      price: 23456
+    },
+    30: {
+      price: 12312,
+      tag: "DayPicker-Best-Price"
+    },
+    31: {
+      price: 12312,
+      tag: "DayPicker-Best-Price"
+    }
+  },
+  4: {
+    0: {
+      price: 42130,
+      tag: "DayPicker-Best-Price"
+    },
+    1: {
+      price: 56434,
+      tag: "DayPicker-Best-Price"
+    },
+    2: {
+      price: 23234,
+      tag: "DayPicker-Best-Price"
+    },
+    3: {
+      price: 34534
+    },
+    4: {
+      price: 85754
+    },
+    5: {
+      price: 34323
+    },
+    6: {
+      price: 56756,
+      tag: "DayPicker-Best-Price"
+    },
+    7: {
+      price: 34544,
+      tag: "DayPicker-Best-Price"
+    },
+    8: {
+      price: 56887,
+      tag: "DayPicker-Best-Price"
+    },
+    9: {
+      price: 23421,
+      tag: "DayPicker-Best-Price"
+    },
+    10: {
+      price: 23455,
+      tag: "DayPicker-Best-Price"
+    },
+    11: {
+      price: 67887
+    },
+    12: {
+      price: 12312,
+      tag: "DayPicker-Best-Price"
+    },
+    13: {
+      price: 32423,
+      tag: "DayPicker-Best-Price"
+    },
+    14: {
+      price: 32435
+    },
+    15: {
+      price: 45335
+    },
+    16: {
+      price: 65654,
+      tag: "DayPicker-Best-Price"
+    },
+    17: {
+      price: 12312,
+      tag: "DayPicker-Best-Price"
+    },
+    18: {
+      price: 12312,
+      tag: "DayPicker-Best-Price"
+    },
+    19: {
+      price: 23434,
+      tag: "DayPicker-Best-Price"
+    },
+    20: {
+      price: 23412,
+      tag: "DayPicker-Best-Price"
+    },
+    21: {
+      price: 43545,
+      tag: "DayPicker-Best-Price"
+    },
+    22: {
+      price: 45646,
+      tag: "DayPicker-Best-Price"
+    },
+    23: {
+      price: 23432,
+      tag: "DayPicker-Best-Price"
+    },
+    24: {
+      price: 43545
+    },
+    25: {
+      price: 34534,
+      tag: "DayPicker-Best-Price"
+    },
+    26: {
+      price: 56734,
+      tag: "DayPicker-Best-Price"
+    },
+    27: {
+      price: 23423
+    },
+    28: {
+      price: 98008
+    },
+    29: {
+      price: 23456
+    },
+    30: {
+      price: 12312,
+      tag: "DayPicker-Best-Price"
+    },
+    31: {
+      price: 12312,
+      tag: "DayPicker-Best-Price"
+    }
   }
 };
 
 export default props => {
+  console.log(props.location.pathname);
   return (
-    <SearchForm page={props.page}>
+    <SearchForm pathname={props.location.pathname}>
       <div className="container">
         <div className="row center-xs">
           <div
             className={
-              "col-xs-12" + (props.page === "home" ? " col-md-10" : "")
+              props.location.pathname === "/"
+                ? "col-xs-12 col-md-10"
+                : "col-xs-12"
             }
           >
-            {props.page === "home" && (
+            {props.location.pathname === "/" && (
               <Title>
                 Поиск дешевых авиабилетов
                 <SubTitle>Лучший способ купить авиабилеты дешево</SubTitle>
               </Title>
             )}
             <Form action="">
-              <Fields page={props.page}>
+              <Fields pathname={props.location.pathname}>
                 <Row>
                   <Field>
                     <Origin
@@ -369,16 +753,20 @@ export default props => {
                     <Label htmlFor="destination">Город прибытия</Label>
                   </Field>
                 </Row>
-                <Row page={props.page}>
+                <Row pathname={props.location.pathname}>
                   <DateRange prices={prices} />
                 </Row>
                 <Row>
-                  <Passengers page={props.page}>
+                  <Passengers pathname={props.location.pathname}>
                     1 пассажир, <Grade>эконом</Grade>
                   </Passengers>
-                  {props.page !== "home" && <FindButton page={props.page} />}
+                  {props.location.pathname === "/search" && (
+                    <FindButton pathname={props.location.pathname} />
+                  )}
                 </Row>
-                {props.page === "home" && <FindButton page={props.page} />}
+                {props.location.pathname === "/" && (
+                  <FindButton pathname={props.location.pathname} />
+                )}
               </Fields>
             </Form>
           </div>

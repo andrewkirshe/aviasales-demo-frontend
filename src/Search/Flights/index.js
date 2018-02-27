@@ -108,31 +108,27 @@ const flightsData = [
       origin: {
         city: "Москва",
         airport: "VKO",
-        date: "24 фев 2018, Сб",
-        time: "00:05"
+        dateTime: 1519430700
       },
       destination: {
         city: "Барселона",
         airport: "BCN",
-        date: "24 фев 2018, Сб",
-        time: "03:05"
+        dateTime: 1519441500
       },
-      duration: "5 ч"
+      duration: 18000
     },
     return: {
       origin: {
         city: "Барселона",
         airport: "BCN",
-        date: "3 мар 2018, Сб",
-        time: "10:35"
+        dateTime: 1520073300
       },
       destination: {
         city: "Москва",
         airport: "SVO",
-        date: "3 мар 2018, Сб",
-        time: "17:10"
+        dateTime: 1520097000
       },
-      duration: "4ч 35 м"
+      duration: 16500
     },
     type: "ЧАРТЕР",
     airlines: [airlines.rossiya],
@@ -161,34 +157,29 @@ const flightsData = [
       origin: {
         city: "Москва",
         airport: "VKO",
-        date: "24 фев 2018, Сб",
-        time: "00:05"
+        dateTime: 1519430700
       },
       destination: {
         city: "Барселона",
         airport: "BCN",
-        date: "24 фев 2018, Сб",
-        time: "03:05"
+        dateTime: 1519441500
       },
-      duration: "5ч"
+      duration: 18000
     },
     return: {
       origin: {
         city: "Барселона",
         airport: "BCN",
-        date: "3 мар 2018, Сб",
-        time: "10:35"
+        dateTime: 1520073300
       },
       destination: {
         city: "Москва",
         airport: "SVO",
-        date: "3 мар 2018, Сб",
-        time: "17:10"
+        dateTime: 1520097000
       },
-      duration: "4ч 35 м"
+      duration: 16500
     },
-    type: "ЧАРТЕР",
-    airlines: [airlines.rossiya, airlines.redwings],
+    airlines: [airlines.nordwind],
     dealers: [
       {
         name: "Clickavia",
@@ -220,61 +211,30 @@ const flightsData = [
       origin: {
         city: "Москва",
         airport: "VKO",
-        date: "24 фев 2018, Сб",
-        time: "00:05"
+        dateTime: 1519430700
       },
       destination: {
         city: "Барселона",
         airport: "BCN",
-        date: "24 фев 2018, Сб",
-        time: "03:05"
+        dateTime: 1519441500
       },
-      duration: "5ч"
+      duration: 18000
     },
     return: {
       origin: {
         city: "Барселона",
         airport: "BCN",
-        date: "3 мар 2018, Сб",
-        time: "10:35"
+        dateTime: 1520073300
       },
       destination: {
         city: "Москва",
         airport: "SVO",
-        date: "3 мар 2018, Сб",
-        time: "17:10"
+        dateTime: 1520097000
       },
-      duration: "4ч 35 м"
+      duration: 16500
     },
     type: "ЧАРТЕР",
-    airlines: [
-      {
-        name: "Rossiya Airlines",
-        logo: {
-          s: {
-            x1: rossiya_s,
-            x2: rossiya_s_2x
-          },
-          l: {
-            x1: rossiya_l,
-            x2: rossiya_l_2x
-          }
-        }
-      },
-      {
-        name: "Red Wings Airlines",
-        logo: {
-          s: {
-            x1: redwings_s,
-            x2: redwings_s_2x
-          },
-          l: {
-            x1: redwings_l,
-            x2: redwings_l_2x
-          }
-        }
-      }
-    ],
+    airlines: [airlines.nordwindstar],
     dealers: [
       {
         name: "Clickavia",
@@ -313,61 +273,30 @@ const flightsData = [
       origin: {
         city: "Москва",
         airport: "VKO",
-        date: "24 фев 2018, Сб",
-        time: "00:05"
+        dateTime: 1519430700
       },
       destination: {
         city: "Барселона",
         airport: "BCN",
-        date: "24 фев 2018, Сб",
-        time: "03:05"
+        dateTime: 1519441500
       },
-      duration: "5ч"
+      duration: 18000
     },
     return: {
       origin: {
         city: "Барселона",
         airport: "BCN",
-        date: "3 мар 2018, Сб",
-        time: "10:35"
+        dateTime: 1520073300
       },
       destination: {
         city: "Москва",
         airport: "SVO",
-        date: "3 мар 2018, Сб",
-        time: "17:10"
+        dateTime: 1520097000
       },
-      duration: "4ч 35 м"
+      duration: 16500
     },
     type: "ЧАРТЕР",
-    airlines: [
-      {
-        name: "Rossiya Airlines",
-        logo: {
-          s: {
-            x1: rossiya_s,
-            x2: rossiya_s_2x
-          },
-          l: {
-            x1: rossiya_l,
-            x2: rossiya_l_2x
-          }
-        }
-      },
-      {
-        name: "Red Wings Airlines",
-        logo: {
-          s: {
-            x1: redwings_s,
-            x2: redwings_s_2x
-          },
-          l: {
-            x1: redwings_l,
-            x2: redwings_l_2x
-          }
-        }
-      }
-    ],
+    airlines: [airlines.redwings],
     dealers: [
       {
         name: "Clickavia",
@@ -439,61 +368,30 @@ const flightsData = [
       origin: {
         city: "Москва",
         airport: "VKO",
-        date: "24 фев 2018, Сб",
-        time: "00:05"
+        dateTime: 1519430700
       },
       destination: {
         city: "Барселона",
         airport: "BCN",
-        date: "24 фев 2018, Сб",
-        time: "03:05"
+        dateTime: 1519441500
       },
-      duration: "5ч"
+      duration: 18000
     },
     return: {
       origin: {
         city: "Барселона",
         airport: "BCN",
-        date: "3 мар 2018, Сб",
-        time: "10:35"
+        dateTime: 1520073300
       },
       destination: {
         city: "Москва",
         airport: "SVO",
-        date: "3 мар 2018, Сб",
-        time: "17:10"
+        dateTime: 1520097000
       },
-      duration: "4ч 35 м"
+      duration: 16500
     },
     type: "ЧАРТЕР",
-    airlines: [
-      {
-        name: "Rossiya Airlines",
-        logo: {
-          s: {
-            x1: rossiya_s,
-            x2: rossiya_s_2x
-          },
-          l: {
-            x1: rossiya_l,
-            x2: rossiya_l_2x
-          }
-        }
-      },
-      {
-        name: "Red Wings Airlines",
-        logo: {
-          s: {
-            x1: redwings_s,
-            x2: redwings_s_2x
-          },
-          l: {
-            x1: redwings_l,
-            x2: redwings_l_2x
-          }
-        }
-      }
-    ],
+    airlines: [airlines.rossiya, airlines.redwings],
     dealers: [
       {
         name: "Clickavia",
@@ -527,61 +425,30 @@ const flightsData = [
       origin: {
         city: "Москва",
         airport: "VKO",
-        date: "24 фев 2018, Сб",
-        time: "00:05"
+        dateTime: 1519430700
       },
       destination: {
         city: "Барселона",
         airport: "BCN",
-        date: "24 фев 2018, Сб",
-        time: "03:05"
+        dateTime: 1519441500
       },
-      duration: "5ч"
+      duration: 18000
     },
     return: {
       origin: {
         city: "Барселона",
         airport: "BCN",
-        date: "3 мар 2018, Сб",
-        time: "10:35"
+        dateTime: 1520073300
       },
       destination: {
         city: "Москва",
         airport: "SVO",
-        date: "3 мар 2018, Сб",
-        time: "17:10"
+        dateTime: 1520097000
       },
-      duration: "4ч 35 м"
+      duration: 16500
     },
     type: "ЧАРТЕР",
-    airlines: [
-      {
-        name: "Rossiya Airlines",
-        logo: {
-          s: {
-            x1: rossiya_s,
-            x2: rossiya_s_2x
-          },
-          l: {
-            x1: rossiya_l,
-            x2: rossiya_l_2x
-          }
-        }
-      },
-      {
-        name: "Red Wings Airlines",
-        logo: {
-          s: {
-            x1: redwings_s,
-            x2: redwings_s_2x
-          },
-          l: {
-            x1: redwings_l,
-            x2: redwings_l_2x
-          }
-        }
-      }
-    ],
+    airlines: [airlines.fly],
     dealers: [
       {
         name: "Clickavia",
@@ -615,61 +482,30 @@ const flightsData = [
       origin: {
         city: "Москва",
         airport: "VKO",
-        date: "24 фев 2018, Сб",
-        time: "00:05"
+        dateTime: 1519430700
       },
       destination: {
         city: "Барселона",
         airport: "BCN",
-        date: "24 фев 2018, Сб",
-        time: "03:05"
+        dateTime: 1519441500
       },
-      duration: "5ч"
+      duration: 18000
     },
     return: {
       origin: {
         city: "Барселона",
         airport: "BCN",
-        date: "3 мар 2018, Сб",
-        time: "10:35"
+        dateTime: 1520073300
       },
       destination: {
         city: "Москва",
         airport: "SVO",
-        date: "3 мар 2018, Сб",
-        time: "17:10"
+        dateTime: 1520097000
       },
-      duration: "4ч 35 м"
+      duration: 16500
     },
     type: "ЧАРТЕР",
-    airlines: [
-      {
-        name: "Rossiya Airlines",
-        logo: {
-          s: {
-            x1: rossiya_s,
-            x2: rossiya_s_2x
-          },
-          l: {
-            x1: rossiya_l,
-            x2: rossiya_l_2x
-          }
-        }
-      },
-      {
-        name: "Red Wings Airlines",
-        logo: {
-          s: {
-            x1: redwings_s,
-            x2: redwings_s_2x
-          },
-          l: {
-            x1: redwings_l,
-            x2: redwings_l_2x
-          }
-        }
-      }
-    ],
+    airlines: [airlines.rossiya, airlines.fly],
     dealers: [
       {
         name: "Clickavia",

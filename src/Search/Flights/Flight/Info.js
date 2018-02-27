@@ -85,7 +85,7 @@ export default props => {
     <Wrapper>
       <Header>
         <Airlines>{airlines}</Airlines>
-        <Type>{props.type}</Type>
+        {props.type && <Type>{props.type}</Type>}
         <Share>
           <img src={share} alt="Поделиться" />
         </Share>

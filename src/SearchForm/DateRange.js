@@ -73,7 +73,6 @@ class DateRange extends React.Component {
   renderDay = (day, { selected, disabled }) => {
     const date = day.getDate();
     const month = day.getMonth();
-
     return (
       <div>
         <div>{date}</div>
@@ -82,12 +81,14 @@ class DateRange extends React.Component {
           {!disabled &&
             this.props.prices[month] &&
             this.props.prices[month][date] && (
-              <FormattedNumber
-                value={this.props.prices[month][date]}
-                style={`decimal`}
-                minimumFractionDigits={0}
-                maximumFractionDigits={0}
-              />
+              <div className={this.props.prices[month][date].tag}>
+                <FormattedNumber
+                  value={this.props.prices[month][date].price}
+                  style={`decimal`}
+                  minimumFractionDigits={0}
+                  maximumFractionDigits={0}
+                />
+              </div>
             )}
         </div>
       </div>

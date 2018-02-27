@@ -15,8 +15,8 @@ class App extends Component {
       <IntlProvider locale="ru">
         <BrowserRouter>
           <div className="App">
-            <Route path="/" exact component={Home} />{" "}
-            <Route path="/search" component={Search} />{" "}
+            <Route path="/" exact component={Home} />
+            <Route path="/search" component={Search} />
           </div>
         </BrowserRouter>
       </IntlProvider>

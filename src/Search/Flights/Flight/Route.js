@@ -6,6 +6,8 @@ import plane_end from "./plane-end.svg";
 import plane_mobile from "./plane-mobile.svg";
 import clock_mobile from "./clock-mobile.svg";
 import pin from "./pin.svg";
+import { format } from "date-fns";
+import ru from "date-fns/locale/ru";
 
 const Wrapper = styled.div`
   display: flex;
@@ -127,11 +129,12 @@ const Duration = styled.div`
 const DurationTime = styled.p`
   margin: 0;
   font-size: 0.75rem;
-  color: #a0b0b9;
   display: flex;
   align-items: center;
+  color: #4a4a4a;
   ${media.md`
     display: inline;
+    color: #a0b0b9;
   `};
 `;
 
@@ -242,6 +245,19 @@ const PinIcon = styled.img`
   display: block;
 `;
 
+const formatDuration = duration => {
+  if (duration % 3600 === 0) {
+    return Math.floor(duration / 3600) + "ч";
+  }
+
+  return (
+    Math.floor(duration / 3600) +
+    "ч " +
+    Math.floor((duration % 3600) / 60) +
+    " м"
+  );
+};
+
 export default props => {
   return (
     <Wrapper>
@@ -254,10 +270,14 @@ export default props => {
               alt="Показать билеты только с этим вариантом перелета"
             />
           </ThisVariant>
-          {props.origin.time}
+          {format(props.origin.dateTime * 1000, "HH:mm", { locale: ru })}
         </Time>
         <City>{props.origin.city}</City>
-        <FligthDate>{props.origin.date}</FligthDate>
+        <FligthDate>
+          {format(props.origin.dateTime * 1000, "D MMM YYYY, dd", {
+            locale: ru
+          })}
+        </FligthDate>
       </Origin>
       <Route>
         <Duration>
@@ -265,7 +285,7 @@ export default props => {
           <DurationTime>
             <TimeIcon src={clock_mobile} alt="Всего в пути" />
             <TimeLabel>Всего: </TimeLabel>
-            {props.duration}
+            {formatDuration(props.duration)}
           </DurationTime>
           <EndIcon src={plane_end} alt={props.destination.airport} />
         </Duration>
@@ -279,9 +299,15 @@ export default props => {
         </Airports>
       </Route>
       <Destination>
-        <Time>{props.destination.time}</Time>
+        <Time>
+          {format(props.destination.dateTime * 1000, "HH:mm", { locale: ru })}
+        </Time>
         <City>{props.destination.city}</City>
-        <FligthDate>{props.destination.date}</FligthDate>
+        <FligthDate>
+          {format(props.destination.dateTime * 1000, "D MMM YYYY, dd", {
+            locale: ru
+          })}
+        </FligthDate>
       </Destination>
       <Transfer>Прямой</Transfer>
     </Wrapper>

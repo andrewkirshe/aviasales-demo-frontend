@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Helmet } from "react-helmet";
 import { media } from "../Media";
+import { withRouter } from "react-router";
 import Header from "../Header";
 import Filter from "./Filter";
 import Flights from "./Flights";
@@ -15,13 +16,15 @@ const Wrapper = styled.section`
   `};
 `;
 
+const HeaderWithRouter = withRouter(Header);
+
 export default () => {
   return (
     <div>
       <Helmet>
         <title>Страница поиска</title>
       </Helmet>
-      <Header page="search" />
+      <HeaderWithRouter />
       <Wrapper>
         <div className="container">
           <div className="row">

@@ -86,20 +86,13 @@ const Options = styled.div`
 
 class DateFrom extends React.Component {
   handleDayClick = (day, { selected, disabled }) => {
-    if (disabled) {
-      return;
-    }
-    this.props.onSelectDates({
-      fromDate: day
-    });
+    if (!disabled) {
+      this.props.onSelectDates({
+        fromDate: day
+      });
 
-    this.props.onToggleFrom(false);
-    this.props.onToggleTo(true);
-  };
-
-  handleDayMouseEnter = (day, { selected, disabled }) => {
-    if (disabled) {
-      return;
+      this.props.onToggleFrom(false);
+      this.props.onToggleTo(true);
     }
   };
 
@@ -159,7 +152,6 @@ class DateFrom extends React.Component {
               weekdaysShort={this.props.weekdaysShort}
               firstDayOfWeek={1}
               onDayClick={this.handleDayClick}
-              onDayMouseEnter={this.handleDayMouseEnter}
               disabledDays={{ before: new Date() }}
               selectedDays={selectedDays}
               modifiers={modifiers}
