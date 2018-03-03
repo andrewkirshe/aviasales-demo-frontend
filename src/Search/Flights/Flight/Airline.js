@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Airline = styled.a`
   margin-right: 12px;
@@ -11,10 +11,18 @@ const Airline = styled.a`
 `;
 
 const Logo = styled.img`
-  border: ${props => (props.size === "small" ? "solid 1px #DDDDDD" : "none")};
-  border-radius: ${props => (props.size === "small" ? "4px" : "0")};
-  padding: ${props => (props.size === "small" ? "4px" : "1px 0")};
+  border: none;
+  border-radius: 0;
+  padding: 1px 0;
   display: block;
+
+  ${props =>
+    props.size === "small" &&
+    css`
+      border: solid 1px #dddddd;
+      border-radius: 4px;
+      padding: 4px;
+    `};
 `;
 
 export default props => {

@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { media } from "../../Media";
+import { translate } from "../../Translation";
+import { format } from "date-fns";
+import ru from "date-fns/locale/ru";
 import { FormattedNumber } from "react-intl";
 
 const Card = styled.div`
@@ -123,19 +126,19 @@ export default props => {
   return (
     <Card>
       <Image>
-        <Img src={props.image} alt={props.city} />
+        <Img src={props.image} alt={translate(props.city)} />
       </Image>
       <Bar>
         <Flag
           src={props.flag.x1}
           srcSet={`${props.flag.x2} 2x`}
-          alt={props.country}
+          alt={translate(props.country)}
         />
         <Row>
-          <City>{props.city}</City>
+          <City>{translate(props.city)}</City>
           <Find href="http://">
             <span>
-              Найти от{" "}
+              {translate("Find")} {translate("from")}{" "}
               <FormattedNumber
                 value={props.price}
                 style={`currency`}
@@ -147,8 +150,12 @@ export default props => {
           </Find>
         </Row>
         <Row>
-          <Country>{props.country}</Country>
-          <FlightDate>{props.date}</FlightDate>
+          <Country>{translate(props.country)}</Country>
+          <FlightDate>
+            {format(props.date * 1000, "D MMMM", {
+              locale: ru
+            })}
+          </FlightDate>
         </Row>
       </Bar>
     </Card>

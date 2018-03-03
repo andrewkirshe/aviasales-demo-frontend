@@ -16,73 +16,73 @@ import wmarket from "./wmarket.svg";
 
 const footerNavsData = [
   {
-    title: "Страны",
+    title: "Countries",
     links: [
       {
-        text: "Россия",
+        text: "Russia",
         url: "http://aviasales.ru"
       },
       {
-        text: "Таиланд",
+        text: "Thailand",
         url: "http://aviasales.ru"
       },
       {
-        text: "Черногория",
+        text: "Montenegro",
         url: "http://aviasales.ru"
       },
       {
-        text: "Кипр",
+        text: "Cyprus",
         url: "http://aviasales.ru"
       },
       {
-        text: "Болгария",
+        text: "Bulgaria",
         url: "http://aviasales.ru"
       },
       {
-        text: "Грузия",
+        text: "Georgia",
         url: "http://aviasales.ru"
       }
     ],
     all: {
-      text: "Все страны",
+      text: "All countries",
       url: "http://aviasales.ru"
     }
   },
   {
-    title: "Города",
+    title: "Cities",
     links: [
       {
-        text: "Москва",
+        text: "Moscow",
         url: "http://aviasales.ru"
       },
       {
-        text: "Санкт-Петербург",
+        text: "St. Petersburg",
         url: "http://aviasales.ru"
       },
       {
-        text: "Симферополь",
+        text: "Simferopol",
         url: "http://aviasales.ru"
       },
       {
-        text: "Адлер",
+        text: "Adler",
         url: "http://aviasales.ru"
       },
       {
-        text: "Екатеринбург",
+        text: "Ekaterinburg",
         url: "http://aviasales.ru"
       },
       {
-        text: "Лондон",
+        text: "London",
         url: "http://aviasales.ru"
       }
     ],
     all: {
-      text: "Все города",
+      text: "All cities",
       url: "http://aviasales.ru"
     }
   },
   {
-    title: "Авиакомпании",
+    title: "Airlines",
     links: [
       {
         text: "Air Berlin",
@@ -110,45 +110,45 @@ const footerNavsData = [
       }
     ],
     all: {
-      text: "Все авиакомпании",
+      text: "All airlines",
       url: "http://aviasales.ru"
     }
   },
   {
-    title: "Аэропорты",
+    title: "Airports",
     links: [
       {
-        text: "Шереметьево",
+        text: "Sheremetyevo",
         url: "http://aviasales.ru"
       },
       {
-        text: "Курумоч",
+        text: "Kurumoch",
         url: "http://aviasales.ru"
       },
       {
-        text: "Домодедово",
+        text: "Domodedovo",
         url: "http://aviasales.ru"
       },
       {
-        text: "Толмачево",
+        text: "Tolmachevo",
         url: "http://aviasales.ru"
       },
       {
-        text: "Владивосток",
+        text: "Vladivostok",
         url: "http://aviasales.ru"
       },
       {
-        text: "Гамбург",
+        text: "Hamburg",
         url: "http://aviasales.ru"
       }
     ],
     all: {
-      text: "Все аэропорты",
+      text: "All airports",
       url: "http://aviasales.ru"
     }
   },
   {
-    title: "Направления",
+    title: "Directions",
     links: [
       {
         text: "MOW – SIP",
@@ -177,34 +177,34 @@ const footerNavsData = [
     ]
   },
   {
-    title: "Сервисы",
+    title: "Services",
     links: [
       {
-        text: "Горящие авиабилеты",
+        text: "Flight tickets",
         url: "http://aviasales.ru"
       },
       {
-        text: "Календарь низких цен",
+        text: "Low price calendar",
         url: "http://aviasales.ru"
       },
       {
-        text: "Карта низких цен",
+        text: "Low price map",
         url: "http://aviasales.ru"
       },
       {
-        text: "Спецпредложения",
+        text: "Special offers",
         url: "http://aviasales.ru"
       },
       {
-        text: "Таблица цен",
+        text: "Price table",
         url: "http://aviasales.ru"
       },
       {
-        text: "Блог",
+        text: "Blog",
         url: "http://aviasales.ru"
       },
       {
-        text: "Помощь",
+        text: "Help",
         url: "http://aviasales.ru"
       }
     ]

@@ -65,7 +65,7 @@ const PriceFor = styled.span`
 const Dealers = styled.div`
   padding: 0;
   ${media.md`
-    padding: 10px 24px 16px 24px;
+    padding: 10px 15px 16px 15px;
   `};
 `;
 

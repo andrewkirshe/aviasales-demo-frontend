@@ -13,10 +13,10 @@ import flag_sp_x2 from "./flag_sp@2x.png";
 
 const destinations = [
   {
-    city: "Краснодар",
-    country: "Россия",
+    city: "Krasnodar",
+    country: "Russia",
     price: 1212,
-    date: "18 марта",
+    date: 1521331200,
     image: krasnodar,
     flag: {
       x1: flag_ru,
@@ -24,10 +24,10 @@ const destinations = [
     }
   },
   {
-    city: "Сочи (Адлер)",
-    country: "Россия",
+    city: "Sochi (Adler)",
+    country: "Russia",
     price: 1334,
-    date: "27 марта",
+    date: 1522108800,
     image: sochi,
     flag: {
       x1: flag_ru,
@@ -35,10 +35,10 @@ const destinations = [
     }
   },
   {
-    city: "Санкт-Петербург",
-    country: "Россия",
+    city: "St. Petersburg",
+    country: "Russia",
     price: 1508,
-    date: "19 февраля",
+    date: 1518998400,
     image: spb,
     flag: {
       x1: flag_ru,
@@ -46,10 +46,10 @@ const destinations = [
     }
   },
   {
-    city: "Минеральные Воды",
-    country: "Россия",
+    city: "Mineralnye Vody",
+    country: "Russia",
     price: 2074,
-    date: "13 марта",
+    date: 1520899200,
     image: minwater,
     flag: {
       x1: flag_ru,
@@ -57,10 +57,10 @@ const destinations = [
     }
   },
   {
-    city: "Симферополь (Крым)",
-    country: "Крым",
+    city: "Simferopol (Crimea)",
+    country: "Crimea",
     price: 2407,
-    date: "13 марта",
+    date: 1520899200,
     image: simferopol,
     flag: {
       x1: flag_ru,
@@ -68,10 +68,10 @@ const destinations = [
     }
   },
   {
-    city: "Барселона",
-    country: "Испания",
+    city: "Barcelona",
+    country: "Spain",
     price: 4247,
-    date: "24 марта",
+    date: 1521849600,
     image: barselona,
     flag: {
       x1: flag_sp,

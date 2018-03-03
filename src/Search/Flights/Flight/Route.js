@@ -8,6 +8,7 @@ import clock_mobile from "./clock-mobile.svg";
 import pin from "./pin.svg";
 import { format } from "date-fns";
 import ru from "date-fns/locale/ru";
+import { translate } from "../../../Translation";
 
 const Wrapper = styled.div`
   display: flex;
@@ -113,7 +114,7 @@ const Route = styled.div`
   ${media.md`
     flex: 1 1;
     order: 2;
-    margin: 0 40px;
+    margin: 0 25px;
   `};
 `;
 
@@ -272,7 +273,7 @@ export default props => {
           </ThisVariant>
           {format(props.origin.dateTime * 1000, "HH:mm", { locale: ru })}
         </Time>
-        <City>{props.origin.city}</City>
+        <City>{translate(props.origin.city)}</City>
         <FligthDate>
           {format(props.origin.dateTime * 1000, "D MMM YYYY, dd", {
             locale: ru
@@ -302,7 +303,7 @@ export default props => {
         <Time>
           {format(props.destination.dateTime * 1000, "HH:mm", { locale: ru })}
         </Time>
-        <City>{props.destination.city}</City>
+        <City>{translate(props.destination.city)}</City>
         <FligthDate>
           {format(props.destination.dateTime * 1000, "D MMM YYYY, dd", {
             locale: ru

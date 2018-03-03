@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 import { media } from "../Media";
 import aero from "./aero.svg";
@@ -13,31 +13,55 @@ const Button = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: ${props => (props.pathname === "/" ? "4px" : "0")};
+  border-radius: 0;
   line-height: 3.5rem;
   font-size: 1.375rem;
   width: 100%;
   margin: 0 auto;
-  margin-top: ${props => (props.pathname === "/" ? "16px" : "0")};
+  margin-top: 0;
   padding: 0 20px;
   max-width: 308px;
   text-decoration: none;
 
+  ${props =>
+    props.headersize === "full" &&
+    css`
+      border-radius: 4px;
+      margin-top: 16px;
+    `};
+
   ${media.sm`
-    font-size: ${props => (props.pathname === "/" ? "1.75rem" : "1.25rem")};
-    flex: ${props => (props.pathname === "/" ? "none" : "50% 1")};
-    line-height: ${props => (props.pathname === "/" ? "4rem" : "1.5rem")};
-    margin: ${props => (props.pathname === "/" ? "auto" : "1px")};
-    margin-top: ${props => (props.pathname === "/" ? "32px" : "1px")};
+    font-size: 1.25rem;
+    flex: 50% 1;
+    line-height: 1.5rem;
+    margin: 1px;
     border-bottom-right-radius: 3px;
+
+    ${props =>
+      props.headersize === "full" &&
+      css`
+        font-size: 1.75rem;
+        flex: none;
+        line-height: 4rem;
+        margin: auto;
+        margin-top: 32px;
+      `};
   `};
 
   ${media.xl`
-    margin-top: ${props => (props.pathname === "/" ? "48px" : "0")};
+    margin-top: 0;
     white-space: nowrap;
-    margin-left: ${props => (props.pathname === "/" ? "auto" : "16px")};
+    margin-left: 15px;
     border-radius: 4px;
-    flex: ${props => (props.pathname === "/" ? "none" : "46% 1")};
+    flex: 46% 1;
+
+    ${props =>
+      props.headersize === "full" &&
+      css`
+        margin-top: 48px;
+        margin-left: auto;
+        flex: none;
+      `};
   `};
 `;
 
@@ -50,9 +74,9 @@ const Img = styled.img`
 
 export default props => {
   return (
-    <Button to="/search" pathname={props.pathname}>
+    <Button to="/search" headersize={props.headerSize}>
       Найти билеты
-      {props.pathname === "/" && <Img src={aero} alt="Найти билеты" />}
+      {props.headerSize === "full" && <Img src={aero} alt="Найти билеты" />}
     </Button>
   );
 };

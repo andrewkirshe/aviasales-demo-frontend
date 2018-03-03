@@ -17,27 +17,27 @@ const destinations = [
       x1: flag_ru,
       x2: flag_ru_x2
     },
-    city: "Симферополь",
-    country: "Крым",
+    city: "Simferopol",
+    country: "Crimea",
     routes: [
       {
-        from: "Москвы",
+        from: "Moscow",
         price: 4837
       },
       {
-        from: "Санкт-Петербурга",
+        from: "St. Petersburg",
         price: 7857
       },
       {
-        from: "Новосибирска",
+        from: "Novosibirsk",
         price: 15127
       },
       {
-        from: "Екатеринбурга",
+        from: "Ekaterinburg",
         price: 9275
       },
       {
-        from: "Челябинска",
+        from: "Chelyabinsk",
         price: 9148
       }
     ]
@@ -47,27 +47,27 @@ const destinations = [
       x1: flag_am,
       x2: flag_am_x2
     },
-    city: "Ереван",
+    city: "Yerevan",
     country: "Армения",
     routes: [
       {
-        from: "Москвы",
+        from: "Armenia",
         price: 6758
       },
       {
-        from: "Санкт-Петербурга",
+        from: "St. Petersburg",
         price: 9932
       },
       {
-        from: "Сочи",
+        from: "Sochi",
         price: 11951
       },
       {
-        from: "Краснодара",
+        from: "Krasnodar",
         price: 11741
       },
       {
-        from: "Ростова-на-Дону",
+        from: "Rostov-na-Donu",
         price: 11956
       }
     ]
@@ -77,27 +77,27 @@ const destinations = [
       x1: flag_md,
       x2: flag_md_x2
     },
-    city: "Кишинёв",
-    country: "Молдавия",
+    city: "Kishinev",
+    country: "Moldova",
     routes: [
       {
-        from: "Москвы",
+        from: "Moscow",
         price: 8319
       },
       {
-        from: "Санкт-Петербурга",
+        from: "St. Petersburg",
         price: 10800
       },
       {
-        from: "Краснодара",
+        from: "Krasnodar",
         price: 12098
       },
       {
-        from: "Сургута",
+        from: "Surgut",
         price: 16277
       },
       {
-        from: "Нового Уренгоя",
+        from: "Novy Urengoy",
         price: 15987
       }
     ]

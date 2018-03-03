@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { FormattedNumber } from "react-intl";
+import { translate } from "../Translation";
 
 const Route = styled.div`
   display: flex;
@@ -30,9 +31,11 @@ const Price = styled.a`
 export default props => {
   return (
     <Route>
-      <City>Из {props.from}</City>
+      <City>
+        {translate("From")} {translate(props.from)}
+      </City>
       <Price href="http://">
-        от{" "}
+        {translate("from")}{" "}
         <FormattedNumber
           value={props.price}
           style={`currency`}

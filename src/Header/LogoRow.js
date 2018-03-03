@@ -10,7 +10,7 @@ import logo from "./logo.svg";
 const Logo = styled(Link)`
   text-decoration: none;
   color: #fff;
-  display: ${props => (props.pathname === "/search" ? "none" : "flex")};
+  display: ${props => (props.headersize === "small" ? "none" : "flex")};
   align-items: center;
 
   ${media.md`
@@ -29,7 +29,7 @@ const Name = styled.span`
 
 const Wrapper = styled.div`
   position: ${props =>
-    props.pathname === "/search" ? "relative" : "absolute"};
+    props.headerSize === "small" ? "relative" : "absolute"};
   width: 100%;
   top: 0;
   left: 0;
@@ -45,16 +45,18 @@ const Layout = styled.div`
 
 export default props => {
   return (
-    <Wrapper pathname={props.location.pathname}>
+    <Wrapper headerSize={props.headerSize}>
       <div className="container">
         <Layout>
-          {props.location.pathname === "/search" && <Back />}
-          <Logo pathname={props.location.pathname} to="/">
+          {props.headerSize === "small" && <Back />}
+          <Logo headersize={props.headerSize} to="/">
             <Img src={logo} alt="logo" />
             <Name className="hidden-xs hidden-sm">Aviasales</Name>
           </Logo>
-          {props.location.pathname === "/search" && <SearchParams />}
-          {props.location.pathname === "/search" && <Currency />}
+          {props.headerSize === "small" && (
+            <SearchParams fromDate={props.fromDate} toDate={props.toDate} />
+          )}
+          {props.headerSize === "small" && <Currency />}
         </Layout>
       </div>
     </Wrapper>

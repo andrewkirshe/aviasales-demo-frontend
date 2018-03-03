@@ -4,16 +4,18 @@ import { media } from "../Media";
 import DateRange from "./DateRange";
 import arrows from "./arrows.svg";
 import FindButton from "./FindButton";
+import datePrices from "./datePrices";
 
 const SearchForm = styled.div`
-  display: ${props => (props.pathname === "/" ? "flex" : "none")};
+  display: ${props => (props.headerSize === "full" ? "flex" : "none")};
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
   ${media.md`
     display: flex;
-    margin-bottom: ${props => (props.pathname === "/" ? "inherit" : "30px")} 
+    margin-bottom: ${props =>
+      props.headerSize === "full" ? "inherit" : "30px"} 
   `};
 `;
 
@@ -55,7 +57,7 @@ const Fields = styled.div`
   display: flex;
   flex-wrap: wrap;
   ${media.xl`
-    flex-wrap: ${props => (props.pathname === "/" ? "wrap" : "nowrap")};
+    flex-wrap: ${props => (props.headerSize === "full" ? "wrap" : "nowrap")};
   `};
 `;
 
@@ -72,7 +74,7 @@ const Row = styled.div`
 
   &:nth-child(3) {
     ${media.xl`
-      flex: ${props => (props.pathname === "/" ? "30% 1" : "46% 1")};
+      flex: ${props => (props.headerSize === "full" ? "30% 1" : "46% 1")};
     `};
   }
 `;
@@ -99,7 +101,7 @@ const Passengers = styled.button`
   transition: all 0.3s;
   box-shadow: inset 0 0 0 2px transparent;
   z-index: 10;
-  flex: ${props => (props.pathname === "/" ? "1 1" : "50% 1")};
+  flex: ${props => (props.headerSize === "full" ? "1 1" : "50% 1")};
   margin: 1px;
   background: #fff;
   text-align: left;
@@ -108,7 +110,7 @@ const Passengers = styled.button`
   ${media.sm`
     border-bottom-left-radius: 0;
     border-bottom-right-radius: ${props =>
-      props.pathname === "/" ? "3px" : "0"};
+      props.headerSize === "full" ? "3px" : "0"};
   `};
 
   ${media.xl`
@@ -127,6 +129,10 @@ const Passengers = styled.button`
     position: absolute;
     right: 18px;
     top: 25px;
+  }
+
+  &:focus {
+    outline: none;
   }
 `;
 
@@ -223,509 +229,26 @@ const Button = styled.button`
   margin: 0;
 `;
 
-const prices = {
-  1: {
-    0: {
-      price: 42130,
-      tag: "DayPicker-Best-Price"
-    },
-    1: {
-      price: 56434,
-      tag: "DayPicker-Best-Price"
-    },
-    2: {
-      price: 23234,
-      tag: "DayPicker-Best-Price"
-    },
-    3: {
-      price: 34534
-    },
-    4: {
-      price: 85754
-    },
-    5: {
-      price: 34323
-    },
-    6: {
-      price: 56756,
-      tag: "DayPicker-Best-Price"
-    },
-    7: {
-      price: 34544,
-      tag: "DayPicker-Best-Price"
-    },
-    8: {
-      price: 56887,
-      tag: "DayPicker-Best-Price"
-    },
-    9: {
-      price: 23421,
-      tag: "DayPicker-Best-Price"
-    },
-    10: {
-      price: 23455,
-      tag: "DayPicker-Best-Price"
-    },
-    11: {
-      price: 67887
-    },
-    12: {
-      price: 12312,
-      tag: "DayPicker-Best-Price"
-    },
-    13: {
-      price: 32423,
-      tag: "DayPicker-Best-Price"
-    },
-    14: {
-      price: 32435
-    },
-    15: {
-      price: 45335
-    },
-    16: {
-      price: 65654,
-      tag: "DayPicker-Best-Price"
-    },
-    17: {
-      price: 12312,
-      tag: "DayPicker-Best-Price"
-    },
-    18: {
-      price: 12312,
-      tag: "DayPicker-Best-Price"
-    },
-    19: {
-      price: 23434,
-      tag: "DayPicker-Best-Price"
-    },
-    20: {
-      price: 23412,
-      tag: "DayPicker-Best-Price"
-    },
-    21: {
-      price: 43545,
-      tag: "DayPicker-Best-Price"
-    },
-    22: {
-      price: 45646,
-      tag: "DayPicker-Best-Price"
-    },
-    23: {
-      price: 23432,
-      tag: "DayPicker-Best-Price"
-    },
-    24: {
-      price: 43545
-    },
-    25: {
-      price: 34534,
-      tag: "DayPicker-Best-Price"
-    },
-    26: {
-      price: 56734,
-      tag: "DayPicker-Best-Price"
-    },
-    27: {
-      price: 23423
-    },
-    28: {
-      price: 98008
-    },
-    29: {
-      price: 23456
-    },
-    30: {
-      price: 12312,
-      tag: "DayPicker-Best-Price"
-    },
-    31: {
-      price: 12312,
-      tag: "DayPicker-Best-Price"
-    }
-  },
-  2: {
-    0: {
-      price: 42130,
-      tag: "DayPicker-Best-Price"
-    },
-    1: {
-      price: 56434,
-      tag: "DayPicker-Best-Price"
-    },
-    2: {
-      price: 23234,
-      tag: "DayPicker-Best-Price"
-    },
-    3: {
-      price: 34534
-    },
-    4: {
-      price: 85754
-    },
-    5: {
-      price: 34323
-    },
-    6: {
-      price: 56756,
-      tag: "DayPicker-Best-Price"
-    },
-    7: {
-      price: 34544,
-      tag: "DayPicker-Best-Price"
-    },
-    8: {
-      price: 56887,
-      tag: "DayPicker-Best-Price"
-    },
-    9: {
-      price: 23421,
-      tag: "DayPicker-Best-Price"
-    },
-    10: {
-      price: 23455,
-      tag: "DayPicker-Best-Price"
-    },
-    11: {
-      price: 67887
-    },
-    12: {
-      price: 12312,
-      tag: "DayPicker-Best-Price"
-    },
-    13: {
-      price: 32423,
-      tag: "DayPicker-Best-Price"
-    },
-    14: {
-      price: 32435
-    },
-    15: {
-      price: 45335
-    },
-    16: {
-      price: 65654,
-      tag: "DayPicker-Best-Price"
-    },
-    17: {
-      price: 12312,
-      tag: "DayPicker-Best-Price"
-    },
-    18: {
-      price: 12312,
-      tag: "DayPicker-Best-Price"
-    },
-    19: {
-      price: 23434,
-      tag: "DayPicker-Best-Price"
-    },
-    20: {
-      price: 23412,
-      tag: "DayPicker-Best-Price"
-    },
-    21: {
-      price: 43545,
-      tag: "DayPicker-Best-Price"
-    },
-    22: {
-      price: 45646,
-      tag: "DayPicker-Best-Price"
-    },
-    23: {
-      price: 23432,
-      tag: "DayPicker-Best-Price"
-    },
-    24: {
-      price: 43545
-    },
-    25: {
-      price: 34534,
-      tag: "DayPicker-Best-Price"
-    },
-    26: {
-      price: 56734,
-      tag: "DayPicker-Best-Price"
-    },
-    27: {
-      price: 23423
-    },
-    28: {
-      price: 98008
-    },
-    29: {
-      price: 23456
-    },
-    30: {
-      price: 12312,
-      tag: "DayPicker-Best-Price"
-    },
-    31: {
-      price: 12312,
-      tag: "DayPicker-Best-Price"
-    }
-  },
-  3: {
-    0: {
-      price: 42130,
-      tag: "DayPicker-Best-Price"
-    },
-    1: {
-      price: 56434,
-      tag: "DayPicker-Best-Price"
-    },
-    2: {
-      price: 23234,
-      tag: "DayPicker-Best-Price"
-    },
-    3: {
-      price: 34534
-    },
-    4: {
-      price: 85754
-    },
-    5: {
-      price: 34323
-    },
-    6: {
-      price: 56756,
-      tag: "DayPicker-Best-Price"
-    },
-    7: {
-      price: 34544,
-      tag: "DayPicker-Best-Price"
-    },
-    8: {
-      price: 56887,
-      tag: "DayPicker-Best-Price"
-    },
-    9: {
-      price: 23421,
-      tag: "DayPicker-Best-Price"
-    },
-    10: {
-      price: 23455,
-      tag: "DayPicker-Best-Price"
-    },
-    11: {
-      price: 67887
-    },
-    12: {
-      price: 12312,
-      tag: "DayPicker-Best-Price"
-    },
-    13: {
-      price: 32423,
-      tag: "DayPicker-Best-Price"
-    },
-    14: {
-      price: 32435
-    },
-    15: {
-      price: 45335
-    },
-    16: {
-      price: 65654,
-      tag: "DayPicker-Best-Price"
-    },
-    17: {
-      price: 12312,
-      tag: "DayPicker-Best-Price"
-    },
-    18: {
-      price: 12312,
-      tag: "DayPicker-Best-Price"
-    },
-    19: {
-      price: 23434,
-      tag: "DayPicker-Best-Price"
-    },
-    20: {
-      price: 23412,
-      tag: "DayPicker-Best-Price"
-    },
-    21: {
-      price: 43545,
-      tag: "DayPicker-Best-Price"
-    },
-    22: {
-      price: 45646,
-      tag: "DayPicker-Best-Price"
-    },
-    23: {
-      price: 23432,
-      tag: "DayPicker-Best-Price"
-    },
-    24: {
-      price: 43545
-    },
-    25: {
-      price: 34534,
-      tag: "DayPicker-Best-Price"
-    },
-    26: {
-      price: 56734,
-      tag: "DayPicker-Best-Price"
-    },
-    27: {
-      price: 23423
-    },
-    28: {
-      price: 98008
-    },
-    29: {
-      price: 23456
-    },
-    30: {
-      price: 12312,
-      tag: "DayPicker-Best-Price"
-    },
-    31: {
-      price: 12312,
-      tag: "DayPicker-Best-Price"
-    }
-  },
-  4: {
-    0: {
-      price: 42130,
-      tag: "DayPicker-Best-Price"
-    },
-    1: {
-      price: 56434,
-      tag: "DayPicker-Best-Price"
-    },
-    2: {
-      price: 23234,
-      tag: "DayPicker-Best-Price"
-    },
-    3: {
-      price: 34534
-    },
-    4: {
-      price: 85754
-    },
-    5: {
-      price: 34323
-    },
-    6: {
-      price: 56756,
-      tag: "DayPicker-Best-Price"
-    },
-    7: {
-      price: 34544,
-      tag: "DayPicker-Best-Price"
-    },
-    8: {
-      price: 56887,
-      tag: "DayPicker-Best-Price"
-    },
-    9: {
-      price: 23421,
-      tag: "DayPicker-Best-Price"
-    },
-    10: {
-      price: 23455,
-      tag: "DayPicker-Best-Price"
-    },
-    11: {
-      price: 67887
-    },
-    12: {
-      price: 12312,
-      tag: "DayPicker-Best-Price"
-    },
-    13: {
-      price: 32423,
-      tag: "DayPicker-Best-Price"
-    },
-    14: {
-      price: 32435
-    },
-    15: {
-      price: 45335
-    },
-    16: {
-      price: 65654,
-      tag: "DayPicker-Best-Price"
-    },
-    17: {
-      price: 12312,
-      tag: "DayPicker-Best-Price"
-    },
-    18: {
-      price: 12312,
-      tag: "DayPicker-Best-Price"
-    },
-    19: {
-      price: 23434,
-      tag: "DayPicker-Best-Price"
-    },
-    20: {
-      price: 23412,
-      tag: "DayPicker-Best-Price"
-    },
-    21: {
-      price: 43545,
-      tag: "DayPicker-Best-Price"
-    },
-    22: {
-      price: 45646,
-      tag: "DayPicker-Best-Price"
-    },
-    23: {
-      price: 23432,
-      tag: "DayPicker-Best-Price"
-    },
-    24: {
-      price: 43545
-    },
-    25: {
-      price: 34534,
-      tag: "DayPicker-Best-Price"
-    },
-    26: {
-      price: 56734,
-      tag: "DayPicker-Best-Price"
-    },
-    27: {
-      price: 23423
-    },
-    28: {
-      price: 98008
-    },
-    29: {
-      price: 23456
-    },
-    30: {
-      price: 12312,
-      tag: "DayPicker-Best-Price"
-    },
-    31: {
-      price: 12312,
-      tag: "DayPicker-Best-Price"
-    }
-  }
-};
-
 export default props => {
+  const { headerSize } = props;
+
   return (
-    <SearchForm pathname={props.location.pathname}>
+    <SearchForm headerSize={headerSize}>
       <div className="container">
         <div className="row center-xs">
           <div
             className={
-              props.location.pathname === "/"
-                ? "col-xs-12 col-md-10"
-                : "col-xs-12"
+              headerSize === "full" ? "col-xs-12 col-md-10" : "col-xs-12"
             }
           >
-            {props.location.pathname === "/" && (
+            {headerSize === "full" && (
               <Title>
                 Поиск дешевых авиабилетов
                 <SubTitle>Лучший способ купить авиабилеты дешево</SubTitle>
               </Title>
             )}
             <Form action="">
-              <Fields pathname={props.location.pathname}>
+              <Fields headerSize={headerSize}>
                 <Row>
                   <Field>
                     <Origin
@@ -736,7 +259,7 @@ export default props => {
                     />
                     <Label htmlFor="origin">Город вылета</Label>
                     <AirportName>VIN</AirportName>
-                    <Button>
+                    <Button type="button">
                       <Img src={arrows} alt="Город вылета" />
                     </Button>
                   </Field>
@@ -752,19 +275,25 @@ export default props => {
                     <Label htmlFor="destination">Город прибытия</Label>
                   </Field>
                 </Row>
-                <Row pathname={props.location.pathname}>
-                  <DateRange prices={prices} />
+                <Row headerSize={headerSize}>
+                  <DateRange
+                    prices={datePrices}
+                    selectDates={props.selectDates}
+                    fromDate={props.fromDate}
+                    toDate={props.toDate}
+                    enteredToDate={props.enteredToDate}
+                  />
                 </Row>
                 <Row>
-                  <Passengers pathname={props.location.pathname}>
+                  <Passengers type="button" headerSize={headerSize}>
                     1 пассажир, <Grade>эконом</Grade>
                   </Passengers>
-                  {props.location.pathname === "/search" && (
-                    <FindButton pathname={props.location.pathname} />
+                  {headerSize === "small" && (
+                    <FindButton headerSize={headerSize} />
                   )}
                 </Row>
-                {props.location.pathname === "/" && (
-                  <FindButton pathname={props.location.pathname} />
+                {headerSize === "full" && (
+                  <FindButton headerSize={headerSize} />
                 )}
               </Fields>
             </Form>

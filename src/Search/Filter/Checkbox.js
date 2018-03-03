@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { FormattedNumber } from "react-intl";
 import checked from "./checked.svg";
 
 const Wrapper = styled.div``;
@@ -30,7 +31,7 @@ const Name = styled.p`
   }
 `;
 
-const Notes = styled.p`
+const Price = styled.p`
   margin: 0;
   color: #a0b0b9;
   flex: 1 1;
@@ -74,7 +75,17 @@ export default props => {
       <Label>
         <Input type="checkbox" defaultChecked={props.checked} />
         <Name>{props.label}</Name>
-        <Notes>{props.notes}</Notes>
+        {props.price && (
+          <Price>
+            <FormattedNumber
+              value={props.price}
+              style={`currency`}
+              currency="RUB"
+              minimumFractionDigits={0}
+              maximumFractionDigits={0}
+            />
+          </Price>
+        )}
       </Label>
       {props.description && <Description>{props.description}</Description>}
     </Wrapper>

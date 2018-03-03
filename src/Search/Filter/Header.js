@@ -1,10 +1,14 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import clear from "./clear.svg";
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
+
+  &:hover {
+    background-color: #f1fcff;
+  }
 `;
 
 const Name = styled.button`
@@ -16,6 +20,7 @@ const Name = styled.button`
   flex: 1 1;
   text-align: left;
   text-transform: uppercase;
+  outline: none;
 
   &:after {
     content: "";
@@ -25,9 +30,17 @@ const Name = styled.button`
     border: 5px transparent solid;
     border-top-color: #a0b0b9;
     position: absolute;
-    left: ${props => (props.collapse ? "19px" : "16px")};
-    top: ${props => (props.collapse ? "18px" : "21px")};
-    transform: rotate(${props => (props.collapse ? "-90deg" : "0")});
+    left: 19px;
+    top: 18px;
+    transform: rotate(-90deg);
+
+    ${props =>
+      props.isOpened &&
+      css`
+        left: 16px;
+        top: 21px;
+        transform: rotate(0);
+      `};
   }
 `;
 
@@ -49,7 +62,7 @@ const Counter = styled.span`
 export default props => {
   return (
     <Wrapper>
-      <Name collapse={props.collapse}>
+      <Name onClick={props.toggleFilter} isOpened={props.isOpened}>
         {props.label}
         {props.count && <Counter>{props.count}</Counter>}
       </Name>

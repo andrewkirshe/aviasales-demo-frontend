@@ -4,6 +4,7 @@ import { FormattedNumber } from "react-intl";
 import DateFrom from "./DateFrom";
 import DateTo from "./DateTo";
 import calendar from "./calendar.svg";
+import dateclear from "./dateclear.svg";
 import "react-day-picker/lib/style.css";
 import "./daterange.css";
 
@@ -43,26 +44,25 @@ const weekdaysLong = [
   "Пятница",
   "Суббота"
 ];
+
 const weekdaysShort = ["ВС", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"];
 
 class DateRange extends React.Component {
   state = {
-    fromIsOpen: false,
-    toIsOpen: false,
-    fromDate: new Date(),
-    toDate: null,
+    fromIsOpened: false,
+    toIsOpened: false,
     enteredToDate: null
   };
 
   toggleFrom = value => {
     this.setState({
-      fromIsOpen: value
+      fromIsOpened: value
     });
   };
 
   toggleTo = value => {
     this.setState({
-      toIsOpen: value
+      toIsOpened: value
     });
   };
 
@@ -104,13 +104,13 @@ class DateRange extends React.Component {
             name="depart_date"
             label="Туда"
             button={calendar}
-            from={this.state.fromDate}
-            to={this.state.toDate}
-            enteredTo={this.state.enteredToDate}
-            isOpen={this.state.fromIsOpen}
+            from={this.props.fromDate}
+            to={this.props.toDate}
+            enteredTo={this.props.enteredToDate}
+            isOpened={this.state.fromIsOpened}
             onToggleFrom={this.toggleFrom}
             onToggleTo={this.toggleTo}
-            onSelectDates={this.selectDates}
+            selectDates={this.props.selectDates}
             renderDay={this.renderDay}
             months={months}
             weekdaysLong={weekdaysLong}
@@ -122,14 +122,14 @@ class DateRange extends React.Component {
             id="return_date"
             name="return_date"
             label="Обратно"
-            button={calendar}
-            from={this.state.fromDate}
-            to={this.state.toDate}
-            enteredTo={this.state.enteredToDate}
-            isOpen={this.state.toIsOpen}
+            button={this.props.toDate ? dateclear : calendar}
+            from={this.props.fromDate}
+            to={this.props.toDate}
+            enteredTo={this.props.enteredToDate}
+            isOpened={this.state.toIsOpened}
             onToggleFrom={this.toggleFrom}
             onToggleTo={this.toggleTo}
-            onSelectDates={this.selectDates}
+            selectDates={this.props.selectDates}
             renderDay={this.renderDay}
             months={months}
             weekdaysLong={weekdaysLong}

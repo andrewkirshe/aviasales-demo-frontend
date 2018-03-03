@@ -4,6 +4,7 @@ import { media } from "../../../Media";
 import Airline from "./Airline";
 import Route from "./Route";
 import share from "./share.svg";
+import { translate } from "../../../Translation";
 
 const Wrapper = styled.div`
   flex: 1 1;
@@ -85,7 +86,7 @@ export default props => {
     <Wrapper>
       <Header>
         <Airlines>{airlines}</Airlines>
-        {props.type && <Type>{props.type}</Type>}
+        {props.type && <Type>{translate(props.type)}</Type>}
         <Share>
           <img src={share} alt="Поделиться" />
         </Share>

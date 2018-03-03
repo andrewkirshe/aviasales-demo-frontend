@@ -1,12 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { withRouter } from "react-router";
 import SearchForm from "../SearchForm";
 import LogoRow from "./LogoRow";
 
-const Header = styled.header`
+const HeaderWrapper = styled.header`
   background: linear-gradient(to left, #196ebd, #01b0dd);
-  height: ${props => (props.pathname === "/search" ? "auto" : "100vh")};
+  height: ${props => (props.headerSize === "full" ? "100vh" : "auto")};
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -14,14 +13,40 @@ const Header = styled.header`
   justify-content: center;
 `;
 
-const LogoRowWithRouter = withRouter(LogoRow);
-const SearchFormWithRouter = withRouter(SearchForm);
-
-export default props => {
-  return (
-    <Header pathname={props.location.pathname}>
-      <LogoRowWithRouter />
-      <SearchFormWithRouter />
-    </Header>
-  );
+const pages = {
+  "/": "full",
+  "/search": "small"
 };
+
+class Header extends React.Component {
+  state = {
+    fromDate: new Date(),
+    toDate: null,
+    enteredTo: null
+  };
+
+  selectDates = dates => {
+    this.setState(dates);
+  };
+
+  render() {
+    return (
+      <HeaderWrapper headerSize={pages[this.props.location.pathname]}>
+        <LogoRow
+          headerSize={pages[this.props.location.pathname]}
+          fromDate={this.state.fromDate}
+          toDate={this.state.toDate}
+        />
+        <SearchForm
+          headerSize={pages[this.props.location.pathname]}
+          selectDates={this.selectDates}
+          fromDate={this.state.fromDate}
+          toDate={this.state.toDate}
+          enteredToDate={this.state.enteredToDate}
+        />
+      </HeaderWrapper>
+    );
+  }
+}
+
+export default Header;

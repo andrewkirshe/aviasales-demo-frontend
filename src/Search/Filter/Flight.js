@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import plane from "./plane.svg";
+import { translate } from "../../Translation";
 
 const Flight = styled.p`
   display: flex;
@@ -22,9 +23,12 @@ const Img = styled.img`
 export default props => {
   return (
     <Flight>
-      {props.from}
-      <Img src={plane} alt={`${props.from} - ${props.to}`} />
-      {props.to}
+      {translate(props.from)}
+      <Img
+        src={plane}
+        alt={`${translate(props.from)} - ${translate(props.to)}`}
+      />
+      {translate(props.to)}
     </Flight>
   );
 };

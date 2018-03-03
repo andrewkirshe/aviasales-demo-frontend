@@ -58,6 +58,10 @@ const Input = styled.input`
   &::placeholder {
     color: #a0b0b9;
   }
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 const Label = styled.div`
@@ -73,6 +77,7 @@ const Button = styled.button`
   border: none;
   padding: 0;
   margin: 0;
+  outline: none;
 `;
 
 const Img = styled.img`
@@ -87,7 +92,7 @@ const Options = styled.div`
 class DateFrom extends React.Component {
   handleDayClick = (day, { selected, disabled }) => {
     if (!disabled) {
-      this.props.onSelectDates({
+      this.props.selectDates({
         fromDate: day
       });
 
@@ -96,7 +101,7 @@ class DateFrom extends React.Component {
     }
   };
 
-  handleClickOutside = e => {
+  handleClickOutside = () => {
     this.close();
   };
 
@@ -104,58 +109,59 @@ class DateFrom extends React.Component {
     this.props.onToggleFrom(false);
   };
 
-  open = e => {
-    e.preventDefault();
+  open = () => {
     this.props.onToggleFrom(true);
   };
 
-  toggle = e => {
-    e.preventDefault();
-    this.setState({ isOpened: !this.state.isOpened });
-  };
-
   render() {
-    const from = this.props.from;
-    const to = this.props.to;
-    const enteredTo = this.props.enteredTo;
+    const {
+      from,
+      to,
+      enteredTo,
+      name,
+      id,
+      label,
+      button,
+      isOpened,
+      months,
+      weekdaysLong,
+      weekdaysShort,
+      renderDay
+    } = this.props;
     const modifiers = { start: from, end: enteredTo, to: to };
     const selectedDays = [from, { from, to: enteredTo }];
     return (
       <div>
         <Input
           type="text"
-          name={this.props.name}
-          id={this.props.id}
-          placeholder={this.props.label}
+          name={name}
+          id={id}
+          placeholder={label}
           onChange={this.open}
           onClick={this.open}
-          value={
-            this.props.from
-              ? format(this.props.from, "DD MMMM, dd", { locale: ru })
-              : ""
-          }
+          value={from ? format(from, "DD MMMM, dd", { locale: ru }) : ""}
         />
-        <Label htmlFor={this.props.id}>{this.props.label}</Label>
-        {this.props.button && (
-          <Button onClick={this.open}>
-            <Img src={this.props.button} alt={this.props.label} />
+        <Label htmlFor={id}>{label}</Label>
+        {button && (
+          <Button type="button" onClick={this.open}>
+            <Img src={button} alt={label} />
           </Button>
         )}
-        {this.props.isOpen && (
+        {isOpened && (
           <Wrapper className="DayPicker-from">
             <DayPicker
               className="Range"
               locale="ru"
-              month={this.props.from ? this.props.from : this.props.to}
-              months={this.props.months}
-              weekdaysLong={this.props.weekdaysLong}
-              weekdaysShort={this.props.weekdaysShort}
+              month={from ? from : to}
+              months={months}
+              weekdaysLong={weekdaysLong}
+              weekdaysShort={weekdaysShort}
               firstDayOfWeek={1}
               onDayClick={this.handleDayClick}
               disabledDays={{ before: new Date() }}
               selectedDays={selectedDays}
               modifiers={modifiers}
-              renderDay={this.props.renderDay}
+              renderDay={renderDay}
             />
             <Options>
               <Switch label="Показать цены в одну сторону" />

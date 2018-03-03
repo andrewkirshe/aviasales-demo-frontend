@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { media } from "../../../Media";
+import { translate } from "../../../Translation";
 import Buy from "./Buy";
 import Info from "./Info";
 
@@ -130,7 +131,7 @@ export default props => {
     <Wrapper>
       {props.tag && (
         <Tag background={props.tag.color}>
-          {props.tag.text}
+          {translate(props.tag.text)}
           <Emoji
             src={props.tag.emoji}
             srcSet={`${props.tag.emoji} 2x`}

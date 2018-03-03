@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { media } from "../../Media";
+import { translate } from "../../Translation";
 import edit from "./edit.svg";
 
 const Button = styled.button`
@@ -29,7 +30,7 @@ const Img = styled.img`
 export default () => {
   return (
     <Button>
-      Москва
+      {translate("Moscow")}
       <Img src={edit} alt="Редактировать" />
     </Button>
   );
