@@ -41,7 +41,6 @@ const Passengers = styled.button`
   background: #fff;
   overflow: hidden;
   text-overflow: ellipsis;
-  -webkit-appearance: none;
   border: 0;
   line-height: 2.25rem;
   padding: 9px 18px;
@@ -84,7 +83,7 @@ const Input = styled.input`
   background: #fff;
   overflow: hidden;
   text-overflow: ellipsis;
-  -webkit-appearance: none;
+
   border: 0;
   box-sizing: border-box;
   line-height: 2.25rem;

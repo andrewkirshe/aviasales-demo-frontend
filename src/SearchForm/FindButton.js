@@ -16,19 +16,12 @@ const Button = styled(Link)`
   border-radius: 0;
   line-height: 3.5rem;
   font-size: 1.375rem;
-  width: 100%;
   margin: 0 auto;
   margin-top: 0;
   padding: 0 20px;
   max-width: 308px;
+  width: 100%;
   text-decoration: none;
-
-  ${props =>
-    props.headersize === "full" &&
-    css`
-      border-radius: 4px;
-      margin-top: 16px;
-    `};
 
   ${media.sm`
     font-size: 1.25rem;
@@ -36,33 +29,64 @@ const Button = styled(Link)`
     line-height: 1.5rem;
     margin: 1px;
     border-bottom-right-radius: 3px;
-
-    ${props =>
-      props.headersize === "full" &&
-      css`
-        font-size: 1.75rem;
-        flex: none;
-        line-height: 4rem;
-        margin: auto;
-        margin-top: 32px;
-      `};
   `};
 
   ${media.xl`
     margin-top: 0;
     white-space: nowrap;
-    margin-left: 15px;
     border-radius: 4px;
     flex: 46% 1;
+  `};
+`;
 
+const Find = styled.div`
+  width: 100%;
+  display: flex;
+
+  ${media.sm`
+    flex: 50% 1;
+  `};
+
+  ${media.xl`
+    flex: 46% 1;
+    margin-left: 15px;
     ${props =>
-      props.headersize === "full" &&
+      props.headerSize === "full" &&
       css`
-        margin-top: 48px;
-        margin-left: auto;
-        flex: none;
+        margin-left: 0;
       `};
   `};
+
+  ${Button} {
+    ${props =>
+      props.headerSize === "full" &&
+      css`
+        border-radius: 4px;
+        margin-top: 16px;
+      `};
+
+    ${media.sm`
+      ${props =>
+        props.headerSize === "full" &&
+        css`
+          font-size: 1.75rem;
+          flex: none;
+          line-height: 4rem;
+          margin: auto;
+          margin-top: 32px;
+        `};
+    `};
+
+    ${media.xl`
+      ${props =>
+        props.headerSize === "full" &&
+        css`
+          margin-top: 48px;
+          margin-left: auto;
+          flex: none;
+        `};
+    `};
+  }
 `;
 
 const Img = styled.img`
@@ -74,9 +98,11 @@ const Img = styled.img`
 
 export default props => {
   return (
-    <Button to="/search" headersize={props.headerSize}>
-      Найти билеты
-      {props.headerSize === "full" && <Img src={aero} alt="Найти билеты" />}
-    </Button>
+    <Find headerSize={props.headerSize}>
+      <Button to="/search">
+        Найти билеты
+        {props.headerSize === "full" && <Img src={aero} alt="Найти билеты" />}
+      </Button>
+    </Find>
   );
 };

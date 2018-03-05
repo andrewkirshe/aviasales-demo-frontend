@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { media } from "../../Media";
-import { translate } from "../../Translation";
+import { translate } from "../../translate";
 import { format } from "date-fns";
 import ru from "date-fns/locale/ru";
 import { FormattedNumber } from "react-intl";

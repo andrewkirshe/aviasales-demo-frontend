@@ -24,7 +24,7 @@ const destinations = [
     }
   },
   {
-    city: "Sochi (Adler)",
+    city: "SochiAdler",
     country: "Russia",
     price: 1334,
     date: 1522108800,
@@ -35,7 +35,7 @@ const destinations = [
     }
   },
   {
-    city: "St. Petersburg",
+    city: "StPetersburg",
     country: "Russia",
     price: 1508,
     date: 1518998400,
@@ -46,7 +46,7 @@ const destinations = [
     }
   },
   {
-    city: "Mineralnye Vody",
+    city: "MinVody",
     country: "Russia",
     price: 2074,
     date: 1520899200,
@@ -57,7 +57,7 @@ const destinations = [
     }
   },
   {
-    city: "Simferopol (Crimea)",
+    city: "SimferopolCrimea",
     country: "Crimea",
     price: 2407,
     date: 1520899200,

@@ -7,15 +7,19 @@ import SearchParams from "./SearchParams";
 import Back from "./Back";
 import logo from "./logo.svg";
 
-const Logo = styled(Link)`
-  text-decoration: none;
-  color: #fff;
-  display: ${props => (props.headersize === "small" ? "none" : "flex")};
-  align-items: center;
+const Logo = styled.div`
+  display: ${props => (props.headerSize === "small" ? "none" : "block")};
 
   ${media.md`
-    display: flex;
+    display: block;
   `};
+`;
+
+const HomeLink = styled(Link)`
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
 `;
 
 const Img = styled.img`
@@ -49,9 +53,11 @@ export default props => {
       <div className="container">
         <Layout>
           {props.headerSize === "small" && <Back />}
-          <Logo headersize={props.headerSize} to="/">
-            <Img src={logo} alt="logo" />
-            <Name className="hidden-xs hidden-sm">Aviasales</Name>
+          <Logo headerSize={props.headerSize}>
+            <HomeLink to="/">
+              <Img src={logo} alt="logo" />
+              <Name className="hidden-xs hidden-sm">Aviasales</Name>
+            </HomeLink>
           </Logo>
           {props.headerSize === "small" && (
             <SearchParams fromDate={props.fromDate} toDate={props.toDate} />

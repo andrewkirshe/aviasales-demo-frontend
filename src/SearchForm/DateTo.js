@@ -34,7 +34,6 @@ const Input = styled.input`
   background: #fff;
   overflow: hidden;
   text-overflow: ellipsis;
-  -webkit-appearance: none;
   border: 0;
   box-sizing: border-box;
   line-height: 2.25rem;
@@ -148,12 +147,15 @@ class DateTo extends React.Component {
       weekdaysShort,
       renderDay
     } = this.props;
+
     const modifiers = {
       start: from,
       end: enteredTo,
       to: to
     };
+
     const selectedDays = [from, { from, to: enteredTo }];
+
     return (
       <div>
         <Input

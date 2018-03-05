@@ -8,7 +8,8 @@ import clock_mobile from "./clock-mobile.svg";
 import pin from "./pin.svg";
 import { format } from "date-fns";
 import ru from "date-fns/locale/ru";
-import { translate } from "../../../Translation";
+import FormattedDuration from "react-intl-formatted-duration";
+import { translate } from "../../../translate";
 
 const Wrapper = styled.div`
   display: flex;
@@ -246,18 +247,7 @@ const PinIcon = styled.img`
   display: block;
 `;
 
-const formatDuration = duration => {
-  if (duration % 3600 === 0) {
-    return Math.floor(duration / 3600) + "ч";
-  }
-
-  return (
-    Math.floor(duration / 3600) +
-    "ч " +
-    Math.floor((duration % 3600) / 60) +
-    " м"
-  );
-};
+const Text = styled.span``;
 
 export default props => {
   return (
@@ -286,7 +276,11 @@ export default props => {
           <DurationTime>
             <TimeIcon src={clock_mobile} alt="Всего в пути" />
             <TimeLabel>Всего: </TimeLabel>
-            {formatDuration(props.duration)}
+            <FormattedDuration
+              seconds={props.duration}
+              textComponent={Text}
+              format="extra_short"
+            />
           </DurationTime>
           <EndIcon src={plane_end} alt={props.destination.airport} />
         </Duration>

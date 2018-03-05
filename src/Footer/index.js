@@ -44,7 +44,7 @@ const footerNavsData = [
       }
     ],
     all: {
-      text: "All countries",
+      text: "AllCountries",
       url: "http://aviasales.ru"
     }
   },
@@ -56,7 +56,7 @@ const footerNavsData = [
         url: "http://aviasales.ru"
       },
       {
-        text: "St. Petersburg",
+        text: "StPetersburg",
         url: "http://aviasales.ru"
       },
       {
@@ -77,7 +77,7 @@ const footerNavsData = [
       }
     ],
     all: {
-      text: "All cities",
+      text: "AllCities",
       url: "http://aviasales.ru"
     }
   },
@@ -110,7 +110,7 @@ const footerNavsData = [
       }
     ],
     all: {
-      text: "All airlines",
+      text: "AllAirlines",
       url: "http://aviasales.ru"
     }
   },
@@ -143,7 +143,7 @@ const footerNavsData = [
       }
     ],
     all: {
-      text: "All airports",
+      text: "AllAirports",
       url: "http://aviasales.ru"
     }
   },
@@ -180,23 +180,23 @@ const footerNavsData = [
     title: "Services",
     links: [
       {
-        text: "Flight tickets",
+        text: "FlightTickets",
         url: "http://aviasales.ru"
       },
       {
-        text: "Low price calendar",
+        text: "LowPriceCalendar",
         url: "http://aviasales.ru"
       },
       {
-        text: "Low price map",
+        text: "LowPriceMap",
         url: "http://aviasales.ru"
       },
       {
-        text: "Special offers",
+        text: "SpecialOffers",
         url: "http://aviasales.ru"
       },
       {
-        text: "Price table",
+        text: "PriceTable",
         url: "http://aviasales.ru"
       },
       {

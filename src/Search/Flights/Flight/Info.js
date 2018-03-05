@@ -4,7 +4,7 @@ import { media } from "../../../Media";
 import Airline from "./Airline";
 import Route from "./Route";
 import share from "./share.svg";
-import { translate } from "../../../Translation";
+import { translate } from "../../../translate";
 
 const Wrapper = styled.div`
   flex: 1 1;

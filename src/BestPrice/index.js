@@ -25,7 +25,7 @@ const destinations = [
         price: 4837
       },
       {
-        from: "St. Petersburg",
+        from: "StPetersburg",
         price: 7857
       },
       {
@@ -55,7 +55,7 @@ const destinations = [
         price: 6758
       },
       {
-        from: "St. Petersburg",
+        from: "StPetersburg",
         price: 9932
       },
       {
@@ -67,7 +67,7 @@ const destinations = [
         price: 11741
       },
       {
-        from: "Rostov-na-Donu",
+        from: "RostovNaDonu",
         price: 11956
       }
     ]
@@ -85,7 +85,7 @@ const destinations = [
         price: 8319
       },
       {
-        from: "St. Petersburg",
+        from: "StPetersburg",
         price: 10800
       },
       {
@@ -97,7 +97,7 @@ const destinations = [
         price: 16277
       },
       {
-        from: "Novy Urengoy",
+        from: "NovyUrengoy",
         price: 15987
       }
     ]

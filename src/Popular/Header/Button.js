@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { media } from "../../Media";
-import { translate } from "../../Translation";
+import { translate } from "../../translate";
 import edit from "./edit.svg";
 
 const Button = styled.button`

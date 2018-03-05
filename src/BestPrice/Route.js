@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { FormattedNumber } from "react-intl";
-import { translate } from "../Translation";
+import { translate } from "../translate";
 
 const Route = styled.div`
   display: flex;

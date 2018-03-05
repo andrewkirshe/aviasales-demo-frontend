@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { format } from "date-fns";
 import ru from "date-fns/locale/ru";
 import { media } from "../Media";
-import { translate } from "../Translation";
+import { translate } from "../translate";
 
 const SearchParams = styled.div`
   flex: 1 1;

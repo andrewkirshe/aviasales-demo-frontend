@@ -9,10 +9,18 @@ import "flexboxgrid2";
 
 addLocaleData(ru);
 
+const messages = {
+  "react-intl-formatted-duration/custom-format/extra_short":
+    "{hours} {minutes}",
+  "react-intl-formatted-duration.duration": "{value} {unit}",
+  "react-intl-formatted-duration.hoursUnit": "{value, plural, other{ч}}",
+  "react-intl-formatted-duration.minutesUnit": "{value, plural, other{м}}"
+};
+
 class App extends Component {
   render() {
     return (
-      <IntlProvider locale="ru">
+      <IntlProvider locale="ru" messages={messages}>
         <BrowserRouter>
           <div className="App">
             <Route path="/" exact component={Home} />

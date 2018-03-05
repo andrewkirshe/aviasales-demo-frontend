@@ -1,5 +1,5 @@
 import React from "react";
-import { translate } from "../Translation";
+import { translate } from "../translate";
 import Link from "./Link";
 import styled from "styled-components";
 

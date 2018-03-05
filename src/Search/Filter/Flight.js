@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import plane from "./plane.svg";
-import { translate } from "../../Translation";
+import { translate } from "../../translate";
 
 const Flight = styled.p`
   display: flex;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { media } from "../Media";
-import { translate } from "../Translation";
+import { translate } from "../translate";
 
 const Li = styled.li`
   margin: 0 20px 10px 0;
