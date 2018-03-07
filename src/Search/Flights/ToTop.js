@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { media } from "../../Media";
+import React from 'react';
+import styled from 'styled-components';
+import { media } from '../../Media';
 
 const Wrapper = styled.div`
   display: flex;
@@ -22,10 +22,8 @@ const Button = styled.button`
   margin: 0 0 16px 0;
 `;
 
-export default () => {
-  return (
-    <Wrapper>
-      <Button>НАВЕРХ</Button>
-    </Wrapper>
-  );
-};
+export default () => (
+  <Wrapper>
+    <Button>НАВЕРХ</Button>
+  </Wrapper>
+);

@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import { media } from "../Media";
-import arrows from "./arrows.svg";
-import calendar from "./calendar.svg";
+import React from 'react';
+import styled from 'styled-components';
+import { media } from '../Media';
+import arrows from './arrows.svg';
+import calendar from './calendar.svg';
 
 const Fields = styled.div`
   display: flex;
@@ -63,7 +63,7 @@ const Passengers = styled.button`
   `};
 
   &:after {
-    content: "";
+    content: '';
     display: block;
     line-height: 0;
     height: 0;
@@ -182,67 +182,45 @@ const Button = styled.button`
   margin: 0;
 `;
 
-export default () => {
-  return (
-    <Fields>
-      <Row>
-        <Field>
-          <Origin
-            type="text"
-            name="origin"
-            id="origin"
-            placeholder="Город вылета"
-          />
-          <Label htmlFor="origin">Город вылета</Label>
-          <AirportName>VIN</AirportName>
-          <Button>
-            <Img src={arrows} alt="Город вылета" />
-          </Button>
-        </Field>
-      </Row>
-      <Row>
-        <Field>
-          <Destination
-            type="text"
-            name="destination"
-            id="destination"
-            placeholder="Город прибытия"
-          />
-          <Label htmlFor="destination">Город прибытия</Label>
-        </Field>
-      </Row>
-      <Row>
-        <DateFiled>
-          <Depart
-            type="text"
-            name="depart_date"
-            id="depart_date"
-            placeholder="Туда"
-          />
+export default () => (
+  <Fields>
+    <Row>
+      <Field>
+        <Origin type="text" name="origin" id="origin" placeholder="Город вылета" />
+        <Label htmlFor="origin">Город вылета</Label>
+        <AirportName>VIN</AirportName>
+        <Button>
+          <Img src={arrows} alt="Город вылета" />
+        </Button>
+      </Field>
+    </Row>
+    <Row>
+      <Field>
+        <Destination type="text" name="destination" id="destination" placeholder="Город прибытия" />
+        <Label htmlFor="destination">Город прибытия</Label>
+      </Field>
+    </Row>
+    <Row>
+      <DateFiled>
+        <Depart type="text" name="depart_date" id="depart_date" placeholder="Туда" />
 
-          <Label htmlFor="origin">Туда</Label>
-          <Button>
-            <Img src={calendar} alt="Город вылета" />
-          </Button>
-        </DateFiled>
-        <DateFiled>
-          <Input
-            type="text"
-            name="return_date"
-            id="return_date"
-            placeholder="Обратно"
-          />
-          <Label htmlFor="return_date">Обратно</Label>
-          <Button>
-            <Img src={calendar} alt="Город вылета" />
-          </Button>
-        </DateFiled>
-      </Row>
-      <Row>
-        <Passengers>
-          1 пассажир, <Grade>эконом</Grade>
-        </Passengers>
-      </Row>
-    </Fields>
-  );
-};
+        <Label htmlFor="origin">Туда</Label>
+        <Button>
+          <Img src={calendar} alt="Город вылета" />
+        </Button>
+      </DateFiled>
+      <DateFiled>
+        <Input type="text" name="return_date" id="return_date" placeholder="Обратно" />
+        <Label htmlFor="return_date">Обратно</Label>
+        <Button>
+          <Img src={calendar} alt="Город вылета" />
+        </Button>
+      </DateFiled>
+    </Row>
+    <Row>
+      <Passengers>
+        1 пассажир, <Grade>эконом</Grade>
+      </Passengers>
+    </Row>
+  </Fields>
+);

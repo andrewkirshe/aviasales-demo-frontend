@@ -1,440 +1,524 @@
-import airlines from "./airlines";
-import best from "./best.png";
-import cheapest from "./cheapest.png";
-import fastest from "./fastest.png";
+import airlines from './airlines';
+import best from './best.png';
+import cheapest from './cheapest.png';
+import fastest from './fastest.png';
 
 const flightsData = [
   {
+    id: 1,
     outbound: {
       origin: {
-        city: "Moscow",
-        airport: "VKO",
-        dateTime: 1519430700
+        city: 'Moscow',
+        airport: 'VKO',
+        dateTime: 1519430700,
       },
       destination: {
-        city: "Barcelona",
-        airport: "BCN",
-        dateTime: 1519441500
+        city: 'Barcelona',
+        airport: 'BCN',
+        dateTime: 1519441500,
       },
-      duration: 18000
+      duration: 18000,
     },
     return: {
       origin: {
-        city: "Barcelona",
-        airport: "BCN",
-        dateTime: 1520073300
+        city: 'Barcelona',
+        airport: 'BCN',
+        dateTime: 1520073300,
       },
       destination: {
-        city: "Moscow",
-        airport: "SVO",
-        dateTime: 1520097000
+        city: 'Moscow',
+        airport: 'SVO',
+        dateTime: 1520097000,
       },
-      duration: 16500
+      duration: 16500,
     },
-    type: "CHARTER",
+    type: 'CHARTER',
     airlines: [airlines.rossiya],
     dealers: [
       {
-        name: "Clickavia",
+        id: 1,
+        name: 'Clickavia',
         price: 7712,
         luggage: [
           {
+            id: 1,
             handbag: 5,
             baggage: {
-              weight: 15
-            }
-          }
-        ]
-      }
+              weight: 15,
+            },
+          },
+        ],
+      },
     ],
     tag: {
-      color: "#83D40B",
-      text: "Cheapest",
-      emoji: cheapest
-    }
+      color: '#83D40B',
+      text: 'Cheapest',
+      emoji: cheapest,
+    },
   },
   {
+    id: 2,
     outbound: {
       origin: {
-        city: "Moscow",
-        airport: "VKO",
-        dateTime: 1519430700
+        city: 'Moscow',
+        airport: 'VKO',
+        dateTime: 1519430700,
       },
       destination: {
-        city: "Barcelona",
-        airport: "BCN",
-        dateTime: 1519441500
+        city: 'Barcelona',
+        airport: 'BCN',
+        dateTime: 1519441500,
       },
-      duration: 18000
+      duration: 18000,
     },
     return: {
       origin: {
-        city: "Barcelona",
-        airport: "BCN",
-        dateTime: 1520073300
+        city: 'Barcelona',
+        airport: 'BCN',
+        dateTime: 1520073300,
       },
       destination: {
-        city: "Moscow",
-        airport: "SVO",
-        dateTime: 1520097000
+        city: 'Moscow',
+        airport: 'SVO',
+        dateTime: 1520097000,
       },
-      duration: 16500
+      duration: 16500,
     },
     airlines: [airlines.nordwind],
     dealers: [
       {
-        name: "Clickavia",
+        id: 1,
+        name: 'Clickavia',
         price: 7712,
         luggage: [
           {
-            handbag: 10
-          }
-        ]
+            id: 1,
+            handbag: 10,
+            baggage: {
+              weight: 0,
+            },
+          },
+        ],
       },
       {
-        name: "Билетик Аэро",
+        id: 2,
+        name: 'Билетик Аэро',
         price: 8202,
         luggage: [
           {
-            handbag: 10
-          }
-        ]
-      }
+            id: 1,
+            handbag: 10,
+            baggage: {
+              weight: 0,
+            },
+          },
+        ],
+      },
     ],
     tag: {
-      color: "#AF7542",
-      text: "Fastest",
-      emoji: fastest
-    }
+      color: '#AF7542',
+      text: 'Fastest',
+      emoji: fastest,
+    },
   },
   {
+    id: 3,
     outbound: {
       origin: {
-        city: "Moscow",
-        airport: "VKO",
-        dateTime: 1519430700
+        city: 'Moscow',
+        airport: 'VKO',
+        dateTime: 1519430700,
       },
       destination: {
-        city: "Barcelona",
-        airport: "BCN",
-        dateTime: 1519441500
+        city: 'Barcelona',
+        airport: 'BCN',
+        dateTime: 1519441500,
       },
-      duration: 18000
+      duration: 18000,
     },
     return: {
       origin: {
-        city: "Barcelona",
-        airport: "BCN",
-        dateTime: 1520073300
+        city: 'Barcelona',
+        airport: 'BCN',
+        dateTime: 1520073300,
       },
       destination: {
-        city: "Moscow",
-        airport: "SVO",
-        dateTime: 1520097000
+        city: 'Moscow',
+        airport: 'SVO',
+        dateTime: 1520097000,
       },
-      duration: 16500
+      duration: 16500,
     },
-    type: "CHARTER",
+    type: 'CHARTER',
     airlines: [airlines.nordwindstar],
     dealers: [
       {
-        name: "Clickavia",
+        id: 1,
+        name: 'Clickavia',
         price: 7712,
         luggage: [
           {
-            handbag: 10
+            id: 1,
+            handbag: 10,
+            baggage: {
+              weight: 0,
+            },
           },
           {
+            id: 2,
             handbag: 10,
             baggage: {
               weight: 20,
-              price: 267
-            }
-          }
-        ]
+              price: 267,
+            },
+          },
+        ],
       },
       {
-        name: "Билетик Аэро",
+        id: 2,
+        name: 'Билетик Аэро',
         price: 8202,
         luggage: [
           {
-            handbag: 10
-          }
-        ]
-      }
+            id: 1,
+            handbag: 10,
+            baggage: {
+              weight: 0,
+            },
+          },
+        ],
+      },
     ],
     tag: {
-      color: "#C279D1",
-      text: "Best ticket",
-      emoji: best
-    }
+      color: '#C279D1',
+      text: 'Best ticket',
+      emoji: best,
+    },
   },
   {
+    id: 4,
     outbound: {
       origin: {
-        city: "Moscow",
-        airport: "VKO",
-        dateTime: 1519430700
+        city: 'Moscow',
+        airport: 'VKO',
+        dateTime: 1519430700,
       },
       destination: {
-        city: "Barcelona",
-        airport: "BCN",
-        dateTime: 1519441500
+        city: 'Barcelona',
+        airport: 'BCN',
+        dateTime: 1519441500,
       },
-      duration: 18000
+      duration: 18000,
     },
     return: {
       origin: {
-        city: "Barcelona",
-        airport: "BCN",
-        dateTime: 1520073300
+        city: 'Barcelona',
+        airport: 'BCN',
+        dateTime: 1520073300,
       },
       destination: {
-        city: "Moscow",
-        airport: "SVO",
-        dateTime: 1520097000
+        city: 'Moscow',
+        airport: 'SVO',
+        dateTime: 1520097000,
       },
-      duration: 16500
+      duration: 16500,
     },
-    type: "CHARTER",
+    type: 'CHARTER',
     airlines: [airlines.redwings],
     dealers: [
       {
-        name: "Clickavia",
+        id: 1,
+        name: 'Clickavia',
         price: 7712,
         luggage: [
           {
+            id: 1,
             baggage: {
               weight: 20,
-              price: 267
-            }
-          }
-        ]
+              price: 267,
+            },
+          },
+        ],
       },
       {
-        name: "Билетик Аэро",
+        id: 2,
+        name: 'Билетик Аэро',
         price: 8202,
         luggage: [
           {
-            handbag: 10
-          }
-        ]
+            id: 1,
+            handbag: 10,
+            baggage: {
+              weight: 0,
+            },
+          },
+        ],
       },
       {
-        name: "Clickavia",
+        id: 3,
+        name: 'Clickavia',
         price: 7712,
         luggage: [
           {
+            id: 1,
             baggage: {
               weight: 20,
-              price: 267
-            }
-          }
-        ]
+              price: 267,
+            },
+          },
+        ],
       },
       {
-        name: "Билетик Аэро",
+        id: 4,
+        name: 'Билетик Аэро',
         price: 8202,
         luggage: [
           {
-            handbag: 10
-          }
-        ]
+            id: 1,
+            handbag: 10,
+            baggage: {
+              weight: 0,
+            },
+          },
+        ],
       },
       {
-        name: "Clickavia",
+        id: 5,
+        name: 'Clickavia',
         price: 7712,
         luggage: [
           {
+            id: 1,
             baggage: {
               weight: 20,
-              price: 267
-            }
-          }
-        ]
+              price: 267,
+            },
+          },
+        ],
       },
       {
-        name: "Билетик Аэро",
+        id: 6,
+        name: 'Билетик Аэро',
         price: 8202,
         luggage: [
           {
-            handbag: 10
-          }
-        ]
-      }
-    ]
+            id: 1,
+            handbag: 10,
+            baggage: {
+              weight: 0,
+            },
+          },
+        ],
+      },
+    ],
   },
   {
+    id: 5,
     outbound: {
       origin: {
-        city: "Moscow",
-        airport: "VKO",
-        dateTime: 1519430700
+        city: 'Moscow',
+        airport: 'VKO',
+        dateTime: 1519430700,
       },
       destination: {
-        city: "Barcelona",
-        airport: "BCN",
-        dateTime: 1519441500
+        city: 'Barcelona',
+        airport: 'BCN',
+        dateTime: 1519441500,
       },
-      duration: 18000
+      duration: 18000,
     },
     return: {
       origin: {
-        city: "Barcelona",
-        airport: "BCN",
-        dateTime: 1520073300
+        city: 'Barcelona',
+        airport: 'BCN',
+        dateTime: 1520073300,
       },
       destination: {
-        city: "Moscow",
-        airport: "SVO",
-        dateTime: 1520097000
+        city: 'Moscow',
+        airport: 'SVO',
+        dateTime: 1520097000,
       },
-      duration: 16500
+      duration: 16500,
     },
-    type: "CHARTER",
+    type: 'CHARTER',
     airlines: [airlines.rossiya, airlines.redwings],
     dealers: [
       {
-        name: "Clickavia",
+        id: 1,
+        name: 'Clickavia',
         price: 7712,
         luggage: [
           {
-            handbag: 10
+            id: 1,
+            handbag: 10,
+            baggage: {
+              weight: 0,
+            },
           },
           {
+            id: 2,
             handbag: 10,
             baggage: {
               weight: 20,
-              price: 267
-            }
-          }
-        ]
+              price: 267,
+            },
+          },
+        ],
       },
       {
-        name: "Билетик Аэро",
+        id: 2,
+        name: 'Билетик Аэро',
         price: 8202,
         luggage: [
           {
-            handbag: 10
-          }
-        ]
-      }
-    ]
+            id: 1,
+            handbag: 10,
+            baggage: {
+              weight: 0,
+            },
+          },
+        ],
+      },
+    ],
   },
   {
+    id: 6,
     outbound: {
       origin: {
-        city: "Moscow",
-        airport: "VKO",
-        dateTime: 1519430700
+        city: 'Moscow',
+        airport: 'VKO',
+        dateTime: 1519430700,
       },
       destination: {
-        city: "Barcelona",
-        airport: "BCN",
-        dateTime: 1519441500
+        city: 'Barcelona',
+        airport: 'BCN',
+        dateTime: 1519441500,
       },
-      duration: 18000
+      duration: 18000,
     },
     return: {
       origin: {
-        city: "Barcelona",
-        airport: "BCN",
-        dateTime: 1520073300
+        city: 'Barcelona',
+        airport: 'BCN',
+        dateTime: 1520073300,
       },
       destination: {
-        city: "Moscow",
-        airport: "SVO",
-        dateTime: 1520097000
+        city: 'Moscow',
+        airport: 'SVO',
+        dateTime: 1520097000,
       },
-      duration: 16500
+      duration: 16500,
     },
-    type: "CHARTER",
+    type: 'CHARTER',
     airlines: [airlines.fly],
     dealers: [
       {
-        name: "Clickavia",
+        id: 1,
+        name: 'Clickavia',
         price: 7712,
         luggage: [
           {
-            handbag: 10
+            id: 1,
+            handbag: 10,
+            baggage: {
+              weight: 0,
+            },
           },
           {
+            id: 2,
             handbag: 10,
             baggage: {
               weight: 20,
-              price: 267
-            }
-          }
-        ]
+              price: 267,
+            },
+          },
+        ],
       },
       {
-        name: "Билетик Аэро",
+        id: 2,
+        name: 'Билетик Аэро',
         price: 8202,
         luggage: [
           {
-            handbag: 10
-          }
-        ]
-      }
-    ]
+            id: 1,
+            handbag: 10,
+            baggage: {
+              weight: 0,
+            },
+          },
+        ],
+      },
+    ],
   },
   {
+    id: 7,
     outbound: {
       origin: {
-        city: "Moscow",
-        airport: "VKO",
-        dateTime: 1519430700
+        city: 'Moscow',
+        airport: 'VKO',
+        dateTime: 1519430700,
       },
       destination: {
-        city: "Barcelona",
-        airport: "BCN",
-        dateTime: 1519441500
+        city: 'Barcelona',
+        airport: 'BCN',
+        dateTime: 1519441500,
       },
-      duration: 18000
+      duration: 18000,
     },
     return: {
       origin: {
-        city: "Barcelona",
-        airport: "BCN",
-        dateTime: 1520073300
+        city: 'Barcelona',
+        airport: 'BCN',
+        dateTime: 1520073300,
       },
       destination: {
-        city: "Moscow",
-        airport: "SVO",
-        dateTime: 1520097000
+        city: 'Moscow',
+        airport: 'SVO',
+        dateTime: 1520097000,
       },
-      duration: 16500
+      duration: 16500,
     },
-    type: "CHARTER",
+    type: 'CHARTER',
     airlines: [airlines.rossiya, airlines.fly],
     dealers: [
       {
-        name: "Clickavia",
+        id: 1,
+        name: 'Clickavia',
         price: 7712,
         luggage: [
           {
-            handbag: 10
+            id: 1,
+            handbag: 10,
+            baggage: {
+              weight: 0,
+            },
           },
           {
+            id: 2,
             handbag: 10,
             baggage: {
               weight: 20,
-              price: 267
-            }
-          }
-        ]
+              price: 267,
+            },
+          },
+        ],
       },
       {
-        name: "Билетик Аэро",
+        id: 2,
+        name: 'Билетик Аэро',
         price: 8202,
         luggage: [
           {
-            handbag: 10
-          }
-        ]
-      }
-    ]
-  }
+            id: 1,
+            handbag: 10,
+            baggage: {
+              weight: 0,
+            },
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export default flightsData;

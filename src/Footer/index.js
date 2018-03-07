@@ -1,273 +1,328 @@
-import React from "react";
-import styled from "styled-components";
-import { media } from "../Media";
-import Nav from "./Nav";
-import Link from "./Link";
+import React from 'react';
+import styled from 'styled-components';
+import { media } from '../Media';
+import Nav from './Nav';
+import Link from './Link';
 
-import vk from "./vk.svg";
-import fb from "./fb.svg";
-import ig from "./ig.svg";
-import tw from "./tw.svg";
-import vb from "./vb.svg";
+import vk from './vk.svg';
+import fb from './fb.svg';
+import ig from './ig.svg';
+import tw from './tw.svg';
+import vb from './vb.svg';
 
-import apple from "./apple.svg";
-import android from "./android.svg";
-import wmarket from "./wmarket.svg";
+import apple from './apple.svg';
+import android from './android.svg';
+import wmarket from './wmarket.svg';
 
 const footerNavsData = [
   {
-    title: "Countries",
+    id: 1,
+    title: 'Countries',
     links: [
       {
-        text: "Russia",
-        url: "http://aviasales.ru"
+        id: 1,
+        text: 'Russia',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "Thailand",
-        url: "http://aviasales.ru"
+        id: 2,
+        text: 'Thailand',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "Montenegro",
-        url: "http://aviasales.ru"
+        id: 3,
+        text: 'Montenegro',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "Cyprus",
-        url: "http://aviasales.ru"
+        id: 4,
+        text: 'Cyprus',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "Bulgaria",
-        url: "http://aviasales.ru"
+        id: 5,
+        text: 'Bulgaria',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "Georgia",
-        url: "http://aviasales.ru"
-      }
+        id: 6,
+        text: 'Georgia',
+        url: 'http://aviasales.ru',
+      },
     ],
     all: {
-      text: "AllCountries",
-      url: "http://aviasales.ru"
-    }
+      text: 'AllCountries',
+      url: 'http://aviasales.ru',
+    },
   },
   {
-    title: "Cities",
+    id: 2,
+    title: 'Cities',
     links: [
       {
-        text: "Moscow",
-        url: "http://aviasales.ru"
+        id: 1,
+        text: 'Moscow',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "StPetersburg",
-        url: "http://aviasales.ru"
+        id: 2,
+        text: 'StPetersburg',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "Simferopol",
-        url: "http://aviasales.ru"
+        id: 3,
+        text: 'Simferopol',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "Adler",
-        url: "http://aviasales.ru"
+        id: 4,
+        text: 'Adler',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "Ekaterinburg",
-        url: "http://aviasales.ru"
+        id: 5,
+        text: 'Ekaterinburg',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "London",
-        url: "http://aviasales.ru"
-      }
+        id: 6,
+        text: 'London',
+        url: 'http://aviasales.ru',
+      },
     ],
     all: {
-      text: "AllCities",
-      url: "http://aviasales.ru"
-    }
+      text: 'AllCities',
+      url: 'http://aviasales.ru',
+    },
   },
   {
-    title: "Airlines",
+    id: 3,
+    title: 'Airlines',
     links: [
       {
-        text: "Air Berlin",
-        url: "http://aviasales.ru"
+        id: 1,
+        text: 'Air Berlin',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "Air France",
-        url: "http://aviasales.ru"
+        id: 2,
+        text: 'Air France',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "Alitalia",
-        url: "http://aviasales.ru"
+        id: 3,
+        text: 'Alitalia',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "Air Baltic",
-        url: "http://aviasales.ru"
+        id: 4,
+        text: 'Air Baltic',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "Emirates",
-        url: "http://aviasales.ru"
+        id: 5,
+        text: 'Emirates',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "KLM",
-        url: "http://aviasales.ru"
-      }
+        id: 6,
+        text: 'KLM',
+        url: 'http://aviasales.ru',
+      },
     ],
     all: {
-      text: "AllAirlines",
-      url: "http://aviasales.ru"
-    }
+      text: 'AllAirlines',
+      url: 'http://aviasales.ru',
+    },
   },
   {
-    title: "Airports",
+    id: 4,
+    title: 'Airports',
     links: [
       {
-        text: "Sheremetyevo",
-        url: "http://aviasales.ru"
+        id: 1,
+        text: 'Sheremetyevo',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "Kurumoch",
-        url: "http://aviasales.ru"
+        id: 2,
+        text: 'Kurumoch',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "Domodedovo",
-        url: "http://aviasales.ru"
+        id: 3,
+        text: 'Domodedovo',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "Tolmachevo",
-        url: "http://aviasales.ru"
+        id: 4,
+        text: 'Tolmachevo',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "Vladivostok",
-        url: "http://aviasales.ru"
+        id: 5,
+        text: 'Vladivostok',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "Hamburg",
-        url: "http://aviasales.ru"
-      }
+        id: 6,
+        text: 'Hamburg',
+        url: 'http://aviasales.ru',
+      },
     ],
     all: {
-      text: "AllAirports",
-      url: "http://aviasales.ru"
-    }
+      text: 'AllAirports',
+      url: 'http://aviasales.ru',
+    },
   },
   {
-    title: "Directions",
+    id: 5,
+    title: 'Directions',
     links: [
       {
-        text: "MOW – SIP",
-        url: "http://aviasales.ru"
+        id: 1,
+        text: 'MOW – SIP',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "MOW – AER",
-        url: "http://aviasales.ru"
+        id: 2,
+        text: 'MOW – AER',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "MOW – TIV",
-        url: "http://aviasales.ru"
+        id: 3,
+        text: 'MOW – TIV',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "MOW – MRV",
-        url: "http://aviasales.ru"
+        id: 4,
+        text: 'MOW – MRV',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "LED – MOW",
-        url: "http://aviasales.ru"
+        id: 5,
+        text: 'LED – MOW',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "MOW – BKK",
-        url: "http://aviasales.ru"
-      }
-    ]
+        id: 6,
+        text: 'MOW – BKK',
+        url: 'http://aviasales.ru',
+      },
+    ],
   },
   {
-    title: "Services",
+    id: 6,
+    title: 'Services',
     links: [
       {
-        text: "FlightTickets",
-        url: "http://aviasales.ru"
+        id: 1,
+        text: 'FlightTickets',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "LowPriceCalendar",
-        url: "http://aviasales.ru"
+        id: 2,
+        text: 'LowPriceCalendar',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "LowPriceMap",
-        url: "http://aviasales.ru"
+        id: 3,
+        text: 'LowPriceMap',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "SpecialOffers",
-        url: "http://aviasales.ru"
+        id: 4,
+        text: 'SpecialOffers',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "PriceTable",
-        url: "http://aviasales.ru"
+        id: 5,
+        text: 'PriceTable',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "Blog",
-        url: "http://aviasales.ru"
+        id: 6,
+        text: 'Blog',
+        url: 'http://aviasales.ru',
       },
       {
-        text: "Help",
-        url: "http://aviasales.ru"
-      }
-    ]
-  }
+        id: 7,
+        text: 'Help',
+        url: 'http://aviasales.ru',
+      },
+    ],
+  },
 ];
 
 const infoLinksData = [
   {
-    text: "О компании",
-    url: "http://aviasales.ru"
+    id: 1,
+    text: 'О компании',
+    url: 'http://aviasales.ru',
   },
   {
-    text: "Партнёрская программа",
-    url: "http://aviasales.ru"
+    id: 2,
+    text: 'Партнёрская программа',
+    url: 'http://aviasales.ru',
   },
   {
-    text: "Реклама",
-    url: "http://aviasales.ru"
+    id: 3,
+    text: 'Реклама',
+    url: 'http://aviasales.ru',
   },
   {
-    text: "Вакансии",
-    url: "http://aviasales.ru"
+    id: 4,
+    text: 'Вакансии',
+    url: 'http://aviasales.ru',
   },
   {
-    text: "Помощь",
-    url: "http://aviasales.ru"
+    id: 5,
+    text: 'Помощь',
+    url: 'http://aviasales.ru',
   },
   {
-    text: "Правила",
-    url: "http://aviasales.ru"
+    id: 6,
+    text: 'Правила',
+    url: 'http://aviasales.ru',
   },
   {
-    text: "White Label авиабилеты",
-    url: "http://aviasales.ru"
-  }
+    id: 7,
+    text: 'White Label авиабилеты',
+    url: 'http://aviasales.ru',
+  },
 ];
 
 const socialLinksData = [
   {
+    id: 1,
     icon: vk,
-    text: "Вконтакте",
-    url: "http://aviasales.ru"
+    text: 'Вконтакте',
+    url: 'http://aviasales.ru',
   },
   {
+    id: 2,
     icon: fb,
-    text: "Фейсбук",
-    url: "http://aviasales.ru"
+    text: 'Фейсбук',
+    url: 'http://aviasales.ru',
   },
   {
+    id: 3,
     icon: ig,
-    text: "Инстаграм",
-    url: "http://aviasales.ru"
+    text: 'Инстаграм',
+    url: 'http://aviasales.ru',
   },
   {
+    id: 4,
     icon: tw,
-    text: "Твиттер",
-    url: "http://aviasales.ru"
+    text: 'Твиттер',
+    url: 'http://aviasales.ru',
   },
   {
+    id: 5,
     icon: vb,
-    text: "Вайбер",
-    url: "http://aviasales.ru"
-  }
+    text: 'Вайбер',
+    url: 'http://aviasales.ru',
+  },
 ];
 
 const Footer = styled.footer`
@@ -406,23 +461,19 @@ const Copyright = styled.div`
 `;
 
 export default () => {
-  const footerNavs = footerNavsData.map((nav, index) => {
-    return (
-      <div key={index} className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-        <Nav title={nav.title} links={nav.links} all={nav.all} />
-      </div>
-    );
-  });
+  const footerNavs = footerNavsData.map(nav => (
+    <div key={nav.id} className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+      <Nav title={nav.title} links={nav.links} all={nav.all} />
+    </div>
+  ));
 
-  const infoLinks = infoLinksData.map((link, index) => {
-    return <Link key={index} text={link.text} url={link.url} />;
-  });
+  const infoLinks = infoLinksData.map(link => (
+    <Link href key={link.id} text={link.text} url={link.url} />
+  ));
 
-  const socialLinks = socialLinksData.map((link, index) => {
-    return (
-      <Link key={index} icon={link.icon} text={link.text} url={link.url} />
-    );
-  });
+  const socialLinks = socialLinksData.map(link => (
+    <Link href key={link.id} icon={link.icon} text={link.text} url={link.url} />
+  ));
 
   return (
     <Footer>
@@ -438,9 +489,7 @@ export default () => {
             <InfoList>{infoLinks}</InfoList>
             <SocialLinks>{socialLinks}</SocialLinks>
             <MainLinkWrap>
-              <MainLink href="http://aviasales.ru">
-                Поиск и бронирование отелей
-              </MainLink>
+              <MainLink href="http://aviasales.ru">Поиск и бронирование отелей</MainLink>
             </MainLinkWrap>
           </InfoLeft>
           <InfoRight>

@@ -1,11 +1,12 @@
-import React from "react";
-import styled from "styled-components";
-import SearchForm from "../SearchForm";
-import LogoRow from "./LogoRow";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import SearchForm from '../SearchForm';
+import LogoRow from './LogoRow';
 
 const HeaderWrapper = styled.header`
   background: linear-gradient(to left, #196ebd, #01b0dd);
-  height: ${props => (props.headerSize === "full" ? "100vh" : "auto")};
+  height: ${props => (props.headerSize === 'full' ? '100vh' : 'auto')};
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -14,18 +15,18 @@ const HeaderWrapper = styled.header`
 `;
 
 const pages = {
-  "/": "full",
-  "/search": "small"
+  '/': 'full',
+  '/search': 'small',
 };
 
 class Header extends React.Component {
   state = {
     fromDate: new Date(),
     toDate: null,
-    enteredTo: null
+    enteredToDate: null,
   };
 
-  selectDates = dates => {
+  selectDates = (dates) => {
     this.setState(dates);
   };
 
@@ -48,5 +49,13 @@ class Header extends React.Component {
     );
   }
 }
+
+Header.propTypes = {
+  location: PropTypes.objectOf(PropTypes.shape),
+};
+
+Header.defaultProps = {
+  location: {},
+};
 
 export default Header;

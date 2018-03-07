@@ -1,107 +1,125 @@
-import React from "react";
-import styled from "styled-components";
-import { media } from "../Media";
-import Header from "./Header";
-import Destination from "./Destination";
+import React from 'react';
+import styled from 'styled-components';
+import { media } from '../Media';
+import Header from './Header';
+import Destination from './Destination';
 
-import flag_ru from "./flag_ru.png";
-import flag_ru_x2 from "./flag_ru@2x.png";
-import flag_am from "./flag_am.png";
-import flag_am_x2 from "./flag_am@2x.png";
-import flag_md from "./flag_md.png";
-import flag_md_x2 from "./flag_md@2x.png";
+import flagRu from './flag_ru.png';
+import flagRuX2 from './flag_ru@2x.png';
+import flagAm from './flag_am.png';
+import flagAmX2 from './flag_am@2x.png';
+import flagMd from './flag_md.png';
+import flagMdX2 from './flag_md@2x.png';
 
 const destinations = [
   {
+    id: 1,
     flag: {
-      x1: flag_ru,
-      x2: flag_ru_x2
+      x1: flagRu,
+      x2: flagRuX2,
     },
-    city: "Simferopol",
-    country: "Crimea",
+    city: 'Simferopol',
+    country: 'Crimea',
     routes: [
       {
-        from: "Moscow",
-        price: 4837
+        id: 1,
+        from: 'Moscow',
+        price: 4837,
       },
       {
-        from: "StPetersburg",
-        price: 7857
+        id: 2,
+        from: 'StPetersburg',
+        price: 7857,
       },
       {
-        from: "Novosibirsk",
-        price: 15127
+        id: 3,
+        from: 'Novosibirsk',
+        price: 15127,
       },
       {
-        from: "Ekaterinburg",
-        price: 9275
+        id: 4,
+        from: 'Ekaterinburg',
+        price: 9275,
       },
       {
-        from: "Chelyabinsk",
-        price: 9148
-      }
-    ]
+        id: 5,
+        from: 'Chelyabinsk',
+        price: 9148,
+      },
+    ],
   },
   {
+    id: 2,
     flag: {
-      x1: flag_am,
-      x2: flag_am_x2
+      x1: flagAm,
+      x2: flagAmX2,
     },
-    city: "Yerevan",
-    country: "Армения",
+    city: 'Yerevan',
+    country: 'Армения',
     routes: [
       {
-        from: "Armenia",
-        price: 6758
+        id: 1,
+        from: 'Armenia',
+        price: 6758,
       },
       {
-        from: "StPetersburg",
-        price: 9932
+        id: 2,
+        from: 'StPetersburg',
+        price: 9932,
       },
       {
-        from: "Sochi",
-        price: 11951
+        id: 3,
+        from: 'Sochi',
+        price: 11951,
       },
       {
-        from: "Krasnodar",
-        price: 11741
+        id: 4,
+        from: 'Krasnodar',
+        price: 11741,
       },
       {
-        from: "RostovNaDonu",
-        price: 11956
-      }
-    ]
+        id: 5,
+        from: 'RostovNaDonu',
+        price: 11956,
+      },
+    ],
   },
   {
+    id: 3,
     flag: {
-      x1: flag_md,
-      x2: flag_md_x2
+      x1: flagMd,
+      x2: flagMdX2,
     },
-    city: "Kishinev",
-    country: "Moldova",
+    city: 'Kishinev',
+    country: 'Moldova',
     routes: [
       {
-        from: "Moscow",
-        price: 8319
+        id: 1,
+        from: 'Moscow',
+        price: 8319,
       },
       {
-        from: "StPetersburg",
-        price: 10800
+        id: 2,
+        from: 'StPetersburg',
+        price: 10800,
       },
       {
-        from: "Krasnodar",
-        price: 12098
+        id: 3,
+        from: 'Krasnodar',
+        price: 12098,
       },
       {
-        from: "Surgut",
-        price: 16277
+        id: 4,
+        from: 'Surgut',
+        price: 16277,
       },
       {
-        from: "NovyUrengoy",
-        price: 15987
-      }
-    ]
-  }
+        id: 5,
+        from: 'NovyUrengoy',
+        price: 15987,
+      },
+    ],
+  },
 ];
 
 const BestPrice = styled.section`
@@ -136,17 +154,15 @@ const Small = styled.p`
 `;
 
 export default () => {
-  const destinationsList = destinations.map((destination, index) => {
-    return (
-      <Destination
-        key={index}
-        flag={destination.flag}
-        city={destination.city}
-        country={destination.country}
-        routes={destination.routes}
-      />
-    );
-  });
+  const destinationsList = destinations.map(destination => (
+    <Destination
+      key={destination.id}
+      flag={destination.flag}
+      city={destination.city}
+      country={destination.country}
+      routes={destination.routes}
+    />
+  ));
   return (
     <BestPrice>
       <div className="container">
@@ -164,13 +180,11 @@ export default () => {
           <div className="col-xs-12 col-sm-10 col-lg-6">
             <Notes>
               <Text>
-                Мы знаем, где купить авиабилеты дешево. Билеты на самолет в 220
-                стран мира. Поиск и сравнение цен на авиабилеты среди 100
-                агентств и 728 авиакомпаний.
+                Мы знаем, где купить авиабилеты дешево. Билеты на самолет в 220 стран мира. Поиск и
+                сравнение цен на авиабилеты среди 100 агентств и 728 авиакомпаний.
               </Text>
               <Small>
-                Цены, найденные пользователями за последние 48 часов, не
-                являются офертой.
+                Цены, найденные пользователями за последние 48 часов, не являются офертой.
               </Small>
             </Notes>
           </div>

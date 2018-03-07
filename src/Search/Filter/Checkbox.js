@@ -1,7 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import { FormattedNumber } from "react-intl";
-import checked from "./checked.svg";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { FormattedNumber } from 'react-intl';
+import checked from './checked.svg';
 
 const Wrapper = styled.div``;
 
@@ -21,7 +22,7 @@ const Name = styled.p`
   align-items: center;
 
   &:before {
-    content: "";
+    content: '';
     display: block;
     border: solid 1px #a0b0b9;
     border-radius: 4px;
@@ -51,7 +52,7 @@ const Input = styled.input`
     }
 
     &:after {
-      content: "";
+      content: '';
       display: block;
       background: url(${checked});
       width: 8px;
@@ -69,25 +70,39 @@ const Description = styled.p`
   line-height: 1.5;
 `;
 
-export default props => {
-  return (
-    <Wrapper>
-      <Label>
-        <Input type="checkbox" defaultChecked={props.checked} />
-        <Name>{props.label}</Name>
-        {props.price && (
-          <Price>
-            <FormattedNumber
-              value={props.price}
-              style={`currency`}
-              currency="RUB"
-              minimumFractionDigits={0}
-              maximumFractionDigits={0}
-            />
-          </Price>
-        )}
-      </Label>
-      {props.description && <Description>{props.description}</Description>}
-    </Wrapper>
-  );
+const Checkbox = props => (
+  <Wrapper>
+    <Label>
+      <Input type="checkbox" defaultChecked={props.checked} />
+      <Name>{props.label}</Name>
+      {!!props.price && (
+        <Price>
+          <FormattedNumber
+            value={props.price}
+            style={String('currency')}
+            currency="RUB"
+            minimumFractionDigits={0}
+            maximumFractionDigits={0}
+          />
+        </Price>
+      )}
+    </Label>
+    {props.description && <Description>{props.description}</Description>}
+  </Wrapper>
+);
+
+Checkbox.propTypes = {
+  checked: PropTypes.bool,
+  label: PropTypes.string,
+  price: PropTypes.number,
+  description: PropTypes.string,
 };
+
+Checkbox.defaultProps = {
+  checked: false,
+  label: '',
+  price: 0,
+  description: '',
+};
+
+export default Checkbox;

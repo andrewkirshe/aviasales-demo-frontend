@@ -1,11 +1,12 @@
-import React from "react";
-import styled from "styled-components";
-import { format } from "date-fns";
-import ru from "date-fns/locale/ru";
-import { media } from "../Media";
-import DayPicker from "react-day-picker";
-import Switch from "./Switch";
-import onClickOutside from "react-onclickoutside";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { format } from 'date-fns';
+import ru from 'date-fns/locale/ru';
+import DayPicker from 'react-day-picker';
+import onClickOutside from 'react-onclickoutside';
+import { media } from '../Media';
+import Switch from './Switch';
 
 const Wrapper = styled.div`
   position: absolute;
@@ -89,10 +90,10 @@ const Options = styled.div`
 `;
 
 class DateFrom extends React.Component {
-  handleDayClick = (day, { selected, disabled }) => {
+  handleDayClick = (day, { disabled }) => {
     if (!disabled) {
       this.props.selectDates({
-        fromDate: day
+        fromDate: day,
       });
 
       this.props.onToggleFrom(false);
@@ -125,10 +126,10 @@ class DateFrom extends React.Component {
       months,
       weekdaysLong,
       weekdaysShort,
-      renderDay
+      renderDay,
     } = this.props;
 
-    const modifiers = { start: from, end: enteredTo, to: to };
+    const modifiers = { start: from, end: enteredTo, to };
 
     const selectedDays = [from, { from, to: enteredTo }];
 
@@ -141,7 +142,7 @@ class DateFrom extends React.Component {
           placeholder={label}
           onChange={this.open}
           onClick={this.open}
-          value={from ? format(from, "DD MMMM, dd", { locale: ru }) : ""}
+          value={from ? format(from, 'DD MMMM, dd', { locale: ru }) : ''}
         />
         <Label htmlFor={id}>{label}</Label>
         {button && (
@@ -154,7 +155,7 @@ class DateFrom extends React.Component {
             <DayPicker
               className="Range"
               locale="ru"
-              month={from ? from : to}
+              month={from || to}
               months={months}
               weekdaysLong={weekdaysLong}
               weekdaysShort={weekdaysShort}
@@ -174,5 +175,41 @@ class DateFrom extends React.Component {
     );
   }
 }
+
+DateFrom.propTypes = {
+  selectDates: PropTypes.func,
+  onToggleFrom: PropTypes.func,
+  onToggleTo: PropTypes.func,
+  from: PropTypes.objectOf(PropTypes.shape),
+  to: PropTypes.objectOf(PropTypes.shape),
+  enteredTo: PropTypes.objectOf(PropTypes.shape),
+  name: PropTypes.string,
+  id: PropTypes.string,
+  label: PropTypes.string,
+  button: PropTypes.string,
+  isOpened: PropTypes.bool,
+  months: PropTypes.arrayOf(PropTypes.string),
+  weekdaysLong: PropTypes.arrayOf(PropTypes.string),
+  weekdaysShort: PropTypes.arrayOf(PropTypes.string),
+  renderDay: PropTypes.func,
+};
+
+DateFrom.defaultProps = {
+  selectDates: () => {},
+  onToggleFrom: () => {},
+  onToggleTo: () => {},
+  from: {},
+  to: {},
+  enteredTo: {},
+  name: '',
+  id: '',
+  label: '',
+  button: '',
+  isOpened: false,
+  months: [],
+  weekdaysLong: [],
+  weekdaysShort: [],
+  renderDay: () => {},
+};
 
 export default onClickOutside(DateFrom);

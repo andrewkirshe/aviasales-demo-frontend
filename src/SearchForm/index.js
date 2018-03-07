@@ -1,21 +1,21 @@
-import React from "react";
-import styled from "styled-components";
-import { media } from "../Media";
-import DateRange from "./DateRange";
-import arrows from "./arrows.svg";
-import FindButton from "./FindButton";
-import datePrices from "./datePrices";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { media } from '../Media';
+import DateRange from './DateRange';
+import arrows from './arrows.svg';
+import FindButton from './FindButton';
+import datePrices from './datePrices';
 
-const SearchForm = styled.div`
-  display: ${props => (props.headerSize === "full" ? "flex" : "none")};
+const Wrapper = styled.div`
+  display: ${props => (props.headerSize === 'full' ? 'flex' : 'none')};
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
   ${media.md`
     display: flex;
-    margin-bottom: ${props =>
-      props.headerSize === "full" ? "inherit" : "30px"} 
+    margin-bottom: ${props => (props.headerSize === 'full' ? 'inherit' : '30px')} 
   `};
 `;
 
@@ -57,7 +57,7 @@ const Fields = styled.div`
   display: flex;
   flex-wrap: wrap;
   ${media.xl`
-    flex-wrap: ${props => (props.headerSize === "full" ? "wrap" : "nowrap")};
+    flex-wrap: ${props => (props.headerSize === 'full' ? 'wrap' : 'nowrap')};
   `};
 `;
 
@@ -74,7 +74,7 @@ const Row = styled.div`
 
   &:nth-child(3) {
     ${media.xl`
-      flex: ${props => (props.headerSize === "full" ? "30% 1" : "46% 1")};
+      flex: ${props => (props.headerSize === 'full' ? '30% 1' : '46% 1')};
     `};
   }
 `;
@@ -101,7 +101,7 @@ const Passengers = styled.button`
   transition: all 0.3s;
   box-shadow: inset 0 0 0 2px transparent;
   z-index: 10;
-  flex: ${props => (props.headerSize === "full" ? "1 1" : "50% 1")};
+  flex: ${props => (props.headerSize === 'full' ? '1 1' : '50% 1')};
   margin: 1px;
   background: #fff;
   text-align: left;
@@ -109,8 +109,7 @@ const Passengers = styled.button`
   white-space: nowrap;
   ${media.sm`
     border-bottom-left-radius: 0;
-    border-bottom-right-radius: ${props =>
-      props.headerSize === "full" ? "3px" : "0"};
+    border-bottom-right-radius: ${props => (props.headerSize === 'full' ? '3px' : '0')};
   `};
 
   ${media.xl`
@@ -120,7 +119,7 @@ const Passengers = styled.button`
   `};
 
   &:after {
-    content: "";
+    content: '';
     display: block;
     line-height: 0;
     height: 0;
@@ -228,19 +227,15 @@ const Button = styled.button`
   margin: 0;
 `;
 
-export default props => {
+const SearchForm = (props) => {
   const { headerSize } = props;
 
   return (
-    <SearchForm headerSize={headerSize}>
+    <Wrapper headerSize={headerSize}>
       <div className="container">
         <div className="row center-xs">
-          <div
-            className={
-              headerSize === "full" ? "col-xs-12 col-md-10" : "col-xs-12"
-            }
-          >
-            {headerSize === "full" && (
+          <div className={headerSize === 'full' ? 'col-xs-12 col-md-10' : 'col-xs-12'}>
+            {headerSize === 'full' && (
               <Title>
                 Поиск дешевых авиабилетов
                 <SubTitle>Лучший способ купить авиабилеты дешево</SubTitle>
@@ -250,12 +245,7 @@ export default props => {
               <Fields headerSize={headerSize}>
                 <Row>
                   <Field>
-                    <Origin
-                      type="text"
-                      name="origin"
-                      id="origin"
-                      placeholder="Город вылета"
-                    />
+                    <Origin type="text" name="origin" id="origin" placeholder="Город вылета" />
                     <Label htmlFor="origin">Город вылета</Label>
                     <AirportName>VIN</AirportName>
                     <Button type="button">
@@ -287,18 +277,32 @@ export default props => {
                   <Passengers type="button" headerSize={headerSize}>
                     1 пассажир, <Grade>эконом</Grade>
                   </Passengers>
-                  {headerSize === "small" && (
-                    <FindButton headerSize={headerSize} />
-                  )}
+                  {headerSize === 'small' && <FindButton headerSize={headerSize} />}
                 </Row>
-                {headerSize === "full" && (
-                  <FindButton headerSize={headerSize} />
-                )}
+                {headerSize === 'full' && <FindButton headerSize={headerSize} />}
               </Fields>
             </Form>
           </div>
         </div>
       </div>
-    </SearchForm>
+    </Wrapper>
   );
 };
+
+SearchForm.propTypes = {
+  selectDates: PropTypes.func,
+  headerSize: PropTypes.string,
+  fromDate: PropTypes.objectOf(PropTypes.shape),
+  toDate: PropTypes.objectOf(PropTypes.shape),
+  enteredToDate: PropTypes.objectOf(PropTypes.shape),
+};
+
+SearchForm.defaultProps = {
+  selectDates: () => {},
+  headerSize: '',
+  fromDate: {},
+  toDate: {},
+  enteredToDate: {},
+};
+
+export default SearchForm;

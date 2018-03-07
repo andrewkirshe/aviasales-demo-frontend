@@ -1,9 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import { media } from "../../../Media";
-import { translate } from "../../../translate";
-import Buy from "./Buy";
-import Info from "./Info";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { media } from '../../../Media';
+import { translate } from '../../../translate';
+import Buy from './Buy';
+import Info from './Info';
 
 const Wrapper = styled.div``;
 
@@ -15,7 +16,7 @@ const Card = styled.div`
   position: relative;
 
   &:before {
-    content: "";
+    content: '';
     top: 0;
     bottom: 0;
     width: 8px;
@@ -29,7 +30,7 @@ const Card = styled.div`
   }
 
   &:after {
-    content: "";
+    content: '';
     top: 0;
     bottom: 0;
     width: 8px;
@@ -49,7 +50,7 @@ const Card = styled.div`
 `;
 
 const Tag = styled.p`
-  background: ${props => (props.background ? props.background : "none")};
+  background: ${props => (props.background ? props.background : 'none')};
   display: flex;
   align-items: center;
   padding: 8px 0;
@@ -64,13 +65,13 @@ const Tag = styled.p`
   `};
 
   &:before {
-    content: "";
+    content: '';
     top: 0;
     bottom: 0;
     width: 8px;
     right: 100%;
     position: absolute;
-    background: ${props => (props.background ? props.background : "none")};
+    background: ${props => (props.background ? props.background : 'none')};
 
     ${media.sm`
       display: none;
@@ -78,13 +79,13 @@ const Tag = styled.p`
   }
 
   &:after {
-    content: "";
+    content: '';
     top: 0;
     bottom: 0;
     width: 8px;
     left: 100%;
     position: absolute;
-    background: ${props => (props.background ? props.background : "none")};
+    background: ${props => (props.background ? props.background : 'none')};
 
     ${media.sm`
       display: none;
@@ -117,7 +118,7 @@ const Details = styled.button`
   `};
 
   &:after {
-    content: "";
+    content: '';
     display: block;
     line-height: 0;
     height: 0;
@@ -126,30 +127,44 @@ const Details = styled.button`
   }
 `;
 
-export default props => {
-  return (
-    <Wrapper>
-      {props.tag && (
-        <Tag background={props.tag.color}>
-          {translate(props.tag.text)}
-          <Emoji
-            src={props.tag.emoji}
-            srcSet={`${props.tag.emoji} 2x`}
-            alt={props.tag.text}
-          />
-        </Tag>
-      )}
+const Flight = props => (
+  <Wrapper>
+    {props.tag && (
+      <Tag background={props.tag.color}>
+        {translate(props.tag.text)}
+        <Emoji src={props.tag.emoji} srcSet={`${props.tag.emoji} 2x`} alt={props.tag.text} />
+      </Tag>
+    )}
 
-      <Card>
-        <Buy dealers={props.dealers} />
-        <Info
-          outbound={props.outbound}
-          return={props.return}
-          type={props.type}
-          airlines={props.airlines}
-        />
-        <Details />
-      </Card>
-    </Wrapper>
-  );
+    <Card>
+      <Buy dealers={props.dealers} />
+      <Info
+        outbound={props.outbound}
+        return={props.return}
+        type={props.type}
+        airlines={props.airlines}
+      />
+      <Details />
+    </Card>
+  </Wrapper>
+);
+
+Flight.propTypes = {
+  tag: PropTypes.objectOf(PropTypes.shape),
+  dealers: PropTypes.arrayOf(PropTypes.shape),
+  outbound: PropTypes.objectOf(PropTypes.shape),
+  return: PropTypes.objectOf(PropTypes.shape),
+  type: PropTypes.string,
+  airlines: PropTypes.arrayOf(PropTypes.shape),
 };
+
+Flight.defaultProps = {
+  tag: {},
+  dealers: [],
+  outbound: {},
+  return: {},
+  type: '',
+  airlines: [],
+};
+
+export default Flight;

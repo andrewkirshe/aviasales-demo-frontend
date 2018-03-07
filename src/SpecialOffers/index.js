@@ -1,48 +1,49 @@
-import React from "react";
-import styled from "styled-components";
-import { media } from "../Media";
-import Card from "./Card";
-import staralliance_white from "./staralliance-white.png";
-import staralliance_white_2x from "./staralliance-white@2x.png";
-import luftahnsa from "./luftahnsa.svg";
-import pobeda from "./pobeda.svg";
+import React from 'react';
+import styled from 'styled-components';
+import { media } from '../Media';
+import Card from './Card';
+import starallianceWhite from './staralliance-white.png';
+import starallianceWhite2x from './staralliance-white@2x.png';
+import luftahnsa from './luftahnsa.svg';
+import pobeda from './pobeda.svg';
 
 const specialOffers = [
   {
-    title: "Билеты от 499 рублей!",
+    id: 1,
+    title: 'Билеты от 499 рублей!',
     logo: {
-      x1: staralliance_white,
-      x2: staralliance_white_2x
+      x1: starallianceWhite,
+      x2: starallianceWhite2x,
     },
     company: pobeda,
     price: 499,
-    dayLeft: "Осталось 45 дней",
-    text: "Билеты от 499 рублей! Специальное предложение от авиакомпании Победа"
+    dayLeft: 'Осталось 45 дней',
+    text: 'Билеты от 499 рублей! Специальное предложение от авиакомпании Победа',
   },
   {
-    title: "В Нью-Йорк от 20 680 ₽",
+    id: 2,
+    title: 'В Нью-Йорк от 20 680 ₽',
     logo: {
-      x1: staralliance_white,
-      x2: staralliance_white_2x
+      x1: starallianceWhite,
+      x2: starallianceWhite2x,
     },
     company: luftahnsa,
     price: 20680,
-    dayLeft: "Осталось 19 дней",
-    text:
-      "Из Москвы в США от 20680 рублей! Специальное предложение от авиакомпании Lufthansa"
+    dayLeft: 'Осталось 19 дней',
+    text: 'Из Москвы в США от 20680 рублей! Специальное предложение от авиакомпании Lufthansa',
   },
   {
-    title: "В Лос-Анджелес от 20 360 ₽",
+    id: 3,
+    title: 'В Лос-Анджелес от 20 360 ₽',
     logo: {
-      x1: staralliance_white,
-      x2: staralliance_white_2x
+      x1: starallianceWhite,
+      x2: starallianceWhite2x,
     },
     company: luftahnsa,
     price: 20360,
-    dayLeft: "Осталось 19 дней",
-    text:
-      "Из Москвы в США от 22360 рублей! Специальное предложение от авиакомпании Lufthansa"
-  }
+    dayLeft: 'Осталось 19 дней',
+    text: 'Из Москвы в США от 22360 рублей! Специальное предложение от авиакомпании Lufthansa',
+  },
 ];
 
 const SpecialOffers = styled.section`
@@ -82,20 +83,18 @@ const Notes = styled.p`
 `;
 
 export default () => {
-  const cards = specialOffers.map((offer, index) => {
-    return (
-      <div className="col-xs-12 col-md-4 col-xl-4" key={index}>
-        <Card
-          title={offer.title}
-          logo={offer.logo}
-          company={offer.company}
-          price={offer.price}
-          dayLeft={offer.dayLeft}
-          text={offer.text}
-        />
-      </div>
-    );
-  });
+  const cards = specialOffers.map(offer => (
+    <div className="col-xs-12 col-md-4 col-xl-4" key={offer.id}>
+      <Card
+        title={offer.title}
+        logo={offer.logo}
+        company={offer.company}
+        price={offer.price}
+        dayLeft={offer.dayLeft}
+        text={offer.text}
+      />
+    </div>
+  ));
   return (
     <SpecialOffers>
       <div className="container">

@@ -1,10 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import { format } from "date-fns";
-import ru from "date-fns/locale/ru";
-import { media } from "../Media";
-import DayPicker from "react-day-picker";
-import onClickOutside from "react-onclickoutside";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { format } from 'date-fns';
+import ru from 'date-fns/locale/ru';
+import DayPicker from 'react-day-picker';
+import onClickOutside from 'react-onclickoutside';
+import { media } from '../Media';
 
 const Wrapper = styled.div`
   position: absolute;
@@ -94,22 +95,12 @@ const OneWay = styled.button`
 `;
 
 class DateTo extends React.Component {
-  handleDayClick = (day, { selected, disabled }) => {
-    if (!disabled) {
-      this.props.selectDates({
-        toDate: day,
-        enteredToDate: day
-      });
-      this.props.onToggleTo(false);
-    }
-  };
-
-  handleDayMouseEnter = (day, { selected, disabled }) => {
-    if (!disabled) {
-      this.props.selectDates({
-        enteredToDate: day
-      });
-    }
+  oneWayticket = () => {
+    this.props.selectDates({
+      toDate: null,
+      enteredToDate: null,
+    });
+    this.close();
   };
 
   handleClickOutside = () => {
@@ -124,12 +115,22 @@ class DateTo extends React.Component {
     this.props.onToggleTo(true);
   };
 
-  oneWayticket = () => {
-    this.props.selectDates({
-      toDate: null,
-      enteredToDate: null
-    });
-    this.close();
+  handleDayClick = (day, { disabled }) => {
+    if (!disabled) {
+      this.props.selectDates({
+        toDate: day,
+        enteredToDate: day,
+      });
+      this.props.onToggleTo(false);
+    }
+  };
+
+  handleDayMouseEnter = (day, { disabled }) => {
+    if (!disabled) {
+      this.props.selectDates({
+        enteredToDate: day,
+      });
+    }
   };
 
   render() {
@@ -145,13 +146,13 @@ class DateTo extends React.Component {
       months,
       weekdaysLong,
       weekdaysShort,
-      renderDay
+      renderDay,
     } = this.props;
 
     const modifiers = {
       start: from,
       end: enteredTo,
-      to: to
+      to,
     };
 
     const selectedDays = [from, { from, to: enteredTo }];
@@ -165,7 +166,7 @@ class DateTo extends React.Component {
           placeholder={label}
           onChange={this.open}
           onClick={this.open}
-          value={to ? format(to, "DD MMMM, dd", { locale: ru }) : ""}
+          value={to ? format(to, 'DD MMMM, dd', { locale: ru }) : ''}
         />
         <Label htmlFor={id}>{label}</Label>
         {button && (
@@ -176,14 +177,12 @@ class DateTo extends React.Component {
         {isOpened && (
           <Wrapper className="DayPicker-to">
             <Options>
-              <OneWay onClick={this.oneWayticket}>
-                Обратный билет не нужен
-              </OneWay>
+              <OneWay onClick={this.oneWayticket}>Обратный билет не нужен</OneWay>
             </Options>
             <DayPicker
               className="Range"
               locale="ru"
-              month={to ? to : from}
+              month={to || from}
               months={months}
               weekdaysLong={weekdaysLong}
               weekdaysShort={weekdaysShort}
@@ -201,5 +200,39 @@ class DateTo extends React.Component {
     );
   }
 }
+
+DateTo.propTypes = {
+  selectDates: PropTypes.func,
+  onToggleTo: PropTypes.func,
+  from: PropTypes.objectOf(PropTypes.shape),
+  to: PropTypes.objectOf(PropTypes.shape),
+  enteredTo: PropTypes.objectOf(PropTypes.shape),
+  name: PropTypes.string,
+  id: PropTypes.string,
+  label: PropTypes.string,
+  button: PropTypes.string,
+  isOpened: PropTypes.bool,
+  months: PropTypes.arrayOf(PropTypes.string),
+  weekdaysLong: PropTypes.arrayOf(PropTypes.string),
+  weekdaysShort: PropTypes.arrayOf(PropTypes.string),
+  renderDay: PropTypes.func,
+};
+
+DateTo.defaultProps = {
+  selectDates: () => {},
+  onToggleTo: () => {},
+  from: {},
+  to: {},
+  enteredTo: {},
+  name: '',
+  id: '',
+  label: '',
+  button: '',
+  isOpened: false,
+  months: [],
+  weekdaysLong: [],
+  weekdaysShort: [],
+  renderDay: () => {},
+};
 
 export default onClickOutside(DateTo);

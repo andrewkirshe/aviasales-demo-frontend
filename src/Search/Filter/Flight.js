@@ -1,9 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import plane from "./plane.svg";
-import { translate } from "../../translate";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import plane from './plane.svg';
+import { translate } from '../../translate';
 
-const Flight = styled.p`
+const Wrapper = styled.p`
   display: flex;
   align-items: center;
   margin: 0;
@@ -20,15 +21,22 @@ const Img = styled.img`
   margin: 0 5px;
 `;
 
-export default props => {
-  return (
-    <Flight>
-      {translate(props.from)}
-      <Img
-        src={plane}
-        alt={`${translate(props.from)} - ${translate(props.to)}`}
-      />
-      {translate(props.to)}
-    </Flight>
-  );
+const Flight = props => (
+  <Wrapper>
+    {translate(props.from)}
+    <Img src={plane} alt={`${translate(props.from)} - ${translate(props.to)}`} />
+    {translate(props.to)}
+  </Wrapper>
+);
+
+Flight.propTypes = {
+  from: PropTypes.string,
+  to: PropTypes.string,
 };
+
+Flight.defaultProps = {
+  from: '',
+  to: '',
+};
+
+export default Flight;

@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { media } from "../Media";
-import aero from "./aero.svg";
+import React from 'react';
+import styled from 'styled-components';
+import { media } from '../Media';
+import aero from './aero.svg';
 
 const Button = styled.button`
   font-weight: 900;
@@ -38,11 +38,9 @@ const Img = styled.img`
   margin-left: 16px;
 `;
 
-export default () => {
-  return (
-    <Button>
-      Найти билеты
-      <Img src={aero} alt="Найти билеты" />
-    </Button>
-  );
-};
+export default () => (
+  <Button>
+    Найти билеты
+    <Img src={aero} alt="Найти билеты" />
+  </Button>
+);

@@ -1,6 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import Header from "./Header";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import Header from './Header';
 
 const Wrapper = styled.div`
   border-bottom: solid 1px #dddddd;
@@ -16,12 +17,12 @@ const Controls = styled.div`
 
 class Filter extends React.Component {
   state = {
-    isOpened: this.props.isOpened
+    isOpened: this.props.isOpened,
   };
 
   toggleFilter = () => {
     this.setState(prevState => ({
-      isOpened: !prevState.isOpened
+      isOpened: !prevState.isOpened,
     }));
   };
 
@@ -40,5 +41,21 @@ class Filter extends React.Component {
     );
   }
 }
+
+Filter.propTypes = {
+  isOpened: PropTypes.bool,
+  count: PropTypes.number,
+  label: PropTypes.string,
+  reset: PropTypes.bool,
+  children: PropTypes.arrayOf(PropTypes.shape),
+};
+
+Filter.defaultProps = {
+  isOpened: false,
+  count: 0,
+  label: '',
+  reset: false,
+  children: [],
+};
 
 export default Filter;

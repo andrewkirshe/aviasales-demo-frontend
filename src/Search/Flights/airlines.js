@@ -1,93 +1,98 @@
-import redwings_l from "./redwings_l.png";
-import redwings_l_2x from "./redwings_l@2x.png";
-import redwings_s from "./redwings_s.png";
-import redwings_s_2x from "./redwings_s@2x.png";
+import redwingsL from './redwings_l.png';
+import redwingsL2x from './redwings_l@2x.png';
+import redwingsS from './redwings_s.png';
+import redwingsS2x from './redwings_s@2x.png';
 
-import rossiya_l from "./rossiya_l.png";
-import rossiya_l_2x from "./rossiya_l@2x.png";
-import rossiya_s from "./rossiya_s.png";
-import rossiya_s_2x from "./rossiya_s@2x.png";
+import rossiyaL from './rossiya_l.png';
+import rossiyaL2x from './rossiya_l@2x.png';
+import rossiyaS from './rossiya_s.png';
+import rossiyaS2x from './rossiya_s@2x.png';
 
-import fly_l from "./fly_l.png";
-import fly_l_2x from "./fly_l@2x.png";
-import fly_s from "./fly_s.png";
-import fly_s_2x from "./fly_s@2x.png";
+import flyL from './fly_l.png';
+import flyL2x from './fly_l@2x.png';
+import flyS from './fly_s.png';
+import flyS2x from './fly_s@2x.png';
 
-import nordwind_l from "./nordwind_l.png";
-import nordwind_l_2x from "./nordwind_l@2x.png";
-import nordwind_s from "./nordwind_s.png";
-import nordwind_s_2x from "./nordwind_s@2x.png";
+import nordwindL from './nordwind_l.png';
+import nordwindL2x from './nordwind_l@2x.png';
+import nordwindS from './nordwind_s.png';
+import nordwindS2x from './nordwind_s@2x.png';
 
-import nordwindstar_l from "./nordwindstar_l.png";
-import nordwindstar_l_2x from "./nordwindstar_l@2x.png";
-import nordwindstar_s from "./nordwindstar_s.png";
-import nordwindstar_s_2x from "./nordwindstar_s@2x.png";
+import nordwindstarL from './nordwindstar_l.png';
+import nordwindstarL2x from './nordwindstar_l@2x.png';
+import nordwindstarS from './nordwindstar_s.png';
+import nordwindstarS2x from './nordwindstar_s@2x.png';
 
 const airlines = {
   rossiya: {
-    name: "Rossiya Airlines",
+    id: 1,
+    name: 'Rossiya Airlines',
     logo: {
       s: {
-        x1: rossiya_s,
-        x2: rossiya_s_2x
+        x1: rossiyaS,
+        x2: rossiyaS2x,
       },
       l: {
-        x1: rossiya_l,
-        x2: rossiya_l_2x
-      }
-    }
+        x1: rossiyaL,
+        x2: rossiyaL2x,
+      },
+    },
   },
   redwings: {
-    name: "Red Wings Airlines",
+    id: 2,
+    name: 'Red Wings Airlines',
     logo: {
       s: {
-        x1: redwings_s,
-        x2: redwings_s_2x
+        x1: redwingsS,
+        x2: redwingsS2x,
       },
       l: {
-        x1: redwings_l,
-        x2: redwings_l_2x
-      }
-    }
+        x1: redwingsL,
+        x2: redwingsL2x,
+      },
+    },
   },
   fly: {
-    name: "Fly Airlines",
+    id: 3,
+    name: 'Fly Airlines',
     logo: {
       s: {
-        x1: fly_s,
-        x2: fly_s_2x
+        x1: flyS,
+        x2: flyS2x,
       },
       l: {
-        x1: fly_l,
-        x2: fly_l_2x
-      }
-    }
+        x1: flyL,
+        x2: flyL2x,
+      },
+    },
   },
   nordwind: {
-    name: "Nordwind Airlines",
+    id: 4,
+    name: 'Nordwind Airlines',
     logo: {
       s: {
-        x1: nordwind_s,
-        x2: nordwind_s_2x
+        x1: nordwindS,
+        x2: nordwindS2x,
       },
       l: {
-        x1: nordwind_l,
-        x2: nordwind_l_2x
-      }
-    }
+        x1: nordwindL,
+        x2: nordwindL2x,
+      },
+    },
   },
   nordwindstar: {
-    name: "Nordwind Airlines",
+    id: 5,
+    name: 'Nordwind Airlines',
     logo: {
       s: {
-        x1: nordwindstar_s,
-        x2: nordwindstar_s_2x
+        x1: nordwindstarS,
+        x2: nordwindstarS2x,
       },
       l: {
-        x1: nordwindstar_l,
-        x2: nordwindstar_l_2x
-      }
-    }
-  }
+        x1: nordwindstarL,
+        x2: nordwindstarL2x,
+      },
+    },
+  },
 };
 export default airlines;

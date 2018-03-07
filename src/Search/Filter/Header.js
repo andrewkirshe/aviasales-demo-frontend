@@ -1,6 +1,7 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import clear from "./clear.svg";
+import React from 'react';
+import styled, { css } from 'styled-components';
+import PropTypes from 'prop-types';
+import clear from './clear.svg';
 
 const Wrapper = styled.div`
   display: flex;
@@ -23,7 +24,7 @@ const Name = styled.button`
   outline: none;
 
   &:after {
-    content: "";
+    content: '';
     display: block;
     line-height: 0;
     height: 0;
@@ -35,7 +36,7 @@ const Name = styled.button`
     transform: rotate(-90deg);
 
     ${props =>
-      props.isOpened &&
+    props.isOpened &&
       css`
         left: 16px;
         top: 21px;
@@ -59,18 +60,34 @@ const Counter = styled.span`
   margin-left: 8px;
 `;
 
-export default props => {
-  return (
-    <Wrapper>
-      <Name onClick={props.toggleFilter} isOpened={props.isOpened}>
-        {props.label}
-        {props.count && <Counter>{props.count}</Counter>}
-      </Name>
-      {props.reset && (
-        <Reset>
-          <Icon src={clear} alt="Сбросить фильтр" />
-        </Reset>
-      )}
-    </Wrapper>
-  );
+const Header = props => (
+  <Wrapper>
+    <Name onClick={props.toggleFilter} isOpened={props.isOpened}>
+      {props.label}
+      {!!props.count && <Counter>{props.count}</Counter>}
+    </Name>
+    {props.reset && (
+      <Reset>
+        <Icon src={clear} alt="Сбросить фильтр" />
+      </Reset>
+    )}
+  </Wrapper>
+);
+
+Header.propTypes = {
+  toggleFilter: PropTypes.func,
+  isOpened: PropTypes.bool,
+  label: PropTypes.string,
+  count: PropTypes.number,
+  reset: PropTypes.bool,
 };
+
+Header.defaultProps = {
+  toggleFilter: () => {},
+  isOpened: false,
+  label: '',
+  count: 0,
+  reset: false,
+};
+
+export default Header;

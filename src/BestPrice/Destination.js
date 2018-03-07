@@ -1,10 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import { media } from "../Media";
-import { translate } from "../translate";
-import Route from "./Route";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { media } from '../Media';
+import { translate } from '../translate';
+import Route from './Route';
 
-const Destination = styled.div`
+const Wrapper = styled.div`
   position: relative;
   border-bottom: 1px dashed #e4e7e8;
   padding: 0 0 24px 0;
@@ -74,26 +75,35 @@ const Country = styled.p`
 
 const Routes = styled.div``;
 
-export default props => {
-  const routes = props.routes.map((route, index) => {
-    return <Route key={index} from={route.from} price={route.price} />;
-  });
-  return (
-    <Destination>
-      <Header>
-        <Flag>
-          <Img
-            src={props.flag.x1}
-            srcSet={`${props.flag.x2} 2x`}
-            alt={translate(props.country)}
-          />
-        </Flag>
-        <CityInfo>
-          <City>{translate(props.city)}</City>
-          <Country>{translate(props.country)}</Country>
-        </CityInfo>
-      </Header>
-      <Routes>{routes}</Routes>
-    </Destination>
-  );
+const Destination = props => (
+  <Wrapper>
+    <Header>
+      <Flag>
+        <Img src={props.flag.x1} srcSet={`${props.flag.x2} 2x`} alt={translate(props.country)} />
+      </Flag>
+      <CityInfo>
+        <City>{translate(props.city)}</City>
+        <Country>{translate(props.country)}</Country>
+      </CityInfo>
+    </Header>
+    <Routes>
+      {props.routes.map(route => <Route key={route.id} from={route.from} price={route.price} />)}
+    </Routes>
+  </Wrapper>
+);
+
+Destination.propTypes = {
+  flag: PropTypes.objectOf(PropTypes.shape),
+  country: PropTypes.string,
+  city: PropTypes.string,
+  routes: PropTypes.arrayOf(PropTypes.shape),
 };
+
+Destination.defaultProps = {
+  flag: {},
+  country: '',
+  city: '',
+  routes: [],
+};
+
+export default Destination;

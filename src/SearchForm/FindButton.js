@@ -1,8 +1,9 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import { Link } from "react-router-dom";
-import { media } from "../Media";
-import aero from "./aero.svg";
+import React from 'react';
+import styled, { css } from 'styled-components';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { media } from '../Media';
+import aero from './aero.svg';
 
 const Button = styled(Link)`
   font-weight: 900;
@@ -51,7 +52,7 @@ const Find = styled.div`
     flex: 46% 1;
     margin-left: 15px;
     ${props =>
-      props.headerSize === "full" &&
+    props.headerSize === 'full' &&
       css`
         margin-left: 0;
       `};
@@ -59,7 +60,7 @@ const Find = styled.div`
 
   ${Button} {
     ${props =>
-      props.headerSize === "full" &&
+    props.headerSize === 'full' &&
       css`
         border-radius: 4px;
         margin-top: 16px;
@@ -67,7 +68,7 @@ const Find = styled.div`
 
     ${media.sm`
       ${props =>
-        props.headerSize === "full" &&
+    props.headerSize === 'full' &&
         css`
           font-size: 1.75rem;
           flex: none;
@@ -79,7 +80,7 @@ const Find = styled.div`
 
     ${media.xl`
       ${props =>
-        props.headerSize === "full" &&
+    props.headerSize === 'full' &&
         css`
           margin-top: 48px;
           margin-left: auto;
@@ -96,13 +97,21 @@ const Img = styled.img`
   display: block;
 `;
 
-export default props => {
-  return (
-    <Find headerSize={props.headerSize}>
-      <Button to="/search">
-        Найти билеты
-        {props.headerSize === "full" && <Img src={aero} alt="Найти билеты" />}
-      </Button>
-    </Find>
-  );
+const FindButton = props => (
+  <Find headerSize={props.headerSize}>
+    <Button to="/search">
+      Найти билеты
+      {props.headerSize === 'full' && <Img src={aero} alt="Найти билеты" />}
+    </Button>
+  </Find>
+);
+
+FindButton.propTypes = {
+  headerSize: PropTypes.string,
 };
+
+FindButton.defaultProps = {
+  headerSize: '',
+};
+
+export default FindButton;

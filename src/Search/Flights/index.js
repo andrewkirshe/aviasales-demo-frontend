@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import { media } from "../../Media";
-import ToTop from "./ToTop";
-import Flight from "./Flight";
-import Filtrate from "./Filtrate";
+import React from 'react';
+import styled from 'styled-components';
+import { media } from '../../Media';
+import ToTop from './ToTop';
+import Flight from './Flight';
+import Filtrate from './Filtrate';
 
-import flightsData from "./flightsData";
+import flightsData from './flightsData';
 
 const Main = styled.div`
   display: flex;
@@ -37,27 +37,23 @@ const MoreFlights = styled.button`
   `};
 `;
 
-const flights = flightsData.map((flight, index) => {
-  return (
-    <Flight
-      key={index}
-      outbound={flight.outbound}
-      return={flight.return}
-      type={flight.type}
-      airlines={flight.airlines}
-      dealers={flight.dealers}
-      tag={flight.tag}
-    />
-  );
-});
+const flights = flightsData.map(flight => (
+  <Flight
+    key={flight.id}
+    outbound={flight.outbound}
+    return={flight.return}
+    type={flight.type}
+    airlines={flight.airlines}
+    dealers={flight.dealers}
+    tag={flight.tag}
+  />
+));
 
-export default () => {
-  return (
-    <Main>
-      <ToTop />
-      <Flights>{flights}</Flights>
-      <Filtrate />
-      <MoreFlights>ПОКАЗАТЬ ЕЩЕ 10 БИЛЕТОВ!</MoreFlights>
-    </Main>
-  );
-};
+export default () => (
+  <Main>
+    <ToTop />
+    <Flights>{flights}</Flights>
+    <Filtrate />
+    <MoreFlights>ПОКАЗАТЬ ЕЩЕ 10 БИЛЕТОВ!</MoreFlights>
+  </Main>
+);

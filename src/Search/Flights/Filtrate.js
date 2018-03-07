@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { media } from "../../Media";
-import filtrate from "./filtrate.svg";
+import React from 'react';
+import styled from 'styled-components';
+import { media } from '../../Media';
+import filtrate from './filtrate.svg';
 
 const Wrapper = styled.div`
   display: flex;
@@ -50,13 +50,11 @@ const Icon = styled.img`
   `};
 `;
 
-export default () => {
-  return (
-    <Wrapper>
-      <Button>
-        <Text>Фильтровать</Text>
-        <Icon src={filtrate} alt="Фильтровать" />
-      </Button>
-    </Wrapper>
-  );
-};
+export default () => (
+  <Wrapper>
+    <Button>
+      <Text>Фильтровать</Text>
+      <Icon src={filtrate} alt="Фильтровать" />
+    </Button>
+  </Wrapper>
+);

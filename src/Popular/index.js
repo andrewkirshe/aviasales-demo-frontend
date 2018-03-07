@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import Header from "./Header";
-import Icons from "./Icons";
-import Destinations from "./Destinations";
+import React from 'react';
+import styled from 'styled-components';
+import Header from './Header';
+import Icons from './Icons';
+import Destinations from './Destinations';
 
 const Popular = styled.section`
   padding: 60px 0 0 0;
@@ -12,18 +12,16 @@ const Popular = styled.section`
   background: #f8fcff;
 `;
 
-export default () => {
-  return (
-    <Popular>
-      <div className="container">
-        <Header />
-        <div className="row center-xs">
-          <div className="col-xs-12 col-md-10 col-lg-8 col-xl-6">
-            <Icons />
-          </div>
+export default () => (
+  <Popular>
+    <div className="container">
+      <Header />
+      <div className="row center-xs">
+        <div className="col-xs-12 col-md-10 col-lg-8 col-xl-6">
+          <Icons />
         </div>
-        <Destinations />
       </div>
-    </Popular>
-  );
-};
+      <Destinations />
+    </div>
+  </Popular>
+);

@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "styled-components";
-import { Helmet } from "react-helmet";
-import { media } from "../Media";
-import { withRouter } from "react-router";
-import Header from "../Header";
-import Filter from "./Filter";
-import Flights from "./Flights";
-import Footer from "../Footer";
+import React from 'react';
+import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
+import { withRouter } from 'react-router';
+import { media } from '../Media';
+import Header from '../Header';
+import Filter from './Filter';
+import Flights from './Flights';
+import Footer from '../Footer';
 
 const Wrapper = styled.section`
   background: #eaeaea;
@@ -18,26 +18,24 @@ const Wrapper = styled.section`
 
 const HeaderWithRouter = withRouter(Header);
 
-export default () => {
-  return (
-    <div>
-      <Helmet>
-        <title>Страница поиска</title>
-      </Helmet>
-      <HeaderWithRouter />
-      <Wrapper>
-        <div className="container">
-          <div className="row">
-            <div className="hidden-xs hidden-sm hidden-md hidden-lg col-xl-3">
-              <Filter />
-            </div>
-            <div className="col-xs-12 col-xl-7">
-              <Flights />
-            </div>
+export default () => (
+  <div>
+    <Helmet>
+      <title>Страница поиска</title>
+    </Helmet>
+    <HeaderWithRouter />
+    <Wrapper>
+      <div className="container">
+        <div className="row">
+          <div className="hidden-xs hidden-sm hidden-md hidden-lg col-xl-3">
+            <Filter />
+          </div>
+          <div className="col-xs-12 col-xl-7">
+            <Flights />
           </div>
         </div>
-      </Wrapper>
-      <Footer />
-    </div>
-  );
-};
+      </div>
+    </Wrapper>
+    <Footer />
+  </div>
+);

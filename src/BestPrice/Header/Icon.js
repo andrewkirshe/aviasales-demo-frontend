@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import calendar from "./calendar.svg";
+import React from 'react';
+import styled from 'styled-components';
+import calendar from './calendar.svg';
 
 const Wrapper = styled.div`
   margin: 0 auto 20px;
@@ -18,10 +18,8 @@ const Icon = styled.img`
   height: 28px;
 `;
 
-export default () => {
-  return (
-    <Wrapper>
-      <Icon src={calendar} alt="Популярные направления перелетов" />
-    </Wrapper>
-  );
-};
+export default () => (
+  <Wrapper>
+    <Icon src={calendar} alt="Популярные направления перелетов" />
+  </Wrapper>
+);

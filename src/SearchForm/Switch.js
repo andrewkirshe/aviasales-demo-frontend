@@ -1,5 +1,6 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Label = styled.label`
   display: flex;
@@ -17,7 +18,7 @@ const Name = styled.p`
   align-items: center;
 
   &:before {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     left: 0;
@@ -33,7 +34,7 @@ const Name = styled.p`
   }
 
   &:after {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     background: #fff;
@@ -66,11 +67,19 @@ const Input = styled.input`
   }
 `;
 
-export default props => {
-  return (
-    <Label>
-      <Input type="checkbox" />
-      <Name>{props.label}</Name>
-    </Label>
-  );
+const Switch = props => (
+  <Label>
+    <Input type="checkbox" />
+    <Name>{props.label}</Name>
+  </Label>
+);
+
+Switch.propTypes = {
+  label: PropTypes.string,
 };
+
+Switch.defaultProps = {
+  label: '',
+};
+
+export default Switch;

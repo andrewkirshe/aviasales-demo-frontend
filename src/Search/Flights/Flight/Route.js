@@ -1,15 +1,16 @@
-import React from "react";
-import styled from "styled-components";
-import { media } from "../../../Media";
-import plane_start from "./plane-start.svg";
-import plane_end from "./plane-end.svg";
-import plane_mobile from "./plane-mobile.svg";
-import clock_mobile from "./clock-mobile.svg";
-import pin from "./pin.svg";
-import { format } from "date-fns";
-import ru from "date-fns/locale/ru";
-import FormattedDuration from "react-intl-formatted-duration";
-import { translate } from "../../../translate";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { format } from 'date-fns';
+import ru from 'date-fns/locale/ru';
+import FormattedDuration from 'react-intl-formatted-duration';
+import { media } from '../../../Media';
+import { translate } from '../../../translate';
+import planeStart from './plane-start.svg';
+import planeEnd from './plane-end.svg';
+import planeMobile from './plane-mobile.svg';
+import clockMobile from './clock-mobile.svg';
+import pin from './pin.svg';
 
 const Wrapper = styled.div`
   display: flex;
@@ -64,7 +65,7 @@ const Time = styled.p`
 
   ${Origin} & {
     &:after {
-      content: "—";
+      content: '—';
       padding: 0 5px;
 
       ${media.md`
@@ -105,7 +106,7 @@ const FligthDate = styled.p`
   `};
 `;
 
-const Route = styled.div`
+const RouteLine = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -171,7 +172,7 @@ const Points = styled.div`
   `};
 
   &:after {
-    content: "";
+    content: '';
     display: block;
     border-bottom: solid 1px #a0b0b9;
     position: absolute;
@@ -249,62 +250,65 @@ const PinIcon = styled.img`
 
 const Text = styled.span``;
 
-export default props => {
-  return (
-    <Wrapper>
-      <Plane src={plane_mobile} alt="Время рейса" />
-      <Origin>
-        <Time>
-          <ThisVariant>
-            <PinIcon
-              src={pin}
-              alt="Показать билеты только с этим вариантом перелета"
-            />
-          </ThisVariant>
-          {format(props.origin.dateTime * 1000, "HH:mm", { locale: ru })}
-        </Time>
-        <City>{translate(props.origin.city)}</City>
-        <FligthDate>
-          {format(props.origin.dateTime * 1000, "D MMM YYYY, dd", {
-            locale: ru
-          })}
-        </FligthDate>
-      </Origin>
-      <Route>
-        <Duration>
-          <StartIcon src={plane_start} alt={props.origin.airport} />
-          <DurationTime>
-            <TimeIcon src={clock_mobile} alt="Всего в пути" />
-            <TimeLabel>Всего: </TimeLabel>
-            <FormattedDuration
-              seconds={props.duration}
-              textComponent={Text}
-              format="extra_short"
-            />
-          </DurationTime>
-          <EndIcon src={plane_end} alt={props.destination.airport} />
-        </Duration>
-        <Points>
-          <Point />
-          <Point />
-        </Points>
-        <Airports>
-          <Airport>{props.origin.airport}</Airport>
-          <Airport>{props.destination.airport}</Airport>
-        </Airports>
-      </Route>
-      <Destination>
-        <Time>
-          {format(props.destination.dateTime * 1000, "HH:mm", { locale: ru })}
-        </Time>
-        <City>{translate(props.destination.city)}</City>
-        <FligthDate>
-          {format(props.destination.dateTime * 1000, "D MMM YYYY, dd", {
-            locale: ru
-          })}
-        </FligthDate>
-      </Destination>
-      <Transfer>Прямой</Transfer>
-    </Wrapper>
-  );
+const Route = props => (
+  <Wrapper>
+    <Plane src={planeMobile} alt="Время рейса" />
+    <Origin>
+      <Time>
+        <ThisVariant>
+          <PinIcon src={pin} alt="Показать билеты только с этим вариантом перелета" />
+        </ThisVariant>
+        {format(props.origin.dateTime * 1000, 'HH:mm', { locale: ru })}
+      </Time>
+      <City>{translate(props.origin.city)}</City>
+      <FligthDate>
+        {format(props.origin.dateTime * 1000, 'D MMM YYYY, dd', {
+          locale: ru,
+        })}
+      </FligthDate>
+    </Origin>
+    <RouteLine>
+      <Duration>
+        <StartIcon src={planeStart} alt={props.origin.airport} />
+        <DurationTime>
+          <TimeIcon src={clockMobile} alt="Всего в пути" />
+          <TimeLabel>Всего: </TimeLabel>
+          <FormattedDuration seconds={props.duration} textComponent={Text} format="extra_short" />
+        </DurationTime>
+        <EndIcon src={planeEnd} alt={props.destination.airport} />
+      </Duration>
+      <Points>
+        <Point />
+        <Point />
+      </Points>
+      <Airports>
+        <Airport>{props.origin.airport}</Airport>
+        <Airport>{props.destination.airport}</Airport>
+      </Airports>
+    </RouteLine>
+    <Destination>
+      <Time>{format(props.destination.dateTime * 1000, 'HH:mm', { locale: ru })}</Time>
+      <City>{translate(props.destination.city)}</City>
+      <FligthDate>
+        {format(props.destination.dateTime * 1000, 'D MMM YYYY, dd', {
+          locale: ru,
+        })}
+      </FligthDate>
+    </Destination>
+    <Transfer>Прямой</Transfer>
+  </Wrapper>
+);
+
+Route.propTypes = {
+  origin: PropTypes.objectOf(PropTypes.shape),
+  duration: PropTypes.number,
+  destination: PropTypes.objectOf(PropTypes.shape),
 };
+
+Route.defaultProps = {
+  origin: {},
+  duration: 0,
+  destination: {},
+};
+
+export default Route;

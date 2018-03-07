@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import { media } from "../../Media";
-import Icon from "./Icon";
-import Button from "./Button";
+import React from 'react';
+import styled from 'styled-components';
+import { media } from '../../Media';
+import Icon from './Icon';
+import Button from './Button';
 
 const Header = styled.div`
   margin-bottom: 50px;
@@ -20,13 +20,11 @@ const Title = styled.h2`
   `};
 `;
 
-export default () => {
-  return (
-    <Header>
-      <Icon />
-      <Title>
-        Популярные направления перелетов из города <Button />
-      </Title>
-    </Header>
-  );
-};
+export default () => (
+  <Header>
+    <Icon />
+    <Title>
+      Популярные направления перелетов из города <Button />
+    </Title>
+  </Header>
+);

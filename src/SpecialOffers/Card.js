@@ -1,9 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import { media } from "../Media";
-import { FormattedNumber } from "react-intl";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { FormattedNumber } from 'react-intl';
+import { media } from '../Media';
 
-const Card = styled.div`
+const Wrapper = styled.div`
   margin-bottom: 12px;
 `;
 
@@ -90,37 +91,51 @@ const More = styled.button`
   padding: 10px 20px;
 `;
 
-export default props => {
-  return (
-    <Card>
-      <Header>
-        <Title>{props.title}</Title>
-        <Icon
-          src={props.logo.x1}
-          srcSet={`${props.logo.x2} 2x`}
-          alt={props.title}
-        />
-      </Header>
-      <Content>
-        <Company>
-          <Logo src={props.company} alt="" />
-          <Info>
-            <Price>
-              <From>от</From>{" "}
-              <FormattedNumber
-                value={props.price}
-                style={`currency`}
-                currency="RUB"
-                minimumFractionDigits={0}
-                maximumFractionDigits={0}
-              />
-            </Price>
-            <Dayleft>{props.dayLeft}</Dayleft>
-          </Info>
-        </Company>
-        <Notes>{props.text}</Notes>
-        <More>Узнать подробности</More>
-      </Content>
-    </Card>
-  );
+const Card = props => (
+  <Wrapper>
+    <Header>
+      <Title>{props.title}</Title>
+      <Icon src={props.logo.x1} srcSet={`${props.logo.x2} 2x`} alt={props.title} />
+    </Header>
+    <Content>
+      <Company>
+        <Logo src={props.company} alt="" />
+        <Info>
+          <Price>
+            <From>от</From>{' '}
+            <FormattedNumber
+              value={props.price}
+              style={String('currency')}
+              currency="RUB"
+              minimumFractionDigits={0}
+              maximumFractionDigits={0}
+            />
+          </Price>
+          <Dayleft>{props.dayLeft}</Dayleft>
+        </Info>
+      </Company>
+      <Notes>{props.text}</Notes>
+      <More>Узнать подробности</More>
+    </Content>
+  </Wrapper>
+);
+
+Card.propTypes = {
+  title: PropTypes.string,
+  logo: PropTypes.objectOf(PropTypes.string),
+  company: PropTypes.string,
+  price: PropTypes.number,
+  dayLeft: PropTypes.string,
+  text: PropTypes.string,
 };
+
+Card.defaultProps = {
+  title: '',
+  logo: {},
+  company: '',
+  price: 0,
+  dayLeft: '',
+  text: '',
+};
+
+export default Card;

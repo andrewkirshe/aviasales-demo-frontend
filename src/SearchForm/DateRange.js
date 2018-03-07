@@ -1,12 +1,13 @@
-import React from "react";
-import styled from "styled-components";
-import { FormattedNumber } from "react-intl";
-import DateFrom from "./DateFrom";
-import DateTo from "./DateTo";
-import calendar from "./calendar.svg";
-import dateclear from "./dateclear.svg";
-import "react-day-picker/lib/style.css";
-import "./daterange.css";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { FormattedNumber } from 'react-intl';
+import 'react-day-picker/lib/style.css';
+import DateFrom from './DateFrom';
+import DateTo from './DateTo';
+import calendar from './calendar.svg';
+import dateclear from './dateclear.svg';
+import './daterange.css';
 
 const Wrapper = styled.div`
   display: flex;
@@ -22,55 +23,54 @@ const Field = styled.div`
 const DateField = styled(Field)``;
 
 const months = [
-  "Январь",
-  "Февраль",
-  "Март",
-  "Апрель",
-  "Май",
-  "Июнь",
-  "Июль",
-  "Август",
-  "Сентябрь",
-  "Октябрь",
-  "Ноябрь",
-  "Декабрь"
+  'Январь',
+  'Февраль',
+  'Март',
+  'Апрель',
+  'Май',
+  'Июнь',
+  'Июль',
+  'Август',
+  'Сентябрь',
+  'Октябрь',
+  'Ноябрь',
+  'Декабрь',
 ];
 const weekdaysLong = [
-  "Воскресенье",
-  "Понедельник",
-  "Вторник",
-  "Среда",
-  "Четверг",
-  "Пятница",
-  "Суббота"
+  'Воскресенье',
+  'Понедельник',
+  'Вторник',
+  'Среда',
+  'Четверг',
+  'Пятница',
+  'Суббота',
 ];
 
-const weekdaysShort = ["ВС", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"];
+const weekdaysShort = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'];
 
 class DateRange extends React.Component {
   state = {
     fromIsOpened: false,
     toIsOpened: false,
-    enteredToDate: null
   };
 
-  toggleFrom = value => {
+  toggleFrom = (value) => {
     this.setState({
-      fromIsOpened: value
+      fromIsOpened: value,
     });
   };
 
-  toggleTo = value => {
+  toggleTo = (value) => {
     this.setState({
-      toIsOpened: value
+      toIsOpened: value,
     });
   };
 
-  selectDates = dates => {
+  selectDates = (dates) => {
     this.setState(dates);
   };
 
-  renderDay = (day, { selected, disabled }) => {
+  renderDay = (day, { disabled }) => {
     const date = day.getDate();
     const month = day.getMonth();
     return (
@@ -84,7 +84,7 @@ class DateRange extends React.Component {
               <div className={this.props.prices[month][date].tag}>
                 <FormattedNumber
                   value={this.props.prices[month][date].price}
-                  style={`decimal`}
+                  style={String('decimal')}
                   minimumFractionDigits={0}
                   maximumFractionDigits={0}
                 />
@@ -140,5 +140,21 @@ class DateRange extends React.Component {
     );
   }
 }
+
+DateRange.propTypes = {
+  prices: PropTypes.objectOf(PropTypes.shape),
+  fromDate: PropTypes.objectOf(PropTypes.shape),
+  toDate: PropTypes.objectOf(PropTypes.shape),
+  enteredToDate: PropTypes.objectOf(PropTypes.shape),
+  selectDates: PropTypes.func,
+};
+
+DateRange.defaultProps = {
+  prices: {},
+  fromDate: {},
+  toDate: {},
+  enteredToDate: {},
+  selectDates: () => {},
+};
 
 export default DateRange;
