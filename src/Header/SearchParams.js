@@ -1,11 +1,12 @@
-import React from "react";
-import styled from "styled-components";
-import { format } from "date-fns";
-import ru from "date-fns/locale/ru";
-import { media } from "../Media";
-import { translate } from "../translate";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { format } from 'date-fns';
+import ru from 'date-fns/locale/ru';
+import { media } from '../Media';
+import { translate } from '../translate';
 
-const SearchParams = styled.div`
+const Wrapper = styled.div`
   flex: 1 1;
   color: #fff;
   ${media.md`
@@ -27,18 +28,27 @@ const Params = styled.p`
 const FromDate = styled.span``;
 const ToDate = styled.span``;
 
-export default props => {
-  return (
-    <SearchParams>
-      <Flight>
-        {translate("Moscow")} — {translate("Barcelona")}
-      </Flight>
-      <Params>
-        <FromDate>{format(props.fromDate, "DD MMM", { locale: ru })}</FromDate>
-        {props.toDate && (
-          <ToDate> — {format(props.toDate, "DD MMM", { locale: ru })}</ToDate>
-        )}, 1 пассажир
-      </Params>
-    </SearchParams>
-  );
+const SearchParams = props => (
+  <Wrapper>
+    <Flight>
+      {translate('moscow')} — {translate('barcelona')}
+    </Flight>
+    <Params>
+      <FromDate>{format(props.fromDate, 'DD MMM', { locale: ru })}</FromDate>
+      {props.toDate && <ToDate> — {format(props.toDate, 'DD MMM', { locale: ru })}</ToDate>}, 1
+      пассажир
+    </Params>
+  </Wrapper>
+);
+
+SearchParams.propTypes = {
+  fromDate: PropTypes.objectOf(PropTypes.shape),
+  toDate: PropTypes.objectOf(PropTypes.shape),
 };
+
+SearchParams.defaultProps = {
+  fromDate: {},
+  toDate: {},
+};
+
+export default SearchParams;

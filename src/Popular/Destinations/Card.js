@@ -1,12 +1,13 @@
-import React from "react";
-import styled from "styled-components";
-import { media } from "../../Media";
-import { translate } from "../../translate";
-import { format } from "date-fns";
-import ru from "date-fns/locale/ru";
-import { FormattedNumber } from "react-intl";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { format } from 'date-fns';
+import ru from 'date-fns/locale/ru';
+import { FormattedNumber } from 'react-intl';
+import { media } from '../../Media';
+import { translate } from '../../translate';
 
-const Card = styled.div`
+const Wrapper = styled.div`
   overflow: hidden;
   border-radius: 8px;
   box-shadow: 0px 2px 12px rgba(0, 75, 93, 0.12);
@@ -122,42 +123,56 @@ const FlightDate = styled.p`
   margin: 10px 0 0 0;
 `;
 
-export default props => {
-  return (
-    <Card>
-      <Image>
-        <Img src={props.image} alt={translate(props.city)} />
-      </Image>
-      <Bar>
-        <Flag
-          src={props.flag.x1}
-          srcSet={`${props.flag.x2} 2x`}
-          alt={translate(props.country)}
-        />
-        <Row>
-          <City>{translate(props.city)}</City>
-          <Find href="http://">
-            <span>
-              {translate("Find")} {translate("from")}{" "}
-              <FormattedNumber
-                value={props.price}
-                style={`currency`}
-                currency="RUB"
-                minimumFractionDigits={0}
-                maximumFractionDigits={0}
-              />
-            </span>
-          </Find>
-        </Row>
-        <Row>
-          <Country>{translate(props.country)}</Country>
-          <FlightDate>
-            {format(props.date * 1000, "D MMMM", {
-              locale: ru
-            })}
-          </FlightDate>
-        </Row>
-      </Bar>
-    </Card>
-  );
+const Card = props => (
+  <Wrapper>
+    <Image>
+      <Img src={props.image} alt={translate(props.city)} />
+    </Image>
+    <Bar>
+      <Flag src={props.flag.x1} srcSet={`${props.flag.x2} 2x`} alt={translate(props.country)} />
+      <Row>
+        <City>{translate(props.city)}</City>
+        <Find href="http://">
+          <span>
+            {translate('find')} {translate('from_price')}{' '}
+            <FormattedNumber
+              value={props.price}
+              style={String('currency')}
+              currency="RUB"
+              minimumFractionDigits={0}
+              maximumFractionDigits={0}
+            />
+          </span>
+        </Find>
+      </Row>
+      <Row>
+        <Country>{translate(props.country)}</Country>
+        <FlightDate>
+          {format(props.date * 1000, 'D MMMM', {
+            locale: ru,
+          })}
+        </FlightDate>
+      </Row>
+    </Bar>
+  </Wrapper>
+);
+
+Card.propTypes = {
+  image: PropTypes.string,
+  city: PropTypes.string,
+  flag: PropTypes.objectOf(PropTypes.shape),
+  country: PropTypes.string,
+  price: PropTypes.number,
+  date: PropTypes.number,
 };
+
+Card.defaultProps = {
+  image: '',
+  city: '',
+  flag: {},
+  country: '',
+  price: 0,
+  date: 0,
+};
+
+export default Card;
