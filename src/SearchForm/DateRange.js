@@ -143,9 +143,9 @@ class DateRange extends React.Component {
 
 DateRange.propTypes = {
   prices: PropTypes.objectOf(PropTypes.shape),
-  fromDate: PropTypes.objectOf(PropTypes.shape),
-  toDate: PropTypes.objectOf(PropTypes.shape),
-  enteredToDate: PropTypes.objectOf(PropTypes.shape),
+  fromDate: PropTypes.instanceOf(Date),
+  toDate: PropTypes.instanceOf(Date),
+  enteredToDate: PropTypes.instanceOf(Date),
   setSearchParams: PropTypes.func,
 };
 

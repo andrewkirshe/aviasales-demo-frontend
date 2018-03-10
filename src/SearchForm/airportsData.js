@@ -20,7 +20,7 @@ const airportsData = [
     code: 'BUS',
   },
   {
-    city: 'denpasar_bali',
+    city: 'denpasar-bali',
     country: 'indonesia',
     code: 'DPS',
   },

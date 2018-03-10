@@ -26,14 +26,30 @@ const FlyDuration = props => (
 
 FlyDuration.propTypes = {
   ranges: PropTypes.arrayOf(PropTypes.shape),
-  origin: PropTypes.objectOf(PropTypes.shape),
-  destination: PropTypes.objectOf(PropTypes.shape),
+  origin: PropTypes.shape({
+    city: PropTypes.string,
+    country: PropTypes.string,
+    code: PropTypes.string,
+  }),
+  destination: PropTypes.shape({
+    city: PropTypes.string,
+    country: PropTypes.string,
+    code: PropTypes.string,
+  }),
 };
 
 FlyDuration.defaultProps = {
   ranges: [],
-  origin: {},
-  destination: {},
+  origin: {
+    city: '',
+    country: '',
+    code: '',
+  },
+  destination: {
+    city: '',
+    country: '',
+    code: '',
+  },
 };
 
 export default FlyDuration;

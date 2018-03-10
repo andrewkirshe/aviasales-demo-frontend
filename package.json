@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "babel-eslint": "^8.2.2",
     "date-fns": "^1.29.0",
     "flexboxgrid2": "^7.1.0",
     "lodash": "^4.17.5",
@@ -32,6 +31,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "eslint-config-airbnb": "^16.1.0"
+    "eslint-config-airbnb": "^16.1.0",
+    "babel-eslint": "^8.2.2"
   }
 }

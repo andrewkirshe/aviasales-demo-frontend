@@ -28,7 +28,7 @@ const destinations = [
       },
       {
         id: 2,
-        from: 'st_petersburg',
+        from: 'st-petersburg',
         price: 7857,
       },
       {
@@ -64,7 +64,7 @@ const destinations = [
       },
       {
         id: 2,
-        from: 'st_petersburg',
+        from: 'st-petersburg',
         price: 9932,
       },
       {
@@ -79,7 +79,7 @@ const destinations = [
       },
       {
         id: 5,
-        from: 'rostov_na_donu',
+        from: 'rostov-na-donu',
         price: 11956,
       },
     ],
@@ -100,7 +100,7 @@ const destinations = [
       },
       {
         id: 2,
-        from: 'st_petersburg',
+        from: 'st-petersburg',
         price: 10800,
       },
       {
@@ -115,7 +115,7 @@ const destinations = [
       },
       {
         id: 5,
-        from: 'novy_urengoy',
+        from: 'novy-urengoy',
         price: 15987,
       },
     ],

@@ -75,10 +75,18 @@ const LogoRow = props => (
 
 LogoRow.propTypes = {
   headerSize: PropTypes.string,
-  fromDate: PropTypes.objectOf(PropTypes.shape),
-  toDate: PropTypes.objectOf(PropTypes.shape),
-  origin: PropTypes.objectOf(PropTypes.shape),
-  destination: PropTypes.objectOf(PropTypes.shape),
+  fromDate: PropTypes.instanceOf(Date),
+  toDate: PropTypes.instanceOf(Date),
+  origin: PropTypes.shape({
+    city: PropTypes.string,
+    country: PropTypes.string,
+    code: PropTypes.string,
+  }),
+  destination: PropTypes.shape({
+    city: PropTypes.string,
+    country: PropTypes.string,
+    code: PropTypes.string,
+  }),
   passengersCount: PropTypes.number,
 };
 
@@ -86,8 +94,16 @@ LogoRow.defaultProps = {
   headerSize: '',
   fromDate: {},
   toDate: {},
-  origin: {},
-  destination: {},
+  origin: {
+    city: '',
+    country: '',
+    code: '',
+  },
+  destination: {
+    city: '',
+    country: '',
+    code: '',
+  },
   passengersCount: 1,
 };
 

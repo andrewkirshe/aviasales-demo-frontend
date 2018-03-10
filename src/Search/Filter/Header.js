@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import clear from './clear.svg';
+import { translate } from '../../translate';
 
 const Wrapper = styled.div`
   display: flex;
@@ -63,7 +64,7 @@ const Counter = styled.span`
 const Header = props => (
   <Wrapper>
     <Name onClick={props.toggleFilter} isOpened={props.isOpened}>
-      {props.label}
+      {translate(props.label)}
       {!!props.count && <Counter>{props.count}</Counter>}
     </Name>
     {props.showReset && (

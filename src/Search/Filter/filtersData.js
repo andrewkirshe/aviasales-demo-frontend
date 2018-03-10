@@ -28,14 +28,10 @@ export const transfers = [
 export const flyDates = [
   {
     id: 1,
-    flight: {
-      from: 'moscow',
-      to: 'barcelona',
-    },
     ranges: [
       {
         id: 1,
-        notes: 'Вылет из Москвы:',
+        notes: 'Вылет из ',
         fromLabel: 'c',
         fromDate: 1519430700,
         toLabel: 'до',
@@ -43,7 +39,7 @@ export const flyDates = [
       },
       {
         id: 2,
-        notes: 'Прибытие в Барселону:',
+        notes: 'Прибытие в ',
         fromLabel: 'c',
         fromDate: 1519441500,
         toLabel: 'до',
@@ -53,14 +49,10 @@ export const flyDates = [
   },
   {
     id: 2,
-    flight: {
-      from: 'barcelona',
-      to: 'moscow',
-    },
     ranges: [
       {
         id: 1,
-        notes: 'Вылет из Барселоны:',
+        notes: 'Вылет из ',
         fromLabel: 'c',
         fromDate: 1520056800,
         toLabel: 'до',
@@ -68,7 +60,7 @@ export const flyDates = [
       },
       {
         id: 2,
-        notes: 'Прибытие в Москву:',
+        notes: 'Прибытие в ',
         fromLabel: 'c',
         fromDate: 1520089200,
         toLabel: 'до',
@@ -81,14 +73,10 @@ export const flyDates = [
 export const flyDurations = [
   {
     id: 1,
-    flight: {
-      from: 'moscow',
-      to: 'barcelona',
-    },
     ranges: [
       {
         id: 1,
-        fromLabel: 'from_duration',
+        fromLabel: 'from-duration',
         fromTime: 15600,
         toLabel: 'to',
         toTime: 175800,
@@ -97,14 +85,10 @@ export const flyDurations = [
   },
   {
     id: 2,
-    flight: {
-      from: 'barcelona',
-      to: 'moscow',
-    },
     ranges: [
       {
         id: 1,
-        fromLabel: 'from_duration',
+        fromLabel: 'from-duration',
         fromTime: 15000,
         toLabel: 'to',
         toTime: 148800,

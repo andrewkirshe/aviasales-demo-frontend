@@ -195,18 +195,12 @@ class OriginCity extends React.Component {
     });
   };
 
-  shouldItemRenderHandle = (airport, value) => {
-    const renderItems =
-      translate(airport.city)
-        .toLowerCase()
-        .indexOf(value.toLowerCase()) > -1 ||
-      translate(airport.country)
-        .toLowerCase()
-        .indexOf(value.toLowerCase()) > -1 ||
-      airport.code.toLowerCase().indexOf(value.toLowerCase()) > -1;
-
-    return renderItems;
-  };
+  shouldItemRenderHandle = (airport, value) =>
+    Object.values(airport)
+      .map(field => translate(field))
+      .join('')
+      .toLowerCase()
+      .indexOf(value.toLowerCase()) > -1;
 
   renderInput = props => (
     <Wrapper>
@@ -276,15 +270,31 @@ class OriginCity extends React.Component {
 OriginCity.propTypes = {
   airportsData: PropTypes.arrayOf(PropTypes.shape),
   setSearchParams: PropTypes.func,
-  origin: PropTypes.objectOf(PropTypes.shape),
-  destination: PropTypes.objectOf(PropTypes.shape),
+  origin: PropTypes.shape({
+    city: PropTypes.string,
+    country: PropTypes.string,
+    code: PropTypes.string,
+  }),
+  destination: PropTypes.shape({
+    city: PropTypes.string,
+    country: PropTypes.string,
+    code: PropTypes.string,
+  }),
 };
 
 OriginCity.defaultProps = {
   airportsData: [],
   setSearchParams: () => {},
-  origin: {},
-  destination: {},
+  origin: {
+    city: '',
+    country: '',
+    code: '',
+  },
+  destination: {
+    city: '',
+    country: '',
+    code: '',
+  },
 };
 
 export default onClickOutside(OriginCity);

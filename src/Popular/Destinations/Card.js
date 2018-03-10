@@ -134,7 +134,7 @@ const Card = props => (
         <City>{translate(props.city)}</City>
         <Find href="http://">
           <span>
-            {translate('find')} {translate('from_price')}{' '}
+            {translate('find')} {translate('from-price')}{' '}
             <FormattedNumber
               value={props.price}
               style={String('currency')}
@@ -160,7 +160,10 @@ const Card = props => (
 Card.propTypes = {
   image: PropTypes.string,
   city: PropTypes.string,
-  flag: PropTypes.objectOf(PropTypes.shape),
+  flag: PropTypes.shape({
+    x1: PropTypes.string,
+    x2: PropTypes.string,
+  }),
   country: PropTypes.string,
   price: PropTypes.number,
   date: PropTypes.number,
@@ -169,7 +172,10 @@ Card.propTypes = {
 Card.defaultProps = {
   image: '',
   city: '',
-  flag: {},
+  flag: {
+    x1: '',
+    x2: '',
+  },
   country: '',
   price: 0,
   date: 0,

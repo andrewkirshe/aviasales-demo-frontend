@@ -113,7 +113,7 @@ const Description = styled.p`
 `;
 
 const Checkbox = (props) => {
-  const changeHandle = () => {
+  const handleChange = () => {
     props.setCheckboxes(props.id);
   };
 
@@ -124,7 +124,7 @@ const Checkbox = (props) => {
   return (
     <Wrapper>
       <Label>
-        <Input type="checkbox" checked={props.checked} onChange={changeHandle} />
+        <Input type="checkbox" checked={props.checked} onChange={handleChange} />
         <Name>{props.label}</Name>
         {!!props.price && (
           <RightWrapper>

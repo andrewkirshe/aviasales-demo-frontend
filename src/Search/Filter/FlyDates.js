@@ -30,19 +30,42 @@ const FlyDates = props => (
 );
 
 FlyDates.propTypes = {
-  ranges: PropTypes.arrayOf(PropTypes.shape),
-  fromDate: PropTypes.objectOf(PropTypes.shape),
-  toDate: PropTypes.objectOf(PropTypes.shape),
-  origin: PropTypes.objectOf(PropTypes.shape),
-  destination: PropTypes.objectOf(PropTypes.shape),
+  ranges: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    notes: PropTypes.string,
+    fromLabel: PropTypes.string,
+    fromDate: PropTypes.number,
+    toLabel: PropTypes.string,
+    toDate: PropTypes.number,
+  })),
+  fromDate: PropTypes.number,
+  toDate: PropTypes.number,
+  origin: PropTypes.shape({
+    city: PropTypes.string,
+    country: PropTypes.string,
+    code: PropTypes.string,
+  }),
+  destination: PropTypes.shape({
+    city: PropTypes.string,
+    country: PropTypes.string,
+    code: PropTypes.string,
+  }),
 };
 
 FlyDates.defaultProps = {
   ranges: [],
-  fromDate: {},
-  toDate: {},
-  origin: {},
-  destination: {},
+  fromDate: 0,
+  toDate: 0,
+  origin: {
+    city: '',
+    country: '',
+    code: '',
+  },
+  destination: {
+    city: '',
+    country: '',
+    code: '',
+  },
 };
 
 export default FlyDates;

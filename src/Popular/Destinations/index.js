@@ -26,7 +26,7 @@ const destinations = [
   },
   {
     id: 2,
-    city: 'sochi_adler',
+    city: 'sochi-adler',
     country: 'russia',
     price: 1334,
     date: 1522108800,
@@ -38,7 +38,7 @@ const destinations = [
   },
   {
     id: 3,
-    city: 'st_petersburg',
+    city: 'st-petersburg',
     country: 'russia',
     price: 1508,
     date: 1518998400,
@@ -50,7 +50,7 @@ const destinations = [
   },
   {
     id: 4,
-    city: 'min_vody',
+    city: 'min-vody',
     country: 'russia',
     price: 2074,
     date: 1520899200,
@@ -62,7 +62,7 @@ const destinations = [
   },
   {
     id: 5,
-    city: 'simferopol_сrimea',
+    city: 'simferopol-сrimea',
     country: 'сrimea',
     price: 2407,
     date: 1520899200,

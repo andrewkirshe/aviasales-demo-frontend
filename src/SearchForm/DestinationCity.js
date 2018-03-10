@@ -117,7 +117,7 @@ class DestinationCity extends React.Component {
     isOpened: false,
   };
 
-  getItemValue = item => item.city;
+  getItemValue = airport => airport.city;
 
   changeHandle = (e) => {
     this.setState({
@@ -138,7 +138,7 @@ class DestinationCity extends React.Component {
     });
   };
 
-  selectHandle = (city, airport) => {
+  handleSelect = (city, airport) => {
     this.setState({
       isOpened: false,
     });
@@ -215,7 +215,7 @@ class DestinationCity extends React.Component {
         open={this.state.isOpened}
         value={translate(this.props.destination.city)}
         onChange={this.changeHandle}
-        onSelect={this.selectHandle}
+        onSelect={this.handleSelect}
         renderInput={this.renderInput}
       />
     );

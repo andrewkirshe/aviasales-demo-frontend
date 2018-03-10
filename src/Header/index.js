@@ -61,13 +61,23 @@ const Header = (props) => {
 };
 
 Header.propTypes = {
-  location: PropTypes.objectOf(PropTypes.shape),
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }),
   setSearchParams: PropTypes.func,
-  fromDate: PropTypes.objectOf(PropTypes.shape),
-  toDate: PropTypes.objectOf(PropTypes.shape),
-  enteredToDate: PropTypes.objectOf(PropTypes.shape),
-  origin: PropTypes.objectOf(PropTypes.shape),
-  destination: PropTypes.objectOf(PropTypes.shape),
+  fromDate: PropTypes.instanceOf(Date),
+  toDate: PropTypes.instanceOf(Date),
+  enteredToDate: PropTypes.instanceOf(Date),
+  origin: PropTypes.shape({
+    city: PropTypes.string,
+    country: PropTypes.string,
+    code: PropTypes.string,
+  }),
+  destination: PropTypes.shape({
+    city: PropTypes.string,
+    country: PropTypes.string,
+    code: PropTypes.string,
+  }),
   adults: PropTypes.number,
   childs: PropTypes.number,
   infants: PropTypes.number,
@@ -75,13 +85,23 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
-  location: {},
+  location: {
+    pathname: '/',
+  },
   setSearchParams: () => {},
   fromDate: {},
   toDate: {},
   enteredToDate: {},
-  origin: {},
-  destination: {},
+  origin: {
+    city: '',
+    country: '',
+    code: '',
+  },
+  destination: {
+    city: '',
+    country: '',
+    code: '',
+  },
   adults: 1,
   childs: 0,
   infants: 0,

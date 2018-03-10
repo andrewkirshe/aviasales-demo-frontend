@@ -93,14 +93,20 @@ const Destination = props => (
 );
 
 Destination.propTypes = {
-  flag: PropTypes.objectOf(PropTypes.shape),
+  flag: PropTypes.shape({
+    x1: PropTypes.string,
+    x2: PropTypes.string,
+  }),
   country: PropTypes.string,
   city: PropTypes.string,
   routes: PropTypes.arrayOf(PropTypes.shape),
 };
 
 Destination.defaultProps = {
-  flag: {},
+  flag: {
+    x1: '',
+    x2: '',
+  },
   country: '',
   city: '',
   routes: [],
