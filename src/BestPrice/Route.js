@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import { FormattedNumber } from 'react-intl';
-import { translate } from '../translate';
+import React from "react";
+import styled from "styled-components";
+import PropTypes from "prop-types";
+import { FormattedNumber } from "react-intl";
+import { translate } from "../translate";
 
 const Wrapper = styled.div`
   display: flex;
@@ -32,13 +32,13 @@ const Price = styled.a`
 const Route = props => (
   <Wrapper>
     <City>
-      {translate('from_city')} {translate(props.from)}
+      {translate("from-city")} {translate(props.from)}
     </City>
     <Price href="http://">
-      {translate('from_price')}{' '}
+      {translate("from-price")}{" "}
       <FormattedNumber
         value={props.price}
-        style={String('currency')}
+        style={String("currency")}
         currency="RUB"
         minimumFractionDigits={0}
         maximumFractionDigits={0}
@@ -49,12 +49,12 @@ const Route = props => (
 
 Route.propTypes = {
   from: PropTypes.string,
-  price: PropTypes.number,
+  price: PropTypes.number
 };
 
 Route.defaultProps = {
-  from: '',
-  price: 0,
+  from: "",
+  price: 0
 };
 
 export default Route;
