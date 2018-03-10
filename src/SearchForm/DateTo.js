@@ -96,7 +96,7 @@ const OneWay = styled.button`
 
 class DateTo extends React.Component {
   oneWayticket = () => {
-    this.props.selectDates({
+    this.props.setSearchParams({
       toDate: null,
       enteredToDate: null,
     });
@@ -117,7 +117,7 @@ class DateTo extends React.Component {
 
   handleDayClick = (day, { disabled }) => {
     if (!disabled) {
-      this.props.selectDates({
+      this.props.setSearchParams({
         toDate: day,
         enteredToDate: day,
       });
@@ -127,7 +127,7 @@ class DateTo extends React.Component {
 
   handleDayMouseEnter = (day, { disabled }) => {
     if (!disabled) {
-      this.props.selectDates({
+      this.props.setSearchParams({
         enteredToDate: day,
       });
     }
@@ -202,7 +202,7 @@ class DateTo extends React.Component {
 }
 
 DateTo.propTypes = {
-  selectDates: PropTypes.func,
+  setSearchParams: PropTypes.func,
   onToggleTo: PropTypes.func,
   from: PropTypes.objectOf(PropTypes.shape),
   to: PropTypes.objectOf(PropTypes.shape),
@@ -219,7 +219,7 @@ DateTo.propTypes = {
 };
 
 DateTo.defaultProps = {
-  selectDates: () => {},
+  setSearchParams: () => {},
   onToggleTo: () => {},
   from: {},
   to: {},

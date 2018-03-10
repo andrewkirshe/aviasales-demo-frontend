@@ -12,7 +12,6 @@ export const transfers = [
     id: 3,
     label: '1 пересадка',
     price: 11150,
-    checked: true,
   },
   {
     id: 4,
@@ -30,8 +29,8 @@ export const flyDates = [
   {
     id: 1,
     flight: {
-      from: 'Moscow',
-      to: 'Barcelona',
+      from: 'moscow',
+      to: 'barcelona',
     },
     ranges: [
       {
@@ -55,8 +54,8 @@ export const flyDates = [
   {
     id: 2,
     flight: {
-      from: 'Barcelona',
-      to: 'Moscow',
+      from: 'barcelona',
+      to: 'moscow',
     },
     ranges: [
       {
@@ -83,13 +82,13 @@ export const flyDurations = [
   {
     id: 1,
     flight: {
-      from: 'Moscow',
-      to: 'Barcelona',
+      from: 'moscow',
+      to: 'barcelona',
     },
     ranges: [
       {
         id: 1,
-        fromLabel: 'from',
+        fromLabel: 'from_duration',
         fromTime: 15600,
         toLabel: 'to',
         toTime: 175800,
@@ -99,13 +98,13 @@ export const flyDurations = [
   {
     id: 2,
     flight: {
-      from: 'Barcelona',
-      to: 'Moscow',
+      from: 'barcelona',
+      to: 'moscow',
     },
     ranges: [
       {
         id: 1,
-        fromLabel: 'from',
+        fromLabel: 'from_duration',
         fromTime: 15000,
         toLabel: 'to',
         toTime: 148800,
@@ -119,84 +118,82 @@ export const airlines = {
     {
       id: 1,
       label: 'Все',
-      checked: true,
     },
     {
-      id: 2,
+      id: 12,
       label: 'Star Alliance',
-      checked: true,
+      price: 34223,
     },
     {
-      id: 3,
+      id: 13,
       label: 'OneWorld',
-      checked: true,
+      price: 23423,
     },
     {
-      id: 4,
+      id: 14,
       label: 'SkyTeam',
-      checked: true,
+      price: 24234,
     },
   ],
   companies: [
     {
       id: 1,
       label: 'Все',
-      checked: true,
     },
     {
-      id: 2,
+      id: 22,
       label: 'Aegean Airlines',
-      checked: true,
+      price: 12321,
     },
     {
-      id: 3,
+      id: 23,
       label: 'Air Algerie',
-      checked: true,
+      price: 23443,
     },
     {
-      id: 4,
+      id: 24,
       label: 'Air Europa',
-      checked: true,
+      price: 32423,
     },
     {
-      id: 5,
+      id: 25,
       label: 'Air France',
-      checked: true,
+      price: 35343,
     },
     {
-      id: 6,
+      id: 26,
       label: 'Air Moldova',
-      checked: true,
+      price: 42332,
     },
     {
-      id: 7,
+      id: 27,
       label: 'Alitalia',
-      checked: true,
+      price: 12321,
     },
     {
-      id: 8,
+      id: 28,
       label: 'Alitalia CityLiner',
-      checked: true,
+      price: 32432,
     },
     {
-      id: 9,
+      id: 29,
       label: 'Belle Air',
-      checked: true,
+      price: 32423,
     },
     {
-      id: 10,
+      id: 210,
       label: 'British Airways',
-      checked: true,
+      price: 12312,
     },
     {
-      id: 11,
+      id: 211,
       label: 'Brussels Airlines',
-      checked: true,
+      price: 23342,
     },
     {
-      id: 12,
-      label: 'Bulgaria Air',
-      checked: true,
+      id: 212,
+      label: 'bulgaria Air',
+      price: 32442,
     },
   ],
 };

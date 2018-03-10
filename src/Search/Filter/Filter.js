@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 `;
 
 const Controls = styled.div`
-  padding: 0 16px 16px 16px;
+  padding: 0 0 16px 0;
 `;
 
 class Filter extends React.Component {
@@ -34,6 +34,7 @@ class Filter extends React.Component {
           count={this.props.count}
           isOpened={this.state.isOpened}
           toggleFilter={this.toggleFilter}
+          showReset={this.props.showReset}
           reset={this.props.reset}
         />
         {this.state.isOpened && <Controls>{this.props.children}</Controls>}
@@ -46,7 +47,8 @@ Filter.propTypes = {
   isOpened: PropTypes.bool,
   count: PropTypes.number,
   label: PropTypes.string,
-  reset: PropTypes.bool,
+  showReset: PropTypes.bool,
+  reset: PropTypes.func,
   children: PropTypes.arrayOf(PropTypes.shape),
 };
 
@@ -54,7 +56,8 @@ Filter.defaultProps = {
   isOpened: false,
   count: 0,
   label: '',
-  reset: false,
+  showReset: false,
+  reset: () => {},
   children: [],
 };
 

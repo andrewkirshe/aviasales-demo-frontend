@@ -110,7 +110,7 @@ class DateRange extends React.Component {
             isOpened={this.state.fromIsOpened}
             onToggleFrom={this.toggleFrom}
             onToggleTo={this.toggleTo}
-            selectDates={this.props.selectDates}
+            setSearchParams={this.props.setSearchParams}
             renderDay={this.renderDay}
             months={months}
             weekdaysLong={weekdaysLong}
@@ -129,7 +129,7 @@ class DateRange extends React.Component {
             isOpened={this.state.toIsOpened}
             onToggleFrom={this.toggleFrom}
             onToggleTo={this.toggleTo}
-            selectDates={this.props.selectDates}
+            setSearchParams={this.props.setSearchParams}
             renderDay={this.renderDay}
             months={months}
             weekdaysLong={weekdaysLong}
@@ -146,7 +146,7 @@ DateRange.propTypes = {
   fromDate: PropTypes.objectOf(PropTypes.shape),
   toDate: PropTypes.objectOf(PropTypes.shape),
   enteredToDate: PropTypes.objectOf(PropTypes.shape),
-  selectDates: PropTypes.func,
+  setSearchParams: PropTypes.func,
 };
 
 DateRange.defaultProps = {
@@ -154,7 +154,7 @@ DateRange.defaultProps = {
   fromDate: {},
   toDate: {},
   enteredToDate: {},
-  selectDates: () => {},
+  setSearchParams: () => {},
 };
 
 export default DateRange;

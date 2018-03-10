@@ -29,7 +29,7 @@ const Img = styled.img`
 
 export default () => (
   <Button>
-    {translate('Moscow')}
+    {translate('moscow')}
     <Img src={edit} alt="Редактировать" />
   </Button>
 );

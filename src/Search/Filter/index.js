@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import Filter from './Filter';
 import FlyDates from './FlyDates';
 import FlyDuration from './FlyDuration';
-import Checkbox from './Checkbox';
 import Reset from './Reset';
+import Transfers from './Transfers';
+import Airlines from './Airlines';
 import { transfers, flyDates, flyDurations, airlines } from './filtersData';
 
 const Wrapper = styled.div`
@@ -12,65 +14,39 @@ const Wrapper = styled.div`
   border-radius: 4px;
 `;
 
-const GroupTitle = styled.h4`
-  font-size: 0.75rem;
-  margin: 20px 0 10px 0;
-`;
+const Filters = (props) => {
+  const { origin, destination } = props;
 
-const Filters = () => (
-  <Wrapper>
-    <Filter label="ПЕРЕСАДКИ" isOpened reset>
-      {transfers.map(transfer => (
-        <Checkbox
-          key={transfer.id}
-          label={transfer.label}
-          price={transfer.price}
-          description={transfer.description}
-          checked={transfer.checked}
-        />
-      ))}
-    </Filter>
-    <Filter label="ВРЕМЯ ВЫЛЕТА И ПРИБЫТИЯ" isOpened>
-      {flyDates.map(flyDate => (
-        <FlyDates key={flyDate.id} flight={flyDate.flight} ranges={flyDate.ranges} />
-      ))}
-    </Filter>
-    <Filter label="Багаж" />
-    <Filter label="Длительность пересадки" />
-    <Filter label="Время в пути" isOpened>
-      {flyDurations.map(flyDuration => (
-        <FlyDuration key={flyDuration.id} flight={flyDuration.flight} ranges={flyDuration.ranges} />
-      ))}
-    </Filter>
-    <Filter label="Авиакомпании" count={43} isOpened>
-      <Checkbox
-        label="Несколько авиакомпаний"
-        description="Показывать билеты с перелетами, выполняемыми несколькими авиакомпаниями, включая выбранную"
-      />
-      <GroupTitle>Альянсы</GroupTitle>
-      {airlines.alliances.map(alliance => (
-        <Checkbox
-          key={alliance.id}
-          label={alliance.label}
-          price={alliance.price}
-          checked={alliance.checked}
-        />
-      ))}
-      <GroupTitle>Авиакомпании</GroupTitle>
-      {airlines.companies.map(company => (
-        <Checkbox
-          key={company.id}
-          label={company.label}
-          price={company.price}
-          checked={company.checked}
-        />
-      ))}
-    </Filter>
-    <Filter label="Аэропорты" />
-    <Filter label="Аэропорт пересадки" count={71} />
-    <Filter label="Агенства" count={26} />
-    <Reset />
-  </Wrapper>
-);
+  return (
+    <Wrapper>
+      <Transfers transfers={transfers} />
+      <Filter label="ВРЕМЯ ВЫЛЕТА И ПРИБЫТИЯ" isOpened>
+        <FlyDates ranges={flyDates[0].ranges} origin={origin} destination={destination} />
+        <FlyDates ranges={flyDates[1].ranges} origin={destination} destination={origin} />
+      </Filter>
+      <Filter label="Багаж" />
+      <Filter label="Длительность пересадки" />
+      <Filter label="Время в пути" isOpened>
+        <FlyDuration ranges={flyDurations[0].ranges} origin={origin} destination={destination} />
+        <FlyDuration ranges={flyDurations[1].ranges} origin={destination} destination={origin} />
+      </Filter>
+      <Airlines airlines={airlines} />
+      <Filter label="Аэропорты" />
+      <Filter label="Аэропорт пересадки" count={71} />
+      <Filter label="Агенства" count={26} />
+      <Reset />
+    </Wrapper>
+  );
+};
+
+Filters.propTypes = {
+  origin: PropTypes.objectOf(PropTypes.shape),
+  destination: PropTypes.objectOf(PropTypes.shape),
+};
+
+Filters.defaultProps = {
+  origin: {},
+  destination: {},
+};
 
 export default Filters;

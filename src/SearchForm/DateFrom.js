@@ -92,7 +92,7 @@ const Options = styled.div`
 class DateFrom extends React.Component {
   handleDayClick = (day, { disabled }) => {
     if (!disabled) {
-      this.props.selectDates({
+      this.props.setSearchParams({
         fromDate: day,
       });
 
@@ -177,7 +177,7 @@ class DateFrom extends React.Component {
 }
 
 DateFrom.propTypes = {
-  selectDates: PropTypes.func,
+  setSearchParams: PropTypes.func,
   onToggleFrom: PropTypes.func,
   onToggleTo: PropTypes.func,
   from: PropTypes.objectOf(PropTypes.shape),
@@ -195,7 +195,7 @@ DateFrom.propTypes = {
 };
 
 DateFrom.defaultProps = {
-  selectDates: () => {},
+  setSearchParams: () => {},
   onToggleFrom: () => {},
   onToggleTo: () => {},
   from: {},

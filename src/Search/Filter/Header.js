@@ -66,8 +66,8 @@ const Header = props => (
       {props.label}
       {!!props.count && <Counter>{props.count}</Counter>}
     </Name>
-    {props.reset && (
-      <Reset>
+    {props.showReset && (
+      <Reset onClick={props.reset}>
         <Icon src={clear} alt="Сбросить фильтр" />
       </Reset>
     )}
@@ -79,7 +79,8 @@ Header.propTypes = {
   isOpened: PropTypes.bool,
   label: PropTypes.string,
   count: PropTypes.number,
-  reset: PropTypes.bool,
+  showReset: PropTypes.bool,
+  reset: PropTypes.func,
 };
 
 Header.defaultProps = {
@@ -87,7 +88,8 @@ Header.defaultProps = {
   isOpened: false,
   label: '',
   count: 0,
-  reset: false,
+  showReset: false,
+  reset: () => {},
 };
 
 export default Header;

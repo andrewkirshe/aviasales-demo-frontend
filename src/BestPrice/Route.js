@@ -32,10 +32,10 @@ const Price = styled.a`
 const Route = props => (
   <Wrapper>
     <City>
-      {translate('From')} {translate(props.from)}
+      {translate('from_city')} {translate(props.from)}
     </City>
     <Price href="http://">
-      {translate('from')}{' '}
+      {translate('from_price')}{' '}
       <FormattedNumber
         value={props.price}
         style={String('currency')}

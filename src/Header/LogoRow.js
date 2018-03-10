@@ -59,7 +59,13 @@ const LogoRow = props => (
           </HomeLink>
         </Logo>
         {props.headerSize === 'small' && (
-          <SearchParams fromDate={props.fromDate} toDate={props.toDate} />
+          <SearchParams
+            fromDate={props.fromDate}
+            toDate={props.toDate}
+            origin={props.origin}
+            destination={props.destination}
+            passengersCount={props.passengersCount}
+          />
         )}
         {props.headerSize === 'small' && <Currency />}
       </Layout>
@@ -71,12 +77,18 @@ LogoRow.propTypes = {
   headerSize: PropTypes.string,
   fromDate: PropTypes.objectOf(PropTypes.shape),
   toDate: PropTypes.objectOf(PropTypes.shape),
+  origin: PropTypes.objectOf(PropTypes.shape),
+  destination: PropTypes.objectOf(PropTypes.shape),
+  passengersCount: PropTypes.number,
 };
 
 LogoRow.defaultProps = {
   headerSize: '',
   fromDate: {},
   toDate: {},
+  origin: {},
+  destination: {},
+  passengersCount: 1,
 };
 
 export default LogoRow;

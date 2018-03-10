@@ -16,15 +16,70 @@ const messages = {
   'react-intl-formatted-duration.minutesUnit': '{value, plural, other{м}}',
 };
 
-const App = () => (
-  <IntlProvider locale="ru" messages={messages}>
-    <BrowserRouter>
-      <div className="App">
-        <Route path="/" exact component={Home} />
-        <Route path="/search" component={Search} />
-      </div>
-    </BrowserRouter>
-  </IntlProvider>
-);
+class App extends React.Component {
+  state = {
+    fromDate: new Date(),
+    toDate: null,
+    enteredToDate: null,
+    origin: {},
+    destination: {},
+    adults: 1,
+    childs: 0,
+    infants: 0,
+    grade: 'econom',
+  };
+
+  setSearchParams = (dates) => {
+    this.setState(dates);
+  };
+
+  render() {
+    return (
+      <IntlProvider locale="ru" messages={messages}>
+        <BrowserRouter>
+          <div className="App">
+            <Route
+              path="/"
+              exact
+              render={props => (
+                <Home
+                  {...props}
+                  setSearchParams={this.setSearchParams}
+                  fromDate={this.state.fromDate}
+                  toDate={this.state.toDate}
+                  enteredToDate={this.state.enteredToDate}
+                  origin={this.state.origin}
+                  destination={this.state.destination}
+                  adults={this.state.adults}
+                  childs={this.state.childs}
+                  infants={this.state.infants}
+                  grade={this.state.grade}
+                />
+              )}
+            />
+            <Route
+              path="/search"
+              render={props => (
+                <Search
+                  {...props}
+                  setSearchParams={this.setSearchParams}
+                  fromDate={this.state.fromDate}
+                  toDate={this.state.toDate}
+                  enteredToDate={this.state.enteredToDate}
+                  origin={this.state.origin}
+                  destination={this.state.destination}
+                  adults={this.state.adults}
+                  childs={this.state.childs}
+                  infants={this.state.infants}
+                  grade={this.state.grade}
+                />
+              )}
+            />
+          </div>
+        </BrowserRouter>
+      </IntlProvider>
+    );
+  }
+}
 
 export default App;

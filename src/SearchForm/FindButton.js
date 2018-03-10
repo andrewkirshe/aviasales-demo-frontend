@@ -19,7 +19,7 @@ const Button = styled(Link)`
   font-size: 1.375rem;
   margin: 0 auto;
   margin-top: 0;
-  padding: 0 20px;
+  padding: 0 22px;
   max-width: 308px;
   width: 100%;
   text-decoration: none;

@@ -14,8 +14,8 @@ import flagSpX2 from './flag_sp@2x.png';
 const destinations = [
   {
     id: 1,
-    city: 'Krasnodar',
-    country: 'Russia',
+    city: 'krasnodar',
+    country: 'russia',
     price: 1212,
     date: 1521331200,
     image: krasnodar,
@@ -26,8 +26,8 @@ const destinations = [
   },
   {
     id: 2,
-    city: 'SochiAdler',
-    country: 'Russia',
+    city: 'sochi_adler',
+    country: 'russia',
     price: 1334,
     date: 1522108800,
     image: sochi,
@@ -38,8 +38,8 @@ const destinations = [
   },
   {
     id: 3,
-    city: 'StPetersburg',
-    country: 'Russia',
+    city: 'st_petersburg',
+    country: 'russia',
     price: 1508,
     date: 1518998400,
     image: spb,
@@ -50,8 +50,8 @@ const destinations = [
   },
   {
     id: 4,
-    city: 'MinVody',
-    country: 'Russia',
+    city: 'min_vody',
+    country: 'russia',
     price: 2074,
     date: 1520899200,
     image: minwater,
@@ -62,8 +62,8 @@ const destinations = [
   },
   {
     id: 5,
-    city: 'SimferopolCrimea',
-    country: 'Crimea',
+    city: 'simferopol_сrimea',
+    country: 'сrimea',
     price: 2407,
     date: 1520899200,
     image: simferopol,
@@ -74,8 +74,8 @@ const destinations = [
   },
   {
     id: 6,
-    city: 'Barcelona',
-    country: 'Spain',
+    city: 'barcelona',
+    country: 'spain',
     price: 4247,
     date: 1521849600,
     image: barselona,

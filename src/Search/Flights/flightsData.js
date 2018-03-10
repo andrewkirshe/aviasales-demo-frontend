@@ -8,12 +8,12 @@ const flightsData = [
     id: 1,
     outbound: {
       origin: {
-        city: 'Moscow',
+        city: 'moscow',
         airport: 'VKO',
         dateTime: 1519430700,
       },
       destination: {
-        city: 'Barcelona',
+        city: 'barcelona',
         airport: 'BCN',
         dateTime: 1519441500,
       },
@@ -21,18 +21,18 @@ const flightsData = [
     },
     return: {
       origin: {
-        city: 'Barcelona',
+        city: 'barcelona',
         airport: 'BCN',
         dateTime: 1520073300,
       },
       destination: {
-        city: 'Moscow',
+        city: 'moscow',
         airport: 'SVO',
         dateTime: 1520097000,
       },
       duration: 16500,
     },
-    type: 'CHARTER',
+    type: 'charter',
     airlines: [airlines.rossiya],
     dealers: [
       {
@@ -52,7 +52,7 @@ const flightsData = [
     ],
     tag: {
       color: '#83D40B',
-      text: 'Cheapest',
+      text: 'сheapest',
       emoji: cheapest,
     },
   },
@@ -60,12 +60,12 @@ const flightsData = [
     id: 2,
     outbound: {
       origin: {
-        city: 'Moscow',
+        city: 'moscow',
         airport: 'VKO',
         dateTime: 1519430700,
       },
       destination: {
-        city: 'Barcelona',
+        city: 'barcelona',
         airport: 'BCN',
         dateTime: 1519441500,
       },
@@ -73,12 +73,12 @@ const flightsData = [
     },
     return: {
       origin: {
-        city: 'Barcelona',
+        city: 'barcelona',
         airport: 'BCN',
         dateTime: 1520073300,
       },
       destination: {
-        city: 'Moscow',
+        city: 'moscow',
         airport: 'SVO',
         dateTime: 1520097000,
       },
@@ -117,7 +117,7 @@ const flightsData = [
     ],
     tag: {
       color: '#AF7542',
-      text: 'Fastest',
+      text: 'fastest',
       emoji: fastest,
     },
   },
@@ -125,12 +125,12 @@ const flightsData = [
     id: 3,
     outbound: {
       origin: {
-        city: 'Moscow',
+        city: 'moscow',
         airport: 'VKO',
         dateTime: 1519430700,
       },
       destination: {
-        city: 'Barcelona',
+        city: 'barcelona',
         airport: 'BCN',
         dateTime: 1519441500,
       },
@@ -138,18 +138,18 @@ const flightsData = [
     },
     return: {
       origin: {
-        city: 'Barcelona',
+        city: 'barcelona',
         airport: 'BCN',
         dateTime: 1520073300,
       },
       destination: {
-        city: 'Moscow',
+        city: 'moscow',
         airport: 'SVO',
         dateTime: 1520097000,
       },
       duration: 16500,
     },
-    type: 'CHARTER',
+    type: 'charter',
     airlines: [airlines.nordwindstar],
     dealers: [
       {
@@ -199,12 +199,12 @@ const flightsData = [
     id: 4,
     outbound: {
       origin: {
-        city: 'Moscow',
+        city: 'moscow',
         airport: 'VKO',
         dateTime: 1519430700,
       },
       destination: {
-        city: 'Barcelona',
+        city: 'barcelona',
         airport: 'BCN',
         dateTime: 1519441500,
       },
@@ -212,18 +212,18 @@ const flightsData = [
     },
     return: {
       origin: {
-        city: 'Barcelona',
+        city: 'barcelona',
         airport: 'BCN',
         dateTime: 1520073300,
       },
       destination: {
-        city: 'Moscow',
+        city: 'moscow',
         airport: 'SVO',
         dateTime: 1520097000,
       },
       duration: 16500,
     },
-    type: 'CHARTER',
+    type: 'charter',
     airlines: [airlines.redwings],
     dealers: [
       {
@@ -316,12 +316,12 @@ const flightsData = [
     id: 5,
     outbound: {
       origin: {
-        city: 'Moscow',
+        city: 'moscow',
         airport: 'VKO',
         dateTime: 1519430700,
       },
       destination: {
-        city: 'Barcelona',
+        city: 'barcelona',
         airport: 'BCN',
         dateTime: 1519441500,
       },
@@ -329,18 +329,18 @@ const flightsData = [
     },
     return: {
       origin: {
-        city: 'Barcelona',
+        city: 'barcelona',
         airport: 'BCN',
         dateTime: 1520073300,
       },
       destination: {
-        city: 'Moscow',
+        city: 'moscow',
         airport: 'SVO',
         dateTime: 1520097000,
       },
       duration: 16500,
     },
-    type: 'CHARTER',
+    type: 'charter',
     airlines: [airlines.rossiya, airlines.redwings],
     dealers: [
       {
@@ -385,12 +385,12 @@ const flightsData = [
     id: 6,
     outbound: {
       origin: {
-        city: 'Moscow',
+        city: 'moscow',
         airport: 'VKO',
         dateTime: 1519430700,
       },
       destination: {
-        city: 'Barcelona',
+        city: 'barcelona',
         airport: 'BCN',
         dateTime: 1519441500,
       },
@@ -398,18 +398,18 @@ const flightsData = [
     },
     return: {
       origin: {
-        city: 'Barcelona',
+        city: 'barcelona',
         airport: 'BCN',
         dateTime: 1520073300,
       },
       destination: {
-        city: 'Moscow',
+        city: 'moscow',
         airport: 'SVO',
         dateTime: 1520097000,
       },
       duration: 16500,
     },
-    type: 'CHARTER',
+    type: 'charter',
     airlines: [airlines.fly],
     dealers: [
       {
@@ -454,12 +454,12 @@ const flightsData = [
     id: 7,
     outbound: {
       origin: {
-        city: 'Moscow',
+        city: 'moscow',
         airport: 'VKO',
         dateTime: 1519430700,
       },
       destination: {
-        city: 'Barcelona',
+        city: 'barcelona',
         airport: 'BCN',
         dateTime: 1519441500,
       },
@@ -467,18 +467,18 @@ const flightsData = [
     },
     return: {
       origin: {
-        city: 'Barcelona',
+        city: 'barcelona',
         airport: 'BCN',
         dateTime: 1520073300,
       },
       destination: {
-        city: 'Moscow',
+        city: 'moscow',
         airport: 'SVO',
         dateTime: 1520097000,
       },
       duration: 16500,
     },
-    type: 'CHARTER',
+    type: 'charter',
     airlines: [airlines.rossiya, airlines.fly],
     dealers: [
       {

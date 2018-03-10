@@ -12,6 +12,7 @@ const Wrapper = styled.p`
   font-weight: 600;
   margin-bottom: 15px;
   line-height: 2;
+  padding: 0 16px;
 `;
 
 const Img = styled.img`

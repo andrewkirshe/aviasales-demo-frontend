@@ -19,43 +19,73 @@ const pages = {
   '/search': 'small',
 };
 
-class Header extends React.Component {
-  state = {
-    fromDate: new Date(),
-    toDate: null,
-    enteredToDate: null,
-  };
+const Header = (props) => {
+  const {
+    fromDate,
+    toDate,
+    enteredToDate,
+    origin,
+    destination,
+    adults,
+    childs,
+    infants,
+    setSearchParams,
+    grade,
+  } = props;
 
-  selectDates = (dates) => {
-    this.setState(dates);
-  };
-
-  render() {
-    return (
-      <HeaderWrapper headerSize={pages[this.props.location.pathname]}>
-        <LogoRow
-          headerSize={pages[this.props.location.pathname]}
-          fromDate={this.state.fromDate}
-          toDate={this.state.toDate}
-        />
-        <SearchForm
-          headerSize={pages[this.props.location.pathname]}
-          selectDates={this.selectDates}
-          fromDate={this.state.fromDate}
-          toDate={this.state.toDate}
-          enteredToDate={this.state.enteredToDate}
-        />
-      </HeaderWrapper>
-    );
-  }
-}
+  return (
+    <HeaderWrapper headerSize={pages[props.location.pathname]}>
+      <LogoRow
+        headerSize={pages[props.location.pathname]}
+        fromDate={fromDate}
+        toDate={toDate}
+        origin={origin}
+        destination={destination}
+        passengersCount={adults + childs + infants}
+      />
+      <SearchForm
+        headerSize={pages[props.location.pathname]}
+        setSearchParams={setSearchParams}
+        fromDate={fromDate}
+        toDate={toDate}
+        enteredToDate={enteredToDate}
+        origin={origin}
+        destination={destination}
+        adults={adults}
+        childs={childs}
+        infants={infants}
+        grade={grade}
+      />
+    </HeaderWrapper>
+  );
+};
 
 Header.propTypes = {
   location: PropTypes.objectOf(PropTypes.shape),
+  setSearchParams: PropTypes.func,
+  fromDate: PropTypes.objectOf(PropTypes.shape),
+  toDate: PropTypes.objectOf(PropTypes.shape),
+  enteredToDate: PropTypes.objectOf(PropTypes.shape),
+  origin: PropTypes.objectOf(PropTypes.shape),
+  destination: PropTypes.objectOf(PropTypes.shape),
+  adults: PropTypes.number,
+  childs: PropTypes.number,
+  infants: PropTypes.number,
+  grade: PropTypes.string,
 };
 
 Header.defaultProps = {
   location: {},
+  setSearchParams: () => {},
+  fromDate: {},
+  toDate: {},
+  enteredToDate: {},
+  origin: {},
+  destination: {},
+  adults: 1,
+  childs: 0,
+  infants: 0,
+  grade: '',
 };
 
 export default Header;

@@ -17,87 +17,87 @@ import wmarket from './wmarket.svg';
 const footerNavsData = [
   {
     id: 1,
-    title: 'Countries',
+    title: 'countries',
     links: [
       {
         id: 1,
-        text: 'Russia',
+        text: 'russia',
         url: 'http://aviasales.ru',
       },
       {
         id: 2,
-        text: 'Thailand',
+        text: 'thailand',
         url: 'http://aviasales.ru',
       },
       {
         id: 3,
-        text: 'Montenegro',
+        text: 'montenegro',
         url: 'http://aviasales.ru',
       },
       {
         id: 4,
-        text: 'Cyprus',
+        text: 'сyprus',
         url: 'http://aviasales.ru',
       },
       {
         id: 5,
-        text: 'Bulgaria',
+        text: 'bulgaria',
         url: 'http://aviasales.ru',
       },
       {
         id: 6,
-        text: 'Georgia',
+        text: 'georgia',
         url: 'http://aviasales.ru',
       },
     ],
     all: {
-      text: 'AllCountries',
+      text: 'all_countries',
       url: 'http://aviasales.ru',
     },
   },
   {
     id: 2,
-    title: 'Cities',
+    title: 'сities',
     links: [
       {
         id: 1,
-        text: 'Moscow',
+        text: 'moscow',
         url: 'http://aviasales.ru',
       },
       {
         id: 2,
-        text: 'StPetersburg',
+        text: 'st_petersburg',
         url: 'http://aviasales.ru',
       },
       {
         id: 3,
-        text: 'Simferopol',
+        text: 'simferopol',
         url: 'http://aviasales.ru',
       },
       {
         id: 4,
-        text: 'Adler',
+        text: 'adler',
         url: 'http://aviasales.ru',
       },
       {
         id: 5,
-        text: 'Ekaterinburg',
+        text: 'ekaterinburg',
         url: 'http://aviasales.ru',
       },
       {
         id: 6,
-        text: 'London',
+        text: 'london',
         url: 'http://aviasales.ru',
       },
     ],
     all: {
-      text: 'AllCities',
+      text: 'all_сities',
       url: 'http://aviasales.ru',
     },
   },
   {
     id: 3,
-    title: 'Airlines',
+    title: 'airlines',
     links: [
       {
         id: 1,
@@ -131,53 +131,53 @@ const footerNavsData = [
       },
     ],
     all: {
-      text: 'AllAirlines',
+      text: 'all_airlines',
       url: 'http://aviasales.ru',
     },
   },
   {
     id: 4,
-    title: 'Airports',
+    title: 'airports',
     links: [
       {
         id: 1,
-        text: 'Sheremetyevo',
+        text: 'sheremetyevo',
         url: 'http://aviasales.ru',
       },
       {
         id: 2,
-        text: 'Kurumoch',
+        text: 'kurumoch',
         url: 'http://aviasales.ru',
       },
       {
         id: 3,
-        text: 'Domodedovo',
+        text: 'domodedovo',
         url: 'http://aviasales.ru',
       },
       {
         id: 4,
-        text: 'Tolmachevo',
+        text: 'tolmachevo',
         url: 'http://aviasales.ru',
       },
       {
         id: 5,
-        text: 'Vladivostok',
+        text: 'vladivostok',
         url: 'http://aviasales.ru',
       },
       {
         id: 6,
-        text: 'Hamburg',
+        text: 'hamburg',
         url: 'http://aviasales.ru',
       },
     ],
     all: {
-      text: 'AllAirports',
+      text: 'all_airports',
       url: 'http://aviasales.ru',
     },
   },
   {
     id: 5,
-    title: 'Directions',
+    title: 'directions',
     links: [
       {
         id: 1,
@@ -213,41 +213,41 @@ const footerNavsData = [
   },
   {
     id: 6,
-    title: 'Services',
+    title: 'sirections',
     links: [
       {
         id: 1,
-        text: 'FlightTickets',
+        text: 'flight_tickets',
         url: 'http://aviasales.ru',
       },
       {
         id: 2,
-        text: 'LowPriceCalendar',
+        text: 'low_price_calendar',
         url: 'http://aviasales.ru',
       },
       {
         id: 3,
-        text: 'LowPriceMap',
+        text: 'low_price_map',
         url: 'http://aviasales.ru',
       },
       {
         id: 4,
-        text: 'SpecialOffers',
+        text: 'special_offers',
         url: 'http://aviasales.ru',
       },
       {
         id: 5,
-        text: 'PriceTable',
+        text: 'price_table',
         url: 'http://aviasales.ru',
       },
       {
         id: 6,
-        text: 'Blog',
+        text: 'blog',
         url: 'http://aviasales.ru',
       },
       {
         id: 7,
-        text: 'Help',
+        text: 'help',
         url: 'http://aviasales.ru',
       },
     ],

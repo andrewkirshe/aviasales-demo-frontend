@@ -134,7 +134,7 @@ const Card = props => (
         <City>{translate(props.city)}</City>
         <Find href="http://">
           <span>
-            {translate('Find')} {translate('from')}{' '}
+            {translate('find')} {translate('from_price')}{' '}
             <FormattedNumber
               value={props.price}
               style={String('currency')}

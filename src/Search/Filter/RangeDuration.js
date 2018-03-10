@@ -31,6 +31,7 @@ const Text = styled.span``;
 
 const Wrapper = styled.div`
   margin-bottom: 15px;
+  padding: 0 16px;
 `;
 
 const trackStyle = [{ backgroundColor: '#00ACDE', height: '2px' }];

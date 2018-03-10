@@ -30,6 +30,7 @@ const Label = styled.span``;
 
 const Wrapper = styled.div`
   margin-bottom: 15px;
+  padding: 0 16px;
 `;
 
 const trackStyle = [{ backgroundColor: '#00ACDE', height: '2px' }];
@@ -71,11 +72,18 @@ class RangeDates extends React.Component {
   };
 
   render() {
-    const { notes, fromLabel, toLabel } = this.props;
+    const {
+      notes, fromLabel, toLabel, city,
+    } = this.props;
 
     return (
       <Wrapper>
-        {notes && <Notes>{notes}</Notes>}
+        {notes && (
+          <Notes>
+            {notes}
+            {translate(city)}
+          </Notes>
+        )}
         {fromLabel &&
           toLabel && (
             <Labels>
@@ -110,6 +118,7 @@ class RangeDates extends React.Component {
 }
 
 RangeDates.propTypes = {
+  city: PropTypes.string,
   notes: PropTypes.string,
   fromLabel: PropTypes.string,
   toLabel: PropTypes.string,
@@ -118,6 +127,7 @@ RangeDates.propTypes = {
 };
 
 RangeDates.defaultProps = {
+  city: '',
   notes: '',
   fromLabel: '',
   toLabel: '',

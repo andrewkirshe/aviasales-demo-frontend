@@ -9,7 +9,8 @@ const Wrapper = styled.div``;
 
 const FlyDuration = props => (
   <Wrapper>
-    {props.flight && <Flight from={props.flight.from} to={props.flight.to} />}
+    {props.origin.city &&
+      props.destination.city && <Flight from={props.origin.city} to={props.destination.city} />}
     {props.ranges.map(range => (
       <RangeDuration
         key={range.id}
@@ -24,13 +25,15 @@ const FlyDuration = props => (
 );
 
 FlyDuration.propTypes = {
-  flight: PropTypes.objectOf(PropTypes.string),
   ranges: PropTypes.arrayOf(PropTypes.shape),
+  origin: PropTypes.objectOf(PropTypes.shape),
+  destination: PropTypes.objectOf(PropTypes.shape),
 };
 
 FlyDuration.defaultProps = {
-  flight: {},
   ranges: [],
+  origin: {},
+  destination: {},
 };
 
 export default FlyDuration;
