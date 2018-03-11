@@ -1,4 +1,5 @@
 import React from "react";
+import { translate } from "../translate";
 import Link from "./Link";
 import styled from "styled-components";
 
@@ -35,12 +36,14 @@ export default props => {
   });
   return (
     <Nav>
-      <Title>{props.title}</Title>
+      <Title>{translate(props.title)}</Title>
       <List>
         {links}
         {props.all && (
           <li>
-            <ShowAll href={props.all.url}>{props.all.text} →</ShowAll>
+            <ShowAll href={props.all.url}>
+              {translate(props.all.text)} →
+            </ShowAll>
           </li>
         )}
       </List>

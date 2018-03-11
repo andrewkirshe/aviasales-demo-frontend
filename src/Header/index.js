@@ -1,42 +1,52 @@
 import React from "react";
 import styled from "styled-components";
-import logo from "./logo.svg";
+import SearchForm from "../SearchForm";
+import LogoRow from "./LogoRow";
 
-const Header = styled.header`
-  position: absolute;
-  padding: 12px 0;
-  top: 0;
-  left: 0;
-  right: 0;
+const HeaderWrapper = styled.header`
   background: linear-gradient(to left, #196ebd, #01b0dd);
-`;
-
-const Logo = styled.a`
-  display: block;
-  text-decoration: none;
-  color: #fff;
+  height: ${props => (props.headerSize === "full" ? "100vh" : "auto")};
+  position: relative;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
 `;
 
-const Img = styled.img`
-  margin-right: 12px;
-`;
-
-const Name = styled.span`
-  font-size: 1.25rem;
-  text-transform: lowercase;
-`;
-
-export default () => {
-  return (
-    <Header>
-      <div className="container">
-        <Logo href="">
-          <Img src={logo} alt="logo" />
-          <Name className="hidden-xs hidden-sm">Aviasales</Name>
-        </Logo>
-      </div>
-    </Header>
-  );
+const pages = {
+  "/": "full",
+  "/search": "small"
 };
+
+class Header extends React.Component {
+  state = {
+    fromDate: new Date(),
+    toDate: null,
+    enteredTo: null
+  };
+
+  selectDates = dates => {
+    this.setState(dates);
+  };
+
+  render() {
+    return (
+      <HeaderWrapper headerSize={pages[this.props.location.pathname]}>
+        <LogoRow
+          headerSize={pages[this.props.location.pathname]}
+          fromDate={this.state.fromDate}
+          toDate={this.state.toDate}
+        />
+        <SearchForm
+          headerSize={pages[this.props.location.pathname]}
+          selectDates={this.selectDates}
+          fromDate={this.state.fromDate}
+          toDate={this.state.toDate}
+          enteredToDate={this.state.enteredToDate}
+        />
+      </HeaderWrapper>
+    );
+  }
+}
+
+export default Header;

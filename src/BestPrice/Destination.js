@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { media } from "../Media";
+import { translate } from "../translate";
 import Route from "./Route";
 
 const Destination = styled.div`
@@ -84,12 +85,12 @@ export default props => {
           <Img
             src={props.flag.x1}
             srcSet={`${props.flag.x2} 2x`}
-            alt={props.country}
+            alt={translate(props.country)}
           />
         </Flag>
         <CityInfo>
-          <City>{props.city}</City>
-          <Country>{props.country}</Country>
+          <City>{translate(props.city)}</City>
+          <Country>{translate(props.country)}</Country>
         </CityInfo>
       </Header>
       <Routes>{routes}</Routes>

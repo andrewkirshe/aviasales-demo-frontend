@@ -1,32 +1,33 @@
 import React, { Component } from "react";
-import Header from "./Header";
-import SearchForm from "./SearchForm";
-import Popular from "./Popular";
-import BestPrice from "./BestPrice";
-import CheapTickets from "./CheapTickets";
-import Subscribe from "./Subscribe";
-import SpecialOffers from "./SpecialOffers";
-import Faq from "./Faq";
-import DownloadApp from "./DownloadApp";
-import Footer from "./Footer";
+import { BrowserRouter, Route } from "react-router-dom";
+import { IntlProvider, addLocaleData } from "react-intl";
+import ru from "react-intl/locale-data/ru";
+import Home from "./Home";
+import Search from "./Search";
 import "normalize.css";
 import "flexboxgrid2";
+
+addLocaleData(ru);
+
+const messages = {
+  "react-intl-formatted-duration/custom-format/extra_short":
+    "{hours} {minutes}",
+  "react-intl-formatted-duration.duration": "{value} {unit}",
+  "react-intl-formatted-duration.hoursUnit": "{value, plural, other{ч}}",
+  "react-intl-formatted-duration.minutesUnit": "{value, plural, other{м}}"
+};
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Header />
-        <SearchForm />
-        <Popular />
-        <BestPrice />
-        <CheapTickets />
-        <Subscribe />
-        <SpecialOffers />
-        <Faq />
-        <DownloadApp />
-        <Footer />
-      </div>
+      <IntlProvider locale="ru" messages={messages}>
+        <BrowserRouter>
+          <div className="App">
+            <Route path="/" exact component={Home} />
+            <Route path="/search" component={Search} />
+          </div>
+        </BrowserRouter>
+      </IntlProvider>
     );
   }
 }

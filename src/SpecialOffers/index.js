@@ -15,7 +15,7 @@ const specialOffers = [
       x2: staralliance_white_2x
     },
     company: pobeda,
-    price: "499",
+    price: 499,
     dayLeft: "Осталось 45 дней",
     text: "Билеты от 499 рублей! Специальное предложение от авиакомпании Победа"
   },
@@ -26,7 +26,7 @@ const specialOffers = [
       x2: staralliance_white_2x
     },
     company: luftahnsa,
-    price: "20 680",
+    price: 20680,
     dayLeft: "Осталось 19 дней",
     text:
       "Из Москвы в США от 20680 рублей! Специальное предложение от авиакомпании Lufthansa"
@@ -38,7 +38,7 @@ const specialOffers = [
       x2: staralliance_white_2x
     },
     company: luftahnsa,
-    price: "20 360",
+    price: 20360,
     dayLeft: "Осталось 19 дней",
     text:
       "Из Москвы в США от 22360 рублей! Специальное предложение от авиакомпании Lufthansa"

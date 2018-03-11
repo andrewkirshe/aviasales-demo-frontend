@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { media } from "../Media";
+import { translate } from "../translate";
 
 const Li = styled.li`
   margin: 0 20px 10px 0;
@@ -28,8 +29,8 @@ export default props => {
   return (
     <Li>
       <Link href={props.url}>
-        {props.icon && <Icon src={props.icon} alt={props.text} />}
-        {props.text}
+        {props.icon && <Icon src={props.icon} alt={translate(props.text)} />}
+        {translate(props.text)}
       </Link>
     </Li>
   );

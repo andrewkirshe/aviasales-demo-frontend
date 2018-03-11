@@ -1,7 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
+import { FormattedNumber } from "react-intl";
+import { translate } from "../translate";
 
-const Route = styled.div`
+const Wrapper = styled.div`
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -26,11 +29,32 @@ const Price = styled.a`
   text-decoration: none;
 `;
 
-export default props => {
-  return (
-    <Route>
-      <City>Из {props.from}</City>
-      <Price href="http://">от {props.price} ₽</Price>
-    </Route>
-  );
+const Route = props => (
+  <Wrapper>
+    <City>
+      {translate("from-city")} {translate(props.from)}
+    </City>
+    <Price href="http://">
+      {translate("from-price")}{" "}
+      <FormattedNumber
+        value={props.price}
+        style={String("currency")}
+        currency="RUB"
+        minimumFractionDigits={0}
+        maximumFractionDigits={0}
+      />
+    </Price>
+  </Wrapper>
+);
+
+Route.propTypes = {
+  from: PropTypes.string,
+  price: PropTypes.number
 };
+
+Route.defaultProps = {
+  from: "",
+  price: 0
+};
+
+export default Route;

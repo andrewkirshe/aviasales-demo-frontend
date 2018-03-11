@@ -4,101 +4,119 @@ import { media } from "../Media";
 import Header from "./Header";
 import Destination from "./Destination";
 
-import flag_ru from "./flag_ru.png";
-import flag_ru_x2 from "./flag_ru@2x.png";
-import flag_am from "./flag_am.png";
-import flag_am_x2 from "./flag_am@2x.png";
-import flag_md from "./flag_md.png";
-import flag_md_x2 from "./flag_md@2x.png";
+import flagRu from "./flag_ru.png";
+import flagRuX2 from "./flag_ru@2x.png";
+import flagAm from "./flag_am.png";
+import flagAmX2 from "./flag_am@2x.png";
+import flagMd from "./flag_md.png";
+import flagMdX2 from "./flag_md@2x.png";
 
 const destinations = [
   {
+    id: 1,
     flag: {
-      x1: flag_ru,
-      x2: flag_ru_x2
+      x1: flagRu,
+      x2: flagRuX2
     },
-    city: "Симферополь",
-    country: "Крым",
+    city: "simferopol",
+    country: "сrimea",
     routes: [
       {
-        from: "Москвы",
-        price: "4 837"
+        id: 1,
+        from: "moscow",
+        price: 4837
       },
       {
-        from: "Санкт-Петербурга",
-        price: "7 857"
+        id: 2,
+        from: "st-petersburg",
+        price: 7857
       },
       {
-        from: "Новосибирска",
-        price: "15 127"
+        id: 3,
+        from: "novosibirsk",
+        price: 15127
       },
       {
-        from: "Екатеринбурга",
-        price: "9 275"
+        id: 4,
+        from: "ekaterinburg",
+        price: 9275
       },
       {
-        from: "Челябинска",
-        price: "9 148"
+        id: 5,
+        from: "chelyabinsk",
+        price: 9148
       }
     ]
   },
   {
+    id: 2,
     flag: {
-      x1: flag_am,
-      x2: flag_am_x2
+      x1: flagAm,
+      x2: flagAmX2
     },
-    city: "Ереван",
+    city: "yerevan",
     country: "Армения",
     routes: [
       {
-        from: "Москвы",
-        price: "6 758"
+        id: 1,
+        from: "armenia",
+        price: 6758
       },
       {
-        from: "Санкт-Петербурга",
-        price: "9 932"
+        id: 2,
+        from: "st-petersburg",
+        price: 9932
       },
       {
-        from: "Сочи",
-        price: "11 951"
+        id: 3,
+        from: "sochi",
+        price: 11951
       },
       {
-        from: "Краснодара",
-        price: "11 741"
+        id: 4,
+        from: "krasnodar",
+        price: 11741
       },
       {
-        from: "Ростова-на-Дону",
-        price: "11 956"
+        id: 5,
+        from: "rostov-na-donu",
+        price: 11956
       }
     ]
   },
   {
+    id: 3,
     flag: {
-      x1: flag_md,
-      x2: flag_md_x2
+      x1: flagMd,
+      x2: flagMdX2
     },
-    city: "Кишинёв",
-    country: "Молдавия",
+    city: "kishinev",
+    country: "moldova",
     routes: [
       {
-        from: "Москвы",
-        price: "8 319"
+        id: 1,
+        from: "moscow",
+        price: 8319
       },
       {
-        from: "Санкт-Петербурга",
-        price: "10 800"
+        id: 2,
+        from: "st-petersburg",
+        price: 10800
       },
       {
-        from: "Краснодара",
-        price: "12 098"
+        id: 3,
+        from: "krasnodar",
+        price: 12098
       },
       {
-        from: "Сургута",
-        price: "16 277"
+        id: 4,
+        from: "surgut",
+        price: 16277
       },
       {
-        from: "Нового Уренгоя",
-        price: "15 987"
+        id: 5,
+        from: "novy-urengoy",
+        price: 15987
       }
     ]
   }
@@ -136,17 +154,15 @@ const Small = styled.p`
 `;
 
 export default () => {
-  const destinationsList = destinations.map((destination, index) => {
-    return (
-      <Destination
-        key={index}
-        flag={destination.flag}
-        city={destination.city}
-        country={destination.country}
-        routes={destination.routes}
-      />
-    );
-  });
+  const destinationsList = destinations.map(destination => (
+    <Destination
+      key={destination.id}
+      flag={destination.flag}
+      city={destination.city}
+      country={destination.country}
+      routes={destination.routes}
+    />
+  ));
   return (
     <BestPrice>
       <div className="container">

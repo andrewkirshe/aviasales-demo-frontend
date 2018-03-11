@@ -1,7 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import { media } from "../../Media";
-import edit from "./edit.svg";
+import React from 'react';
+import styled from 'styled-components';
+import { media } from '../../Media';
+import { translate } from '../../translate';
+import edit from './edit.svg';
 
 const Button = styled.button`
   color: #00ace2;
@@ -26,11 +27,9 @@ const Img = styled.img`
   margin-left: 5px;
 `;
 
-export default () => {
-  return (
-    <Button>
-      Москва
-      <Img src={edit} alt="Редактировать" />
-    </Button>
-  );
-};
+export default () => (
+  <Button>
+    {translate('moscow')}
+    <Img src={edit} alt="Редактировать" />
+  </Button>
+);
