@@ -81,12 +81,12 @@
   "alliances": "Альянсы",
   "departure-from": "Вылет из",
   "arrival-to": "Прибытие в",
-  "no-transfer": "Без пересадок",
-  "one-transfer": "%d пересадка",
-  "two-transfers": "%d пересадки",
-  "five-transfers": "%d пересадок",
   "no-passangers": "нет пассажиров",
   "one-passenger": "%d пассажир",
   "two-passengers": "%d пассажира",
-  "five-passengers": "%d пассажиров"
+  "five-passengers": "%d пассажиров",
+  "no-transfer": "Без пересадок",
+  "one-transfer": "%d пересадка",
+  "two-transfers": "%d пересадки",
+  "five-transfers": "%d пересадок"
 }
