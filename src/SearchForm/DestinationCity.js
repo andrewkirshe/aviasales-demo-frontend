@@ -148,18 +148,12 @@ class DestinationCity extends React.Component {
     });
   };
 
-  shouldItemRenderHandle = (airport, value) => {
-    const renderItems =
-      translate(airport.city)
-        .toLowerCase()
-        .indexOf(value.toLowerCase()) > -1 ||
-      translate(airport.country)
-        .toLowerCase()
-        .indexOf(value.toLowerCase()) > -1 ||
-      airport.code.toLowerCase().indexOf(value.toLowerCase()) > -1;
-
-    return renderItems;
-  };
+  shouldItemRenderHandle = (airport, value) =>
+    Object.values(airport)
+      .map(field => translate(field))
+      .join('')
+      .toLowerCase()
+      .indexOf(value.toLowerCase()) > -1;
 
   renderInput = props => (
     <Wrapper>
