@@ -107,15 +107,63 @@ const Info = (props) => {
 };
 
 Info.propTypes = {
-  outbound: PropTypes.objectOf(PropTypes.shape),
-  return: PropTypes.objectOf(PropTypes.shape),
+  outbound: PropTypes.shape({
+    origin: PropTypes.shape({
+      city: PropTypes.string,
+      airport: PropTypes.string,
+      dateTime: PropTypes.number,
+    }),
+    destination: PropTypes.shape({
+      city: PropTypes.string,
+      airport: PropTypes.string,
+      dateTime: PropTypes.number,
+    }),
+    duration: PropTypes.number,
+  }),
+  return: PropTypes.shape({
+    origin: PropTypes.shape({
+      city: PropTypes.string,
+      airport: PropTypes.string,
+      dateTime: PropTypes.number,
+    }),
+    destination: PropTypes.shape({
+      city: PropTypes.string,
+      airport: PropTypes.string,
+      dateTime: PropTypes.number,
+    }),
+    duration: PropTypes.number,
+  }),
   type: PropTypes.string,
   airlines: PropTypes.arrayOf(PropTypes.shape),
 };
 
 Info.defaultProps = {
-  outbound: {},
-  return: {},
+  outbound: {
+    origin: {
+      city: '',
+      airport: '',
+      dateTime: 0,
+    },
+    destination: {
+      city: '',
+      airport: '',
+      dateTime: 0,
+    },
+    duration: 0,
+  },
+  return: {
+    origin: {
+      city: '',
+      airport: '',
+      dateTime: 0,
+    },
+    destination: {
+      city: '',
+      airport: '',
+      dateTime: 0,
+    },
+    duration: 0,
+  },
   type: '',
   airlines: [],
 };

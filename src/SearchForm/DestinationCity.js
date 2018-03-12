@@ -225,13 +225,21 @@ class DestinationCity extends React.Component {
 DestinationCity.propTypes = {
   airportsData: PropTypes.arrayOf(PropTypes.shape),
   setSearchParams: PropTypes.func,
-  destination: PropTypes.objectOf(PropTypes.shape),
+  destination: PropTypes.shape({
+    city: PropTypes.string,
+    country: PropTypes.string,
+    code: PropTypes.string,
+  }),
 };
 
 DestinationCity.defaultProps = {
   airportsData: [],
   setSearchParams: () => {},
-  destination: {},
+  destination: {
+    city: '',
+    country: '',
+    code: '',
+  },
 };
 
 export default onClickOutside(DestinationCity);

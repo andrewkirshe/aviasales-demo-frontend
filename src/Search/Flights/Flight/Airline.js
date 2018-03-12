@@ -39,13 +39,31 @@ const Airline = props => (
 
 Airline.propTypes = {
   size: PropTypes.string,
-  logo: PropTypes.objectOf(PropTypes.shape),
+  logo: PropTypes.shape({
+    s: PropTypes.shape({
+      x1: PropTypes.string,
+      x2: PropTypes.string,
+    }),
+    l: PropTypes.shape({
+      x1: PropTypes.string,
+      x2: PropTypes.string,
+    }),
+  }),
   name: PropTypes.string,
 };
 
 Airline.defaultProps = {
   size: '',
-  logo: {},
+  logo: {
+    s: {
+      x1: '',
+      x2: '',
+    },
+    l: {
+      x1: '',
+      x2: '',
+    },
+  },
   name: '',
 };
 

@@ -122,7 +122,10 @@ const Card = props => (
 
 Card.propTypes = {
   title: PropTypes.string,
-  logo: PropTypes.objectOf(PropTypes.string),
+  logo: PropTypes.shape({
+    x1: PropTypes.string,
+    x2: PropTypes.string,
+  }),
   company: PropTypes.string,
   price: PropTypes.number,
   dayLeft: PropTypes.string,
@@ -131,7 +134,10 @@ Card.propTypes = {
 
 Card.defaultProps = {
   title: '',
-  logo: {},
+  logo: {
+    x1: '',
+    x2: '',
+  },
   company: '',
   price: 0,
   dayLeft: '',

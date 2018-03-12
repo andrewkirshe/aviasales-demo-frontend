@@ -204,9 +204,9 @@ class DateTo extends React.Component {
 DateTo.propTypes = {
   setSearchParams: PropTypes.func,
   onToggleTo: PropTypes.func,
-  from: PropTypes.objectOf(PropTypes.shape),
-  to: PropTypes.objectOf(PropTypes.shape),
-  enteredTo: PropTypes.objectOf(PropTypes.shape),
+  from: PropTypes.instanceOf(Date),
+  to: PropTypes.instanceOf(Date),
+  enteredTo: PropTypes.instanceOf(Date),
   name: PropTypes.string,
   id: PropTypes.string,
   label: PropTypes.string,

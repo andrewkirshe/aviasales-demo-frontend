@@ -138,10 +138,10 @@ class Passengers extends React.Component {
         >
           {pluralize(
             adults + childs + infants,
-            'нет пассажиров',
-            '%d пассажир',
-            '%d пассажира',
-            '%d пассажиров',
+            translate('no-passengers'),
+            translate('one-passenger'),
+            translate('two-passengers'),
+            translate('five-passengers'),
           )}, <Grade>{translate(grade)}</Grade>
         </Button>
         {this.state.isOpened && (

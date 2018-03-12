@@ -150,19 +150,75 @@ const Flight = props => (
 );
 
 Flight.propTypes = {
-  tag: PropTypes.objectOf(PropTypes.shape),
+  tag: PropTypes.shape({
+    color: PropTypes.string,
+    text: PropTypes.string,
+    emoji: PropTypes.string,
+  }),
   dealers: PropTypes.arrayOf(PropTypes.shape),
-  outbound: PropTypes.objectOf(PropTypes.shape),
-  return: PropTypes.objectOf(PropTypes.shape),
+  outbound: PropTypes.shape({
+    origin: PropTypes.shape({
+      city: PropTypes.string,
+      airport: PropTypes.string,
+      dateTime: PropTypes.number,
+    }),
+    destination: PropTypes.shape({
+      city: PropTypes.string,
+      airport: PropTypes.string,
+      dateTime: PropTypes.number,
+    }),
+    duration: PropTypes.number,
+  }),
+  return: PropTypes.shape({
+    origin: PropTypes.shape({
+      city: PropTypes.string,
+      airport: PropTypes.string,
+      dateTime: PropTypes.number,
+    }),
+    destination: PropTypes.shape({
+      city: PropTypes.string,
+      airport: PropTypes.string,
+      dateTime: PropTypes.number,
+    }),
+    duration: PropTypes.number,
+  }),
   type: PropTypes.string,
   airlines: PropTypes.arrayOf(PropTypes.shape),
 };
 
 Flight.defaultProps = {
-  tag: {},
+  tag: {
+    color: '',
+    text: '',
+    emoji: '',
+  },
   dealers: [],
-  outbound: {},
-  return: {},
+  outbound: {
+    origin: {
+      city: '',
+      airport: '',
+      dateTime: 0,
+    },
+    destination: {
+      city: '',
+      airport: '',
+      dateTime: 0,
+    },
+    duration: 0,
+  },
+  return: {
+    origin: {
+      city: '',
+      airport: '',
+      dateTime: 0,
+    },
+    destination: {
+      city: '',
+      airport: '',
+      dateTime: 0,
+    },
+    duration: 0,
+  },
   type: '',
   airlines: [],
 };

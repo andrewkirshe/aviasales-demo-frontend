@@ -114,11 +114,11 @@ const Description = styled.p`
 
 const Checkbox = (props) => {
   const handleChange = () => {
-    props.setCheckboxes(props.id);
+    props.setCheckboxes(props.id, props.group);
   };
 
   const setOnlyHandle = () => {
-    props.setOnlyCheckbox(props.id);
+    props.setOnlyCheckbox(props.id, props.group);
   };
 
   return (
@@ -156,6 +156,7 @@ Checkbox.propTypes = {
   description: PropTypes.string,
   setCheckboxes: PropTypes.func,
   setOnlyCheckbox: PropTypes.func,
+  group: PropTypes.string,
 };
 
 Checkbox.defaultProps = {
@@ -166,6 +167,7 @@ Checkbox.defaultProps = {
   description: '',
   setCheckboxes: () => {},
   setOnlyCheckbox: () => {},
+  group: PropTypes.string,
 };
 
 export default Checkbox;

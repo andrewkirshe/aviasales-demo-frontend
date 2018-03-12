@@ -61,19 +61,25 @@ const Counter = styled.span`
   margin-left: 8px;
 `;
 
-const Header = props => (
-  <Wrapper>
-    <Name onClick={props.toggleFilter} isOpened={props.isOpened}>
-      {translate(props.label)}
-      {!!props.count && <Counter>{props.count}</Counter>}
-    </Name>
-    {props.showReset && (
-      <Reset onClick={props.reset}>
-        <Icon src={clear} alt="Сбросить фильтр" />
-      </Reset>
-    )}
-  </Wrapper>
-);
+const Header = (props) => {
+  const handleReset = () => {
+    props.reset(props.groups);
+  };
+
+  return (
+    <Wrapper>
+      <Name onClick={props.toggleFilter} isOpened={props.isOpened}>
+        {translate(props.label)}
+        {!!props.count && <Counter>{props.count}</Counter>}
+      </Name>
+      {props.showReset && (
+        <Reset onClick={handleReset}>
+          <Icon src={clear} alt="Сбросить фильтр" />
+        </Reset>
+      )}
+    </Wrapper>
+  );
+};
 
 Header.propTypes = {
   toggleFilter: PropTypes.func,
@@ -82,6 +88,7 @@ Header.propTypes = {
   count: PropTypes.number,
   showReset: PropTypes.bool,
   reset: PropTypes.func,
+  groups: PropTypes.arrayOf(PropTypes.string),
 };
 
 Header.defaultProps = {
@@ -91,6 +98,7 @@ Header.defaultProps = {
   count: 0,
   showReset: false,
   reset: () => {},
+  groups: [],
 };
 
 export default Header;

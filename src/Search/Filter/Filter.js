@@ -36,6 +36,7 @@ class Filter extends React.Component {
           toggleFilter={this.toggleFilter}
           showReset={this.props.showReset}
           reset={this.props.reset}
+          groups={this.props.groups}
         />
         {this.state.isOpened && <Controls>{this.props.children}</Controls>}
       </Wrapper>
@@ -50,6 +51,7 @@ Filter.propTypes = {
   showReset: PropTypes.bool,
   reset: PropTypes.func,
   children: PropTypes.arrayOf(PropTypes.shape),
+  groups: PropTypes.arrayOf(PropTypes.string),
 };
 
 Filter.defaultProps = {
@@ -59,6 +61,7 @@ Filter.defaultProps = {
   showReset: false,
   reset: () => {},
   children: [],
+  groups: [],
 };
 
 export default Filter;

@@ -98,14 +98,20 @@ Luggage.propTypes = {
   active: PropTypes.bool,
   single: PropTypes.bool,
   handbag: PropTypes.number,
-  baggage: PropTypes.objectOf(PropTypes.number),
+  baggage: PropTypes.shape({
+    weight: PropTypes.number,
+    price: PropTypes.number,
+  }),
 };
 
 Luggage.defaultProps = {
   active: false,
   single: false,
   handbag: 0,
-  baggage: {},
+  baggage: {
+    weight: 20,
+    price: 267,
+  },
 };
 
 export default Luggage;
