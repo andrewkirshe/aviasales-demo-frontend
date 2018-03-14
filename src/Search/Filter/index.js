@@ -21,48 +21,56 @@ const GroupTitle = styled.h4`
   margin: 20px 16px 10px 16px;
 `;
 
-const defaultListState = {
+const defaultCheckboxesList = {
   transfers: map(transfers.list, 'id'),
   alliances: map(airlines.alliances.list, 'id'),
   aircompanies: map(airlines.aircompanies.list, 'id'),
 };
 
+const isAllChecked = (prevChecked, newChecked) => prevChecked.length === newChecked.length;
+
 class Filters extends React.Component {
   state = {
     transfers: {
       all: true,
-      list: defaultListState.transfers,
+      list: defaultCheckboxesList.transfers,
     },
     alliances: {
       all: true,
-      list: defaultListState.alliances,
+      list: defaultCheckboxesList.alliances,
     },
     aircompanies: {
       all: true,
-      list: defaultListState.aircompanies,
+      list: defaultCheckboxesList.aircompanies,
     },
   };
 
-  setCheckboxes = (id, group) => {
-    const list = includes(this.state[group].list, id)
-      ? this.state[group].list.filter(value => value !== id)
-      : [...this.state[group].list, id];
+  setCheckboxes = (checkboxId, checkboxGroup) => {
+    this.setState((prevState) => {
+      const prevCheckboxesList = prevState[checkboxGroup].list;
 
-    this.setState({
-      [group]: {
-        all: list.length === defaultListState[group].length,
-        list,
-      },
+      const newCheckboxesList = includes(prevCheckboxesList, checkboxId)
+        ? prevCheckboxesList.filter(value => value !== checkboxId)
+        : [...prevCheckboxesList, checkboxId];
+
+      return {
+        [checkboxGroup]: {
+          all: isAllChecked(newCheckboxesList, defaultCheckboxesList[checkboxGroup]),
+          list: newCheckboxesList,
+        },
+      };
     });
   };
 
   setCheckboxesAll = (id, group) => {
-    const allChecked = !this.state[group].all;
-    this.setState({
-      [group]: {
-        all: allChecked,
-        list: allChecked ? defaultListState[group] : [],
-      },
+    this.setState((prevState) => {
+      const allChecked = !prevState[group].all;
+      return {
+        [group]: {
+          all: allChecked,
+          list: allChecked ? defaultCheckboxesList[group] : [],
+        },
+      };
     });
   };
 
@@ -80,7 +88,7 @@ class Filters extends React.Component {
       this.setState({
         [group]: {
           all: true,
-          list: defaultListState[group],
+          list: defaultCheckboxesList[group],
         },
       }));
   };
@@ -92,10 +100,10 @@ class Filters extends React.Component {
         <Filter
           label="transfers"
           isOpened
-          showReset={this.state.transfers.list.length !== defaultListState.transfers.length}
+          showReset={this.state.transfers.list.length !== defaultCheckboxesList.transfers.length}
           reset={this.resetCheckboxes}
           groups={['transfers']}
-          count={defaultListState.transfers.length}
+          count={defaultCheckboxesList.transfers.length}
         >
           <Checkbox
             label={translate(transfers.all.label)}
@@ -137,12 +145,12 @@ class Filters extends React.Component {
           label="alliances"
           isOpened
           showReset={
-            this.state.alliances.list.length !== defaultListState.alliances.length ||
-            this.state.aircompanies.list.length !== defaultListState.aircompanies.length
+            this.state.alliances.list.length !== defaultCheckboxesList.alliances.length ||
+            this.state.aircompanies.list.length !== defaultCheckboxesList.aircompanies.length
           }
           reset={this.resetCheckboxes}
           groups={['alliances', 'aircompanies']}
-          count={defaultListState.alliances.length + defaultListState.aircompanies.length}
+          count={defaultCheckboxesList.alliances.length + defaultCheckboxesList.aircompanies.length}
         >
           <GroupTitle>{translate('alliances')}</GroupTitle>
           <Checkbox

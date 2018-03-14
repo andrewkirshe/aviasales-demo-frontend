@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import OriginCity from './OriginCity';
-import DestinationCity from './DestinationCity';
+import CityAutocomplete from './CityAutocomplete';
 import Passengers from './Passengers';
 import { media } from '../Media';
 import DateRange from './DateRange';
@@ -125,20 +124,28 @@ const SearchForm = (props) => {
               <Fields headerSize={headerSize}>
                 <Row>
                   <Field>
-                    <OriginCity
+                    <CityAutocomplete
+                      headerSize={headerSize}
                       setSearchParams={setSearchParams}
                       origin={origin}
                       destination={destination}
                       airportsData={airportsData}
+                      type="origin"
+                      placeholder="origin-city"
+                      swapButton
                     />
                   </Field>
                 </Row>
                 <Row>
                   <Field>
-                    <DestinationCity
+                    <CityAutocomplete
+                      headerSize={headerSize}
                       setSearchParams={setSearchParams}
+                      origin={origin}
                       destination={destination}
                       airportsData={airportsData}
+                      type="destination"
+                      placeholder="destination-city"
                     />
                   </Field>
                 </Row>

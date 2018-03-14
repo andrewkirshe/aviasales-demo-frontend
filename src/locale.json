@@ -88,5 +88,7 @@
   "no-transfer": "Без пересадок",
   "one-transfer": "%d пересадка",
   "two-transfers": "%d пересадки",
-  "five-transfers": "%d пересадок"
+  "five-transfers": "%d пересадок",
+  "origin-city": "Город вылета",
+  "destination-city": "Город прилета"
 }
