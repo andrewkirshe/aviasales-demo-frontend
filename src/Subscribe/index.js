@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import { media } from "../Media";
-import border from "./border.svg";
-import tw from "./tw.svg";
-import fb from "./fb.svg";
-import vk from "./vk.svg";
-import rss from "./rss.svg";
+import React from 'react';
+import styled from 'styled-components';
+import { media } from '../Media';
+import border from './border.svg';
+import tw from './tw.svg';
+import fb from './fb.svg';
+import vk from './vk.svg';
+import rss from './rss.svg';
 
 const SubscribeWrap = styled.section`
   background: url(${border}) top center repeat-x;
@@ -130,52 +130,49 @@ const Email = styled.input`
   }
 `;
 
-export default () => {
-  return (
-    <SubscribeWrap>
-      <div className="container">
-        <div className="row center-md">
-          <div className="col-sm-12 col-md-10 start-md">
-            <Subscribe>
-              <Description>
-                <Title>Хотите знать всё о скидках на авиабилеты?</Title>
-                <Text>
-                  Вы можете подписаться на нашу рассылку через соцсети или по
-                  электронной почте.
-                </Text>
-              </Description>
-              <Content>
-                <Socials>
-                  <Li>
-                    <Link href="http://aviasales.ru">
-                      <Img src={tw} alt="Twitter" />
-                    </Link>
-                  </Li>
-                  <Li>
-                    <Link href="http://aviasales.ru">
-                      <Img src={fb} alt="Facebook" />
-                    </Link>
-                  </Li>
-                  <Li>
-                    <Link href="http://aviasales.ru">
-                      <Img src={vk} alt="Vkontakte" />
-                    </Link>
-                  </Li>
-                  <Li>
-                    <Link href="http://aviasales.ru">
-                      <Img src={rss} alt="Rss" />
-                    </Link>
-                  </Li>
-                </Socials>
-                <Form action="">
-                  <Email type="email" name="email" placeholder="Ваш email" />
-                  <Button>Подписаться</Button>
-                </Form>
-              </Content>
-            </Subscribe>
-          </div>
+export default () => (
+  <SubscribeWrap>
+    <div className="container">
+      <div className="row center-md">
+        <div className="col-sm-12 col-md-10 start-md">
+          <Subscribe>
+            <Description>
+              <Title>Хотите знать всё о скидках на авиабилеты?</Title>
+              <Text>
+                Вы можете подписаться на нашу рассылку через соцсети или по электронной почте.
+              </Text>
+            </Description>
+            <Content>
+              <Socials>
+                <Li>
+                  <Link href="http://aviasales.ru">
+                    <Img src={tw} alt="Twitter" />
+                  </Link>
+                </Li>
+                <Li>
+                  <Link href="http://aviasales.ru">
+                    <Img src={fb} alt="Facebook" />
+                  </Link>
+                </Li>
+                <Li>
+                  <Link href="http://aviasales.ru">
+                    <Img src={vk} alt="Vkontakte" />
+                  </Link>
+                </Li>
+                <Li>
+                  <Link href="http://aviasales.ru">
+                    <Img src={rss} alt="Rss" />
+                  </Link>
+                </Li>
+              </Socials>
+              <Form action="">
+                <Email type="email" name="email" placeholder="Ваш email" />
+                <Button>Подписаться</Button>
+              </Form>
+            </Content>
+          </Subscribe>
         </div>
       </div>
-    </SubscribeWrap>
-  );
-};
+    </div>
+  </SubscribeWrap>
+);

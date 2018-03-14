@@ -1,12 +1,13 @@
-import React from "react";
-import styled from "styled-components";
-import { Helmet } from "react-helmet";
-import { media } from "../Media";
-import { withRouter } from "react-router";
-import Header from "../Header";
-import Filter from "./Filter";
-import Flights from "./Flights";
-import Footer from "../Footer";
+import React from 'react';
+import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
+import { withRouter } from 'react-router';
+import PropTypes from 'prop-types';
+import { media } from '../Media';
+import Header from '../Header';
+import Filter from './Filter';
+import Flights from './Flights';
+import Footer from '../Footer';
 
 const Wrapper = styled.section`
   background: #eaeaea;
@@ -18,18 +19,47 @@ const Wrapper = styled.section`
 
 const HeaderWithRouter = withRouter(Header);
 
-export default () => {
+const Search = (props) => {
+  const {
+    fromDate,
+    toDate,
+    enteredToDate,
+    origin,
+    destination,
+    adults,
+    childs,
+    infants,
+    setSearchParams,
+    grade,
+  } = props;
+
   return (
     <div>
       <Helmet>
         <title>Страница поиска</title>
       </Helmet>
-      <HeaderWithRouter />
+      <HeaderWithRouter
+        setSearchParams={setSearchParams}
+        fromDate={fromDate}
+        toDate={toDate}
+        enteredToDate={enteredToDate}
+        origin={origin}
+        destination={destination}
+        adults={adults}
+        childs={childs}
+        infants={infants}
+        grade={grade}
+      />
       <Wrapper>
         <div className="container">
           <div className="row">
             <div className="hidden-xs hidden-sm hidden-md hidden-lg col-xl-3">
-              <Filter />
+              <Filter
+                fromDate={fromDate}
+                toDate={toDate}
+                origin={origin}
+                destination={destination}
+              />
             </div>
             <div className="col-xs-12 col-xl-7">
               <Flights />
@@ -41,3 +71,47 @@ export default () => {
     </div>
   );
 };
+
+Search.propTypes = {
+  setSearchParams: PropTypes.func,
+  fromDate: PropTypes.instanceOf(Date),
+  toDate: PropTypes.instanceOf(Date),
+  enteredToDate: PropTypes.instanceOf(Date),
+  origin: PropTypes.shape({
+    city: PropTypes.string,
+    country: PropTypes.string,
+    code: PropTypes.string,
+  }),
+  destination: PropTypes.shape({
+    city: PropTypes.string,
+    country: PropTypes.string,
+    code: PropTypes.string,
+  }),
+  adults: PropTypes.number,
+  childs: PropTypes.number,
+  infants: PropTypes.number,
+  grade: PropTypes.string,
+};
+
+Search.defaultProps = {
+  setSearchParams: () => {},
+  fromDate: {},
+  toDate: {},
+  enteredToDate: {},
+  origin: {
+    city: '',
+    country: '',
+    code: '',
+  },
+  destination: {
+    city: '',
+    country: '',
+    code: '',
+  },
+  adults: 1,
+  childs: 0,
+  infants: 0,
+  grade: '',
+};
+
+export default Search;

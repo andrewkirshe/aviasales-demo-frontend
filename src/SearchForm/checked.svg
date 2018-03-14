@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="12px" height="9px" viewBox="0 0 12 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>Check</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Mobile-Portrait-5" sketch:type="MSArtboardGroup" transform="translate(-33.000000, -315.000000)" fill="#FFFFFF">
+            <g id="Passenger" sketch:type="MSLayerGroup" transform="translate(27.000000, 98.000000)">
+                <path d="M11.4746698,225.313649 L17.6774944,218.840437 C18.0744673,218.412628 18.0675259,217.73776 17.6770016,217.316901 C17.2837546,216.893107 16.6535329,216.895804 16.2632808,217.31637 L10.4793531,223.344828 L7.70053868,220.358208 C7.31361581,219.94123 6.68609303,219.941442 6.29284608,220.365236 C5.90232179,220.786095 5.9046269,221.470927 6.28632512,221.882275 L9.62713563,225.358837 C9.98254334,225.805195 10.9689325,226.043173 11.4746698,225.313649 Z" id="Check" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

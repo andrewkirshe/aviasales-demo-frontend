@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { media } from "../../Media";
-import Icon from "./Icon";
+import React from 'react';
+import styled from 'styled-components';
+import { media } from '../../Media';
+import Icon from './Icon';
 
 const Header = styled.div`
   margin-bottom: 50px;
@@ -19,11 +19,9 @@ const Title = styled.h2`
   `};
 `;
 
-export default () => {
-  return (
-    <Header>
-      <Icon />
-      <Title>Лучшие цены на авиабилеты за последний месяц</Title>
-    </Header>
-  );
-};
+export default () => (
+  <Header>
+    <Icon />
+    <Title>Лучшие цены на авиабилеты за последний месяц</Title>
+  </Header>
+);

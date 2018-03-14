@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import PropTypes from "prop-types";
-import { format } from "date-fns";
-import ru from "date-fns/locale/ru";
-import { FormattedNumber } from "react-intl";
-import { media } from "../../Media";
-import { translate } from "../../translate";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { format } from 'date-fns';
+import ru from 'date-fns/locale/ru';
+import { FormattedNumber } from 'react-intl';
+import { media } from '../../Media';
+import { translate } from '../../translate';
 
 const Wrapper = styled.div`
   overflow: hidden;
@@ -129,19 +129,15 @@ const Card = props => (
       <Img src={props.image} alt={translate(props.city)} />
     </Image>
     <Bar>
-      <Flag
-        src={props.flag.x1}
-        srcSet={`${props.flag.x2} 2x`}
-        alt={translate(props.country)}
-      />
+      <Flag src={props.flag.x1} srcSet={`${props.flag.x2} 2x`} alt={translate(props.country)} />
       <Row>
         <City>{translate(props.city)}</City>
         <Find href="http://">
           <span>
-            {translate("find")} {translate("from-price")}{" "}
+            {translate('find')} {translate('from-price')}{' '}
             <FormattedNumber
               value={props.price}
-              style={String("currency")}
+              style={String('currency')}
               currency="RUB"
               minimumFractionDigits={0}
               maximumFractionDigits={0}
@@ -152,8 +148,8 @@ const Card = props => (
       <Row>
         <Country>{translate(props.country)}</Country>
         <FlightDate>
-          {format(props.date * 1000, "D MMMM", {
-            locale: ru
+          {format(props.date * 1000, 'D MMMM', {
+            locale: ru,
           })}
         </FlightDate>
       </Row>
@@ -164,19 +160,25 @@ const Card = props => (
 Card.propTypes = {
   image: PropTypes.string,
   city: PropTypes.string,
-  flag: PropTypes.objectOf(PropTypes.shape),
+  flag: PropTypes.shape({
+    x1: PropTypes.string,
+    x2: PropTypes.string,
+  }),
   country: PropTypes.string,
   price: PropTypes.number,
-  date: PropTypes.number
+  date: PropTypes.number,
 };
 
 Card.defaultProps = {
-  image: "",
-  city: "",
-  flag: {},
-  country: "",
+  image: '',
+  city: '',
+  flag: {
+    x1: '',
+    x2: '',
+  },
+  country: '',
   price: 0,
-  date: 0
+  date: 0,
 };
 
 export default Card;

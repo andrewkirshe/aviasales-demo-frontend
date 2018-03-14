@@ -1,8 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { media } from "../../../Media";
-import { FormattedNumber } from "react-intl";
-import Luggage from "./Luggage";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { FormattedNumber } from 'react-intl';
+import { media } from '../../../Media';
+import Luggage from './Luggage';
 
 const Wrapper = styled.div`
   position: absolute;
@@ -112,49 +113,45 @@ const MoreOffers = styled.a`
   `};
 `;
 
-const Buy = styled.span`
+const Text = styled.span`
   display: none;
   ${media.md`
     display: inline;
   `};
 `;
 
-export default props => {
-  const luggage = props.dealers[0].luggage.map((luggage, index) => {
-    return (
-      <Luggage
-        key={index}
-        handbag={luggage.handbag}
-        baggage={luggage.baggage}
-        active={props.dealers[0].luggage.length > 1 && index === 0}
-        single={props.dealers[0].luggage.length === 1}
-      />
-    );
-  });
+const Buy = (props) => {
+  const luggages = props.dealers[0].luggage.map((luggage, index) => (
+    <Luggage
+      key={luggage.id}
+      handbag={luggage.handbag}
+      baggage={luggage.baggage}
+      active={props.dealers[0].luggage.length > 1 && index === 0}
+      single={props.dealers[0].luggage.length === 1}
+    />
+  ));
 
-  const moreDealers = props.dealers.slice(1, 3).map((dealer, index) => {
-    return (
-      <DealerRow key={index} href="http://">
-        <span>{dealer.name}</span>
-        <span>
-          <FormattedNumber
-            value={dealer.price}
-            style={`currency`}
-            currency="RUB"
-            minimumFractionDigits={0}
-            maximumFractionDigits={0}
-          />
-        </span>
-      </DealerRow>
-    );
-  });
+  const moreDealers = props.dealers.slice(1, 3).map(dealer => (
+    <DealerRow key={dealer.id} href="http://">
+      <span>{dealer.name}</span>
+      <span>
+        <FormattedNumber
+          value={dealer.price}
+          style={String('currency')}
+          currency="RUB"
+          minimumFractionDigits={0}
+          maximumFractionDigits={0}
+        />
+      </span>
+    </DealerRow>
+  ));
 
   return (
     <Wrapper>
-      <LuggageTabs>{luggage}</LuggageTabs>
+      <LuggageTabs>{luggages}</LuggageTabs>
       <Dealers>
         <Button>
-          <Buy>Купить</Buy>
+          <Text>Купить</Text>
           <Price>
             <PriceFor>за </PriceFor>
             {props.dealers[0].price} ₽
@@ -169,3 +166,13 @@ export default props => {
     </Wrapper>
   );
 };
+
+Buy.propTypes = {
+  dealers: PropTypes.arrayOf(PropTypes.shape),
+};
+
+Buy.defaultProps = {
+  dealers: [],
+};
+
+export default Buy;

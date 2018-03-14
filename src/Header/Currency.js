@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Button = styled.button`
   padding: 9px 20px 7px 20px;
@@ -9,6 +9,4 @@ const Button = styled.button`
   color: #fff;
 `;
 
-export default () => {
-  return <Button>RUB</Button>;
-};
+export default () => <Button>RUB</Button>;

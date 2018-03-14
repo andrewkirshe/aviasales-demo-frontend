@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "styled-components";
-import { media } from "../Media";
+import React from 'react';
+import styled from 'styled-components';
+import { media } from '../Media';
 
-import anywhere from "./anywhere.svg";
-import summer_and_sea from "./summer-and-sea.svg";
-import shopping from "./shopping.svg";
-import culture from "./culture.svg";
-import night_life from "./night-life.svg";
-import with_child from "./with-child.svg";
+import anywhere from './anywhere.svg';
+import summerAndSea from './summer-and-sea.svg';
+import shopping from './shopping.svg';
+import culture from './culture.svg';
+import nightLife from './night-life.svg';
+import withChild from './with-child.svg';
 
 const Icons = styled.div`
   color: #fff;
@@ -60,8 +60,8 @@ const Button = styled.button`
   `};
 
   &:after {
-    opacity: ${props => (props.active ? "1" : "0")};
-    content: "";
+    opacity: ${props => (props.active ? '1' : '0')};
+    content: '';
     position: absolute;
     bottom: 0;
     left: 15px;
@@ -78,9 +78,9 @@ const Button = styled.button`
 
   ${IconWrapper} {
     box-shadow: ${props =>
-      props.active
-        ? "0 2px 14px 0 rgba(90, 137, 163, 0.19);"
-        : "0px 2px 4px rgba(74, 74, 74, 0.1);"};
+    (props.active
+      ? '0 2px 14px 0 rgba(90, 137, 163, 0.19);'
+      : '0px 2px 4px rgba(74, 74, 74, 0.1);')};
   }
 `;
 
@@ -89,7 +89,7 @@ const Text = styled.span`
   max-width: 60px;
   margin-left: auto;
   margin-right: auto;
-  color: ${props => (props.active ? "#4A4A4A" : "#00ace2")};
+  color: ${props => (props.active ? '#4A4A4A' : '#00ace2')};
   font-weight: 400;
   line-height: 1.75;
   text-transform: uppercase;
@@ -102,51 +102,49 @@ const Icon = styled.img`
   height: 22px;
 `;
 
-export default () => {
-  return (
-    <Icons>
-      <Button active>
-        <IconWrapper active>
-          <Icon src={anywhere} alt="Куда угодно" />
-        </IconWrapper>
-        <Text active>Куда угодно</Text>
-      </Button>
-      <Button>
-        <IconWrapper>
-          <Icon src={summer_and_sea} alt="Cолнце и море" />
-        </IconWrapper>
-        <Text>
-          Cолнце <br />и море
-        </Text>
-      </Button>
-      <Button>
-        <IconWrapper>
-          <Icon src={shopping} alt="Шопинг, город" />
-        </IconWrapper>
-        <Text>Шопинг, город</Text>
-      </Button>
-      <Button>
-        <IconWrapper>
-          <Icon src={culture} alt="Культура и история" />
-        </IconWrapper>
-        <Text>
-          Культура <br />и история
-        </Text>
-      </Button>
-      <Button>
-        <IconWrapper>
-          <Icon src={night_life} alt="Ночная жизнь" />
-        </IconWrapper>
-        <Text>Ночная жизнь</Text>
-      </Button>
-      <Button>
-        <IconWrapper>
-          <Icon src={with_child} alt="Отдых с детьми" />
-        </IconWrapper>
-        <Text>
-          Отдых <br />с детьми
-        </Text>
-      </Button>
-    </Icons>
-  );
-};
+export default () => (
+  <Icons>
+    <Button active>
+      <IconWrapper active>
+        <Icon src={anywhere} alt="Куда угодно" />
+      </IconWrapper>
+      <Text active>Куда угодно</Text>
+    </Button>
+    <Button>
+      <IconWrapper>
+        <Icon src={summerAndSea} alt="Cолнце и море" />
+      </IconWrapper>
+      <Text>
+        Cолнце <br />и море
+      </Text>
+    </Button>
+    <Button>
+      <IconWrapper>
+        <Icon src={shopping} alt="Шопинг, город" />
+      </IconWrapper>
+      <Text>Шопинг, город</Text>
+    </Button>
+    <Button>
+      <IconWrapper>
+        <Icon src={culture} alt="Культура и история" />
+      </IconWrapper>
+      <Text>
+        Культура <br />и история
+      </Text>
+    </Button>
+    <Button>
+      <IconWrapper>
+        <Icon src={nightLife} alt="Ночная жизнь" />
+      </IconWrapper>
+      <Text>Ночная жизнь</Text>
+    </Button>
+    <Button>
+      <IconWrapper>
+        <Icon src={withChild} alt="Отдых с детьми" />
+      </IconWrapper>
+      <Text>
+        Отдых <br />с детьми
+      </Text>
+    </Button>
+  </Icons>
+);

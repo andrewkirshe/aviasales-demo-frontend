@@ -1,125 +1,125 @@
-import React from "react";
-import styled from "styled-components";
-import { media } from "../Media";
-import Header from "./Header";
-import Destination from "./Destination";
+import React from 'react';
+import styled from 'styled-components';
+import { media } from '../Media';
+import Header from './Header';
+import Destination from './Destination';
 
-import flagRu from "./flag_ru.png";
-import flagRuX2 from "./flag_ru@2x.png";
-import flagAm from "./flag_am.png";
-import flagAmX2 from "./flag_am@2x.png";
-import flagMd from "./flag_md.png";
-import flagMdX2 from "./flag_md@2x.png";
+import flagRu from './flag_ru.png';
+import flagRuX2 from './flag_ru@2x.png';
+import flagAm from './flag_am.png';
+import flagAmX2 from './flag_am@2x.png';
+import flagMd from './flag_md.png';
+import flagMdX2 from './flag_md@2x.png';
 
 const destinations = [
   {
     id: 1,
     flag: {
       x1: flagRu,
-      x2: flagRuX2
+      x2: flagRuX2,
     },
-    city: "simferopol",
-    country: "сrimea",
+    city: 'simferopol',
+    country: 'сrimea',
     routes: [
       {
         id: 1,
-        from: "moscow",
-        price: 4837
+        from: 'moscow',
+        price: 4837,
       },
       {
         id: 2,
-        from: "st-petersburg",
-        price: 7857
+        from: 'st-petersburg',
+        price: 7857,
       },
       {
         id: 3,
-        from: "novosibirsk",
-        price: 15127
+        from: 'novosibirsk',
+        price: 15127,
       },
       {
         id: 4,
-        from: "ekaterinburg",
-        price: 9275
+        from: 'ekaterinburg',
+        price: 9275,
       },
       {
         id: 5,
-        from: "chelyabinsk",
-        price: 9148
-      }
-    ]
+        from: 'chelyabinsk',
+        price: 9148,
+      },
+    ],
   },
   {
     id: 2,
     flag: {
       x1: flagAm,
-      x2: flagAmX2
+      x2: flagAmX2,
     },
-    city: "yerevan",
-    country: "Армения",
+    city: 'yerevan',
+    country: 'Армения',
     routes: [
       {
         id: 1,
-        from: "armenia",
-        price: 6758
+        from: 'armenia',
+        price: 6758,
       },
       {
         id: 2,
-        from: "st-petersburg",
-        price: 9932
+        from: 'st-petersburg',
+        price: 9932,
       },
       {
         id: 3,
-        from: "sochi",
-        price: 11951
+        from: 'sochi',
+        price: 11951,
       },
       {
         id: 4,
-        from: "krasnodar",
-        price: 11741
+        from: 'krasnodar',
+        price: 11741,
       },
       {
         id: 5,
-        from: "rostov-na-donu",
-        price: 11956
-      }
-    ]
+        from: 'rostov-na-donu',
+        price: 11956,
+      },
+    ],
   },
   {
     id: 3,
     flag: {
       x1: flagMd,
-      x2: flagMdX2
+      x2: flagMdX2,
     },
-    city: "kishinev",
-    country: "moldova",
+    city: 'kishinev',
+    country: 'moldova',
     routes: [
       {
         id: 1,
-        from: "moscow",
-        price: 8319
+        from: 'moscow',
+        price: 8319,
       },
       {
         id: 2,
-        from: "st-petersburg",
-        price: 10800
+        from: 'st-petersburg',
+        price: 10800,
       },
       {
         id: 3,
-        from: "krasnodar",
-        price: 12098
+        from: 'krasnodar',
+        price: 12098,
       },
       {
         id: 4,
-        from: "surgut",
-        price: 16277
+        from: 'surgut',
+        price: 16277,
       },
       {
         id: 5,
-        from: "novy-urengoy",
-        price: 15987
-      }
-    ]
-  }
+        from: 'novy-urengoy',
+        price: 15987,
+      },
+    ],
+  },
 ];
 
 const BestPrice = styled.section`
@@ -180,13 +180,11 @@ export default () => {
           <div className="col-xs-12 col-sm-10 col-lg-6">
             <Notes>
               <Text>
-                Мы знаем, где купить авиабилеты дешево. Билеты на самолет в 220
-                стран мира. Поиск и сравнение цен на авиабилеты среди 100
-                агентств и 728 авиакомпаний.
+                Мы знаем, где купить авиабилеты дешево. Билеты на самолет в 220 стран мира. Поиск и
+                сравнение цен на авиабилеты среди 100 агентств и 728 авиакомпаний.
               </Text>
               <Small>
-                Цены, найденные пользователями за последние 48 часов, не
-                являются офертой.
+                Цены, найденные пользователями за последние 48 часов, не являются офертой.
               </Small>
             </Notes>
           </div>

@@ -1,18 +1,31 @@
-import { css } from "styled-components";
+import { css } from 'styled-components';
 
-const sizes = {
-  xs: 0,
-  sm: 576,
-  md: 768,
-  lg: 992,
-  xl: 1200
-};
-
-export const media = Object.keys(sizes).reduce((accumulator, label) => {
-  accumulator[label] = (...args) => css`
-    @media (min-width: ${sizes[label]}px) {
+export const media = {
+  xs: (...args) => css`
+    @media (min-width: 0) {
       ${css(...args)};
     }
-  `;
-  return accumulator;
-}, {});
+  `,
+  sm: (...args) => css`
+    @media (min-width: 576px) {
+      ${css(...args)};
+    }
+  `,
+  md: (...args) => css`
+    @media (min-width: 768px) {
+      ${css(...args)};
+    }
+  `,
+  lg: (...args) => css`
+    @media (min-width: 992px) {
+      ${css(...args)};
+    }
+  `,
+  xl: (...args) => css`
+    @media (min-width: 1200px) {
+      ${css(...args)};
+    }
+  `,
+};
+
+export default media;

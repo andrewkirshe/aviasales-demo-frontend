@@ -1,198 +1,186 @@
-export const transfers = [
-  {
-    id: 1,
-    label: "all"
+export const transfers = {
+  all: {
+    label: 'all',
   },
-  {
-    id: 2,
-    label: "without-transfer",
-    price: 7712
-  },
-  {
-    id: 3,
-    label: "one-transfer",
-    price: 11150,
-    checked: true
-  },
-  {
-    id: 4,
-    label: "two-transfers",
-    price: 16821
-  },
-  {
-    id: 5,
-    label: "three-transfers",
-    price: 23986
-  }
-];
+  list: [
+    {
+      id: 2,
+      label: 0,
+      price: 7712,
+    },
+    {
+      id: 3,
+      label: 1,
+      price: 11150,
+    },
+    {
+      id: 4,
+      label: 2,
+      price: 16821,
+    },
+    {
+      id: 5,
+      label: 3,
+      price: 23986,
+    },
+  ],
+};
 
 export const flyDates = [
   {
     id: 1,
-    flight: {
-      from: "moscow",
-      to: "barcelona"
-    },
     ranges: [
       {
         id: 1,
-        fromLabel: "c",
+        notes: 'departure-from',
+        fromLabel: 'from-time',
         fromDate: 1519430700,
-        toLabel: "до",
-        toDate: 1519515900
+        toLabel: 'to-time',
+        toDate: 1519515900,
       },
       {
         id: 2,
-        fromLabel: "c",
+        notes: 'arrival-to',
+        fromLabel: 'from-time',
         fromDate: 1519441500,
-        toLabel: "до",
-        toDate: 1519653000
-      }
-    ]
+        toLabel: 'to-time',
+        toDate: 1519653000,
+      },
+    ],
   },
   {
     id: 2,
-    flight: {
-      from: "barcelona",
-      to: "moscow"
-    },
     ranges: [
       {
         id: 1,
-        fromLabel: "c",
+        notes: 'departure-from',
+        fromLabel: 'from-time',
         fromDate: 1520056800,
-        toLabel: "до",
-        toDate: 1520120700
+        toLabel: 'to-time',
+        toDate: 1520120700,
       },
       {
         id: 2,
-        fromLabel: "c",
+        notes: 'arrival-to',
+        fromLabel: 'from-time',
         fromDate: 1520089200,
-        toLabel: "до",
-        toDate: 1520243700
-      }
-    ]
-  }
+        toLabel: 'to-time',
+        toDate: 1520243700,
+      },
+    ],
+  },
 ];
 
 export const flyDurations = [
   {
     id: 1,
-    flight: {
-      from: "moscow",
-      to: "barcelona"
-    },
     ranges: [
       {
         id: 1,
-        fromLabel: "from-duration",
+        fromLabel: 'from-duration',
         fromTime: 15600,
-        toLabel: "to",
-        toTime: 175800
-      }
-    ]
+        toLabel: 'to',
+        toTime: 175800,
+      },
+    ],
   },
   {
     id: 2,
-    flight: {
-      from: "barcelona",
-      to: "moscow"
-    },
     ranges: [
       {
         id: 1,
-        fromLabel: "from-duration",
+        fromLabel: 'from-duration',
         fromTime: 15000,
-        toLabel: "to",
-        toTime: 148800
-      }
-    ]
-  }
+        toLabel: 'to',
+        toTime: 148800,
+      },
+    ],
+  },
 ];
 
 export const airlines = {
-  alliances: [
-    {
-      id: 1,
-      label: "Все",
-      checked: true
+  alliances: {
+    all: {
+      label: 'all',
     },
-    {
-      id: 2,
-      label: "Star Alliance",
-      checked: true
+    list: [
+      {
+        id: 12,
+        label: 'Star Alliance',
+        price: 34223,
+      },
+      {
+        id: 13,
+        label: 'OneWorld',
+        price: 23423,
+      },
+      {
+        id: 14,
+        label: 'SkyTeam',
+        price: 24234,
+      },
+    ],
+  },
+  aircompanies: {
+    all: {
+      label: 'all',
     },
-    {
-      id: 3,
-      label: "OneWorld",
-      checked: true
-    },
-    {
-      id: 4,
-      label: "SkyTeam",
-      checked: true
-    }
-  ],
-  companies: [
-    {
-      id: 1,
-      label: "all",
-      checked: true
-    },
-    {
-      id: 2,
-      label: "Aegean Airlines",
-      checked: true
-    },
-    {
-      id: 3,
-      label: "Air Algerie",
-      checked: true
-    },
-    {
-      id: 4,
-      label: "Air Europa",
-      checked: true
-    },
-    {
-      id: 5,
-      label: "Air France",
-      checked: true
-    },
-    {
-      id: 6,
-      label: "Air Moldova",
-      checked: true
-    },
-    {
-      id: 7,
-      label: "Alitalia",
-      checked: true
-    },
-    {
-      id: 8,
-      label: "Alitalia CityLiner",
-      checked: true
-    },
-    {
-      id: 9,
-      label: "Belle Air",
-      checked: true
-    },
-    {
-      id: 10,
-      label: "British Airways",
-      checked: true
-    },
-    {
-      id: 11,
-      label: "Brussels Airlines",
-      checked: true
-    },
-    {
-      id: 12,
-      label: "bulgaria Air",
-      checked: true
-    }
-  ]
+    list: [
+      {
+        id: 22,
+        label: 'Aegean Airlines',
+        price: 12321,
+      },
+      {
+        id: 23,
+        label: 'Air Algerie',
+        price: 23443,
+      },
+      {
+        id: 24,
+        label: 'Air Europa',
+        price: 32423,
+      },
+      {
+        id: 25,
+        label: 'Air France',
+        price: 35343,
+      },
+      {
+        id: 26,
+        label: 'Air Moldova',
+        price: 42332,
+      },
+      {
+        id: 27,
+        label: 'Alitalia',
+        price: 12321,
+      },
+      {
+        id: 28,
+        label: 'Alitalia CityLiner',
+        price: 32432,
+      },
+      {
+        id: 29,
+        label: 'Belle Air',
+        price: 32423,
+      },
+      {
+        id: 210,
+        label: 'British Airways',
+        price: 12312,
+      },
+      {
+        id: 211,
+        label: 'Brussels Airlines',
+        price: 23342,
+      },
+      {
+        id: 212,
+        label: 'bulgaria Air',
+        price: 32442,
+      },
+    ],
+  },
 };

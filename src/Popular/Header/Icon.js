@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import compass from "./compass.svg";
+import React from 'react';
+import styled from 'styled-components';
+import compass from './compass.svg';
 
 const Wrapper = styled.div`
   margin: 0 auto 20px;
@@ -18,10 +18,8 @@ const Icon = styled.img`
   height: 38px;
 `;
 
-export default () => {
-  return (
-    <Wrapper>
-      <Icon src={compass} alt="Популярные направления перелетов" />
-    </Wrapper>
-  );
-};
+export default () => (
+  <Wrapper>
+    <Icon src={compass} alt="Популярные направления перелетов" />
+  </Wrapper>
+);

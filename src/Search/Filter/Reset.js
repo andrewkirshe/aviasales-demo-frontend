@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import clear from "./clear.svg";
+import React from 'react';
+import styled from 'styled-components';
+import clear from './clear.svg';
 
 const Button = styled.button`
   width: 100%;
@@ -26,11 +26,9 @@ const Icon = styled.img`
   display: block;
 `;
 
-export default props => {
-  return (
-    <Button>
-      <Name>СБРОСИТЬ ВСЕ ФИЛЬТРЫ</Name>
-      <Icon src={clear} alt="Сбросить все фильтры" />
-    </Button>
-  );
-};
+export default () => (
+  <Button>
+    <Name>СБРОСИТЬ ВСЕ ФИЛЬТРЫ</Name>
+    <Icon src={clear} alt="Сбросить все фильтры" />
+  </Button>
+);

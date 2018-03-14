@@ -4,16 +4,23 @@
   "private": true,
   "dependencies": {
     "date-fns": "^1.29.0",
+    "downshift": "^1.30.0",
     "flexboxgrid2": "^7.1.0",
+    "lodash": "^4.17.5",
     "normalize.css": "^8.0.0",
+    "pluralize-ru": "^1.0.1",
+    "prop-types": "^15.6.1",
     "rc-slider": "^8.6.0",
     "react": "^16.2.0",
+    "react-autocomplete": "^1.8.1",
     "react-day-picker": "^7.0.7",
     "react-dom": "^16.2.0",
     "react-helmet": "^5.2.0",
+    "react-highlight-words": "^0.11.0",
     "react-intl": "^2.4.0",
     "react-intl-formatted-duration": "^2.0.0",
     "react-onclickoutside": "^6.7.1",
+    "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
     "styled-components": "^3.1.6"
@@ -25,6 +32,11 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "react-svg-loader": "^2.1.0"
+    "babel-eslint": "^8.2.2",
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0"
   }
 }

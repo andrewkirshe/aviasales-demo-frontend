@@ -1,10 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import { media } from "../../../Media";
-import Airline from "./Airline";
-import Route from "./Route";
-import share from "./share.svg";
-import { translate } from "../../../translate";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { media } from '../../../Media';
+import Airline from './Airline';
+import Route from './Route';
+import share from './share.svg';
+import { translate } from '../../../translate';
 
 const Wrapper = styled.div`
   flex: 1 1;
@@ -70,17 +71,15 @@ const Routes = styled.div`
   `};
 `;
 
-export default props => {
-  const airlines = props.airlines.map((airline, index) => {
-    return (
-      <Airline
-        key={index}
-        name={airline.name}
-        logo={airline.logo}
-        size={props.airlines.length > 1 ? "small" : "large"}
-      />
-    );
-  });
+const Info = (props) => {
+  const airlines = props.airlines.map(airline => (
+    <Airline
+      key={airline.id}
+      name={airline.name}
+      logo={airline.logo}
+      size={props.airlines.length > 1 ? 'small' : 'large'}
+    />
+  ));
 
   return (
     <Wrapper>
@@ -106,3 +105,67 @@ export default props => {
     </Wrapper>
   );
 };
+
+Info.propTypes = {
+  outbound: PropTypes.shape({
+    origin: PropTypes.shape({
+      city: PropTypes.string,
+      airport: PropTypes.string,
+      dateTime: PropTypes.number,
+    }),
+    destination: PropTypes.shape({
+      city: PropTypes.string,
+      airport: PropTypes.string,
+      dateTime: PropTypes.number,
+    }),
+    duration: PropTypes.number,
+  }),
+  return: PropTypes.shape({
+    origin: PropTypes.shape({
+      city: PropTypes.string,
+      airport: PropTypes.string,
+      dateTime: PropTypes.number,
+    }),
+    destination: PropTypes.shape({
+      city: PropTypes.string,
+      airport: PropTypes.string,
+      dateTime: PropTypes.number,
+    }),
+    duration: PropTypes.number,
+  }),
+  type: PropTypes.string,
+  airlines: PropTypes.arrayOf(PropTypes.shape),
+};
+
+Info.defaultProps = {
+  outbound: {
+    origin: {
+      city: '',
+      airport: '',
+      dateTime: 0,
+    },
+    destination: {
+      city: '',
+      airport: '',
+      dateTime: 0,
+    },
+    duration: 0,
+  },
+  return: {
+    origin: {
+      city: '',
+      airport: '',
+      dateTime: 0,
+    },
+    destination: {
+      city: '',
+      airport: '',
+      dateTime: 0,
+    },
+    duration: 0,
+  },
+  type: '',
+  airlines: [],
+};
+
+export default Info;
